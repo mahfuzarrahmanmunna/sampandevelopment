@@ -1,15 +1,24 @@
+/* app/globals.css */
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFFFFF; /* Brand White */
+  --foreground: #000000; /* Brand Black */
 }
 
 @theme inline {
+  /* Default Theme Mappings */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Sampan Brand Palette */
+  --color-primary: #19ABE1;        /* Sampan Blue */
+  --color-secondary: #009D4E;      /* Sampan Green */
+  --color-accent: #1C87CC;         /* Development Blue */
+  --color-brand-black: #000000;    /* Brand Contrast Black */
+  --color-brand-white: #FFFFFF;    /* Clean Background White */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +31,65 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Using the Geist sans font variable configured in layout.tsx */
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Add to app/globals.css */
+
+/* Entrance Animations */
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes mask-reveal {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+  opacity: 0;
+}
+.animate-mask-reveal {
+  animation: mask-reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Staggered delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Architectural Grid Background */
+.blueprint-bg {
+  background-image: 
+    linear-gradient(rgba(27, 27, 27, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 27, 27, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-mask-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
 }
