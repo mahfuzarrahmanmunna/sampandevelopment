@@ -2,213 +2,380 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Typed project data
-interface Project {
-  id: string;
-  name: string;
-  location: string;
-  src: string;
-  alt: string;
-}
-
-const projects: Project[] = [
-  { 
-    id: '01', 
-    name: 'Sampan Metro Square', 
-    location: 'Ashulia, Bangladesh', 
-    // Illustrative architecture photography (Replace with approved Sampan asset)
-    src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2070&auto=format&fit=crop', 
-    alt: 'Illustrative architectural photography of contemporary residential development' 
+// --- Art-directed slide data ---
+const slides = [
+  {
+    img: "/banner/condomenium.png",
+    eyebrow: "SAMPAN DEVELOPMENT LTD. / ARCHITECTURE & DEVELOPMENT",
+    titleLine1: "Land & Tower",
+    titleLine2: "Developments",
+    subtitle: "Premium high-rises built on clearly titled, documented land.",
+    location: "Ashulia, Bangladesh",
   },
-  { 
-    id: '02', 
-    name: 'Sampan Condominium', 
-    location: 'Dhaka–Chittagong Highway', 
-    src: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop', 
-    alt: 'Illustrative architectural photography of modern high-rise condominium' 
+  {
+    img: "/expresshighway/Modern-Sampan-Highway-Commercial-Complex.png",
+    eyebrow: "SAMPAN DEVELOPMENT LTD. / COMMERCE & DESIGN",
+    titleLine1: "Highway",
+    titleLine2: "Destinations",
+    subtitle: "Innovative commercial hubs designed for modern commerce.",
+    location: "Express Highway",
   },
-  { 
-    id: '03', 
-    name: 'Sampan Trade Emporium', 
-    location: 'Dhaka–Chittagong Highway', 
-    src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop', 
-    alt: 'Illustrative architectural photography of commercial building facade' 
+  {
+    img: "/banner/golf-ball-field.jpg",
+    eyebrow: "SAMPAN DEVELOPMENT LTD. / SUSTAINABLE FUTURES",
+    titleLine1: "Sampan Agro and",
+    titleLine2: "Golf Resorts",
+    subtitle: "Agro-resorts and communities in harmony with nature.",
+    location: "Outskirts of City",
   },
 ];
 
 export default function Hero() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeProject = projects[activeIndex];
+  const sectionRef = useRef<HTMLElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+
+  // --- 1. Topographic Canvas Architecture (Creative Coding) ---
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+    let mouse = { x: width / 2, y: height / 2 };
+    let rafId: number;
+
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    const handleMouse = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("mousemove", handleMouse);
+
+    const numLines = 25;
+    const lines = Array.from({ length: numLines }, (_, i) => ({
+      baseY: height * 0.65 + i * 15,
+      offset: Math.random() * 1000,
+    }));
+
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+      const mouseInfluence = (mouse.x / width - 0.5) * 100;
+
+      lines.forEach((line, i) => {
+        ctx.beginPath();
+        const dist = Math.abs(i - numLines / 2) / (numLines / 2);
+        const opacity = (1 - dist) * 0.2;
+
+        for (let x = 0; x <= width; x += 15) {
+          const wave1 = Math.sin(x * 0.003 + line.offset) * 60;
+          const wave2 = Math.sin(x * 0.008 + line.offset * 1.5) * 30;
+          const mouseWave = Math.sin((x + mouseInfluence) * 0.005) * 40;
+
+          const y = line.baseY + wave1 + wave2 + mouseWave * (1 - dist);
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+
+        ctx.strokeStyle = `rgba(198, 160, 107, ${opacity})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+
+      rafId = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouse);
+    };
+  }, []);
+
+  // --- 2. Background Scroll Parallax (GSAP) ---
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      gsap.to(".parallax-layer", {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // --- 3. Synchronized Autoplay & Visibility Management ---
+  useEffect(() => {
+    const handleVisibility = () => setIsPaused(document.hidden);
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    if (!isPaused) {
+      autoplayRef.current = setTimeout(() => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+      }, 7000); // 7-second comfortable reading time
+    }
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+      if (autoplayRef.current) clearTimeout(autoplayRef.current);
+    };
+  }, [currentSlide, isPaused]);
+
+  // --- 4. Immediate Slide Transition Logic ---
+  // No animation locks. No delayed state updates. Content renders instantly.
+  const goToSlide = (index: number) => {
+    if (index === currentSlide) return;
+    setCurrentSlide(index);
+  };
 
   return (
-    <section className="relative w-full bg-[#F5F7FA] overflow-hidden font-sans antialiased">
-      
-      {/* Architectural Image Container */}
-      <div className="absolute top-0 right-0 w-full lg:w-[58%] h-[320px] lg:h-full z-0">
-        {projects.map((project, index) => (
-          <div 
-            key={project.id} 
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-              index === activeIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-            }`}
-          >
-            <Image
-              src={project.src}
-              alt={project.alt}
-              fill
-              priority={index === 0} // LCP Optimization
-              sizes="(max-width: 1024px) 100vw, 60vw"
-              className="object-cover object-center"
-            />
-          </div>
-        ))}
+    <section
+      ref={sectionRef}
+      className="relative w-full h-screen min-h-[700px] bg-[#101615] overflow-hidden font-lux-sans antialiased flex flex-col"
+    >
+      {/* --- Background Image Layers --- */}
+      <div className="absolute inset-0 z-0">
+        <div className="parallax-layer absolute inset-0 will-change-transform">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-[800ms] ease-in-out pointer-events-none ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center lg:bg-right transition-transform duration-[7000ms] ease-out"
+                style={{
+                  backgroundImage: `url(${slide.img})`,
+                  transform: index === currentSlide ? "scale(1.05)" : "scale(1)",
+                }}
+              ></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Cinematic Gradients for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#101615] via-[#101615]/95 to-[#101615]/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#101615] via-transparent to-[#101615]/60"></div>
       </div>
 
-      {/* Soft Blending Gradients */}
-      {/* Desktop: Left-to-right blend */}
-      <div className="hidden lg:block absolute inset-0 z-10 bg-gradient-to-r from-[#F5F7FA] via-[#F5F7FA]/90 to-transparent pointer-events-none"></div>
-      <div className="hidden lg:block absolute inset-0 z-10 bg-gradient-to-t from-[#F5F7FA] via-transparent to-transparent pointer-events-none"></div>
-      
-      {/* Mobile: Top-to-bottom fade */}
-      <div className="lg:hidden absolute top-[180px] left-0 right-0 h-[180px] z-10 bg-gradient-to-b from-transparent to-[#F5F7FA] pointer-events-none"></div>
+      {/* --- Topographic Canvas Architecture --- */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 z-10 pointer-events-none hidden md:block opacity-90"
+      ></canvas>
 
-      {/* Subtle Architectural Blueprint SVG (Bottom-Left) */}
-      <svg className="absolute bottom-0 left-0 w-[60%] h-[80%] z-0 opacity-[0.04] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#1B1B1B" strokeWidth="1"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
-      </svg>
-
-      {/* Main Content Container */}
-      <div className="relative z-20 max-w-[1440px] mx-auto px-6 lg:px-12 w-full lg:min-h-[760px] flex flex-col lg:pt-32 lg:pb-40 pt-28 pb-10">
-        
-        {/* Text Content Block */}
-        <div className="flex-grow flex flex-col justify-center max-w-xl lg:max-w-[560px]">
+      {/* --- Main Content Composition --- */}
+      <div className="relative z-20 flex-grow flex items-center px-6 md:px-12 lg:px-24 pt-24 pb-32">
+        {/* 
+          Using key={currentSlide} forces React to remount the DOM instantly.
+          The CSS animation 'contentReveal' plays a subtle, non-blocking transform.
+          Opacity is never hidden, ensuring text is immediately readable.
+        */}
+        <div key={currentSlide} className="max-w-3xl text-[#F8F7F3] content-reveal">
           {/* Eyebrow */}
-          <div className="animate-fade-up delay-100 flex items-center gap-4 mb-6">
-            <span className="h-px w-12 bg-[#19ABE1]"></span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#6B7280]">
-              LAND / ARCHITECTURE / DEVELOPMENT
+          <div className="flex items-center gap-4 mb-8">
+            <span className="h-px w-12 bg-[#C6A06B]"></span>
+            <span className="text-[10px] md:text-[11px] font-medium uppercase tracking-[0.35em] text-[#E9E0D2]/80">
+              {slides[currentSlide].eyebrow}
             </span>
           </div>
 
-          {/* Headline */}
-          <h1 className="animate-fade-up delay-200 text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-light tracking-tight text-[#1B1B1B] leading-[1.15] mb-8">
-            We manage & develop <span className="text-[#19ABE1] font-medium">land, towers, highway</span> destinations, commercial and residential buildings.
+          {/* Main Typographic Silhouette */}
+          <h1 className="font-lux-serif text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-tight mb-8 drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+            <span className="block">{slides[currentSlide].titleLine1}</span>
+            <span className="block italic font-light text-[#C6A06B]">
+              {slides[currentSlide].titleLine2}
+            </span>
           </h1>
 
-          {/* Paragraph */}
-          <p className="animate-fade-up delay-300 text-base lg:text-lg text-[#6B7280] font-light leading-relaxed max-w-md mb-10">
-            Sampan Development Ltd runs land-share projects and builds on documented, clearly titled land. Visit any project before you decide.
+          {/* Subtitle & Location */}
+          <p className="text-base md:text-lg text-[#E9E0D2]/90 font-light max-w-xl mb-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            {slides[currentSlide].subtitle}
           </p>
 
+          <div className="flex items-center gap-3 text-[#E9E0D2]/60 text-xs uppercase tracking-[0.2em] mb-12">
+            <svg className="w-3 h-3 text-[#C6A06B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            {slides[currentSlide].location}
+          </div>
+
           {/* CTAs */}
-          <div className="animate-fade-up delay-400 flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">
-            <Link 
-              href="/projects" 
-              className="group bg-[#19ABE1] text-white text-sm font-semibold tracking-wide px-8 py-4 transition-all duration-300 hover:bg-[#1C87CC] flex items-center gap-3 shadow-lg shadow-[#19ABE1]/20"
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <Link
+              href="/projects"
+              className="group bg-[#C6A06B] text-[#101615] text-[11px] font-semibold uppercase tracking-[0.2em] px-8 py-4 transition-all duration-300 hover:bg-[#F8F7F3] flex items-center gap-3"
             >
               View Projects
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
             </Link>
-            
-            <div className="flex flex-col items-start sm:items-center">
-              <Link 
-                href="/contact" 
-                className="bg-transparent border border-[#19ABE1] text-[#19ABE1] text-sm font-semibold tracking-wide px-8 py-4 transition-all duration-300 hover:bg-[#19ABE1]/10 flex items-center gap-2"
-              >
-                Book a Site Visit
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-              </Link>
-            </div>
-          </div>
 
-          {/* Trust Strip */}
-          <div className="animate-fade-up delay-500 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded-full bg-[#009D4E]/10 flex items-center justify-center">
-                <svg className="w-2.5 h-2.5 text-[#009D4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
-              </span>
-              <span className="text-xs font-medium text-[#6B7280] uppercase tracking-wider">Clear title documents</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded-full bg-[#009D4E]/10 flex items-center justify-center">
-                <svg className="w-2.5 h-2.5 text-[#009D4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
-              </span>
-              <span className="text-xs font-medium text-[#6B7280] uppercase tracking-wider">Site visits on request</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded-full bg-[#009D4E]/10 flex items-center justify-center">
-                <svg className="w-2.5 h-2.5 text-[#009D4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
-              </span>
-              <span className="text-xs font-medium text-[#6B7280] uppercase tracking-wider">Backed by Sampan Group</span>
-            </div>
+            <Link
+              href="/contact"
+              className="group border border-[#E9E0D2]/30 text-[#F8F7F3] text-[11px] font-semibold uppercase tracking-[0.2em] px-8 py-4 transition-all duration-300 hover:border-[#C6A06B] hover:text-[#C6A06B] flex items-center gap-3 backdrop-blur-sm bg-[#101615]/20"
+            >
+              Book a Site Visit
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Bottom Project Showcase Strip */}
-      <div className="relative z-30 w-full lg:absolute lg:bottom-0 lg:left-0 px-6 lg:px-12 pb-8">
-        <div className="max-w-[1280px] mx-auto bg-white border border-gray-100 shadow-2xl shadow-gray-200/50 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
-          {projects.map((project, index) => (
-            <button 
-              key={project.id} 
-              onClick={() => setActiveIndex(index)}
-              aria-label={`View ${project.name}`}
-              className={`relative text-left p-6 transition-colors duration-300 group focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#19ABE1] ${
-                index === activeIndex ? 'bg-[#F5F7FA]' : 'bg-white hover:bg-gray-50'
-              }`}
+      {/* --- Cinematic Bottom UI Bar --- */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 border-t border-[#E9E0D2]/10 bg-gradient-to-t from-[#101615] to-transparent backdrop-blur-sm">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24 py-6 flex items-center justify-between gap-8">
+          {/* Bottom Left: Scroll Indicator */}
+          <div className="hidden md:flex items-center gap-4 text-[#E9E0D2]/50 text-[10px] uppercase tracking-[0.3em] flex-shrink-0">
+            <div className="w-12 h-px bg-[#E9E0D2]/20 relative overflow-hidden">
+              <div className="absolute top-0 left-0 h-full w-full bg-[#C6A06B] animate-[scrollLine_2.5s_ease-in-out_infinite]"></div>
+            </div>
+            Scroll to Discover
+          </div>
+
+          {/* Bottom Center: Trust Strip */}
+          <div className="hidden lg:flex items-center gap-8 text-[9px] uppercase tracking-[0.25em] text-[#E9E0D2]/50 flex-grow justify-center">
+            <span>Clear Title Documents</span>
+            <span className="h-3 w-px bg-[#E9E0D2]/20"></span>
+            <span>Site Visits on Request</span>
+            <span className="h-3 w-px bg-[#E9E0D2]/20"></span>
+            <span className="text-[#C6A06B]/80">Backed by Sampan Group</span>
+          </div>
+
+          {/* Bottom Right: Slider Controls & Up Next */}
+          <div className="flex items-center gap-6 ml-auto">
+            {/* Featured Preview Thumbnail */}
+            <div
+              className="hidden md:flex items-center gap-4 group cursor-pointer"
+              onClick={() => goToSlide((currentSlide + 1) % slides.length)}
             >
-              {/* Active Indicator Line */}
-              <span className={`absolute top-0 left-0 h-[3px] bg-[#19ABE1] transition-all duration-500 ${
-                index === activeIndex ? 'w-full' : 'w-0'
-              }`}></span>
-              
-              <div className="flex items-start gap-5">
-                <span className={`text-3xl font-light transition-colors ${index === activeIndex ? 'text-[#19ABE1]' : 'text-gray-300'}`}>
-                  {project.id}
-                </span>
-                <div className="flex-1">
-                  <div className={`h-px mb-3 transition-colors ${index === activeIndex ? 'bg-[#19ABE1] w-12' : 'bg-gray-200 w-8'}`}></div>
-                  <h3 className={`text-sm font-semibold tracking-tight transition-colors ${index === activeIndex ? 'text-[#1B1B1B]' : 'text-[#6B7280] group-hover:text-[#1B1B1B]'}`}>
-                    {project.name}
-                  </h3>
-                  <p className="text-xs text-[#6B7280] mt-1 flex items-center gap-1.5">
-                    <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    {project.location}
-                  </p>
+              <div className="text-right">
+                <div className="text-[9px] uppercase tracking-[0.3em] text-[#E9E0D2]/40 mb-1">Up Next</div>
+                <div className="text-sm font-lux-serif text-[#F8F7F3]">
+                  {slides[(currentSlide + 1) % slides.length].titleLine1}
                 </div>
               </div>
-            </button>
-          ))}
+              <div className="w-12 h-12 overflow-hidden border border-[#E9E0D2]/20 group-hover:border-[#C6A06B] transition-colors duration-300">
+                <img
+                  src={slides[(currentSlide + 1) % slides.length].img}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  alt="Next project preview"
+                />
+              </div>
+            </div>
+
+            <div className="hidden md:block h-12 w-px bg-[#E9E0D2]/10"></div>
+
+            {/* Slide Index & Progress */}
+            <div className="flex items-center gap-4 text-[#F8F7F3] flex-shrink-0">
+              <span className="text-sm font-medium tracking-wider text-[#F8F7F3]">
+                0{currentSlide + 1}
+              </span>
+              <div className="w-16 h-px bg-[#E9E0D2]/20 relative overflow-hidden">
+                {/* 
+                  Key ensures the CSS animation restarts instantly on slide change.
+                  Animation pauses if the tab is hidden.
+                */}
+                <div
+                  key={currentSlide}
+                  className={`absolute top-0 left-0 h-full bg-[#C6A06B] w-full origin-left progress-bar ${
+                    isPaused ? "paused" : ""
+                  }`}
+                ></div>
+              </div>
+              <span className="text-sm font-medium tracking-wider text-[#E9E0D2]/40">
+                0{slides.length}
+              </span>
+            </div>
+
+            {/* Manual Prev/Next Controls */}
+            <div className="hidden md:flex items-center gap-2">
+              <button
+                onClick={() => goToSlide((currentSlide - 1 + slides.length) % slides.length)}
+                aria-label="Previous slide"
+                className="p-2 text-[#E9E0D2]/60 hover:text-[#C6A06B] transition-colors duration-300"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+              </button>
+              <button
+                onClick={() => goToSlide((currentSlide + 1) % slides.length)}
+                aria-label="Next slide"
+                className="p-2 text-[#E9E0D2]/60 hover:text-[#C6A06B] transition-colors duration-300"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Scoped Animation Styles */}
-      <style jsx>{`
-        @keyframes fadeUp {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
+      {/* --- Global Styles & Keyframes --- */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 
-        @media (prefers-reduced-motion: reduce) {
-          .animate-fade-up {
-            animation: none !important;
-            opacity: 1 !important;
-            transform: none !important;
-          }
+        .font-lux-serif {
+          font-family: 'Cormorant Garamond', serif;
+        }
+        .font-lux-sans {
+          font-family: 'Inter', sans-serif;
+        }
+
+        @keyframes scrollLine {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+
+        @keyframes progressGrow {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
+        }
+
+        /* 
+          Subtle entrance animation that DOES NOT affect opacity or readability.
+          Only translates the content 10px upwards over 0.8s.
+        */
+        @keyframes contentReveal {
+          from { transform: translateY(10px); }
+          to { transform: translateY(0); }
+        }
+
+        .content-reveal {
+          animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          will-change: transform;
+        }
+
+        .progress-bar {
+          transform: scaleX(0);
+          animation: progressGrow 7s linear forwards;
+        }
+
+        .progress-bar.paused {
+          animation-play-state: paused;
         }
       `}</style>
     </section>

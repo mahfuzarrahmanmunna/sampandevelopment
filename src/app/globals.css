@@ -2,36 +2,41 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFFFFF; /* Brand White */
-  --foreground: #000000; /* Brand Black */
+  /* Luxury Green Background */
+  --background: #F0F5EF;
+  --foreground: #17251C;
+
+  /* Premium Green Surface Palette */
+  --surface: #E4EEE3;
+  --surface-elevated: #F8FBF7;
+  --border: #D3E2D1;
 }
 
 @theme inline {
-  /* Default Theme Mappings */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
   /* Sampan Brand Palette */
-  --color-primary: #19ABE1;        /* Sampan Blue */
-  --color-secondary: #009D4E;      /* Sampan Green */
-  --color-accent: #1C87CC;         /* Development Blue */
-  --color-brand-black: #000000;    /* Brand Contrast Black */
-  --color-brand-white: #FFFFFF;    /* Clean Background White */
-}
+  --color-primary: #19ABE1;
+  --color-secondary: #009D4E;
+  --color-accent: #1C87CC;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Brand Neutrals */
+  --color-brand-black: #17251C;
+  --color-brand-white: #F0F5EF;
+
+  /* Luxury Green Surfaces */
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  /* Using the Geist sans font variable configured in layout.tsx */
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 

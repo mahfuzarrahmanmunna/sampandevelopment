@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Hero from "./components/Hero/Hero";
+import About from "./components/HomeAboutSection/HomeAboutSection";
+import FeaturedProject from "./components/FeaturedProject/FeaturedProject";
 
 // If your homepage UI is handled by a Client Component, import it here:
 // import HomeClientContent from "./home-client";
@@ -31,6 +33,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <About/>
+      <FeaturedProject/>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
