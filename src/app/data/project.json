@@ -1,0 +1,2049 @@
+{
+  "schemaVersion": "1.0.0",
+  "siteSettings": {
+    "brandName": "Sampan Development Ltd.",
+    "defaultLocale": "en-GB",
+    "projectBasePath": "/projects",
+    "mediaBasePath": "/images/projects",
+    "defaultImage": "/images/projects/shared/project-placeholder.webp",
+    "showGlobalProjectNavigation": true
+  },
+  "globalTheme": {
+    "fontHeading": "Plus Jakarta Sans",
+    "fontBody": "Plus Jakarta Sans",
+    "pageBackground": "#F7F4ED",
+    "pageText": "#0B0B0D",
+    "mutedText": "#6F706D",
+    "globalAccent": "#C5A059",
+    "contentMaxWidth": "1440px",
+    "sectionSpacing": {
+      "desktop": "120px",
+      "tablet": "88px",
+      "mobile": "64px"
+    }
+  },
+  "navigation": {
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Projects",
+        "href": "/projects"
+      }
+    ],
+    "projectMenuLabel": "Explore projects",
+    "primaryCTA": {
+      "label": "Talk to our team",
+      "href": "/contact",
+      "variant": "primary"
+    }
+  },
+  "projects": [
+    {
+      "id": "metro-square",
+      "slug": "sampan-metro-square",
+      "projectName": "Sampan Metro Square",
+      "shortName": "Metro Square",
+      "brandName": "Sampan Development",
+      "projectType": "land-share development",
+      "category": "residential",
+      "status": "ongoing",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Ashulia",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "A considered vision for urban growth.",
+      "shortDescription": "A land-share development concept in Ashulia, shaped around place, planning and future possibilities.",
+      "longDescription": null,
+      "hero": {
+        "type": "cinematic",
+        "layout": "full-screen",
+        "eyebrow": "SAMPAN DEVELOPMENT · ASHULIA",
+        "title": "A new perspective on urban opportunity",
+        "highlightedText": "urban opportunity",
+        "description": "Discover the vision behind Sampan Metro Square and its place in the evolving Ashulia landscape.",
+        "backgroundImage": "/images/projects/metro-square/hero.webp",
+        "backgroundImageAlt": "Architectural hero image for Sampan Metro Square",
+        "mobileImage": "/images/projects/metro-square/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(16,25,21,0.78) 0%, rgba(16,25,21,0.22) 75%)",
+        "overlayOpacity": 0.78,
+        "height": "100svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": true,
+        "quickFacts": [
+          {
+            "label": "Location",
+            "value": "Ashulia",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Development model",
+            "value": "Land share",
+            "contentStatus": "provided"
+          }
+        ],
+        "primaryCTA": {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-metro-square",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Explore the vision",
+          "href": "#project-overview",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "metro-earth",
+        "primary": "#303C35",
+        "secondary": "#F0E9DC",
+        "accent": "#B68A50",
+        "background": "#FAF8F3",
+        "surface": "#FFFFFF",
+        "text": "#242822",
+        "mutedText": "#77766F",
+        "border": "#DDD8CC",
+        "heroOverlay": "rgba(20, 31, 25, 0.68)",
+        "buttonBackground": "#303C35",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #303C35 0%, #536657 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "urban, grounded, editorial",
+        "imageTreatment": "architectural, natural contrast, warm highlights",
+        "sectionSpacing": "clamp(64px, 9vw, 128px)",
+        "borderRadius": "2px",
+        "buttonStyle": "sharp",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "development-vision",
+          "enquiry"
+        ],
+        "lightSections": [
+          "project-overview",
+          "specifications",
+          "location",
+          "gallery"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "A vision shaped by place",
+        "sectionSubtitle": "Introducing Sampan Metro Square",
+        "description": null,
+        "editorialQuote": "Every development begins with a thoughtful understanding of place.",
+        "image": "/images/projects/metro-square/community_hall.png",
+        "imageAlt": "Conceptual overview image for Sampan Metro Square",
+        "layout": "split-editorial",
+        "highlights": [
+          {
+            "title": "Location-led thinking",
+            "description": "Explore the project's Ashulia context and surrounding connectivity.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "Land-share concept",
+            "description": "Learn about the ownership and development model through confirmed project information.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "A long-term vision",
+            "description": "Understand the intended direction of the development as plans are confirmed.",
+            "contentStatus": "editorial"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Land-share development",
+          "unit": null,
+          "icon": "building-2",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Ashulia",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Land area",
+          "value": null,
+          "unit": null,
+          "icon": "landmark",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Development stage",
+          "value": null,
+          "unit": null,
+          "icon": "calendar-clock",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "project-overview",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "split-editorial",
+          "eyebrow": "THE PROJECT",
+          "title": "A vision shaped by place",
+          "subtitle": "Discover the idea behind Metro Square.",
+          "description": null,
+          "content": {
+            "body": null,
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/metro-square/overview.webp",
+            "alt": "Sampan Metro Square project overview"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "right",
+            "showIndex": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-specifications",
+          "type": "specifications",
+          "enabled": true,
+          "theme": "light",
+          "layout": "horizontal-facts",
+          "eyebrow": "AT A GLANCE",
+          "title": "Project essentials",
+          "subtitle": "Key information about the development.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showIcons": true,
+            "columns": 4
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "development-vision",
+          "type": "image-text",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "image-left-copy-right",
+          "eyebrow": "THE VISION",
+          "title": "Planning with purpose",
+          "subtitle": "Planning with purpose Planning with purpose Planning with purpose Planning with purpose",
+          "description": "renderer never displayed map/address data. I’ve updated the detail component to consume those fields, provide real local image fallbacks, and show clear “pending confirmation” notes where the JSON intentionally has no details. I’m checking the changes for errors now.",
+          "content": {
+            "body": null,
+            "points": ["renderer never displayed map/address data. I’ve updated the detail component to consume those fields, provide real local image fallbacks, and show clear “pending confirmation” notes where the JSON intentionally has no details. I’m checking the changes for errors now."]
+          },
+          "media": {
+            "src": "/images/projects/metro-square/vision.webp",
+            "alt": "Conceptual architectural image for Metro Square"
+          },
+          "cta": "Contact Us",
+          "settings": {
+            "imageRatio": "4:5"
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": true,
+          "theme": "light",
+          "layout": "map-and-copy",
+          "eyebrow": "THE LOCATION",
+          "title": "Ashulia and its wider connections",
+          "subtitle": null,
+          "description": "consume those fields, provide real local image fallbacks, and show clear “pending confirmation” notes where the JSON intentionally has no details. I’m checking the changes for errors now.",
+          "content": {
+            "advantages": ["consume those fields, provide real local image fallbacks, and show clear “pending confirmation” notes where the JSON intentionally has no details. I’m checking the changes for errors now.",
+        "consume those fields, provide real local image fallbacks, and show clear “pending confirmation” notes where the JSON intentionally has no details. I’m checking the changes for errors now."],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": {
+            "src": "/images/projects/metro-square/location.webp",
+            "alt": "Ashulia area context"
+          },
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "land-share",
+          "type": "investment-overview",
+          "enabled": true,
+          "theme": "light",
+          "layout": "editorial-cards",
+          "eyebrow": "OWNERSHIP CONCEPT",
+          "title": "Understand the land-share model",
+          "subtitle": "Project-specific ownership information will be added after verification.",
+          "description": null,
+          "content": {
+            "details": [],
+            "legalDisclaimer": "Ownership terms, approvals, payment schedules and legal conditions must be confirmed by Sampan Development before publication."
+          },
+          "media": null,
+          "cta": {
+            "label": "Request project details",
+            "href": "/contact?project=sampan-metro-square",
+            "variant": "outline",
+            "enabled": true
+          },
+          "settings": {
+            "showOnlyVerifiedFacts": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "editorial-grid",
+          "eyebrow": "VISUAL STORY",
+          "title": "Explore the project",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "aspectRatio": "4:3",
+            "enableLightbox": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "development-progress",
+          "type": "construction-progress",
+          "enabled": false,
+          "theme": "light",
+          "layout": "timeline",
+          "eyebrow": "PROGRESS",
+          "title": "Development progress",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "updates": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showDate": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "faq",
+          "type": "faq",
+          "enabled": true,
+          "theme": "light",
+          "layout": "accordion",
+          "eyebrow": "QUESTIONS",
+          "title": "Frequently asked questions",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "allowMultipleOpen": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "large-editorial-cta",
+          "eyebrow": "START A CONVERSATION",
+          "title": "Learn more about Metro Square",
+          "subtitle": "Speak with the Sampan Development team for verified project information.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/metro-square/enquiry.webp",
+            "alt": "Metro Square architectural image"
+          },
+          "cta": {
+            "label": "Make an enquiry",
+            "href": "/contact?project=sampan-metro-square",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Project gallery",
+        "gallerySubtitle": "Visuals will be added as approved project photography and renders become available.",
+        "layout": "editorial-grid",
+        "aspectRatio": "4:3",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-metro-square",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "metro-square-enquiry",
+          "enabled": true
+        },
+        {
+          "label": "View all projects",
+          "href": "/projects",
+          "variant": "secondary",
+          "style": "text",
+          "icon": "arrow-left",
+          "trackingId": "metro-square-all-projects",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-condominium",
+        "sampan-trade-emporium"
+      ],
+      "seo": {
+        "metaTitle": "Sampan Metro Square | Sampan Development",
+        "metaDescription": "Explore the vision for Sampan Metro Square, a land-share development in Ashulia.",
+        "canonicalPath": "/projects/sampan-metro-square",
+        "keywords": [
+          "Sampan Metro Square",
+          "Ashulia development",
+          "land-share project"
+        ],
+        "ogTitle": "Sampan Metro Square",
+        "ogDescription": "Discover the vision behind Sampan Metro Square in Ashulia.",
+        "ogImage": "/images/projects/metro-square/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/metro-square/og.webp"
+      }
+    },
+    {
+      "id": "condominium",
+      "slug": "sampan-condominium",
+      "projectName": "Sampan Condominium",
+      "shortName": "Condominium",
+      "brandName": "Sampan Development",
+      "projectType": "residential condominium",
+      "category": "residential",
+      "status": "ongoing",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Highway-side location",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "A more considered way to live.",
+      "shortDescription": "A G+9 residential condominium concept planned around contemporary architecture and everyday living.",
+      "longDescription": null,
+      "hero": {
+        "type": "split-editorial",
+        "layout": "split-screen",
+        "eyebrow": "RESIDENTIAL · SAMPAN DEVELOPMENT",
+        "title": "Space to live. Room to belong.",
+        "highlightedText": "Room to belong",
+        "description": "Discover the residential vision behind Sampan Condominium, a G+9 development beside the highway.",
+        "backgroundImage": "/images/projects/condominium/hero.webp",
+        "backgroundImageAlt": "Architectural hero image for Sampan Condominium",
+        "mobileImage": "/images/projects/condominium/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(24,42,35,0.55), rgba(24,42,35,0.05))",
+        "overlayOpacity": 0.55,
+        "height": "88svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": true,
+        "quickFacts": [
+          {
+            "label": "Configuration",
+            "value": "G+9",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Setting",
+            "value": "Highway-side",
+            "contentStatus": "provided"
+          }
+        ],
+        "primaryCTA": {
+          "label": "Enquire about residences",
+          "href": "/contact?project=sampan-condominium",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Discover the concept",
+          "href": "#residential-introduction",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "condominium-forest",
+        "primary": "#243C35",
+        "secondary": "#F5F0E7",
+        "accent": "#C6A46A",
+        "background": "#FBF9F4",
+        "surface": "#FFFFFF",
+        "text": "#242923",
+        "mutedText": "#77786F",
+        "border": "#E2DCCF",
+        "heroOverlay": "rgba(22, 43, 35, 0.55)",
+        "buttonBackground": "#243C35",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #243C35 0%, #486458 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "calm, refined, residential",
+        "imageTreatment": "soft daylight, warm neutral grading",
+        "sectionSpacing": "clamp(64px, 9vw, 128px)",
+        "borderRadius": "4px",
+        "buttonStyle": "refined",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "architecture-story",
+          "enquiry"
+        ],
+        "lightSections": [
+          "residential-introduction",
+          "specifications",
+          "unit-types",
+          "amenities",
+          "location",
+          "gallery"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "A home shaped around everyday life",
+        "sectionSubtitle": "Introducing Sampan Condominium",
+        "description": null,
+        "editorialQuote": "Good residential design balances privacy, connection and comfort.",
+        "image": "/images/projects/condominium/overview.webp",
+        "imageAlt": "Conceptual residential architecture",
+        "layout": "image-right-copy-left",
+        "highlights": [
+          {
+            "title": "Residential focus",
+            "description": "A development concept centred on contemporary living.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "G+9 configuration",
+            "description": "The stated building configuration is G+9.",
+            "contentStatus": "provided"
+          },
+          {
+            "title": "Highway-side setting",
+            "description": "Explore the project's access and surrounding context once verified.",
+            "contentStatus": "provided"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Residential condominium",
+          "unit": null,
+          "icon": "building-2",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Configuration",
+          "value": "G+9",
+          "unit": null,
+          "icon": "layers",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Highway-side",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Apartment sizes",
+          "value": null,
+          "unit": null,
+          "icon": "ruler",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "residential-introduction",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "image-right-copy-left",
+          "eyebrow": "THE RESIDENCE",
+          "title": "A home shaped around everyday life",
+          "subtitle": "A considered residential concept.",
+          "description": null,
+          "content": {
+            "body": null,
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/condominium/overview.webp",
+            "alt": "Residential development concept"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "right"
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "architecture-story",
+          "type": "architecture-story",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "cinematic-image-and-copy",
+          "eyebrow": "ARCHITECTURE",
+          "title": "A contemporary expression of home",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "body": null,
+            "designPrinciples": []
+          },
+          "media": {
+            "src": "/images/projects/condominium/architecture.webp",
+            "alt": "Conceptual condominium architecture"
+          },
+          "cta": null,
+          "settings": {
+            "fullBleed": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "specifications",
+          "type": "specifications",
+          "enabled": true,
+          "theme": "light",
+          "layout": "specification-grid",
+          "eyebrow": "PROJECT DETAILS",
+          "title": "The essentials",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "columns": 3
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "unit-types",
+          "type": "unit-types",
+          "enabled": false,
+          "theme": "light",
+          "layout": "horizontal-cards",
+          "eyebrow": "RESIDENCES",
+          "title": "Find your kind of space",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showFloorPlan": true,
+            "showPrice": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "amenities",
+          "type": "amenities-grid",
+          "enabled": false,
+          "theme": "light",
+          "layout": "minimal-icon-grid",
+          "eyebrow": "EVERYDAY COMFORT",
+          "title": "Designed for daily living",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showOnlyConfirmedAmenities": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": true,
+          "theme": "light",
+          "layout": "image-and-location-copy",
+          "eyebrow": "CONNECTED LIVING",
+          "title": "A highway-side setting",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": {
+            "src": "/images/projects/condominium/location.webp",
+            "alt": "Area around Sampan Condominium"
+          },
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "masonry",
+          "eyebrow": "VISUAL JOURNAL",
+          "title": "A closer look",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "enableLightbox": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "split-cta",
+          "eyebrow": "YOUR NEXT STEP",
+          "title": "Discover Sampan Condominium",
+          "subtitle": "Ask our team for verified project details and availability.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/condominium/enquiry.webp",
+            "alt": "Condominium architecture"
+          },
+          "cta": {
+            "label": "Enquire now",
+            "href": "/contact?project=sampan-condominium",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Residential visual journal",
+        "gallerySubtitle": "Approved renders and photography can be added here.",
+        "layout": "masonry",
+        "aspectRatio": "4:3",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Enquire about residences",
+          "href": "/contact?project=sampan-condominium",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "condominium-enquiry",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-metro-square",
+        "sampan-trade-emporium"
+      ],
+      "seo": {
+        "metaTitle": "Sampan Condominium | Sampan Development",
+        "metaDescription": "Explore Sampan Condominium, a G+9 highway-side residential development concept.",
+        "canonicalPath": "/projects/sampan-condominium",
+        "keywords": [
+          "Sampan Condominium",
+          "residential condominium",
+          "G+9 development"
+        ],
+        "ogTitle": "Sampan Condominium",
+        "ogDescription": "A considered residential vision by Sampan Development.",
+        "ogImage": "/images/projects/condominium/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/condominium/og.webp"
+      }
+    },
+    {
+      "id": "express-highway-inn",
+      "slug": "express-highway-inn",
+      "projectName": "Express Highway Inn",
+      "shortName": "Express Highway Inn",
+      "brandName": "Sampan Group",
+      "projectType": "hospitality",
+      "category": "hospitality",
+      "status": "ongoing",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Highway-side location",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "Where the highway leads to luxury.",
+      "shortDescription": "A hospitality destination with a focus on comfort, thoughtful service and a distinctive sense of place.",
+      "longDescription": null,
+      "hero": {
+        "type": "cinematic",
+        "layout": "full-screen-image",
+        "eyebrow": "A SAMPAN GROUP DESTINATION",
+        "title": "Where the highway leads to luxury",
+        "highlightedText": "leads to luxury",
+        "description": "Discover the vision behind Express Highway Inn, a hospitality destination associated with Sampan Group.",
+        "backgroundImage": "/images/projects/express-highway-inn/hero.webp",
+        "backgroundImageAlt": "Express Highway Inn exterior or approved concept image",
+        "mobileImage": "/images/projects/express-highway-inn/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(180deg, rgba(10,10,9,0.2) 0%, rgba(10,10,9,0.72) 100%)",
+        "overlayOpacity": 0.72,
+        "height": "100svh",
+        "alignment": "bottom-left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": false,
+        "quickFacts": [],
+        "primaryCTA": {
+          "label": "Make an enquiry",
+          "href": "/contact?project=express-highway-inn",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Discover the experience",
+          "href": "#hospitality-introduction",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "inn-obsidian-copper",
+        "primary": "#181817",
+        "secondary": "#D6C2A0",
+        "accent": "#A8784E",
+        "background": "#F5F1E9",
+        "surface": "#FFFFFF",
+        "text": "#23221F",
+        "mutedText": "#77716A",
+        "border": "#DCD4C8",
+        "heroOverlay": "rgba(10, 10, 9, 0.66)",
+        "buttonBackground": "#A8784E",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #181817 0%, #42372D 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "cinematic, intimate, premium hospitality",
+        "imageTreatment": "warm light, atmospheric shadows, rich materials",
+        "sectionSpacing": "clamp(64px, 10vw, 144px)",
+        "borderRadius": "2px",
+        "buttonStyle": "luxury-minimal",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "guest-experience",
+          "enquiry"
+        ],
+        "lightSections": [
+          "hospitality-introduction",
+          "gallery",
+          "location",
+          "faq"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "A destination along the journey",
+        "sectionSubtitle": "Introducing Express Highway Inn",
+        "description": null,
+        "editorialQuote": "Hospitality is remembered in the details.",
+        "image": "/images/projects/express-highway-inn/overview.webp",
+        "imageAlt": "Hospitality concept image",
+        "layout": "cinematic-split",
+        "highlights": [
+          {
+            "title": "A distinctive destination",
+            "description": "A hospitality identity shaped around its highway-side context.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "Guest-first thinking",
+            "description": "Communicate confirmed guest services and experiences here.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "Sampan Group",
+            "description": "Part of the wider Sampan Group portfolio.",
+            "contentStatus": "provided"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Category",
+          "value": "Hospitality",
+          "unit": null,
+          "icon": "hotel",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Highway-side",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Room count",
+          "value": null,
+          "unit": null,
+          "icon": "bed-double",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Facilities",
+          "value": null,
+          "unit": null,
+          "icon": "concierge-bell",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "hospitality-introduction",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "cinematic-split",
+          "eyebrow": "THE DESTINATION",
+          "title": "A destination along the journey",
+          "subtitle": "Introducing Express Highway Inn.",
+          "description": null,
+          "content": {
+            "body": null,
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/express-highway-inn/overview.webp",
+            "alt": "Hospitality overview image"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "left",
+            "largeTypography": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "guest-experience",
+          "type": "hospitality-experience",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "immersive-story-cards",
+          "eyebrow": "THE EXPERIENCE",
+          "title": "Considered moments of comfort",
+          "subtitle": "Add confirmed accommodation, dining and guest services when available.",
+          "description": null,
+          "content": {
+            "experiences": []
+          },
+          "media": {
+            "src": "/images/projects/express-highway-inn/experience.webp",
+            "alt": "Hospitality experience placeholder"
+          },
+          "cta": null,
+          "settings": {
+            "cardStyle": "image-overlay",
+            "showOnlyConfirmedExperiences": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "facilities",
+          "type": "amenities-grid",
+          "enabled": false,
+          "theme": "light",
+          "layout": "minimal-grid",
+          "eyebrow": "FACILITIES",
+          "title": "Everything in its place",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showOnlyConfirmedAmenities": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "cinematic-carousel",
+          "eyebrow": "VISUAL STORY",
+          "title": "The atmosphere of the inn",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "enableLightbox": true,
+            "showCaptions": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": true,
+          "theme": "light",
+          "layout": "image-with-location-copy",
+          "eyebrow": "FIND US",
+          "title": "Along the highway",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": {
+            "src": "/images/projects/express-highway-inn/location.webp",
+            "alt": "Highway-side location image"
+          },
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "faq",
+          "type": "faq",
+          "enabled": true,
+          "theme": "light",
+          "layout": "accordion",
+          "eyebrow": "NEED TO KNOW",
+          "title": "Frequently asked questions",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "allowMultipleOpen": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "full-bleed-image-cta",
+          "eyebrow": "GET IN TOUCH",
+          "title": "Make your next stop memorable",
+          "subtitle": "Contact the team for confirmed services, availability and enquiries.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/express-highway-inn/enquiry.webp",
+            "alt": "Express Highway Inn hospitality image"
+          },
+          "cta": {
+            "label": "Contact the team",
+            "href": "/contact?project=express-highway-inn",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "The atmosphere of the inn",
+        "gallerySubtitle": "Add approved photography and current facility images.",
+        "layout": "cinematic-carousel",
+        "aspectRatio": "16:9",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Make an enquiry",
+          "href": "/contact?project=express-highway-inn",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "express-highway-inn-enquiry",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-agro-golf-resort",
+        "sampan-trade-emporium"
+      ],
+      "seo": {
+        "metaTitle": "Express Highway Inn | Sampan Group",
+        "metaDescription": "Discover Express Highway Inn, a hospitality destination associated with Sampan Group.",
+        "canonicalPath": "/projects/express-highway-inn",
+        "keywords": [
+          "Express Highway Inn",
+          "Sampan Group",
+          "hospitality"
+        ],
+        "ogTitle": "Express Highway Inn",
+        "ogDescription": "Where the highway leads to luxury.",
+        "ogImage": "/images/projects/express-highway-inn/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/express-highway-inn/og.webp"
+      }
+    },
+    {
+      "id": "trade-emporium",
+      "slug": "sampan-trade-emporium",
+      "projectName": "Sampan Trade Emporium",
+      "shortName": "Trade Emporium",
+      "brandName": "Sampan Development",
+      "projectType": "commercial development",
+      "category": "commercial",
+      "status": "ongoing",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Highway-side location",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "A stronger address for business.",
+      "shortDescription": "A highway-side commercial development with a stated B+LG+G+11 configuration.",
+      "longDescription": null,
+      "hero": {
+        "type": "architectural-bold",
+        "layout": "asymmetric-editorial",
+        "eyebrow": "COMMERCIAL · SAMPAN DEVELOPMENT",
+        "title": "Make room for what comes next.",
+        "highlightedText": "what comes next",
+        "description": "Explore the vision for Sampan Trade Emporium, a commercial development designed to make a confident architectural statement.",
+        "backgroundImage": "/images/projects/trade-emporium/hero.webp",
+        "backgroundImageAlt": "Commercial architecture hero image for Sampan Trade Emporium",
+        "mobileImage": "/images/projects/trade-emporium/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(18,25,34,0.76) 0%, rgba(18,25,34,0.18) 100%)",
+        "overlayOpacity": 0.76,
+        "height": "92svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": true,
+        "quickFacts": [
+          {
+            "label": "Configuration",
+            "value": "B+LG+G+11",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Development type",
+            "value": "Commercial",
+            "contentStatus": "provided"
+          }
+        ],
+        "primaryCTA": {
+          "label": "Discuss commercial opportunities",
+          "href": "/contact?project=sampan-trade-emporium",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "View project details",
+          "href": "#commercial-overview",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "emporium-midnight-brass",
+        "primary": "#202A36",
+        "secondary": "#F2F0EA",
+        "accent": "#B79A5D",
+        "background": "#F8F7F3",
+        "surface": "#FFFFFF",
+        "text": "#20252B",
+        "mutedText": "#74787D",
+        "border": "#D9D9D3",
+        "heroOverlay": "rgba(22, 32, 45, 0.72)",
+        "buttonBackground": "#202A36",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #202A36 0%, #3A4653 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "confident, geometric, commercial",
+        "imageTreatment": "crisp architecture, strong lines, cool neutral contrast",
+        "sectionSpacing": "clamp(64px, 9vw, 128px)",
+        "borderRadius": "2px",
+        "buttonStyle": "architectural",
+        "navigationStyle": "solid-after-scroll",
+        "darkSections": [
+          "hero",
+          "commercial-opportunities",
+          "enquiry"
+        ],
+        "lightSections": [
+          "commercial-overview",
+          "specifications",
+          "location",
+          "architecture",
+          "gallery"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "An address for ambition",
+        "sectionSubtitle": "Introducing Sampan Trade Emporium",
+        "description": null,
+        "editorialQuote": "The right environment can help businesses move forward.",
+        "image": "/images/projects/trade-emporium/overview.webp",
+        "imageAlt": "Commercial development overview image",
+        "layout": "offset-grid",
+        "highlights": [
+          {
+            "title": "Commercial focus",
+            "description": "A development concept oriented around business and commerce.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "B+LG+G+11 configuration",
+            "description": "The stated building configuration for the project.",
+            "contentStatus": "provided"
+          },
+          {
+            "title": "Highway-side context",
+            "description": "Explore the location and access details when verified.",
+            "contentStatus": "provided"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Commercial development",
+          "unit": null,
+          "icon": "building-2",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Configuration",
+          "value": "B+LG+G+11",
+          "unit": null,
+          "icon": "layers",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Highway-side",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Parking capacity",
+          "value": null,
+          "unit": null,
+          "icon": "car-front",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "commercial-overview",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "offset-grid",
+          "eyebrow": "THE DEVELOPMENT",
+          "title": "An address for ambition",
+          "subtitle": "A commercial vision by Sampan Development.",
+          "description": null,
+          "content": {
+            "body": null,
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/trade-emporium/overview.webp",
+            "alt": "Trade Emporium commercial overview"
+          },
+          "cta": null,
+          "settings": {
+            "showIndex": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "specifications",
+          "type": "specifications",
+          "enabled": true,
+          "theme": "light",
+          "layout": "bold-facts-grid",
+          "eyebrow": "PROJECT FACTS",
+          "title": "The building at a glance",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "columns": 4,
+            "showIcons": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "commercial-opportunities",
+          "type": "commercial-opportunities",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "large-numbered-cards",
+          "eyebrow": "BUSINESS POSSIBILITIES",
+          "title": "A place for business to take shape",
+          "subtitle": "Add confirmed space types and commercial availability when approved.",
+          "description": null,
+          "content": {
+            "opportunities": []
+          },
+          "media": {
+            "src": "/images/projects/trade-emporium/opportunities.webp",
+            "alt": "Commercial spaces concept image"
+          },
+          "cta": {
+            "label": "Discuss opportunities",
+            "href": "/contact?project=sampan-trade-emporium",
+            "variant": "outline",
+            "enabled": true
+          },
+          "settings": {
+            "showOnlyConfirmedOfferings": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "architecture",
+          "type": "architecture-story",
+          "enabled": true,
+          "theme": "light",
+          "layout": "full-width-with-caption",
+          "eyebrow": "ARCHITECTURE",
+          "title": "Designed to make a statement",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "body": null,
+            "designPrinciples": []
+          },
+          "media": {
+            "src": "/images/projects/trade-emporium/architecture.webp",
+            "alt": "Trade Emporium architectural concept"
+          },
+          "cta": null,
+          "settings": {
+            "fullBleed": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": true,
+          "theme": "light",
+          "layout": "map-and-connectivity",
+          "eyebrow": "LOCATION",
+          "title": "Connected to movement",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": {
+            "src": "/images/projects/trade-emporium/location.webp",
+            "alt": "Trade Emporium area context"
+          },
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "architectural-grid",
+          "eyebrow": "PROJECT IMAGERY",
+          "title": "Explore the architecture",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "enableLightbox": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "faq",
+          "type": "faq",
+          "enabled": true,
+          "theme": "light",
+          "layout": "two-column-accordion",
+          "eyebrow": "QUESTIONS",
+          "title": "Commercial project FAQs",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "allowMultipleOpen": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "bold-panel",
+          "eyebrow": "BUSINESS ENQUIRIES",
+          "title": "Let's discuss your next move",
+          "subtitle": "Contact Sampan Development for verified commercial project information.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/trade-emporium/enquiry.webp",
+            "alt": "Commercial architecture image"
+          },
+          "cta": {
+            "label": "Make a commercial enquiry",
+            "href": "/contact?project=sampan-trade-emporium",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Architecture and spaces",
+        "gallerySubtitle": "Approved renders and project photographs can be added here.",
+        "layout": "architectural-grid",
+        "aspectRatio": "4:3",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Discuss commercial opportunities",
+          "href": "/contact?project=sampan-trade-emporium",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "trade-emporium-enquiry",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-metro-square",
+        "sampan-condominium"
+      ],
+      "seo": {
+        "metaTitle": "Sampan Trade Emporium | Sampan Development",
+        "metaDescription": "Explore Sampan Trade Emporium, a highway-side commercial development with a B+LG+G+11 configuration.",
+        "canonicalPath": "/projects/sampan-trade-emporium",
+        "keywords": [
+          "Sampan Trade Emporium",
+          "commercial development",
+          "B+LG+G+11"
+        ],
+        "ogTitle": "Sampan Trade Emporium",
+        "ogDescription": "A stronger address for business.",
+        "ogImage": "/images/projects/trade-emporium/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/trade-emporium/og.webp"
+      }
+    },
+    {
+      "id": "agro-golf-resort",
+      "slug": "sampan-agro-golf-resort",
+      "projectName": "Sampan Agro & Golf Resort",
+      "shortName": "Agro & Golf Resort",
+      "brandName": "Sampan Development",
+      "projectType": "agro and leisure resort concept",
+      "category": "leisure",
+      "status": "ongoing",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": null,
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "A slower rhythm. A wider horizon.",
+      "shortDescription": "A nature-led agro and leisure resort concept that brings landscape, open space and outdoor experiences into focus.",
+      "longDescription": null,
+      "hero": {
+        "type": "nature-cinematic",
+        "layout": "full-screen-image",
+        "eyebrow": "A SAMPAN DEVELOPMENT VISION",
+        "title": "A slower rhythm. A wider horizon.",
+        "highlightedText": "A wider horizon",
+        "description": "Discover the vision for Sampan Agro & Golf Resort, a nature-led destination concept shaped around open landscapes and leisure.",
+        "backgroundImage": "/images/projects/agro-golf-resort/hero.webp",
+        "backgroundImageAlt": "Landscape or approved concept image for Sampan Agro & Golf Resort",
+        "mobileImage": "/images/projects/agro-golf-resort/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(24,37,25,0.66) 0%, rgba(24,37,25,0.12) 100%)",
+        "overlayOpacity": 0.66,
+        "height": "100svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": false,
+        "showScrollIndicator": true,
+        "showQuickFacts": false,
+        "quickFacts": [],
+        "primaryCTA": {
+          "label": "Explore the resort vision",
+          "href": "#resort-vision",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Make an enquiry",
+          "href": "/contact?project=sampan-agro-golf-resort",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "resort-olive-earth",
+        "primary": "#536747",
+        "secondary": "#E8E5D6",
+        "accent": "#C0A477",
+        "background": "#F7F6EF",
+        "surface": "#FFFFFF",
+        "text": "#283126",
+        "mutedText": "#74796D",
+        "border": "#DADCCF",
+        "heroOverlay": "rgba(31, 49, 31, 0.62)",
+        "buttonBackground": "#536747",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #3F553B 0%, #77845D 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "organic, restorative, nature-led luxury",
+        "imageTreatment": "soft daylight, deep greens, natural textures",
+        "sectionSpacing": "clamp(72px, 11vw, 152px)",
+        "borderRadius": "8px",
+        "buttonStyle": "soft-organic",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "landscape-story",
+          "enquiry"
+        ],
+        "lightSections": [
+          "resort-vision",
+          "experiences",
+          "gallery",
+          "sustainability",
+          "location"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "An escape shaped by nature",
+        "sectionSubtitle": "Introducing Sampan Agro & Golf Resort",
+        "description": null,
+        "editorialQuote": "The landscape is not a backdrop; it is part of the experience.",
+        "image": "/images/projects/agro-golf-resort/overview.webp",
+        "imageAlt": "Nature-led resort concept image",
+        "layout": "wide-image-editorial",
+        "highlights": [
+          {
+            "title": "Open landscapes",
+            "description": "A nature-led direction centred on the relationship between land and experience.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "Agro and leisure concept",
+            "description": "The intended combination of agro and leisure themes, subject to final project scope.",
+            "contentStatus": "provided"
+          },
+          {
+            "title": "A destination vision",
+            "description": "Explore the resort concept as confirmed plans and experiences become available.",
+            "contentStatus": "editorial"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Agro and leisure resort concept",
+          "unit": null,
+          "icon": "trees",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": null,
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Land area",
+          "value": null,
+          "unit": null,
+          "icon": "landmark",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Golf facilities",
+          "value": null,
+          "unit": null,
+          "icon": "flag",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "resort-vision",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "wide-image-editorial",
+          "eyebrow": "THE VISION",
+          "title": "An escape shaped by nature",
+          "subtitle": "Introducing Sampan Agro & Golf Resort.",
+          "description": null,
+          "content": {
+            "body": null,
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/agro-golf-resort/overview.webp",
+            "alt": "Resort vision landscape image"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "top",
+            "largeTypography": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "landscape-story",
+          "type": "landscape-story",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "full-bleed-nature",
+          "eyebrow": "LANDSCAPE",
+          "title": "Room to breathe, space to explore",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "body": null,
+            "landscapeFeatures": []
+          },
+          "media": {
+            "src": "/images/projects/agro-golf-resort/landscape.webp",
+            "alt": "Landscape concept for Agro & Golf Resort"
+          },
+          "cta": null,
+          "settings": {
+            "fullBleed": true,
+            "textAlignment": "left"
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "experiences",
+          "type": "lifestyle-story",
+          "enabled": true,
+          "theme": "light",
+          "layout": "organic-image-cards",
+          "eyebrow": "POSSIBILITIES",
+          "title": "Experiences shaped by the outdoors",
+          "subtitle": "Populate with confirmed activities and facilities once the project scope is approved.",
+          "description": null,
+          "content": {
+            "experiences": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showOnlyConfirmedExperiences": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "agro",
+          "type": "image-text",
+          "enabled": false,
+          "theme": "light",
+          "layout": "image-left-copy-right",
+          "eyebrow": "AGRO",
+          "title": "A closer relationship with the land",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "body": null,
+            "points": []
+          },
+          "media": {
+            "src": "/images/projects/agro-golf-resort/agro.webp",
+            "alt": "Agro landscape image"
+          },
+          "cta": null,
+          "settings": {
+            "showOnlyConfirmedFeatures": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "golf",
+          "type": "image-text",
+          "enabled": false,
+          "theme": "light",
+          "layout": "image-right-copy-left",
+          "eyebrow": "GOLF",
+          "title": "A landscape for leisure",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "body": null,
+            "points": []
+          },
+          "media": {
+            "src": "/images/projects/agro-golf-resort/golf.webp",
+            "alt": "Golf landscape concept image"
+          },
+          "cta": null,
+          "settings": {
+            "showOnlyConfirmedFeatures": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "immersive-masonry",
+          "eyebrow": "LAND AND LIGHT",
+          "title": "A visual journey through the landscape",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "enableLightbox": true,
+            "aspectRatio": "3:4"
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "sustainability",
+          "type": "sustainability",
+          "enabled": false,
+          "theme": "light",
+          "layout": "editorial-principles",
+          "eyebrow": "A THOUGHTFUL FUTURE",
+          "title": "Designed with the landscape in mind",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "initiatives": []
+          },
+          "media": {
+            "src": "/images/projects/agro-golf-resort/sustainability.webp",
+            "alt": "Nature and landscape image"
+          },
+          "cta": null,
+          "settings": {
+            "showOnlyVerifiedClaims": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": false,
+          "theme": "light",
+          "layout": "landscape-map",
+          "eyebrow": "LOCATION",
+          "title": "Find your way to the landscape",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "nature-image-cta",
+          "eyebrow": "DISCOVER MORE",
+          "title": "Explore the vision for Agro & Golf Resort",
+          "subtitle": "Contact the Sampan Development team for confirmed project information.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/agro-golf-resort/enquiry.webp",
+            "alt": "Nature-led resort concept image"
+          },
+          "cta": {
+            "label": "Make an enquiry",
+            "href": "/contact?project=sampan-agro-golf-resort",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Land and light",
+        "gallerySubtitle": "Add approved landscape photography, renders and project imagery.",
+        "layout": "immersive-masonry",
+        "aspectRatio": "3:4",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Make an enquiry",
+          "href": "/contact?project=sampan-agro-golf-resort",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "agro-golf-resort-enquiry",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "express-highway-inn",
+        "sampan-metro-square"
+      ],
+      "seo": {
+        "metaTitle": "Sampan Agro & Golf Resort | Sampan Development",
+        "metaDescription": "Discover the nature-led vision for Sampan Agro & Golf Resort.",
+        "canonicalPath": "/projects/sampan-agro-golf-resort",
+        "keywords": [
+          "Sampan Agro & Golf Resort",
+          "agro resort",
+          "leisure destination"
+        ],
+        "ogTitle": "Sampan Agro & Golf Resort",
+        "ogDescription": "A slower rhythm. A wider horizon.",
+        "ogImage": "/images/projects/agro-golf-resort/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/agro-golf-resort/og.webp"
+      }
+    }
+  ]
+}

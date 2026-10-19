@@ -1,23 +1,32 @@
-// app/components/Footer.tsx
+// app/components/Footer/Footer.tsx
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  // Render year on the client to avoid `new Date()` during prerendering.
+  // Falls back to a static year until hydrated (no layout shift, no SSR error).
+  const [currentYear, setCurrentYear] = useState<number>(2025);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-[#0B0B0D] text-[#F5F5F2] font-sans antialiased">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-28">
-        
+
         {/* Top Section: Brand Intro & Navigation */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-20">
-          
+
           {/* A. Brand Introduction */}
           <div className="lg:col-span-5">
             <Link href="/" className="inline-block mb-10">
-              <Image 
-                src="/logo/logo.png" 
-                alt="Sampan Development Limited Logo" 
+              <Image
+                src="/logo/logo.png"
+                alt="Sampan Development Limited Logo"
                 width={200}
                 height={50}
                 className="h-auto w-auto object-contain"
@@ -37,7 +46,7 @@ export default function Footer() {
 
           {/* B. Navigation Columns */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-12">
-            
+
             {/* Explore */}
             <div className="flex flex-col">
               <h3 className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C5A059] mb-8">
@@ -61,7 +70,7 @@ export default function Footer() {
                 <li><Link href="/projects/ongoing/sampan-condominium" className="text-sm text-[#A3A3A3] hover:text-[#F5F5F2] transition-colors duration-300">Sampan Condominium</Link></li>
                 <li><Link href="/projects/ongoing/sampan-trade-emporium" className="text-sm text-[#A3A3A3] hover:text-[#F5F5F2] transition-colors duration-300">Sampan Trade Emporium</Link></li>
                 <li><Link href="/projects" className="inline-flex items-center gap-1.5 text-sm font-medium text-[#C5A059] hover:opacity-80 transition-opacity duration-300 mt-1">
-                  View All Projects 
+                  View All Projects
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                 </Link></li>
               </ul>
@@ -108,7 +117,7 @@ export default function Footer() {
           <p className="text-xs text-[#A3A3A3] tracking-wide text-center md:text-left">
             © {currentYear} Sampan Development Ltd. All rights reserved.
           </p>
-          
+
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-5">
               <a href="https://www.facebook.com/sampandevelopmentlimited" target="_blank" rel="noopener noreferrer" aria-label="Visit Sampan Development on Facebook" className="text-[#A3A3A3] hover:text-[#C5A059] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] rounded-full p-1">

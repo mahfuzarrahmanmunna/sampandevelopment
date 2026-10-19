@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 
 export default function FeaturedProject() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -19,21 +18,6 @@ export default function FeaturedProject() {
     gsap.registerPlugin(ScrollTrigger);
     
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // Initialize Lenis smooth scrolling
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    const raf = (time: number) => {
-      lenis.raf(time * 1000);
-    };
-    gsap.ticker.add(raf);
-    gsap.ticker.lagSmoothing(0);
 
     const ctx = gsap.context(() => {
       if (prefersReducedMotion) return;
@@ -100,8 +84,6 @@ export default function FeaturedProject() {
 
     return () => {
       ctx.revert();
-      gsap.ticker.remove(raf);
-      lenis.destroy();
     };
   }, []);
 

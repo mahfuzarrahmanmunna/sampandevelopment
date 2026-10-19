@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Validate project routes",
+			"type": "shell",
+			"command": "npm run lint && npm run build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

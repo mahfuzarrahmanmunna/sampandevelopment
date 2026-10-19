@@ -9,11 +9,11 @@ import { usePathname } from "next/navigation";
 // Data structure for projects
 const projectData = {
   ongoing: [
-    { name: "Sampan Metro Square", desc: "Ashulia, land share" },
-    { name: "Sampan Condominium", desc: "Highway, G+9" },
-    { name: "Express Highway Inn", desc: "Commercial" },
-    { name: "Sampan Trade Emporium", desc: "Highway, B+LG+G+11" },
-    { name: "Sampan Agro & Golf Resort", desc: "Leisure & Resort" },
+    { name: "Sampan Metro Square", slug: "sampan-metro-square", desc: "Ashulia, land share" },
+    { name: "Sampan Condominium", slug: "sampan-condominium", desc: "Highway, G+9" },
+    { name: "Express Highway Inn", slug: "express-highway-inn", desc: "Commercial" },
+    { name: "Sampan Trade Emporium", slug: "sampan-trade-emporium", desc: "Highway, B+LG+G+11" },
+    { name: "Sampan Agro & Golf Resort", slug: "sampan-agro-golf-resort", desc: "Leisure & Resort" },
   ],
   completed: [
     { name: "Sampan 21st Century", desc: "Beside University" },
@@ -78,7 +78,7 @@ export default function Navbar() {
     isMobileMenuOpen
       ? "bg-[#F8F7F3] text-[#101615] border-transparent h-20"
       : isScrolled
-      ? "bg-[#F8F7F3]/95 backdrop-blur-xl text-[#101615] border-[#DCD2C1] h-20 shadow-sm"
+      ? "bg-[#F8F7F3]/95 backdrop-blur-xl text-[#101615] border-[#DCD2C1] h-20 "
       : "bg-transparent text-[#F8F7F3] border-transparent h-24"
   }`;
 
@@ -107,7 +107,7 @@ export default function Navbar() {
                 height={40} 
                 priority
                 className={`h-auto w-auto object-contain transition-all duration-500 group-hover:opacity-80 ${
-                  !isScrolled && !isMobileMenuOpen ? "brightness-0 invert" : ""
+                  !isScrolled && !isMobileMenuOpen ? "" : ""
                 }`}
               />
             </Link>
@@ -162,7 +162,7 @@ export default function Navbar() {
                       <p className="text-sm text-[#E9E0D2]/60 mt-2 font-light">Experience sustainable luxury living nestled in nature.</p>
                     </div>
                     <Link 
-                      href="/projects/ongoing/sampan-agro-&-golf-resort" 
+                      href="/projects/ongoing/sampan-agro-golf-resort" 
                       className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-[#C6A06B] group"
                     >
                       Discover 
@@ -179,7 +179,7 @@ export default function Navbar() {
                       {projectData.ongoing.map((project) => (
                         <Link 
                           key={project.name} 
-                          href={`/projects/ongoing/${project.name.toLowerCase().replace(/\s+/g, '-')}`}
+                          href={`/projects/ongoing/${project.slug}`}
                           className="block group p-2 -m-2 rounded-sm hover:bg-[#E9E0D2]/40 transition-colors duration-200"
                         >
                           <div className="text-sm font-medium text-[#101616] group-hover:text-[#C6A06B] transition-colors flex items-center justify-between">
@@ -236,10 +236,10 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="flex items-center h-full">
-              <Link href="/sampan-group" className={getLinkClass("/sampan-group")}>
+              <a href="https://www.sampangroup.com.bd/" target="_blank" rel="noopener noreferrer" className={getLinkClass("/sampan-group")}>
                 Sampan Group
                 <span className={`absolute bottom-0 left-0 w-full h-[1px] bg-[#C6A06B] origin-left transition-transform duration-300 ${pathname === "/sampan-group" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}></span>
-              </Link>
+              </a>
             </li>
           </ul>
 
@@ -308,7 +308,7 @@ export default function Navbar() {
                       <h4 className="text-[#C6A06B] uppercase tracking-[0.25em] text-[10px] font-bold pb-3">Ongoing</h4>
                       <div className="space-y-3">
                         {projectData.ongoing.map(p => (
-                          <Link key={p.name} href={`/projects/ongoing/${p.name.toLowerCase().replace(/\s+/g, '-')}`} className="block text-lg font-lux-serif text-[#101615] hover:text-[#C6A06B] transition-colors">- {p.name}</Link>
+                          <Link key={p.name} href={`/projects/ongoing/${p.slug}`} className="block text-lg font-lux-serif text-[#101615] hover:text-[#C6A06B] transition-colors">- {p.name}</Link>
                         ))}
                       </div>
                     </div>

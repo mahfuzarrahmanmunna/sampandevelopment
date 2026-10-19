@@ -1,0 +1,2325 @@
+{
+  "site": {
+    "brandName": "Sampan Development",
+    "projectsBasePath": "/projects",
+    "completedProjectsPath": "/projects/completed"
+  },
+  "projects": [
+    {
+      "id": "sampan-21st-century",
+      "slug": "sampan-21st-century",
+      "projectName": "Sampan 21st Century",
+      "shortName": "21st Century",
+      "brandName": "Sampan Development",
+      "projectType": "residential development",
+      "category": "residential",
+      "status": "completed",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Near university area",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "A contemporary vision for connected living.",
+      "shortDescription": "Discover the vision for Sampan 21st Century, a residential development concept planned around modern living and its surrounding community.",
+      "longDescription": null,
+      "hero": {
+        "type": "cinematic",
+        "layout": "full-screen",
+        "eyebrow": "SAMPAN DEVELOPMENT · COMPLETED PROJECT",
+        "title": "A contemporary vision for modern living",
+        "highlightedText": "modern living",
+        "description": "Discover the vision for Sampan 21st Century, a residential development concept planned around modern living and its surrounding community.",
+        "backgroundImage": "/images/projects/21st-century/hero.webp",
+        "backgroundImageAlt": "Approved hero visual for Sampan 21st Century",
+        "mobileImage": "/images/projects/21st-century/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(16,25,21,0.78) 0%, rgba(16,25,21,0.22) 75%)",
+        "overlayOpacity": 0.78,
+        "height": "100svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": true,
+        "quickFacts": [
+          {
+            "label": "Project",
+            "value": "21st Century",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Category",
+            "value": "Residential Development",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Location",
+            "value": "Near university area",
+            "contentStatus": "needs_confirmation"
+          }
+        ],
+        "primaryCTA": {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-21st-century",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Explore the project",
+          "href": "#project-overview",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "future-ivory",
+        "primary": "#283A35",
+        "secondary": "#F2EEE5",
+        "accent": "#B9955B",
+        "background": "#FAF8F3",
+        "surface": "#FFFFFF",
+        "text": "#242822",
+        "mutedText": "#77766F",
+        "border": "#DDD8CC",
+        "heroOverlay": "rgba(20, 31, 25, 0.68)",
+        "buttonBackground": "#283A35",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #283A35 0%, #B9955B 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "contemporary, confident, editorial",
+        "imageTreatment": "architectural, natural contrast, warm highlights",
+        "sectionSpacing": "clamp(64px, 9vw, 128px)",
+        "borderRadius": "2px",
+        "buttonStyle": "sharp",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "project-vision",
+          "enquiry"
+        ],
+        "lightSections": [
+          "project-overview",
+          "specifications",
+          "location",
+          "gallery"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "A vision shaped by purpose",
+        "sectionSubtitle": "Introducing Sampan 21st Century",
+        "description": "A considered residential concept shaped by contemporary lifestyles and its wider neighbourhood.",
+        "editorialQuote": "Every meaningful development begins with a thoughtful understanding of place.",
+        "image": "/images/projects/21st-century/overview.webp",
+        "imageAlt": "Overview visual for Sampan 21st Century",
+        "layout": "split-editorial",
+        "highlights": [
+          {
+            "title": "A considered concept",
+            "description": "Explore the project's intended character and design direction.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "A sense of place",
+            "description": "Learn more about the project's setting as verified location information becomes available.",
+            "contentStatus": "needs_confirmation"
+          },
+          {
+            "title": "Project information",
+            "description": "Contact Sampan Development for confirmed details and relevant documentation.",
+            "contentStatus": "provided"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Residential Development",
+          "unit": null,
+          "icon": "building-2",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Category",
+          "value": "Residential",
+          "unit": null,
+          "icon": "layers",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Near university area",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Completion details",
+          "value": null,
+          "unit": null,
+          "icon": "calendar-check",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "project-overview",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "split-editorial",
+          "eyebrow": "THE PROJECT",
+          "title": "Discover Sampan 21st Century",
+          "subtitle": "A contemporary vision for connected living.",
+          "description": "A considered residential concept shaped by contemporary lifestyles and its wider neighbourhood.",
+          "content": {
+            "body": "A considered residential concept shaped by contemporary lifestyles and its wider neighbourhood.",
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/21st-century/overview.webp",
+            "alt": "Sampan 21st Century project overview"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "right",
+            "showIndex": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-specifications",
+          "type": "specifications",
+          "enabled": true,
+          "theme": "light",
+          "layout": "horizontal-facts",
+          "eyebrow": "AT A GLANCE",
+          "title": "Project essentials",
+          "subtitle": "Key project information currently available.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showIcons": true,
+            "columns": 4
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-vision",
+          "type": "image-text",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "image-left-copy-right",
+          "eyebrow": "THE VISION",
+          "title": "A contemporary vision for connected living.",
+          "subtitle": null,
+          "description": "A considered residential concept shaped by contemporary lifestyles and its wider neighbourhood.",
+          "content": {
+            "body": "A considered residential concept shaped by contemporary lifestyles and its wider neighbourhood.",
+            "points": []
+          },
+          "media": {
+            "src": "/images/projects/21st-century/vision.webp",
+            "alt": "Conceptual visual for Sampan 21st Century"
+          },
+          "cta": null,
+          "settings": {
+            "imageRatio": "4:5"
+          },
+          "contentStatus": "editorial"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": false,
+          "theme": "light",
+          "layout": "map-and-copy",
+          "eyebrow": "THE LOCATION",
+          "title": "Discover the surrounding area",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "editorial-grid",
+          "eyebrow": "VISUAL STORY",
+          "title": "Explore 21st Century",
+          "subtitle": "Approved project photography and visuals will be added here.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "aspectRatio": "4:3",
+            "enableLightbox": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "faq",
+          "type": "faq",
+          "enabled": false,
+          "theme": "light",
+          "layout": "accordion",
+          "eyebrow": "QUESTIONS",
+          "title": "Frequently asked questions",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "allowMultipleOpen": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "large-editorial-cta",
+          "eyebrow": "START A CONVERSATION",
+          "title": "Learn more about Sampan 21st Century",
+          "subtitle": "Contact the Sampan Development team for confirmed project information.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/21st-century/enquiry.webp",
+            "alt": "Sampan 21st Century project image"
+          },
+          "cta": {
+            "label": "Make an enquiry",
+            "href": "/contact?project=sampan-21st-century",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "provided"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Project gallery",
+        "gallerySubtitle": "Approved project visuals will be added when available.",
+        "layout": "editorial-grid",
+        "aspectRatio": "4:3",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-21st-century",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "sampan-21st-century-enquiry",
+          "enabled": true
+        },
+        {
+          "label": "View all projects",
+          "href": "/projects",
+          "variant": "secondary",
+          "style": "text",
+          "icon": "arrow-left",
+          "trackingId": "sampan-21st-century-all-projects",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-taj",
+        "sampan-niketon"
+      ],
+      "seo": {
+        "metaTitle": "Sampan 21st Century | Sampan Development",
+        "metaDescription": "Discover the vision for Sampan 21st Century, a residential development concept planned around modern living and its surrounding community.",
+        "canonicalPath": "/projects/completed/sampan-21st-century",
+        "keywords": [
+          "Sampan 21st Century",
+          "Sampan Development",
+          "residential"
+        ],
+        "ogTitle": "Sampan 21st Century",
+        "ogDescription": "Discover the vision for Sampan 21st Century, a residential development concept planned around modern living and its surrounding community.",
+        "ogImage": "/images/projects/21st-century/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/21st-century/og.webp"
+      }
+    },
+    {
+      "id": "sampan-taj",
+      "slug": "sampan-taj",
+      "projectName": "Sampan Taj",
+      "shortName": "Sampan Taj",
+      "brandName": "Sampan Development",
+      "projectType": "residential development",
+      "category": "residential",
+      "status": "completed",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Near university area",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "A refined address with a timeless point of view.",
+      "shortDescription": "Explore the concept behind Sampan Taj, a residential project envisioned with a refined architectural character and a strong sense of place.",
+      "longDescription": null,
+      "hero": {
+        "type": "cinematic",
+        "layout": "full-screen",
+        "eyebrow": "SAMPAN DEVELOPMENT · COMPLETED PROJECT",
+        "title": "A timeless expression of refined living",
+        "highlightedText": "refined living",
+        "description": "Explore the concept behind Sampan Taj, a residential project envisioned with a refined architectural character and a strong sense of place.",
+        "backgroundImage": "/images/projects/sampan-taj/hero.webp",
+        "backgroundImageAlt": "Approved hero visual for Sampan Taj",
+        "mobileImage": "/images/projects/sampan-taj/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(16,25,21,0.78) 0%, rgba(16,25,21,0.22) 75%)",
+        "overlayOpacity": 0.78,
+        "height": "100svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": true,
+        "quickFacts": [
+          {
+            "label": "Project",
+            "value": "Sampan Taj",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Category",
+            "value": "Residential Development",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Location",
+            "value": "Near university area",
+            "contentStatus": "needs_confirmation"
+          }
+        ],
+        "primaryCTA": {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-taj",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Explore the project",
+          "href": "#project-overview",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "taj-heritage",
+        "primary": "#352D28",
+        "secondary": "#F3E9D9",
+        "accent": "#B78A4A",
+        "background": "#FBF7F0",
+        "surface": "#FFFFFF",
+        "text": "#242822",
+        "mutedText": "#77766F",
+        "border": "#DDD8CC",
+        "heroOverlay": "rgba(20, 31, 25, 0.68)",
+        "buttonBackground": "#352D28",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #352D28 0%, #B78A4A 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "refined, warm, heritage-inspired",
+        "imageTreatment": "architectural, natural contrast, warm highlights",
+        "sectionSpacing": "clamp(64px, 9vw, 128px)",
+        "borderRadius": "2px",
+        "buttonStyle": "sharp",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "project-vision",
+          "enquiry"
+        ],
+        "lightSections": [
+          "project-overview",
+          "specifications",
+          "location",
+          "gallery"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "A vision shaped by purpose",
+        "sectionSubtitle": "Introducing Sampan Taj",
+        "description": "Sampan Taj is presented as a residential concept with a warm, timeless visual identity. Project specifications and approvals should be confirmed before publication.",
+        "editorialQuote": "Every meaningful development begins with a thoughtful understanding of place.",
+        "image": "/images/projects/sampan-taj/overview.webp",
+        "imageAlt": "Overview visual for Sampan Taj",
+        "layout": "split-editorial",
+        "highlights": [
+          {
+            "title": "A considered concept",
+            "description": "Explore the project's intended character and design direction.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "A sense of place",
+            "description": "Learn more about the project's setting as verified location information becomes available.",
+            "contentStatus": "needs_confirmation"
+          },
+          {
+            "title": "Project information",
+            "description": "Contact Sampan Development for confirmed details and relevant documentation.",
+            "contentStatus": "provided"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Residential Development",
+          "unit": null,
+          "icon": "building-2",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Category",
+          "value": "Residential",
+          "unit": null,
+          "icon": "layers",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Near university area",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Completion details",
+          "value": null,
+          "unit": null,
+          "icon": "calendar-check",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "project-overview",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "split-editorial",
+          "eyebrow": "THE PROJECT",
+          "title": "Discover Sampan Taj",
+          "subtitle": "A refined address with a timeless point of view.",
+          "description": "Sampan Taj is presented as a residential concept with a warm, timeless visual identity. Project specifications and approvals should be confirmed before publication.",
+          "content": {
+            "body": "Sampan Taj is presented as a residential concept with a warm, timeless visual identity. Project specifications and approvals should be confirmed before publication.",
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/sampan-taj/overview.webp",
+            "alt": "Sampan Taj project overview"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "right",
+            "showIndex": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-specifications",
+          "type": "specifications",
+          "enabled": true,
+          "theme": "light",
+          "layout": "horizontal-facts",
+          "eyebrow": "AT A GLANCE",
+          "title": "Project essentials",
+          "subtitle": "Key project information currently available.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showIcons": true,
+            "columns": 4
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-vision",
+          "type": "image-text",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "image-left-copy-right",
+          "eyebrow": "THE VISION",
+          "title": "A refined address with a timeless point of view.",
+          "subtitle": null,
+          "description": "Sampan Taj is presented as a residential concept with a warm, timeless visual identity. Project specifications and approvals should be confirmed before publication.",
+          "content": {
+            "body": "Sampan Taj is presented as a residential concept with a warm, timeless visual identity. Project specifications and approvals should be confirmed before publication.",
+            "points": []
+          },
+          "media": {
+            "src": "/images/projects/sampan-taj/vision.webp",
+            "alt": "Conceptual visual for Sampan Taj"
+          },
+          "cta": null,
+          "settings": {
+            "imageRatio": "4:5"
+          },
+          "contentStatus": "editorial"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": false,
+          "theme": "light",
+          "layout": "map-and-copy",
+          "eyebrow": "THE LOCATION",
+          "title": "Discover the surrounding area",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "editorial-grid",
+          "eyebrow": "VISUAL STORY",
+          "title": "Explore Sampan Taj",
+          "subtitle": "Approved project photography and visuals will be added here.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "aspectRatio": "4:3",
+            "enableLightbox": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "faq",
+          "type": "faq",
+          "enabled": false,
+          "theme": "light",
+          "layout": "accordion",
+          "eyebrow": "QUESTIONS",
+          "title": "Frequently asked questions",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "allowMultipleOpen": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "large-editorial-cta",
+          "eyebrow": "START A CONVERSATION",
+          "title": "Learn more about Sampan Taj",
+          "subtitle": "Contact the Sampan Development team for confirmed project information.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/sampan-taj/enquiry.webp",
+            "alt": "Sampan Taj project image"
+          },
+          "cta": {
+            "label": "Make an enquiry",
+            "href": "/contact?project=sampan-taj",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "provided"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Project gallery",
+        "gallerySubtitle": "Approved project visuals will be added when available.",
+        "layout": "editorial-grid",
+        "aspectRatio": "4:3",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-taj",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "sampan-taj-enquiry",
+          "enabled": true
+        },
+        {
+          "label": "View all projects",
+          "href": "/projects",
+          "variant": "secondary",
+          "style": "text",
+          "icon": "arrow-left",
+          "trackingId": "sampan-taj-all-projects",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-21st-century",
+        "sampan-white-house"
+      ],
+      "seo": {
+        "metaTitle": "Sampan Taj | Sampan Development",
+        "metaDescription": "Explore the concept behind Sampan Taj, a residential project envisioned with a refined architectural character and a strong sense of place.",
+        "canonicalPath": "/projects/completed/sampan-taj",
+        "keywords": [
+          "Sampan Taj",
+          "Sampan Development",
+          "residential"
+        ],
+        "ogTitle": "Sampan Taj",
+        "ogDescription": "Explore the concept behind Sampan Taj, a residential project envisioned with a refined architectural character and a strong sense of place.",
+        "ogImage": "/images/projects/sampan-taj/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/sampan-taj/og.webp"
+      }
+    },
+    {
+      "id": "sampan-niketon",
+      "slug": "sampan-niketon",
+      "projectName": "Sampan Niketon",
+      "shortName": "Niketon",
+      "brandName": "Sampan Development",
+      "projectType": "residential development",
+      "category": "residential",
+      "status": "completed",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Near university area",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "Thoughtful spaces for everyday life.",
+      "shortDescription": "Discover Sampan Niketon, a residential development concept focused on practical living, a welcoming atmosphere and its neighbourhood context.",
+      "longDescription": null,
+      "hero": {
+        "type": "cinematic",
+        "layout": "full-screen",
+        "eyebrow": "SAMPAN DEVELOPMENT · COMPLETED PROJECT",
+        "title": "Everyday living, thoughtfully considered",
+        "highlightedText": "thoughtfully considered",
+        "description": "Discover Sampan Niketon, a residential development concept focused on practical living, a welcoming atmosphere and its neighbourhood context.",
+        "backgroundImage": "/images/projects/sampan-niketon/hero.webp",
+        "backgroundImageAlt": "Approved hero visual for Sampan Niketon",
+        "mobileImage": "/images/projects/sampan-niketon/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(16,25,21,0.78) 0%, rgba(16,25,21,0.22) 75%)",
+        "overlayOpacity": 0.78,
+        "height": "100svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": true,
+        "quickFacts": [
+          {
+            "label": "Project",
+            "value": "Niketon",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Category",
+            "value": "Residential Development",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Location",
+            "value": "Near university area",
+            "contentStatus": "needs_confirmation"
+          }
+        ],
+        "primaryCTA": {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-niketon",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Explore the project",
+          "href": "#project-overview",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "niketon-green",
+        "primary": "#34483C",
+        "secondary": "#E8EDE5",
+        "accent": "#A78B5A",
+        "background": "#F7F8F4",
+        "surface": "#FFFFFF",
+        "text": "#242822",
+        "mutedText": "#77766F",
+        "border": "#DDD8CC",
+        "heroOverlay": "rgba(20, 31, 25, 0.68)",
+        "buttonBackground": "#34483C",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #34483C 0%, #A78B5A 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "calm, natural, understated",
+        "imageTreatment": "architectural, natural contrast, warm highlights",
+        "sectionSpacing": "clamp(64px, 9vw, 128px)",
+        "borderRadius": "2px",
+        "buttonStyle": "sharp",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "project-vision",
+          "enquiry"
+        ],
+        "lightSections": [
+          "project-overview",
+          "specifications",
+          "location",
+          "gallery"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "A vision shaped by purpose",
+        "sectionSubtitle": "Introducing Sampan Niketon",
+        "description": "A residential concept intended to balance everyday practicality with a calm and considered design language.",
+        "editorialQuote": "Every meaningful development begins with a thoughtful understanding of place.",
+        "image": "/images/projects/sampan-niketon/overview.webp",
+        "imageAlt": "Overview visual for Sampan Niketon",
+        "layout": "split-editorial",
+        "highlights": [
+          {
+            "title": "A considered concept",
+            "description": "Explore the project's intended character and design direction.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "A sense of place",
+            "description": "Learn more about the project's setting as verified location information becomes available.",
+            "contentStatus": "needs_confirmation"
+          },
+          {
+            "title": "Project information",
+            "description": "Contact Sampan Development for confirmed details and relevant documentation.",
+            "contentStatus": "provided"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Residential Development",
+          "unit": null,
+          "icon": "building-2",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Category",
+          "value": "Residential",
+          "unit": null,
+          "icon": "layers",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Near university area",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Completion details",
+          "value": null,
+          "unit": null,
+          "icon": "calendar-check",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "project-overview",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "split-editorial",
+          "eyebrow": "THE PROJECT",
+          "title": "Discover Sampan Niketon",
+          "subtitle": "Thoughtful spaces for everyday life.",
+          "description": "A residential concept intended to balance everyday practicality with a calm and considered design language.",
+          "content": {
+            "body": "A residential concept intended to balance everyday practicality with a calm and considered design language.",
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/sampan-niketon/overview.webp",
+            "alt": "Sampan Niketon project overview"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "right",
+            "showIndex": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-specifications",
+          "type": "specifications",
+          "enabled": true,
+          "theme": "light",
+          "layout": "horizontal-facts",
+          "eyebrow": "AT A GLANCE",
+          "title": "Project essentials",
+          "subtitle": "Key project information currently available.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showIcons": true,
+            "columns": 4
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-vision",
+          "type": "image-text",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "image-left-copy-right",
+          "eyebrow": "THE VISION",
+          "title": "Thoughtful spaces for everyday life.",
+          "subtitle": null,
+          "description": "A residential concept intended to balance everyday practicality with a calm and considered design language.",
+          "content": {
+            "body": "A residential concept intended to balance everyday practicality with a calm and considered design language.",
+            "points": []
+          },
+          "media": {
+            "src": "/images/projects/sampan-niketon/vision.webp",
+            "alt": "Conceptual visual for Sampan Niketon"
+          },
+          "cta": null,
+          "settings": {
+            "imageRatio": "4:5"
+          },
+          "contentStatus": "editorial"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": false,
+          "theme": "light",
+          "layout": "map-and-copy",
+          "eyebrow": "THE LOCATION",
+          "title": "Discover the surrounding area",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "editorial-grid",
+          "eyebrow": "VISUAL STORY",
+          "title": "Explore Niketon",
+          "subtitle": "Approved project photography and visuals will be added here.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "aspectRatio": "4:3",
+            "enableLightbox": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "faq",
+          "type": "faq",
+          "enabled": false,
+          "theme": "light",
+          "layout": "accordion",
+          "eyebrow": "QUESTIONS",
+          "title": "Frequently asked questions",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "allowMultipleOpen": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "large-editorial-cta",
+          "eyebrow": "START A CONVERSATION",
+          "title": "Learn more about Sampan Niketon",
+          "subtitle": "Contact the Sampan Development team for confirmed project information.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/sampan-niketon/enquiry.webp",
+            "alt": "Sampan Niketon project image"
+          },
+          "cta": {
+            "label": "Make an enquiry",
+            "href": "/contact?project=sampan-niketon",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "provided"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Project gallery",
+        "gallerySubtitle": "Approved project visuals will be added when available.",
+        "layout": "editorial-grid",
+        "aspectRatio": "4:3",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-niketon",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "sampan-niketon-enquiry",
+          "enabled": true
+        },
+        {
+          "label": "View all projects",
+          "href": "/projects",
+          "variant": "secondary",
+          "style": "text",
+          "icon": "arrow-left",
+          "trackingId": "sampan-niketon-all-projects",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-21st-century",
+        "sampan-eco-agro-resort"
+      ],
+      "seo": {
+        "metaTitle": "Sampan Niketon | Sampan Development",
+        "metaDescription": "Discover Sampan Niketon, a residential development concept focused on practical living, a welcoming atmosphere and its neighbourhood context.",
+        "canonicalPath": "/projects/completed/sampan-niketon",
+        "keywords": [
+          "Sampan Niketon",
+          "Sampan Development",
+          "residential"
+        ],
+        "ogTitle": "Sampan Niketon",
+        "ogDescription": "Discover Sampan Niketon, a residential development concept focused on practical living, a welcoming atmosphere and its neighbourhood context.",
+        "ogImage": "/images/projects/sampan-niketon/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/sampan-niketon/og.webp"
+      }
+    },
+    {
+      "id": "sampan-white-house",
+      "slug": "sampan-white-house",
+      "projectName": "Sampan White House",
+      "shortName": "White House",
+      "brandName": "Sampan Development",
+      "projectType": "residential development",
+      "category": "residential",
+      "status": "completed",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Near university area",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "Clarity, light and contemporary character.",
+      "shortDescription": "Learn about the design direction of Sampan White House, a residential project concept expressed through a clean and contemporary identity.",
+      "longDescription": null,
+      "hero": {
+        "type": "cinematic",
+        "layout": "full-screen",
+        "eyebrow": "SAMPAN DEVELOPMENT · COMPLETED PROJECT",
+        "title": "A brighter perspective on contemporary living",
+        "highlightedText": "contemporary living",
+        "description": "Learn about the design direction of Sampan White House, a residential project concept expressed through a clean and contemporary identity.",
+        "backgroundImage": "/images/projects/sampan-white-house/hero.webp",
+        "backgroundImageAlt": "Approved hero visual for Sampan White House",
+        "mobileImage": "/images/projects/sampan-white-house/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(16,25,21,0.78) 0%, rgba(16,25,21,0.22) 75%)",
+        "overlayOpacity": 0.78,
+        "height": "100svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": true,
+        "quickFacts": [
+          {
+            "label": "Project",
+            "value": "White House",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Category",
+            "value": "Residential Development",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Location",
+            "value": "Near university area",
+            "contentStatus": "needs_confirmation"
+          }
+        ],
+        "primaryCTA": {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-white-house",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Explore the project",
+          "href": "#project-overview",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "white-house",
+        "primary": "#242A2A",
+        "secondary": "#F1F1ED",
+        "accent": "#B49A70",
+        "background": "#FFFFFF",
+        "surface": "#FFFFFF",
+        "text": "#242822",
+        "mutedText": "#77766F",
+        "border": "#DDD8CC",
+        "heroOverlay": "rgba(20, 31, 25, 0.68)",
+        "buttonBackground": "#242A2A",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #242A2A 0%, #B49A70 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "minimal, light-filled, architectural",
+        "imageTreatment": "architectural, natural contrast, warm highlights",
+        "sectionSpacing": "clamp(64px, 9vw, 128px)",
+        "borderRadius": "2px",
+        "buttonStyle": "sharp",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "project-vision",
+          "enquiry"
+        ],
+        "lightSections": [
+          "project-overview",
+          "specifications",
+          "location",
+          "gallery"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "A vision shaped by purpose",
+        "sectionSubtitle": "Introducing Sampan White House",
+        "description": "The project's visual direction emphasizes clarity and contemporary architectural character. Detailed specifications remain subject to confirmation.",
+        "editorialQuote": "Every meaningful development begins with a thoughtful understanding of place.",
+        "image": "/images/projects/sampan-white-house/overview.webp",
+        "imageAlt": "Overview visual for Sampan White House",
+        "layout": "split-editorial",
+        "highlights": [
+          {
+            "title": "A considered concept",
+            "description": "Explore the project's intended character and design direction.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "A sense of place",
+            "description": "Learn more about the project's setting as verified location information becomes available.",
+            "contentStatus": "needs_confirmation"
+          },
+          {
+            "title": "Project information",
+            "description": "Contact Sampan Development for confirmed details and relevant documentation.",
+            "contentStatus": "provided"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Residential Development",
+          "unit": null,
+          "icon": "building-2",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Category",
+          "value": "Residential",
+          "unit": null,
+          "icon": "layers",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Near university area",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Completion details",
+          "value": null,
+          "unit": null,
+          "icon": "calendar-check",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "project-overview",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "split-editorial",
+          "eyebrow": "THE PROJECT",
+          "title": "Discover Sampan White House",
+          "subtitle": "Clarity, light and contemporary character.",
+          "description": "The project's visual direction emphasizes clarity and contemporary architectural character. Detailed specifications remain subject to confirmation.",
+          "content": {
+            "body": "The project's visual direction emphasizes clarity and contemporary architectural character. Detailed specifications remain subject to confirmation.",
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/sampan-white-house/overview.webp",
+            "alt": "Sampan White House project overview"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "right",
+            "showIndex": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-specifications",
+          "type": "specifications",
+          "enabled": true,
+          "theme": "light",
+          "layout": "horizontal-facts",
+          "eyebrow": "AT A GLANCE",
+          "title": "Project essentials",
+          "subtitle": "Key project information currently available.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showIcons": true,
+            "columns": 4
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-vision",
+          "type": "image-text",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "image-left-copy-right",
+          "eyebrow": "THE VISION",
+          "title": "Clarity, light and contemporary character.",
+          "subtitle": null,
+          "description": "The project's visual direction emphasizes clarity and contemporary architectural character. Detailed specifications remain subject to confirmation.",
+          "content": {
+            "body": "The project's visual direction emphasizes clarity and contemporary architectural character. Detailed specifications remain subject to confirmation.",
+            "points": []
+          },
+          "media": {
+            "src": "/images/projects/sampan-white-house/vision.webp",
+            "alt": "Conceptual visual for Sampan White House"
+          },
+          "cta": null,
+          "settings": {
+            "imageRatio": "4:5"
+          },
+          "contentStatus": "editorial"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": false,
+          "theme": "light",
+          "layout": "map-and-copy",
+          "eyebrow": "THE LOCATION",
+          "title": "Discover the surrounding area",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "editorial-grid",
+          "eyebrow": "VISUAL STORY",
+          "title": "Explore White House",
+          "subtitle": "Approved project photography and visuals will be added here.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "aspectRatio": "4:3",
+            "enableLightbox": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "faq",
+          "type": "faq",
+          "enabled": false,
+          "theme": "light",
+          "layout": "accordion",
+          "eyebrow": "QUESTIONS",
+          "title": "Frequently asked questions",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "allowMultipleOpen": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "large-editorial-cta",
+          "eyebrow": "START A CONVERSATION",
+          "title": "Learn more about Sampan White House",
+          "subtitle": "Contact the Sampan Development team for confirmed project information.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/sampan-white-house/enquiry.webp",
+            "alt": "Sampan White House project image"
+          },
+          "cta": {
+            "label": "Make an enquiry",
+            "href": "/contact?project=sampan-white-house",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "provided"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Project gallery",
+        "gallerySubtitle": "Approved project visuals will be added when available.",
+        "layout": "editorial-grid",
+        "aspectRatio": "4:3",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-white-house",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "sampan-white-house-enquiry",
+          "enabled": true
+        },
+        {
+          "label": "View all projects",
+          "href": "/projects",
+          "variant": "secondary",
+          "style": "text",
+          "icon": "arrow-left",
+          "trackingId": "sampan-white-house-all-projects",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-taj",
+        "sampan-21st-century"
+      ],
+      "seo": {
+        "metaTitle": "Sampan White House | Sampan Development",
+        "metaDescription": "Learn about the design direction of Sampan White House, a residential project concept expressed through a clean and contemporary identity.",
+        "canonicalPath": "/projects/completed/sampan-white-house",
+        "keywords": [
+          "Sampan White House",
+          "Sampan Development",
+          "residential"
+        ],
+        "ogTitle": "Sampan White House",
+        "ogDescription": "Learn about the design direction of Sampan White House, a residential project concept expressed through a clean and contemporary identity.",
+        "ogImage": "/images/projects/sampan-white-house/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/sampan-white-house/og.webp"
+      }
+    },
+    {
+      "id": "sampan-highway-inn",
+      "slug": "sampan-highway-inn",
+      "projectName": "Sampan Highway Inn",
+      "shortName": "Highway Inn",
+      "brandName": "Sampan Development",
+      "projectType": "hospitality development",
+      "category": "hospitality",
+      "status": "completed",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Highway-side location",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "Where the highway leads to hospitality.",
+      "shortDescription": "Explore Sampan Highway Inn, a hospitality destination concept shaped around convenient access, guest comfort and a welcoming stay.",
+      "longDescription": null,
+      "hero": {
+        "type": "cinematic",
+        "layout": "full-screen",
+        "eyebrow": "SAMPAN DEVELOPMENT · COMPLETED PROJECT",
+        "title": "A welcoming destination along the journey",
+        "highlightedText": "along the journey",
+        "description": "Explore Sampan Highway Inn, a hospitality destination concept shaped around convenient access, guest comfort and a welcoming stay.",
+        "backgroundImage": "/images/projects/highway-inn/hero.webp",
+        "backgroundImageAlt": "Approved hero visual for Sampan Highway Inn",
+        "mobileImage": "/images/projects/highway-inn/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(16,25,21,0.78) 0%, rgba(16,25,21,0.22) 75%)",
+        "overlayOpacity": 0.78,
+        "height": "100svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": true,
+        "quickFacts": [
+          {
+            "label": "Project",
+            "value": "Highway Inn",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Category",
+            "value": "Hospitality Development",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Location",
+            "value": "Highway-side location",
+            "contentStatus": "needs_confirmation"
+          }
+        ],
+        "primaryCTA": {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-highway-inn",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Explore the project",
+          "href": "#project-overview",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "highway-obsidian",
+        "primary": "#171A19",
+        "secondary": "#EDE8DE",
+        "accent": "#C5A059",
+        "background": "#F8F6F1",
+        "surface": "#FFFFFF",
+        "text": "#242822",
+        "mutedText": "#77766F",
+        "border": "#DDD8CC",
+        "heroOverlay": "rgba(20, 31, 25, 0.68)",
+        "buttonBackground": "#171A19",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #171A19 0%, #C5A059 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "premium, hospitality-led, cinematic",
+        "imageTreatment": "architectural, natural contrast, warm highlights",
+        "sectionSpacing": "clamp(64px, 9vw, 128px)",
+        "borderRadius": "2px",
+        "buttonStyle": "sharp",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "project-vision",
+          "enquiry"
+        ],
+        "lightSections": [
+          "project-overview",
+          "specifications",
+          "location",
+          "gallery"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "A vision shaped by purpose",
+        "sectionSubtitle": "Introducing Sampan Highway Inn",
+        "description": "Sampan Highway Inn is positioned as a hospitality project. Room inventory, facilities, opening status and booking details should be confirmed by the project team.",
+        "editorialQuote": "Every meaningful development begins with a thoughtful understanding of place.",
+        "image": "/images/projects/highway-inn/overview.webp",
+        "imageAlt": "Overview visual for Sampan Highway Inn",
+        "layout": "split-editorial",
+        "highlights": [
+          {
+            "title": "A considered concept",
+            "description": "Explore the project's intended character and design direction.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "A sense of place",
+            "description": "Learn more about the project's setting as verified location information becomes available.",
+            "contentStatus": "needs_confirmation"
+          },
+          {
+            "title": "Project information",
+            "description": "Contact Sampan Development for confirmed details and relevant documentation.",
+            "contentStatus": "provided"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Hospitality Development",
+          "unit": null,
+          "icon": "building-2",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Category",
+          "value": "Hospitality",
+          "unit": null,
+          "icon": "layers",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Highway-side location",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Completion details",
+          "value": null,
+          "unit": null,
+          "icon": "calendar-check",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "project-overview",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "split-editorial",
+          "eyebrow": "THE PROJECT",
+          "title": "Discover Sampan Highway Inn",
+          "subtitle": "Where the highway leads to hospitality.",
+          "description": "Sampan Highway Inn is positioned as a hospitality project. Room inventory, facilities, opening status and booking details should be confirmed by the project team.",
+          "content": {
+            "body": "Sampan Highway Inn is positioned as a hospitality project. Room inventory, facilities, opening status and booking details should be confirmed by the project team.",
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/highway-inn/overview.webp",
+            "alt": "Sampan Highway Inn project overview"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "right",
+            "showIndex": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-specifications",
+          "type": "specifications",
+          "enabled": true,
+          "theme": "light",
+          "layout": "horizontal-facts",
+          "eyebrow": "AT A GLANCE",
+          "title": "Project essentials",
+          "subtitle": "Key project information currently available.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showIcons": true,
+            "columns": 4
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-vision",
+          "type": "image-text",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "image-left-copy-right",
+          "eyebrow": "THE VISION",
+          "title": "Where the highway leads to hospitality.",
+          "subtitle": null,
+          "description": "Sampan Highway Inn is positioned as a hospitality project. Room inventory, facilities, opening status and booking details should be confirmed by the project team.",
+          "content": {
+            "body": "Sampan Highway Inn is positioned as a hospitality project. Room inventory, facilities, opening status and booking details should be confirmed by the project team.",
+            "points": []
+          },
+          "media": {
+            "src": "/images/projects/highway-inn/vision.webp",
+            "alt": "Conceptual visual for Sampan Highway Inn"
+          },
+          "cta": null,
+          "settings": {
+            "imageRatio": "4:5"
+          },
+          "contentStatus": "editorial"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": false,
+          "theme": "light",
+          "layout": "map-and-copy",
+          "eyebrow": "THE LOCATION",
+          "title": "Discover the surrounding area",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "editorial-grid",
+          "eyebrow": "VISUAL STORY",
+          "title": "Explore Highway Inn",
+          "subtitle": "Approved project photography and visuals will be added here.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "aspectRatio": "4:3",
+            "enableLightbox": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "faq",
+          "type": "faq",
+          "enabled": false,
+          "theme": "light",
+          "layout": "accordion",
+          "eyebrow": "QUESTIONS",
+          "title": "Frequently asked questions",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "allowMultipleOpen": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "large-editorial-cta",
+          "eyebrow": "START A CONVERSATION",
+          "title": "Learn more about Sampan Highway Inn",
+          "subtitle": "Contact the Sampan Development team for confirmed project information.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/highway-inn/enquiry.webp",
+            "alt": "Sampan Highway Inn project image"
+          },
+          "cta": {
+            "label": "Make an enquiry",
+            "href": "/contact?project=sampan-highway-inn",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "provided"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Project gallery",
+        "gallerySubtitle": "Approved project visuals will be added when available.",
+        "layout": "editorial-grid",
+        "aspectRatio": "4:3",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-highway-inn",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "sampan-highway-inn-enquiry",
+          "enabled": true
+        },
+        {
+          "label": "View all projects",
+          "href": "/projects",
+          "variant": "secondary",
+          "style": "text",
+          "icon": "arrow-left",
+          "trackingId": "sampan-highway-inn-all-projects",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-eco-agro-resort",
+        "sampan-21st-century"
+      ],
+      "seo": {
+        "metaTitle": "Sampan Highway Inn | Sampan Development",
+        "metaDescription": "Explore Sampan Highway Inn, a hospitality destination concept shaped around convenient access, guest comfort and a welcoming stay.",
+        "canonicalPath": "/projects/completed/sampan-highway-inn",
+        "keywords": [
+          "Sampan Highway Inn",
+          "Sampan Development",
+          "hospitality"
+        ],
+        "ogTitle": "Sampan Highway Inn",
+        "ogDescription": "Explore Sampan Highway Inn, a hospitality destination concept shaped around convenient access, guest comfort and a welcoming stay.",
+        "ogImage": "/images/projects/highway-inn/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/highway-inn/og.webp"
+      }
+    },
+    {
+      "id": "sampan-eco-agro-resort",
+      "slug": "sampan-eco-agro-resort",
+      "projectName": "Sampan Eco & Agro Resort",
+      "shortName": "Eco & Agro Resort",
+      "brandName": "Sampan Development",
+      "projectType": "eco and agro resort",
+      "category": "hospitality",
+      "status": "completed",
+      "contentStatus": "needs_confirmation",
+      "location": {
+        "area": "Location to be confirmed",
+        "city": null,
+        "country": "Bangladesh",
+        "address": null,
+        "mapEmbedUrl": null,
+        "coordinates": null
+      },
+      "tagline": "A slower rhythm, closer to nature.",
+      "shortDescription": "Discover the vision for Sampan Eco & Agro Resort, a nature-oriented retreat concept bringing together relaxation, landscape and agro-inspired experiences.",
+      "longDescription": null,
+      "hero": {
+        "type": "cinematic",
+        "layout": "full-screen",
+        "eyebrow": "SAMPAN DEVELOPMENT · COMPLETED PROJECT",
+        "title": "Reconnect with nature and a slower rhythm",
+        "highlightedText": "Reconnect with nature",
+        "description": "Discover the vision for Sampan Eco & Agro Resort, a nature-oriented retreat concept bringing together relaxation, landscape and agro-inspired experiences.",
+        "backgroundImage": "/images/projects/eco-agro-resort/hero.webp",
+        "backgroundImageAlt": "Approved hero visual for Sampan Eco & Agro Resort",
+        "mobileImage": "/images/projects/eco-agro-resort/hero-mobile.webp",
+        "backgroundPosition": "center",
+        "overlay": "linear-gradient(90deg, rgba(16,25,21,0.78) 0%, rgba(16,25,21,0.22) 75%)",
+        "overlayOpacity": 0.78,
+        "height": "100svh",
+        "alignment": "left",
+        "themeMode": "dark",
+        "showBreadcrumbs": true,
+        "showProjectStatus": true,
+        "showLocation": true,
+        "showScrollIndicator": true,
+        "showQuickFacts": true,
+        "quickFacts": [
+          {
+            "label": "Project",
+            "value": "Eco & Agro Resort",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Category",
+            "value": "Eco And Agro Resort",
+            "contentStatus": "provided"
+          },
+          {
+            "label": "Location",
+            "value": "Location to be confirmed",
+            "contentStatus": "needs_confirmation"
+          }
+        ],
+        "primaryCTA": {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-eco-agro-resort",
+          "variant": "primary",
+          "enabled": true
+        },
+        "secondaryCTA": {
+          "label": "Explore the project",
+          "href": "#project-overview",
+          "variant": "text",
+          "enabled": true
+        },
+        "imageCaption": null
+      },
+      "theme": {
+        "themeId": "eco-earth",
+        "primary": "#31483A",
+        "secondary": "#E9E6D7",
+        "accent": "#B38B56",
+        "background": "#F7F6EF",
+        "surface": "#FFFFFF",
+        "text": "#242822",
+        "mutedText": "#77766F",
+        "border": "#DDD8CC",
+        "heroOverlay": "rgba(20, 31, 25, 0.68)",
+        "buttonBackground": "#31483A",
+        "buttonText": "#FFFFFF",
+        "gradient": "linear-gradient(135deg, #31483A 0%, #B38B56 100%)",
+        "fontHeading": "Plus Jakarta Sans",
+        "fontBody": "Plus Jakarta Sans",
+        "designMood": "nature-led, grounded, restorative",
+        "imageTreatment": "architectural, natural contrast, warm highlights",
+        "sectionSpacing": "clamp(64px, 9vw, 128px)",
+        "borderRadius": "2px",
+        "buttonStyle": "sharp",
+        "navigationStyle": "transparent-over-hero",
+        "darkSections": [
+          "hero",
+          "project-vision",
+          "enquiry"
+        ],
+        "lightSections": [
+          "project-overview",
+          "specifications",
+          "location",
+          "gallery"
+        ]
+      },
+      "overview": {
+        "sectionTitle": "A vision shaped by purpose",
+        "sectionSubtitle": "Introducing Sampan Eco & Agro Resort",
+        "description": "The concept brings together eco-oriented hospitality and agro-inspired experiences. Exact location, facilities, land details and operating status need confirmation.",
+        "editorialQuote": "Every meaningful development begins with a thoughtful understanding of place.",
+        "image": "/images/projects/eco-agro-resort/overview.webp",
+        "imageAlt": "Overview visual for Sampan Eco & Agro Resort",
+        "layout": "split-editorial",
+        "highlights": [
+          {
+            "title": "A considered concept",
+            "description": "Explore the project's intended character and design direction.",
+            "contentStatus": "editorial"
+          },
+          {
+            "title": "A sense of place",
+            "description": "Learn more about the project's setting as verified location information becomes available.",
+            "contentStatus": "needs_confirmation"
+          },
+          {
+            "title": "Project information",
+            "description": "Contact Sampan Development for confirmed details and relevant documentation.",
+            "contentStatus": "provided"
+          }
+        ],
+        "supportingText": null
+      },
+      "specifications": [
+        {
+          "label": "Project type",
+          "value": "Eco And Agro Resort",
+          "unit": null,
+          "icon": "building-2",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Category",
+          "value": "Hospitality",
+          "unit": null,
+          "icon": "layers",
+          "description": null,
+          "visibility": true,
+          "contentStatus": "provided"
+        },
+        {
+          "label": "Location",
+          "value": "Location to be confirmed",
+          "unit": null,
+          "icon": "map-pin",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "label": "Completion details",
+          "value": null,
+          "unit": null,
+          "icon": "calendar-check",
+          "description": null,
+          "visibility": false,
+          "contentStatus": "needs_confirmation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "project-overview",
+          "type": "editorial-intro",
+          "enabled": true,
+          "theme": "light",
+          "layout": "split-editorial",
+          "eyebrow": "THE PROJECT",
+          "title": "Discover Sampan Eco & Agro Resort",
+          "subtitle": "A slower rhythm, closer to nature.",
+          "description": "The concept brings together eco-oriented hospitality and agro-inspired experiences. Exact location, facilities, land details and operating status need confirmation.",
+          "content": {
+            "body": "The concept brings together eco-oriented hospitality and agro-inspired experiences. Exact location, facilities, land details and operating status need confirmation.",
+            "highlights": []
+          },
+          "media": {
+            "src": "/images/projects/eco-agro-resort/overview.webp",
+            "alt": "Sampan Eco & Agro Resort project overview"
+          },
+          "cta": null,
+          "settings": {
+            "imageSide": "right",
+            "showIndex": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-specifications",
+          "type": "specifications",
+          "enabled": true,
+          "theme": "light",
+          "layout": "horizontal-facts",
+          "eyebrow": "AT A GLANCE",
+          "title": "Project essentials",
+          "subtitle": "Key project information currently available.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showIcons": true,
+            "columns": 4
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "project-vision",
+          "type": "image-text",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "image-left-copy-right",
+          "eyebrow": "THE VISION",
+          "title": "A slower rhythm, closer to nature.",
+          "subtitle": null,
+          "description": "The concept brings together eco-oriented hospitality and agro-inspired experiences. Exact location, facilities, land details and operating status need confirmation.",
+          "content": {
+            "body": "The concept brings together eco-oriented hospitality and agro-inspired experiences. Exact location, facilities, land details and operating status need confirmation.",
+            "points": []
+          },
+          "media": {
+            "src": "/images/projects/eco-agro-resort/vision.webp",
+            "alt": "Conceptual visual for Sampan Eco & Agro Resort"
+          },
+          "cta": null,
+          "settings": {
+            "imageRatio": "4:5"
+          },
+          "contentStatus": "editorial"
+        },
+        {
+          "id": "location",
+          "type": "location-advantages",
+          "enabled": false,
+          "theme": "light",
+          "layout": "map-and-copy",
+          "eyebrow": "THE LOCATION",
+          "title": "Discover the surrounding area",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "advantages": [],
+            "mapEmbedUrl": null,
+            "address": null
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "showMapOnlyWhenVerified": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "gallery",
+          "type": "image-gallery",
+          "enabled": true,
+          "theme": "light",
+          "layout": "editorial-grid",
+          "eyebrow": "VISUAL STORY",
+          "title": "Explore Eco & Agro Resort",
+          "subtitle": "Approved project photography and visuals will be added here.",
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "aspectRatio": "4:3",
+            "enableLightbox": true
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "faq",
+          "type": "faq",
+          "enabled": false,
+          "theme": "light",
+          "layout": "accordion",
+          "eyebrow": "QUESTIONS",
+          "title": "Frequently asked questions",
+          "subtitle": null,
+          "description": null,
+          "content": {
+            "items": []
+          },
+          "media": null,
+          "cta": null,
+          "settings": {
+            "allowMultipleOpen": false
+          },
+          "contentStatus": "needs_confirmation"
+        },
+        {
+          "id": "enquiry",
+          "type": "enquiry-cta",
+          "enabled": true,
+          "theme": "dark",
+          "layout": "large-editorial-cta",
+          "eyebrow": "START A CONVERSATION",
+          "title": "Learn more about Sampan Eco & Agro Resort",
+          "subtitle": "Contact the Sampan Development team for confirmed project information.",
+          "description": null,
+          "content": {
+            "supportingText": null
+          },
+          "media": {
+            "src": "/images/projects/eco-agro-resort/enquiry.webp",
+            "alt": "Sampan Eco & Agro Resort project image"
+          },
+          "cta": {
+            "label": "Make an enquiry",
+            "href": "/contact?project=sampan-eco-agro-resort",
+            "variant": "primary",
+            "enabled": true
+          },
+          "settings": {
+            "showArrow": true
+          },
+          "contentStatus": "provided"
+        }
+      ],
+      "gallery": {
+        "galleryTitle": "Project gallery",
+        "gallerySubtitle": "Approved project visuals will be added when available.",
+        "layout": "editorial-grid",
+        "aspectRatio": "4:3",
+        "items": []
+      },
+      "ctas": [
+        {
+          "label": "Enquire about the project",
+          "href": "/contact?project=sampan-eco-agro-resort",
+          "variant": "primary",
+          "style": "solid",
+          "icon": "arrow-up-right",
+          "trackingId": "sampan-eco-agro-resort-enquiry",
+          "enabled": true
+        },
+        {
+          "label": "View all projects",
+          "href": "/projects",
+          "variant": "secondary",
+          "style": "text",
+          "icon": "arrow-left",
+          "trackingId": "sampan-eco-agro-resort-all-projects",
+          "enabled": true
+        }
+      ],
+      "faq": [],
+      "relatedProjects": [
+        "sampan-niketon",
+        "sampan-highway-inn"
+      ],
+      "seo": {
+        "metaTitle": "Sampan Eco & Agro Resort | Sampan Development",
+        "metaDescription": "Discover the vision for Sampan Eco & Agro Resort, a nature-oriented retreat concept bringing together relaxation, landscape and agro-inspired experiences.",
+        "canonicalPath": "/projects/completed/sampan-eco-agro-resort",
+        "keywords": [
+          "Sampan Eco & Agro Resort",
+          "Sampan Development",
+          "hospitality"
+        ],
+        "ogTitle": "Sampan Eco & Agro Resort",
+        "ogDescription": "Discover the vision for Sampan Eco & Agro Resort, a nature-oriented retreat concept bringing together relaxation, landscape and agro-inspired experiences.",
+        "ogImage": "/images/projects/eco-agro-resort/og.webp",
+        "twitterCard": "summary_large_image"
+      },
+      "socialSharing": {
+        "enabled": true,
+        "image": "/images/projects/eco-agro-resort/og.webp"
+      }
+    }
+  ]
+}

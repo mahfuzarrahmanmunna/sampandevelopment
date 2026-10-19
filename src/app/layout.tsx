@@ -2,8 +2,10 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, Manrope } from "next/font/google";
 import "./globals.css";
+import LenisProvider from "./components/LenisProvider";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import AntiInspect from "./components/AntiInspect/AntiInspect";
 
 const manrope = Manrope({
   variable: "--font-sans",
@@ -120,21 +122,24 @@ export default function RootLayout({
       className={`${manrope.variable} ${dmSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-[#F7F4ED] text-[#171916]">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
-          }}
-        />
+        <LenisProvider>
+          <Navbar />
+          {/* <AntiInspect/> */}
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(organizationSchema),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(websiteSchema),
+            }}
+          />
+        </LenisProvider>
       </body>
     </html>
   );
