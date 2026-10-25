@@ -30,7 +30,7 @@ const PROJECTS = [
     location: "[Verified Location]",
     handover: "[Verified Year]",
     units: "[Verified Count]",
-    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+    img: "/images/21st/21st.png",
     slug: "/projects/completed/sampan-21st-century"
   },
   {
@@ -39,7 +39,7 @@ const PROJECTS = [
     location: "[Verified Location]",
     handover: "[Verified Year]",
     units: "[Verified Count]",
-    img: "https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2070&auto=format&fit=crop",
+    img: "/images/21st/sampantaz.png",
     slug: "/projects/completed/sampan-taj"
   },
   {
@@ -48,7 +48,7 @@ const PROJECTS = [
     location: "[Verified Location]",
     handover: "[Verified Year]",
     units: "[Verified Count]",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    img: "/images/21st/sampanniketon.png",
     slug: "/projects/completed/sampan-niketon"
   }
 ];
@@ -227,24 +227,6 @@ export default function CompletedProjectsSection() {
           })}
         </div>
 
-        {/* --- CTA --- */}
-        <div className="mt-24 md:mt-40 flex flex-col items-center text-center">
-          <div className="anim-fade flex items-center gap-4 mb-8">
-            <span className="h-[1.5px] w-12 bg-[#C5A059]"></span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Explore More</span>
-            <span className="h-[1.5px] w-12 bg-[#C5A059]"></span>
-          </div>
-          <Link 
-            href="/projects/completed" 
-            className="anim-fade group relative overflow-hidden bg-[#0B0B0D] text-[#F5F2EC] text-[10px] font-semibold uppercase tracking-[0.3em] px-10 py-5 flex items-center gap-3 transition-colors duration-500 hover:text-[#0B0B0D]"
-          >
-            <span className="absolute inset-0 bg-[#C5A059] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
-            <span className="relative z-10 flex items-center gap-3">
-              See completed projects 
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </span>
-          </Link>
-        </div>
 
       </div>
     </section>

@@ -31,6 +31,14 @@ type Project = RecordValue & {
 // ─── value helpers ───────────────────────────────────────────────────────────
 const str = (value: unknown): string =>
   typeof value === "string" ? value.trim() : typeof value === "number" ? String(value) : "";
+
+type ButtonVariant = "text" | "outline" | "primary";
+const asVariant = (value: unknown, fallback: ButtonVariant = "outline"): ButtonVariant => {
+  if (value === "text" || value === "outline" || value === "primary") return value;
+  if (value === "secondary") return "outline"; // map "secondary" → "outline"
+  return fallback;
+};
+
 const arr = (value: unknown): RecordValue[] =>
   Array.isArray(value) ? value.filter((i): i is RecordValue => !!i && typeof i === "object") : [];
 const items = (value: unknown): unknown[] => (Array.isArray(value) ? value : []);
@@ -40,6 +48,7 @@ const bool = (value: unknown, fallback = false): boolean => {
   if (value === undefined || value === null) return fallback;
   return value !== false;
 };
+
 const hrefFor = (value: unknown) => {
   const href = str(value);
   return href.startsWith("/") || href.startsWith("#") || href.startsWith("https://") ||
@@ -208,11 +217,11 @@ function ActionLink({
 }: {
   cta?: RecordValue | null;
   theme: Theme;
-  variant?: "primary" | "outline" | "text";
+  variant?: ButtonVariant;
   onDark?: boolean;
 }) {
   if (!cta || cta.enabled === false || !str(cta.label)) return null;
-  const variantKey = str(cta.variant || variant);
+  const variantKey = asVariant(cta.variant, variant);
   const base =
     "group inline-flex min-h-12 items-center justify-center gap-3 border px-7 py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] transition-all duration-300";
 
@@ -221,7 +230,7 @@ function ActionLink({
   if (variantKey === "primary") {
     classes = "text-[#0f1612] hover:shadow-[0_10px_36px_-14px_rgba(0,0,0,0.5)]";
     style = { background: theme.accent, borderColor: theme.accent };
-  } else if (variantKey === "outline" || variantKey === "secondary") {
+  } else if (variantKey === "outline") {
     classes = onDark
       ? "border-white/40 text-white hover:border-white hover:bg-white hover:text-[#0f1612]"
       : "hover:bg-[#0f1612] hover:text-white hover:border-[#0f1612]";
@@ -912,7 +921,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
           )}
           {cta && (
             <div className="mt-12">
-              <ActionLink cta={cta} theme={theme} variant={str(cta.variant) || "outline"} onDark={isDark} />
+              <ActionLink cta={cta} theme={theme} variant={asVariant(cta.variant)} onDark={isDark} />
             </div>
           )}
         </div>
@@ -962,7 +971,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
               )}
               {cta && (
                 <div className="mt-6">
-                  <ActionLink cta={cta} theme={theme} variant={str(cta.variant) || "outline"} onDark={isDark} />
+                  <ActionLink cta={cta} theme={theme} variant={asVariant(cta.variant)} onDark={isDark} />
                 </div>
               )}
             </div>
@@ -1035,7 +1044,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
                     })}
                   </div>
                 )}
-                {cta && <div className="mt-10"><ActionLink cta={cta} theme={theme} variant={str(cta.variant) || "outline"} onDark={isDark} /></div>}
+                {cta && <div className="mt-10"><ActionLink cta={cta} theme={theme} variant={asVariant(cta.variant)} onDark={isDark} /></div>}
               </div>
             </div>
           </div>
@@ -1080,7 +1089,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
                   {subtitle || "Confirmed details for this section will be added once verified."}
                 </p>
               )}
-              {cta && <div className="mt-10"><ActionLink cta={cta} theme={theme} variant={str(cta.variant) || "outline"} onDark={isDark} /></div>}
+              {cta && <div className="mt-10"><ActionLink cta={cta} theme={theme} variant={asVariant(cta.variant)} onDark={isDark} /></div>}
             </div>
           </div>
         )}

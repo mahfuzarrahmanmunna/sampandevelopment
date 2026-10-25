@@ -28,8 +28,8 @@ const slides = [
     img: "/banner/golf-ball-field.jpg",
     eyebrow: "SAMPAN DEVELOPMENT LTD. / SUSTAINABLE FUTURES",
     titleLine1: "Sampan Agro and",
-    titleLine2: "Golf Resorts",
-    subtitle: "Agro-resorts and communities in harmony with nature.",
+    titleLine2: "Golf Resort",
+    subtitle: "Agro-resort and communities in harmony with nature.",
     location: "Outskirts of City",
   },
 ];
@@ -40,9 +40,12 @@ export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
   // --- 1. Topographic Canvas Architecture (Creative Coding) ---
   useEffect(() => {
+    if (!window.matchMedia("(min-width: 768px) and (prefers-reduced-motion: no-preference)").matches) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -50,8 +53,8 @@ export default function Hero() {
 
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
-    let mouse = { x: width / 2, y: height / 2 };
-    let rafId: number;
+    const mouse = { x: width / 2, y: height / 2 };
+    let rafId = 0;
 
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
@@ -63,16 +66,14 @@ export default function Hero() {
       mouse.y = e.clientY;
     };
 
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouse);
-
     const numLines = 25;
-    const lines = Array.from({ length: numLines }, (_, i) => ({
-      baseY: height * 0.65 + i * 15,
+    const lines = Array.from({ length: numLines }, () => ({
       offset: Math.random() * 1000,
     }));
 
     const draw = () => {
+      if (document.hidden) return;
+
       ctx.clearRect(0, 0, width, height);
       const mouseInfluence = (mouse.x / width - 0.5) * 100;
 
@@ -80,13 +81,14 @@ export default function Hero() {
         ctx.beginPath();
         const dist = Math.abs(i - numLines / 2) / (numLines / 2);
         const opacity = (1 - dist) * 0.2;
+        const baseY = height * 0.65 + i * 15;
 
         for (let x = 0; x <= width; x += 15) {
           const wave1 = Math.sin(x * 0.003 + line.offset) * 60;
           const wave2 = Math.sin(x * 0.008 + line.offset * 1.5) * 30;
           const mouseWave = Math.sin((x + mouseInfluence) * 0.005) * 40;
 
-          const y = line.baseY + wave1 + wave2 + mouseWave * (1 - dist);
+          const y = baseY + wave1 + wave2 + mouseWave * (1 - dist);
           if (x === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
@@ -96,20 +98,33 @@ export default function Hero() {
         ctx.stroke();
       });
 
-      rafId = requestAnimationFrame(draw);
+      if (!document.hidden) rafId = requestAnimationFrame(draw);
     };
 
+    const handleVisibility = () => {
+      if (document.hidden) cancelAnimationFrame(rafId);
+      else draw();
+    };
+
+    window.addEventListener("resize", handleResize);
+    if (window.matchMedia("(pointer: fine)").matches) {
+      window.addEventListener("mousemove", handleMouse);
+    }
+    document.addEventListener("visibilitychange", handleVisibility);
     draw();
 
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouse);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 
   // --- 2. Background Scroll Parallax (GSAP) ---
   useEffect(() => {
+    if (!window.matchMedia("(min-width: 768px) and (prefers-reduced-motion: no-preference)").matches) return;
+
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       gsap.to(".parallax-layer", {
@@ -129,6 +144,8 @@ export default function Hero() {
 
   // --- 3. Synchronized Autoplay & Visibility Management ---
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const handleVisibility = () => setIsPaused(document.hidden);
     document.addEventListener("visibilitychange", handleVisibility);
 
@@ -154,7 +171,17 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen min-h-[700px] bg-[#101615] overflow-hidden font-lux-sans antialiased flex flex-col"
+      onTouchStart={(event) => {
+        touchStartX.current = event.changedTouches[0]?.clientX ?? null;
+      }}
+      onTouchEnd={(event) => {
+        const startX = touchStartX.current;
+        const endX = event.changedTouches[0]?.clientX;
+        touchStartX.current = null;
+        if (startX === null || endX === undefined || Math.abs(endX - startX) < 48) return;
+        goToSlide((currentSlide + (endX < startX ? 1 : -1) + slides.length) % slides.length);
+      }}
+      className="relative h-[100svh] min-h-[650px] w-full bg-[#101615] overflow-hidden font-lux-sans antialiased flex flex-col md:min-h-[700px]"
     >
       {/* --- Background Image Layers --- */}
       <div className="absolute inset-0 z-0">
@@ -167,7 +194,7 @@ export default function Hero() {
               }`}
             >
               <div
-                className="absolute inset-0 bg-cover bg-center lg:bg-right transition-transform duration-[7000ms] ease-out"
+                className="absolute inset-0 bg-cover bg-[center_58%] lg:bg-right transition-transform duration-[7000ms] ease-out"
                 style={{
                   backgroundImage: `url(${slide.img})`,
                   transform: index === currentSlide ? "scale(1.05)" : "scale(1)",
@@ -189,7 +216,7 @@ export default function Hero() {
       ></canvas>
 
       {/* --- Main Content Composition --- */}
-      <div className="relative z-20 flex-grow flex items-center px-6 md:px-12 lg:px-24 pt-24 pb-32">
+      <div className="relative z-20 flex-grow flex items-center px-5 sm:px-6 md:px-12 lg:px-24 pt-28 pb-28 md:pb-32">
         {/* 
           Using key={currentSlide} forces React to remount the DOM instantly.
           The CSS animation 'contentReveal' plays a subtle, non-blocking transform.
@@ -197,15 +224,15 @@ export default function Hero() {
         */}
         <div key={currentSlide} className="max-w-3xl text-[#F8F7F3] content-reveal">
           {/* Eyebrow */}
-          <div className="flex items-center gap-4 mb-8">
-            <span className="h-px w-12 bg-[#C6A06B]"></span>
-            <span className="text-[10px] md:text-[11px] font-medium uppercase tracking-[0.35em] text-[#E9E0D2]/80">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <span className="h-px w-8 sm:w-12 shrink-0 bg-[#C6A06B]"></span>
+            <span className="max-w-[280px] text-[9px] sm:text-[10px] md:text-[11px] font-medium uppercase tracking-[0.2em] sm:tracking-[0.35em] text-[#E9E0D2]/80">
               {slides[currentSlide].eyebrow}
             </span>
           </div>
 
           {/* Main Typographic Silhouette */}
-          <h1 className="font-lux-serif text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-tight mb-8 drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+          <h1 className="font-lux-serif text-[clamp(2.8rem,12vw,7rem)] leading-[0.91] tracking-tight mb-6 sm:mb-8 drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
             <span className="block">{slides[currentSlide].titleLine1}</span>
             <span className="block italic font-light text-[#C6A06B]">
               {slides[currentSlide].titleLine2}
@@ -213,11 +240,11 @@ export default function Hero() {
           </h1>
 
           {/* Subtitle & Location */}
-          <p className="text-base md:text-lg text-[#E9E0D2]/90 font-light max-w-xl mb-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+          <p className="text-sm sm:text-base md:text-lg text-[#E9E0D2]/90 font-light leading-relaxed max-w-xl mb-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
             {slides[currentSlide].subtitle}
           </p>
 
-          <div className="flex items-center gap-3 text-[#E9E0D2]/60 text-xs uppercase tracking-[0.2em] mb-12">
+          <div className="flex items-center gap-3 text-[#E9E0D2]/60 text-[10px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] mb-8 sm:mb-12">
             <svg className="w-3 h-3 text-[#C6A06B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -226,10 +253,10 @@ export default function Hero() {
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-start gap-4">
+          <div className="flex w-full flex-col sm:w-auto sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4">
             <Link
               href="/projects"
-              className="group bg-[#C6A06B] text-[#101615] text-[11px] font-semibold uppercase tracking-[0.2em] px-8 py-4 transition-all duration-300 hover:bg-[#F8F7F3] flex items-center gap-3"
+              className="group min-h-12 w-full sm:w-auto justify-between bg-[#C6A06B] text-[#101615] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.2em] px-5 sm:px-8 py-4 transition-all duration-300 hover:bg-[#F8F7F3] flex items-center gap-3"
             >
               View Projects
               <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -239,7 +266,7 @@ export default function Hero() {
 
             <Link
               href="/contact"
-              className="group border border-[#E9E0D2]/30 text-[#F8F7F3] text-[11px] font-semibold uppercase tracking-[0.2em] px-8 py-4 transition-all duration-300 hover:border-[#C6A06B] hover:text-[#C6A06B] flex items-center gap-3 backdrop-blur-sm bg-[#101615]/20"
+              className="group min-h-12 w-full sm:w-auto justify-center border border-[#E9E0D2]/30 text-[#F8F7F3] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.2em] px-5 sm:px-8 py-4 transition-all duration-300 hover:border-[#C6A06B] hover:text-[#C6A06B] flex items-center gap-3 backdrop-blur-sm bg-[#101615]/20"
             >
               Book a Site Visit
             </Link>
@@ -249,7 +276,7 @@ export default function Hero() {
 
       {/* --- Cinematic Bottom UI Bar --- */}
       <div className="absolute bottom-0 left-0 right-0 z-30 border-t border-[#E9E0D2]/10 bg-gradient-to-t from-[#101615] to-transparent backdrop-blur-sm">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24 py-6 flex items-center justify-between gap-8">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-6 md:px-12 lg:px-24 py-3 sm:py-6 flex items-center justify-between gap-3 sm:gap-8">
           {/* Bottom Left: Scroll Indicator */}
           <div className="hidden md:flex items-center gap-4 text-[#E9E0D2]/50 text-[10px] uppercase tracking-[0.3em] flex-shrink-0">
             <div className="w-12 h-px bg-[#E9E0D2]/20 relative overflow-hidden">
@@ -268,7 +295,7 @@ export default function Hero() {
           </div>
 
           {/* Bottom Right: Slider Controls & Up Next */}
-          <div className="flex items-center gap-6 ml-auto">
+          <div className="flex items-center gap-2 sm:gap-6 ml-auto">
             {/* Featured Preview Thumbnail */}
             <div
               className="hidden md:flex items-center gap-4 group cursor-pointer"
@@ -292,11 +319,11 @@ export default function Hero() {
             <div className="hidden md:block h-12 w-px bg-[#E9E0D2]/10"></div>
 
             {/* Slide Index & Progress */}
-            <div className="flex items-center gap-4 text-[#F8F7F3] flex-shrink-0">
+            <div className="flex items-center gap-2 sm:gap-4 text-[#F8F7F3] flex-shrink-0">
               <span className="text-sm font-medium tracking-wider text-[#F8F7F3]">
                 0{currentSlide + 1}
               </span>
-              <div className="w-16 h-px bg-[#E9E0D2]/20 relative overflow-hidden">
+              <div className="w-10 sm:w-16 h-px bg-[#E9E0D2]/20 relative overflow-hidden">
                 {/* 
                   Key ensures the CSS animation restarts instantly on slide change.
                   Animation pauses if the tab is hidden.
@@ -314,18 +341,18 @@ export default function Hero() {
             </div>
 
             {/* Manual Prev/Next Controls */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               <button
                 onClick={() => goToSlide((currentSlide - 1 + slides.length) % slides.length)}
                 aria-label="Previous slide"
-                className="p-2 text-[#E9E0D2]/60 hover:text-[#C6A06B] transition-colors duration-300"
+                className="grid size-10 sm:size-11 place-items-center text-[#E9E0D2]/70 hover:text-[#C6A06B] transition-colors duration-300"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
               </button>
               <button
                 onClick={() => goToSlide((currentSlide + 1) % slides.length)}
                 aria-label="Next slide"
-                className="p-2 text-[#E9E0D2]/60 hover:text-[#C6A06B] transition-colors duration-300"
+                className="grid size-10 sm:size-11 place-items-center text-[#E9E0D2]/70 hover:text-[#C6A06B] transition-colors duration-300"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </button>

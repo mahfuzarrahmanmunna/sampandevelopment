@@ -48,6 +48,14 @@ export async function generateMetadata({
   const ogImage = str(seo.ogImage) || str(project.hero?.backgroundImage);
   const canonical = str(seo.canonicalPath) || `/projects/completed/${project.slug}`;
 
+  // ✅ Typed cast — must be declared INSIDE the function, BEFORE return
+  const twitterCard = str(seo.twitterCard) as
+    | "summary"
+    | "summary_large_image"
+    | "player"
+    | "app"
+    | "";
+
   return {
     title,
     description,
@@ -61,7 +69,7 @@ export async function generateMetadata({
       siteName: "Sampan Development",
     },
     twitter: {
-      card: str(seo.twitterCard) || "summary_large_image",
+      card: twitterCard || "summary_large_image",
       title: str(seo.ogTitle) || title,
       description: str(seo.ogDescription) || description,
       images: ogImage ? [ogImage] : undefined,

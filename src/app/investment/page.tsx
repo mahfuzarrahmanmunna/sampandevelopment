@@ -19,7 +19,7 @@ export default function InvestmentPage() {
 
       // --- DESKTOP CINEMATIC EXPERIENCE ---
       mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
-        
+
         // 1. Hero Entrance Timeline
         gsap.timeline({ delay: 0.3 })
           .to(".hero-img", { scale: 1, ease: "none", duration: 2.5 }, 0)
@@ -34,22 +34,22 @@ export default function InvestmentPage() {
         });
 
         // 3. Investment Cards Reveal (Clip-path + Stagger)
-        gsap.utils.toArray(".invest-card").forEach((card) => {
-          const img = card.querySelector(".card-img");
-          const content = card.querySelectorAll(".card-anim");
-          
+        gsap.utils.toArray<HTMLElement>(".invest-card").forEach((card) => {
+          const img = card.querySelector<HTMLElement>(".card-img");
+          const content = card.querySelectorAll<HTMLElement>(".card-anim");
+
           gsap.timeline({
             scrollTrigger: { trigger: card, start: "top 75%", end: "top 35%", scrub: 1 }
           })
-          .fromTo(img, 
-            { clipPath: "inset(100% 0% 0% 0%)" }, 
-            { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.inOut", duration: 1 }
-          )
-          .fromTo(content, 
-            { y: 40, opacity: 0 }, 
-            { y: 0, opacity: 1, ease: "power3.out", duration: 0.5, stagger: 0.1 }, 
-            0.3
-          );
+            .fromTo(img,
+              { clipPath: "inset(100% 0% 0% 0%)" },
+              { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.inOut", duration: 1 }
+            )
+            .fromTo(content,
+              { y: 40, opacity: 0 },
+              { y: 0, opacity: 1, ease: "power3.out", duration: 0.5, stagger: 0.1 },
+              0.3
+            );
         });
 
         // 4. Standard Mask Reveals for other sections
@@ -57,9 +57,9 @@ export default function InvestmentPage() {
           gsap.timeline({
             scrollTrigger: { trigger, start: "top 75%", end: "top 30%", scrub: 1 }
           })
-          .fromTo(`${trigger} .anim-headline`, { yPercent: 110 }, { yPercent: 0, ease: "power3.out", duration: 0.6, stagger: 0.1 }, 0)
-          .fromTo(`${trigger} .anim-fade`, { y: 40, opacity: 0 }, { y: 0, opacity: 1, ease: "power3.out", duration: 0.6, stagger: 0.08 }, 0.2)
-          .fromTo(`${trigger} .anim-line-draw`, { scaleX: 0 }, { scaleX: 1, ease: "none", duration: 0.5, stagger: 0.05 }, 0.4);
+            .fromTo(`${trigger} .anim-headline`, { yPercent: 110 }, { yPercent: 0, ease: "power3.out", duration: 0.6, stagger: 0.1 }, 0)
+            .fromTo(`${trigger} .anim-fade`, { y: 40, opacity: 0 }, { y: 0, opacity: 1, ease: "power3.out", duration: 0.6, stagger: 0.08 }, 0.2)
+            .fromTo(`${trigger} .anim-line-draw`, { scaleX: 0 }, { scaleX: 1, ease: "none", duration: 0.5, stagger: 0.05 }, 0.4);
         };
 
         createReveal("#section-options");
@@ -68,9 +68,9 @@ export default function InvestmentPage() {
         createReveal("#section-cta");
 
         // 5. Closing CTA Image Reveal
-        gsap.fromTo("#section-cta .cta-img", 
-          { clipPath: "inset(100% 0% 0% 0%)" }, 
-          { 
+        gsap.fromTo("#section-cta .cta-img",
+          { clipPath: "inset(100% 0% 0% 0%)" },
+          {
             clipPath: "inset(0% 0% 0% 0%)", ease: "power2.inOut", duration: 1.5,
             scrollTrigger: { trigger: "#section-cta", start: "top 80%", end: "top 30%", scrub: 1 }
           }
@@ -92,20 +92,20 @@ export default function InvestmentPage() {
 
   return (
     <main ref={pageRef} className="bg-[#F5F2EC] text-[#0B0B0D] font-lux-sans antialiased overflow-x-hidden">
-      
+
       {/* ==========================================
           1. CINEMATIC INVESTMENT HERO
           ========================================== */}
       <section id="hero" className="relative h-screen min-h-[700px] w-full overflow-hidden bg-[#0B0B0D] text-[#F5F2EC] flex items-end">
-        
+
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1460472178825-e5240623afd5?q=80&w=2070&auto=format&fit=crop" 
-            alt="Sampan Architectural Investment" 
+          <img
+            src="https://images.unsplash.com/photo-1460472178825-e5240623afd5?q=80&w=2070&auto=format&fit=crop"
+            alt="Sampan Architectural Investment"
             className="hero-img w-full h-full object-cover opacity-70 will-change-transform"
             style={{ transform: "scale(1.2)" }}
           />
-          <div 
+          <div
             className="hero-overlay absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-[#0B0B0D]/40 to-[#0B0B0D]/60"
             style={{ opacity: 0 }}
           ></div>
@@ -119,7 +119,7 @@ export default function InvestmentPage() {
                 Investment Opportunities
               </span>
             </div>
-            
+
             <h1 className="font-lux-serif text-[clamp(3rem,8vw,8rem)] leading-[0.9] tracking-[-0.02em] mb-8">
               <span className="block overflow-hidden pb-2">
                 <span className="anim-hero-line block font-light" style={{ transform: "translateY(110%)" }}>Three ways to invest</span>
@@ -128,7 +128,7 @@ export default function InvestmentPage() {
                 <span className="anim-hero-line block italic text-[#C5A059]" style={{ transform: "translateY(110%)" }}>with Sampan.</span>
               </span>
             </h1>
-            
+
             <p className="anim-hero-fade text-base md:text-lg text-[#F5F2EC]/80 font-light leading-relaxed max-w-xl mb-12" style={{ opacity: 0, y: 40 }}>
               Own a share of land, join a club, or buy space in a building. Every route starts with documents you can read and a site you can visit.
             </p>
@@ -152,7 +152,7 @@ export default function InvestmentPage() {
           ========================================== */}
       <section id="section-options" className="relative py-24 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24 bg-[#F5F2EC] overflow-hidden">
         <div className="max-w-[1600px] mx-auto">
-          
+
           <div className="max-w-2xl mb-16 md:mb-24">
             <div className="anim-fade flex items-center gap-4 mb-8">
               <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
@@ -168,7 +168,7 @@ export default function InvestmentPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-12">
-            
+
             {/* Card 01 - Land Share */}
             <div className="invest-card flex flex-col group">
               <div className="card-img relative aspect-[4/5] overflow-hidden mb-6 will-change-transform">
@@ -270,7 +270,7 @@ export default function InvestmentPage() {
           ========================================== */}
       <section id="section-guide" className="relative py-24 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24 bg-[#0B0B0D] text-[#F5F2EC] overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
-          
+
           <div className="max-w-2xl mb-16 md:mb-24">
             <div className="anim-fade flex items-center gap-4 mb-8">
               <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
@@ -284,7 +284,7 @@ export default function InvestmentPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#F5F3EE]/10 border border-[#F5F3EE]/10">
-            
+
             {[
               { need: "Want a lower entry point and no building to manage?", rec: "Land Share" },
               { need: "Want access, dining and a lounge?", rec: "Membership" },
@@ -317,7 +317,7 @@ export default function InvestmentPage() {
                 <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Our Commitment</span>
               </div>
             </div>
-            
+
             <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
               {["Clear title documents", "Site visits on request", "Remote buying for NRBs", "Backed by Sampan Group"].map((text, i) => (
                 <div key={i} className="anim-fade border-l border-[#0B0B0D]/20 pl-4">
@@ -333,12 +333,12 @@ export default function InvestmentPage() {
           5. CINEMATIC CLOSING CTA
           ========================================== */}
       <section id="section-cta" className="relative min-h-[90vh] md:min-h-screen w-full overflow-hidden bg-[#0B0B0D] text-[#F5F2EC] flex items-center justify-center text-center">
-        
+
         <div className="absolute inset-0 z-0">
           <div className="cta-img absolute inset-0 will-change-transform" style={{ clipPath: "inset(100% 0% 0% 0%)" }}>
-            <img 
-              src="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2070&auto=format&fit=crop" 
-              alt="Sampan Investment Architecture" 
+            <img
+              src="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2070&auto=format&fit=crop"
+              alt="Sampan Investment Architecture"
               className="w-full h-full object-cover opacity-40"
             />
           </div>
@@ -350,16 +350,16 @@ export default function InvestmentPage() {
             <span className="h-[1.5px] w-12 bg-[#C5A059]"></span>
             <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Invest in a brighter tomorrow</span>
           </div>
-          
+
           <h2 className="font-lux-serif text-[clamp(3rem,8vw,7rem)] leading-[0.95] tracking-[-0.02em] mb-10 font-light">
             <span className="block overflow-hidden pb-2"><span className="anim-headline block">Your next chapter</span></span>
             <span className="block overflow-hidden pb-2"><span className="anim-headline block italic text-[#C5A059]">starts here.</span></span>
           </h2>
-          
+
           <p className="anim-fade text-base md:text-lg text-[#F5F3EE]/70 font-light leading-relaxed mb-12 max-w-xl mx-auto">
             Explore the options, review the documents, and take the first step towards a smarter investment with Sampan.
           </p>
-          
+
           <div className="anim-fade flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#section-options" className="group relative overflow-hidden bg-[#C5A059] text-[#0B0B0D] text-[10px] font-semibold uppercase tracking-[0.3em] px-12 py-5 flex items-center gap-3 transition-colors duration-500 hover:text-[#C5A059]">
               <span className="absolute inset-0 bg-[#F5F3EE] translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-0"></span>

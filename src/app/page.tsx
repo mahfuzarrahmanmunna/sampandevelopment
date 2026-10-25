@@ -10,6 +10,10 @@ import CondominiumShowcase from "./components/CondominiumShowcase/CondominiumSho
 import HighwayAddressSection from "./components/HighwayAddressSection/HighwayAddressSection";
 import CompletedProjectsSection from "./components/CompletedProjectsSection/CompletedProjectsSection";
 import HighwayInnSection from "./components/HighwayInnSection/HighwayInnSection";
+import AffiliationSection from "./components/AffiliationSection/AffiliationSection";
+import MotherCompany from "./components/MotherCompany/MotherCompany";
+import BookSiteVisit from "./components/BookSiteVisit/BookSiteVisit";
+import AwardsRecognition from "./components/AwardsRecognition/AwardsRecognition";
 
 // If your homepage UI is handled by a Client Component, import it here:
 // import HomeClientContent from "./home-client";
@@ -52,7 +56,11 @@ export default function HomePage() {
       <HighwayAddressSection />
       <CompletedProjectsSection />
       <HighwayInnSection/>
-      <FeaturedProject />
+      <AwardsRecognition/>
+      <AffiliationSection/>
+      <MotherCompany/>
+      <BookSiteVisit/>
+      {/* <FeaturedProject /> */}
 
       </main>
     </>

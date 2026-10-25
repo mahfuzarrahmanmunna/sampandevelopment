@@ -14,6 +14,7 @@ export default function LenisProvider({ children }: { children: ReactNode }) {
     const lenis = new Lenis({
       duration: 1.2,
       smoothWheel: true,
+      anchors: true,
     });
     const updateScrollTrigger = () => ScrollTrigger.update();
     const raf = (time: number) => lenis.raf(time * 1000);

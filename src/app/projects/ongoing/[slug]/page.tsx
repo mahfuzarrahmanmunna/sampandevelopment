@@ -4,9 +4,11 @@ import type { ComponentProps } from "react";
 import projectContent from "../../../data/project.json";
 import ProjectDetails from "../ProjectDetails";
 
-const ongoingProjects = projectContent.projects.filter(
+const ongoingProjects = (projectContent.projects.filter(
   (project) => project.status === "ongoing"
-) as unknown as ComponentProps<typeof ProjectDetails>["allProjects"];
+) ?? []) as unknown as NonNullable<
+  ComponentProps<typeof ProjectDetails>["allProjects"]
+>;
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -34,6 +36,14 @@ export async function generateMetadata({
   const ogImage = str(seo.ogImage) || str(project.hero?.backgroundImage);
   const canonical = str(seo.canonicalPath) || `/projects/ongoing/${project.slug}`;
 
+  // 👇 Define twitterCard HERE — inside the function, before return
+  const twitterCard = str(seo.twitterCard) as
+    | "summary"
+    | "summary_large_image"
+    | "player"
+    | "app"
+    | "";
+
   return {
     title,
     description,
@@ -47,7 +57,7 @@ export async function generateMetadata({
       siteName: "Sampan Development",
     },
     twitter: {
-      card: str(seo.twitterCard) || "summary_large_image",
+      card: twitterCard || "summary_large_image",
       title: str(seo.ogTitle) || title,
       description: str(seo.ogDescription) || description,
       images: ogImage ? [ogImage] : undefined,

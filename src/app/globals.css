@@ -38,6 +38,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: clip;
 }
 
 html.lenis,
@@ -108,11 +109,18 @@ html.lenis body {
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
   .animate-fade-in,
-  .animate-mask-reveal {
+  .animate-mask-reveal,
+  .content-reveal,
+  .animate-toast-progress {
     animation: none !important;
     opacity: 1 !important;
     clip-path: none !important;
     transform: none !important;
+  }
+
+  .progress-bar {
+    animation: none !important;
+    transform: scaleX(1) !important;
   }
 }
 

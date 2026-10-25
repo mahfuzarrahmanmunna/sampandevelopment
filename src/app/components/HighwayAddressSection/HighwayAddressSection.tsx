@@ -6,13 +6,8 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import * as THREE from "three";
-import { Cormorant_Garamond, Inter, Instrument_Serif } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 
-/* ─────────────────────────────────────────────────────────────
-   TYPOGRAPHY
-   Three voices: editorial serif (display), humanist sans (UI),
-   typewriter serif (numerals / marginalia).
-   ───────────────────────────────────────────────────────────── */
 const luxSerif = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -26,16 +21,6 @@ const luxSans = Inter({
   variable: "--font-lux-sans",
 });
 
-const luxMono = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-lux-mono",
-});
-
-/* ─────────────────────────────────────────────────────────────
-   DATA — local image paths preserved exactly
-   ───────────────────────────────────────────────────────────── */
 const PROJECTS = [
   {
     index: "01",
@@ -47,7 +32,8 @@ const PROJECTS = [
     slug: "/projects/ongoing/express-highway-inn",
     linkLabel: "See Express Highway Inn",
     bgColor: "#1a1a1a",
-    typology: "Hospitality",
+    location: "Dhaka–Chittagong Highway",
+    type: "Hospitality",
   },
   {
     index: "02",
@@ -59,7 +45,8 @@ const PROJECTS = [
     slug: "/projects/ongoing/sampan-condominium",
     linkLabel: "See the Condominium",
     bgColor: "#0f1f1a",
-    typology: "Residential",
+    location: "Beside Express Highway Inn",
+    type: "Serviced Living",
   },
   {
     index: "03",
@@ -71,27 +58,22 @@ const PROJECTS = [
     slug: "/projects/ongoing/sampan-trade-emporium",
     linkLabel: "See the Trade Emporium",
     bgColor: "#1a1f0f",
-    typology: "Mixed-use",
+    location: "Adjacent to Highway Inn",
+    type: "Mixed-Use",
   },
 ];
-
-/* ─────────────────────────────────────────────────────────────
-   CUSTOM EASING — slow-out, cinematic
-   ───────────────────────────────────────────────────────────── */
-const EASE_OUT_EXPO = "expo.out";
 
 export default function HighwayAddressSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const [activeProject, setActiveProject] = useState(0); // 0 = Intro, 4 = Outro
+  const mobileProgressRef = useRef<HTMLDivElement>(null);
+  const [activeProject, setActiveProject] = useState(0);
+  const [mobileActiveSection, setMobileActiveSection] = useState(0);
   const activeProjectRef = useRef(0);
   const threeUniforms = useRef<any>(null);
 
-  /* ═══════════════════════════════════════════════════════════
-     1. THREE.JS — ATMOSPHERIC SHADER (vignette + grain + gold glow)
-     ═══════════════════════════════════════════════════════════ */
+  // --- 1. THREE.JS ATMOSPHERIC SHADER BACKGROUND ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -107,10 +89,9 @@ export default function HighwayAddressSection() {
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
     const uniforms = {
-      uTime: { value: 0 },
-      uColor: { value: new THREE.Color("#050507") },
-      uOpacity: { value: 0.6 },
-      uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+      uTime: { value: 0.0 },
+      uColor: { value: new THREE.Color("#171715") },
+      uOpacity: { value: 0.55 },
     };
     threeUniforms.current = uniforms;
 
@@ -118,54 +99,34 @@ export default function HighwayAddressSection() {
       uniforms,
       vertexShader: `
         varying vec2 vUv;
-        void main() { vUv = uv; gl_Position = vec4(position, 1.0); }
+        void main() {
+          vUv = uv;
+          gl_Position = vec4(position, 1.0);
+        }
       `,
       fragmentShader: `
         uniform float uTime;
-        uniform vec3  uColor;
+        uniform vec3 uColor;
         uniform float uOpacity;
-        uniform vec2  uMouse;
-        varying vec2  vUv;
+        varying vec2 vUv;
 
-        float hash(vec2 p) {
-          return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-        }
-        float noise(vec2 p) {
-          vec2 i = floor(p), f = fract(p);
-          float a = hash(i), b = hash(i + vec2(1.0, 0.0)),
-                c = hash(i + vec2(0.0, 1.0)), d = hash(i + vec2(1.0, 1.0));
-          vec2 u = f * f * (3.0 - 2.0 * f);
-          return mix(a, b, u.x) + (c - a) * u.y * (b - a);
-        }
-        float fbm(vec2 p) {
-          float v = 0.0, a = 0.5;
-          for (int i = 0; i < 5; i++) { v += a * noise(p); p *= 2.0; a *= 0.5; }
-          return v;
+        float random(vec2 st) {
+          return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
         }
 
         void main() {
           vec2 uv = vUv;
-          vec2 p = uv - 0.5;
-          float dist = length(p);
+          float grain = random(uv * 1200.0 + uTime * 0.08) * 0.035;
 
-          vec2 glow = vec2(0.5 + sin(uTime * 0.15) * 0.08, 0.5 + cos(uTime * 0.12) * 0.06);
-          float g = smoothstep(0.55, 0.0, distance(uv, glow)) * 0.14;
+          float dist = length(uv - vec2(0.5));
+          float vignette = smoothstep(1.0, 0.4, dist);
 
-          float mouseGlow = smoothstep(0.35, 0.0, distance(uv, uMouse)) * 0.06;
+          // Two wandering gold glows for richer atmosphere
+          float glow1 = smoothstep(0.55, 0.0, distance(uv, vec2(0.5 + sin(uTime*0.25)*0.08, 0.45 + cos(uTime*0.18)*0.06))) * 0.20;
+          float glow2 = smoothstep(0.7, 0.0, distance(uv, vec2(0.55 + cos(uTime*0.15)*0.05, 0.55 + sin(uTime*0.22)*0.05))) * 0.10;
+          vec3 gold = vec3(0.77, 0.62, 0.35) * (glow1 + glow2);
 
-          float n = fbm(uv * 3.0 + uTime * 0.03);
-          n = pow(n, 1.5);
-
-          float vignette = smoothstep(1.05, 0.25, dist);
-
-          vec3 gold = vec3(0.722, 0.580, 0.353);
-          vec3 color = uColor;
-          color += gold * (g + mouseGlow);
-          color += vec3(0.04) * n * vignette;
-          color *= vignette;
-
-          float grain = hash(uv * 1500.0 + uTime * 0.05) * 0.04;
-
+          vec3 color = (uColor + gold) * vignette;
           gl_FragColor = vec4(color + grain, uOpacity * vignette);
         }
       `,
@@ -173,15 +134,16 @@ export default function HighwayAddressSection() {
       depthWrite: false,
     });
 
-    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
+    const geometry = new THREE.PlaneGeometry(2, 2);
+    const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
+    let rafId: number;
+    let isPaused = false;
     const clock = new THREE.Clock();
-    let rafId: number = 0;
-    let visible = true;
 
     const animate = () => {
-      if (visible) {
+      if (!isPaused) {
         uniforms.uTime.value = clock.getElapsedTime();
         renderer.render(scene, camera);
       }
@@ -190,98 +152,66 @@ export default function HighwayAddressSection() {
     animate();
 
     const handleResize = () => renderer.setSize(window.innerWidth, window.innerHeight);
-    const handleMouse = (e: MouseEvent) => {
-      gsap.to(uniforms.uMouse.value, {
-        x: e.clientX / window.innerWidth,
-        y: 1 - e.clientY / window.innerHeight,
-        duration: 1.2,
-        overwrite: true,
-      });
-    };
-
     window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouse);
 
-    const io = new IntersectionObserver(
-      ([entry]) => { visible = entry.isIntersecting; },
-      { threshold: 0 }
-    );
-    if (sectionRef.current) io.observe(sectionRef.current);
+    const handleVisibility = () => {
+      isPaused = document.hidden;
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouse);
-      io.disconnect();
-      mesh.geometry.dispose();
+      document.removeEventListener("visibilitychange", handleVisibility);
+      geometry.dispose();
       material.dispose();
       renderer.dispose();
     };
   }, []);
 
-  /* ═══════════════════════════════════════════════════════════
-     2. CUSTOM CURSOR — refined ring follower (desktop only)
-     ═══════════════════════════════════════════════════════════ */
-  useEffect(() => {
-    if (window.matchMedia("(max-width: 1023px)").matches) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const cursor = cursorRef.current;
-    if (!cursor) return;
-
-    const xTo = gsap.quickTo(cursor, "x", { duration: 0.6, ease: "power3" });
-    const yTo = gsap.quickTo(cursor, "y", { duration: 0.6, ease: "power3" });
-    const move = (e: MouseEvent) => { xTo(e.clientX); yTo(e.clientY); };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, []);
-
-  /* ═══════════════════════════════════════════════════════════
-     3. GSAP — LABELLED CINEMATIC TIMELINE
-     ═══════════════════════════════════════════════════════════ */
+  // --- 2. GSAP LABELLED TIMELINE ---
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      /* ── DESKTOP CINEMATIC PINNED TIMELINE ─────────────── */
+      // --- DESKTOP CINEMATIC PINNED TIMELINE ---
       mm.add(
         "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
         () => {
           gsap.set(".img-layer", { autoAlpha: 0, scale: 1.08 });
           gsap.set(".img-layer-0", { autoAlpha: 1, scale: 1 });
 
-          gsap.set(".text-block", { autoAlpha: 0, yPercent: -50, y: 40 });
+          gsap.set(".text-block", { autoAlpha: 0, yPercent: -50, y: 30 });
           gsap.set(".text-block-0", { autoAlpha: 1, yPercent: -50, y: 0 });
 
-          gsap.set(".headline-line > span", { yPercent: 110 });
-          gsap.set(".eyebrow-line", { autoAlpha: 0, x: -20 });
-          gsap.set(".fade-up", { autoAlpha: 0, y: 24 });
-          gsap.set(".fact-row", { autoAlpha: 0, y: 12 });
+          gsap.set(".headline-line span", { yPercent: 110 });
+          gsap.set(".anim-fade-up", { opacity: 0, y: 20 });
 
           const colorMap = [
-            "#050507", // Intro
-            "#1a1a1a", // Project 1
-            "#0f1f1a", // Project 2
-            "#1a1f0f", // Project 3
-            "#050507", // Outro
+            "#171715",
+            "#1a1a1a",
+            "#1a1f1a",
+            "#1f1a14",
+            "#171715",
           ];
 
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: sectionRef.current,
               start: "top top",
-              end: "+=600%",
+              end: "+=500%",
               scrub: 1,
               pin: stickyRef.current,
               invalidateOnRefresh: true,
               onUpdate: (self) => {
-                const p = self.progress;
+                const progress = self.progress;
                 let newIndex = 0;
-                if (p >= 0.8) newIndex = 4;
-                else if (p >= 0.6) newIndex = 3;
-                else if (p >= 0.4) newIndex = 2;
-                else if (p >= 0.2) newIndex = 1;
+                if (progress >= 0.8) newIndex = 4;
+                else if (progress >= 0.6) newIndex = 3;
+                else if (progress >= 0.4) newIndex = 2;
+                else if (progress >= 0.2) newIndex = 1;
 
                 if (activeProjectRef.current !== newIndex) {
                   activeProjectRef.current = newIndex;
@@ -293,9 +223,8 @@ export default function HighwayAddressSection() {
                       r: parseInt(color.slice(1, 3), 16) / 255,
                       g: parseInt(color.slice(3, 5), 16) / 255,
                       b: parseInt(color.slice(5, 7), 16) / 255,
-                      duration: 1.6,
+                      duration: 1.5,
                       overwrite: true,
-                      ease: "power2.inOut",
                     });
                   }
                 }
@@ -303,84 +232,86 @@ export default function HighwayAddressSection() {
             },
           });
 
-          /* ── PHASE 0 — INTRO (0–20%) ─────────────────── */
+          // Phase 0: Intro
           tl.addLabel("intro")
-            .to(".text-block-0 .eyebrow-line",
-              { autoAlpha: 1, x: 0, duration: 0.8, ease: EASE_OUT_EXPO }, "intro")
-            .to(".text-block-0 .headline-line > span",
-              { yPercent: 0, stagger: 0.1, duration: 0.9, ease: EASE_OUT_EXPO }, "intro+=0.1")
-            .to(".text-block-0 .fade-up",
-              { autoAlpha: 1, y: 0, stagger: 0.1, duration: 0.8, ease: EASE_OUT_EXPO }, "intro+=0.4")
+            .to(".text-block-0 .headline-line span", { yPercent: 0, stagger: 0.1, duration: 0.6, ease: "power3.out" }, "intro")
+            .to(".text-block-0 .anim-fade-up", { opacity: 1, y: 0, stagger: 0.08, duration: 0.5, ease: "power3.out" }, "intro+=0.2")
             .to({}, { duration: 1.4 });
 
-          /* helper — generates the per-project transition */
-          const projectPhase = (label: string, idx: number) => {
-            const curBlock = `.text-block-${idx}`;
-            const nextBlock = `.text-block-${idx + 1}`;
+          const createPhase = (label: string, prevIdx: number, nextIdx: number) => {
             tl.addLabel(label)
-              .to(`${curBlock} .headline-line > span`,
-                { yPercent: -110, stagger: 0.06, duration: 0.5, ease: "power3.in" }, label)
-              .to(curBlock,
-                { autoAlpha: 0, y: -40, duration: 0.6, ease: "power2.inOut" }, label)
-              .to(`.img-layer-${idx}`,
-                { autoAlpha: 0, scale: 1.18, duration: 1.4, ease: "power2.inOut" }, label)
-              .to(`.img-layer-${idx + 1}`,
-                { autoAlpha: 1, scale: 1, duration: 1.4, ease: "power2.inOut" }, label)
-              .to(`${nextBlock} .eyebrow-line`,
-                { autoAlpha: 1, x: 0, duration: 0.7, ease: EASE_OUT_EXPO }, `${label}+=0.55`)
-              .to(`${nextBlock} .headline-line > span`,
-                { yPercent: 0, stagger: 0.08, duration: 0.85, ease: EASE_OUT_EXPO }, `${label}+=0.65`)
-              .to(`${nextBlock} .fade-up`,
-                { autoAlpha: 1, y: 0, stagger: 0.08, duration: 0.75, ease: EASE_OUT_EXPO }, `${label}+=0.9`)
-              .to(`${nextBlock} .fact-row`,
-                { autoAlpha: 1, y: 0, stagger: 0.04, duration: 0.5, ease: "power2.out" }, `${label}+=1.1`)
-              .to({}, { duration: 1.0 });
+              .to(`.text-block-${prevIdx}`, { autoAlpha: 0, y: -30, duration: 0.5, ease: "power2.inOut" }, label)
+              .to(`.img-layer-${prevIdx}`, { autoAlpha: 0, scale: 1.12, duration: 1, ease: "power2.inOut" }, label)
+              .to(`.img-layer-${nextIdx}`, { autoAlpha: 1, scale: 1, duration: 1, ease: "power2.inOut" }, label)
+              .to(`.text-block-${nextIdx}`, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" }, `${label}+=0.5`)
+              .to(`.text-block-${nextIdx} .headline-line span`, { yPercent: 0, stagger: 0.1, duration: 0.6, ease: "power3.out" }, `${label}+=0.5`)
+              .to(`.text-block-${nextIdx} .anim-fade-up`, { opacity: 1, y: 0, stagger: 0.06, duration: 0.5, ease: "power3.out" }, `${label}+=0.7`)
+              .to({}, { duration: 0.8 });
           };
 
-          projectPhase("proj1", 0);
-          projectPhase("proj2", 1);
-          projectPhase("proj3", 2);
-
-          /* ── PHASE 4 — OUTRO (80–100%) ────────────────── */
-          tl.addLabel("outro")
-            .to(".text-block-3 .headline-line > span",
-              { yPercent: -110, stagger: 0.06, duration: 0.5, ease: "power3.in" }, "outro")
-            .to(".text-block-3",
-              { autoAlpha: 0, y: -40, duration: 0.6, ease: "power2.inOut" }, "outro")
-            .to(".img-layer-3",
-              { autoAlpha: 0, scale: 1.18, duration: 1.4, ease: "power2.inOut" }, "outro")
-            .to(".img-layer-4",
-              { autoAlpha: 1, scale: 1, duration: 1.4, ease: "power2.inOut" }, "outro")
-            .to(".text-block-4 .eyebrow-line",
-              { autoAlpha: 1, x: 0, duration: 0.7, ease: EASE_OUT_EXPO }, "outro+=0.55")
-            .to(".text-block-4 .headline-line > span",
-              { yPercent: 0, stagger: 0.1, duration: 0.9, ease: EASE_OUT_EXPO }, "outro+=0.65")
-            .to(".text-block-4 .fade-up",
-              { autoAlpha: 1, y: 0, stagger: 0.1, duration: 0.8, ease: EASE_OUT_EXPO }, "outro+=0.9")
-            .to({}, { duration: 1.0 });
+          createPhase("proj1", 0, 1);
+          createPhase("proj2", 1, 2);
+          createPhase("proj3", 2, 3);
+          createPhase("outro", 3, 4);
         }
       );
 
-      /* ── MOBILE / REDUCED MOTION ─────────────────────── */
-      mm.add(
-        "(max-width: 1023px), (prefers-reduced-motion: reduce)",
-        () => {
-          gsap.set(
-            [".img-layer", ".text-block", ".headline-line > span", ".eyebrow-line", ".fade-up", ".fact-row"],
-            { clearProps: "all" }
-          );
+      // --- MOBILE & REDUCED MOTION FALLBACK ---
+      mm.add("(max-width: 1023px), (prefers-reduced-motion: reduce)", () => {
+        gsap.set([".img-layer", ".text-block", ".headline-line span", ".anim-fade-up"], { clearProps: "all" });
 
-          gsap.utils.toArray<HTMLElement>(".mobile-block").forEach((block) => {
-            gsap.from(block, {
-              opacity: 0,
-              y: 60,
-              duration: 1.0,
-              ease: EASE_OUT_EXPO,
-              scrollTrigger: { trigger: block, start: "top 75%" },
-            });
+        // Mobile progress bar
+        gsap.fromTo(".mobile-progress-fill",
+          { scaleX: 0 },
+          {
+            scaleX: 1, ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top top",
+              end: "bottom bottom",
+              scrub: true,
+            }
+          }
+        );
+
+        // Mobile progress bar visibility
+        gsap.fromTo(mobileProgressRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1, ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top top",
+              end: "top 30%",
+              scrub: 1,
+            }
+          }
+        );
+
+        // Track active mobile section
+        const sections = gsap.utils.toArray<HTMLElement>(".mobile-section");
+        sections.forEach((sec, i) => {
+          ScrollTrigger.create({
+            trigger: sec,
+            start: "top 50%",
+            end: "bottom 50%",
+            onToggle: (self) => {
+              if (self.isActive) setMobileActiveSection(i);
+            },
           });
-        }
-      );
+        });
+
+        // Card entrance animations
+        gsap.utils.toArray<HTMLElement>(".mobile-card").forEach((card) => {
+          gsap.from(card, {
+            opacity: 0,
+            y: 40,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: { trigger: card, start: "top 85%" },
+          });
+        });
+      });
 
       if (typeof document !== "undefined" && document.fonts) {
         document.fonts.ready.then(() => ScrollTrigger.refresh());
@@ -390,42 +321,83 @@ export default function HighwayAddressSection() {
     return () => ctx.revert();
   }, []);
 
+  const mobileSections = [
+    { label: "Intro", name: "Three projects, one address" },
+    { label: "01", name: "Express Highway Inn" },
+    { label: "02", name: "Sampan Condominium" },
+    { label: "03", name: "Sampan Trade Emporium" },
+    { label: "Outro", name: "Strong alone, together" },
+  ];
+
   return (
     <section
       ref={sectionRef}
-      data-component="HighwayAddressSection"
-      className={`${luxSerif.variable} ${luxSans.variable} ${luxMono.variable} relative w-full bg-[#050507] text-[#EFE9DD] font-lux-sans antialiased lg:h-[600vh] motion-reduce:h-auto`}
+      className={`${luxSerif.variable} ${luxSans.variable} relative w-full bg-[#171715] text-[#F4F1EA] font-lux-sans antialiased lg:h-[500vh] motion-reduce:h-auto`}
     >
-      {/* ═══════════════════════════════════════════════════════
+      {/* ═══════════════════════════════════════════════════════════
+          MOBILE PROGRESS BAR (top sticky)
+         ═══════════════════════════════════════════════════════════ */}
+      <div
+        ref={mobileProgressRef}
+        className="lg:hidden fixed top-0 left-0 right-0 z-50 opacity-0"
+      >
+        <div className="flex items-center justify-between px-5 py-3 backdrop-blur-md bg-[#171715]/85 border-b border-[rgba(244,241,234,0.08)]">
+          <div className="flex items-baseline gap-3">
+            <span className="text-sm font-lux-serif italic text-[#C5A059]">
+              {mobileSections[mobileActiveSection]?.label}
+            </span>
+            <span className="text-[9px] uppercase tracking-[0.3em] text-[#B5B1A8] truncate max-w-[180px]">
+              {mobileSections[mobileActiveSection]?.name}
+            </span>
+          </div>
+          <span className="text-[9px] uppercase tracking-[0.3em] text-[#89867E]">
+            {mobileActiveSection + 1} / {mobileSections.length}
+          </span>
+        </div>
+        <div className="h-[2px] w-full bg-[rgba(244,241,234,0.08)]">
+          <div className="mobile-progress-fill h-full w-full bg-[#C5A059] origin-left scale-x-0"></div>
+        </div>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════════════
           STICKY DESKTOP CINEMATIC VIEWPORT
-         ═══════════════════════════════════════════════════════ */}
+         ═══════════════════════════════════════════════════════════ */}
       <div
         ref={stickyRef}
         className="lg:sticky lg:top-0 h-screen w-full overflow-hidden hidden lg:flex motion-reduce:hidden items-center"
       >
-        {/* WebGL atmospheric shader */}
         <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none" />
 
-        {/* Architectural grid (hairlines) */}
+        {/* Architectural corner brackets */}
+        <div className="pointer-events-none absolute left-8 top-8 z-30 h-10 w-10 border-l border-t border-[#C5A059]/40" />
+        <div className="pointer-events-none absolute right-8 top-8 z-30 h-10 w-10 border-r border-t border-[#C5A059]/40" />
+        <div className="pointer-events-none absolute bottom-8 left-8 z-30 h-10 w-10 border-b border-l border-[#C5A059]/40" />
+        <div className="pointer-events-none absolute bottom-8 right-8 z-30 h-10 w-10 border-b border-r border-[#C5A059]/40" />
+
+        {/* Architectural grid */}
         <div
-          className="absolute inset-0 z-10 pointer-events-none opacity-[0.05]"
+          className="absolute inset-0 z-10 pointer-events-none opacity-[0.06]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(239,233,221,1) 1px, transparent 1px), linear-gradient(90deg, rgba(239,233,221,1) 1px, transparent 1px)",
+              "linear-gradient(rgba(244,241,234,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(244,241,234,0.2) 1px, transparent 1px)",
             backgroundSize: "120px 120px",
           }}
         />
 
-        {/* Fine film grain (CSS noise) */}
-        <div
-          className="absolute inset-0 z-[15] pointer-events-none opacity-[0.04] mix-blend-overlay"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-          }}
-        />
+        {/* Top meta bar */}
+        <div className="absolute left-0 right-0 top-0 z-30 flex items-center justify-between px-12 py-6 pointer-events-none">
+          <div className="flex items-center gap-4">
+            <span className="h-[1px] w-8 bg-[#C5A059]" />
+            <span className="text-[10px] uppercase tracking-[0.4em] text-[#89867E]">
+              One Connected Destination
+            </span>
+          </div>
+          <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[#89867E]">
+            <span>Dhaka — Chittagong Highway</span>
+          </div>
+        </div>
 
-        {/* ── IMAGE LAYERS (heavily darkened for premium mood) ── */}
+        {/* Image Layers */}
         <div className="absolute inset-0 z-10">
           <div
             className="img-layer img-layer-0 absolute inset-0"
@@ -436,19 +408,8 @@ export default function HighwayAddressSection() {
               backgroundPosition: "center",
             }}
           >
-            {/* Layered darkening: base charcoal + radial spotlight + warm gold tint */}
-            <div className="absolute inset-0 bg-[#050507]/80" />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 30% 50%, transparent 0%, rgba(5,5,7,0.85) 70%)",
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#050507] via-[#050507]/60 to-transparent" />
-            <div className="absolute inset-0 bg-[#C5A059]/[0.04] mix-blend-color-dodge" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#171715] via-[#171715]/70 to-[#171715]/30" />
           </div>
-
           {PROJECTS.map((p, i) => (
             <div
               key={i}
@@ -459,24 +420,10 @@ export default function HighwayAddressSection() {
                 backgroundPosition: "center",
               }}
             >
-              {/* Heavy darkening for cinematic, premium mood */}
-              <div className="absolute inset-0 bg-[#050507]/65" />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(ellipse at 35% 50%, transparent 0%, rgba(5,5,7,0.75) 75%)",
-                }}
-              />
-              {/* Left-to-right gradient for text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#050507] via-[#050507]/55 to-transparent" />
-              {/* Subtle bottom-fade for the status bar */}
-              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050507] to-transparent" />
-              {/* Warm gold tint for tonal cohesion */}
-              <div className="absolute inset-0 bg-[#C5A059]/[0.03] mix-blend-color-dodge" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#171715] via-[#171715]/72 to-[#171715]/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#171715]/60 via-transparent to-transparent" />
             </div>
           ))}
-
           <div
             className="img-layer img-layer-4 absolute inset-0"
             style={{
@@ -486,408 +433,299 @@ export default function HighwayAddressSection() {
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-[#050507]/88" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#050507] via-[#050507]/70 to-transparent" />
-            <div className="absolute inset-0 bg-[#C5A059]/[0.05] mix-blend-color-dodge" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#171715] via-[#171715]/75 to-[#171715]/40" />
           </div>
         </div>
 
-        {/* ── TOP BAR (brand · section label · live counter) ── */}
-        <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-6 md:px-12 lg:px-20 py-8 pointer-events-none">
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
-            <span className="font-lux-mono text-[11px] tracking-[0.3em] uppercase text-[#EFE9DD]/70">
-              Sampan&nbsp;Holdings
-            </span>
-          </div>
-
-          <span className="font-lux-mono text-[11px] tracking-[0.3em] uppercase text-[#EFE9DD]/40">
-            One Address — Three Destinations
-          </span>
-
-          <span className="font-lux-mono text-[11px] tracking-[0.3em] uppercase text-[#C5A059]">
-            {String(Math.max(0, Math.min(4, activeProject))).padStart(2, "0")} / 04
-          </span>
-        </header>
-
-        {/* ── ARCHITECTURAL CORNER MARKS ───────────────────── */}
-        <CornerMarks />
-
-        {/* ── MAIN CONTENT (left rail) ──────────────────────── */}
-        <div className="relative z-20 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 lg:py-0 pointer-events-none">
-          {/* ─── INTRO BLOCK ─── */}
-          <div className="text-block text-block-0 opacity-0 absolute top-1/2 left-6 md:left-12 lg:left-20 -translate-y-1/2 max-w-4xl">
-            <div className="eyebrow-line flex items-center gap-6 mb-10">
-              <span className="h-[1px] w-20 bg-[#C5A059]" />
-              <span className="font-lux-mono text-[10px] uppercase tracking-[0.45em] text-[#C5A059]">
-                A Connected Destination
+        {/* Text Content Container */}
+        <div className="relative z-20 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 pointer-events-none">
+          {/* Intro Block */}
+          <div className="text-block text-block-0 opacity-0 absolute top-1/2 left-6 md:left-12 lg:left-24 -translate-y-1/2 max-w-3xl">
+            <div className="anim-fade-up flex items-center gap-4 mb-10">
+              <span className="h-[1.5px] w-16 bg-[#C5A059]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.5em] text-[#C5A059]">
+                Sampan Group · Highway District
               </span>
             </div>
-
-            <h1 className="font-lux-serif text-[clamp(3.5rem,10vw,10rem)] leading-[0.85] tracking-[-0.04em] font-light">
-              <span className="headline-line block overflow-hidden">
+            <h1 className="font-lux-serif text-[clamp(3rem,8.5vw,8.5rem)] leading-[0.88] tracking-[-0.03em] font-light text-[#F4F1EA]">
+              <span className="headline-line block overflow-hidden pb-1">
                 <span className="block">Three projects.</span>
               </span>
-              <span className="headline-line block overflow-hidden">
+              <span className="headline-line block overflow-hidden pb-1">
                 <span className="block italic text-[#C5A059]">One address.</span>
               </span>
             </h1>
-
-            <div className="fade-up mt-12 max-w-xl">
-              <p className="text-sm md:text-base text-[#EFE9DD]/65 font-light leading-[1.7] border-l border-[#C5A059]/40 pl-6">
-                On the Dhaka–Chittagong Highway, hospitality, residential living, and
-                commerce converge into a single, connected destination. Each project stands
-                alone in its purpose. Together, they form an ecosystem.
-              </p>
-            </div>
-
-            <div className="fade-up mt-14 flex items-center gap-5 text-[#EFE9DD]/45">
-              <span className="font-lux-mono text-[9px] uppercase tracking-[0.4em]">Scroll to explore</span>
-              <span className="relative w-px h-14 bg-gradient-to-b from-[#C5A059] via-[#C5A059]/40 to-transparent">
-                <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse" />
-              </span>
+            <div className="anim-fade-up flex items-center gap-5 mt-12 text-[#89867E]">
+              <div className="w-[1px] h-12 bg-gradient-to-b from-[#C5A059] to-transparent" />
+              <span className="text-[9px] uppercase tracking-[0.4em]">Scroll to explore the district</span>
             </div>
           </div>
 
-          {/* ─── PROJECT BLOCKS ─── */}
+          {/* Project Blocks */}
           {PROJECTS.map((project, i) => (
             <div
               key={project.index}
-              className={`text-block text-block-${i + 1} opacity-0 absolute top-1/2 left-6 md:left-12 lg:left-20 -translate-y-1/2 max-w-3xl`}
+              className={`text-block text-block-${i + 1} opacity-0 absolute top-1/2 left-6 md:left-12 lg:left-24 -translate-y-1/2 max-w-2xl`}
             >
-              {/* Eyebrow */}
-              <div className="eyebrow-line flex items-center gap-5 mb-8">
-                <span className="font-lux-mono text-[11px] uppercase tracking-[0.4em] text-[#C5A059] font-medium">
-                  {project.index}
-                </span>
-                <span className="h-px w-14 bg-[#C5A059]/50" />
-                <span className="font-lux-mono text-[10px] uppercase tracking-[0.4em] text-[#EFE9DD]/55">
-                  {project.typology} · Ongoing
+              <div className="anim-fade-up flex items-center gap-4 mb-10">
+                <span className="font-lux-serif text-3xl italic font-light text-[#C5A059]">{project.index}</span>
+                <span className="h-px w-12 bg-[#C5A059]" />
+                <span className="text-[10px] uppercase tracking-[0.4em] text-[#C5A059] font-medium">
+                  {project.type}
                 </span>
               </div>
-
-              {/* Headline */}
-              <h2 className="font-lux-serif text-4xl md:text-6xl lg:text-[5.5rem] leading-[0.92] tracking-[-0.025em] font-light text-[#EFE9DD] mb-6">
-                <span className="headline-line block overflow-hidden">
+              <h2 className="font-lux-serif text-4xl md:text-6xl lg:text-[5rem] leading-[0.9] tracking-[-0.02em] font-light mb-3 text-[#F4F1EA]">
+                <span className="headline-line block overflow-hidden pb-1">
                   <span className="block">{project.name}</span>
                 </span>
               </h2>
-
-              {/* Subhead as editorial pull-quote */}
-              <p className="fade-up font-lux-serif text-2xl md:text-3xl italic font-light text-[#C5A059] mb-10 leading-tight">
+              <p className="anim-fade-up font-lux-serif text-xl md:text-2xl italic font-light text-[#C5A059]/85 mb-8">
                 {project.subhead}
               </p>
-
-              {/* Description */}
-              <p className="fade-up text-sm md:text-base text-[#EFE9DD]/65 font-light leading-[1.75] border-l border-[#C5A059]/40 pl-6 mb-10 max-w-xl">
+              <p className="anim-fade-up text-sm md:text-base text-[#B5B1A8] font-light leading-relaxed border-l-2 border-[#C5A059]/40 pl-5 mb-10 max-w-xl">
                 {project.desc}
               </p>
 
-              {/* Facts grid */}
-              <div className="fade-up mb-10">
-                <div className="font-lux-mono text-[9px] uppercase tracking-[0.35em] text-[#EFE9DD]/40 mb-4">
-                  Specifications
-                </div>
-                <div className="grid grid-cols-2 gap-x-10 gap-y-3 border-t border-[#EFE9DD]/10 pt-6 max-w-lg">
-                  {project.facts.map((fact, idx) => (
-                    <div
-                      key={idx}
-                      className="fact-row flex items-center gap-3 text-[12px] text-[#EFE9DD]/85 font-light"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-[#C5A059]" />
-                      {fact}
-                    </div>
-                  ))}
-                </div>
+              <div className="anim-fade-up grid grid-cols-2 gap-x-8 gap-y-2.5 border-t border-[rgba(244,241,234,0.10)] pt-6 mb-10 max-w-md">
+                {project.facts.map((fact, idx) => (
+                  <div key={idx} className="flex items-center gap-3 text-[11px] text-[#B5B1A8] font-light">
+                    <span className="w-1 h-1 rounded-full bg-[#C5A059] flex-shrink-0" />
+                    {fact}
+                  </div>
+                ))}
               </div>
 
-              {/* CTA — magnetic link */}
-              <Link
-                href={project.slug}
-                className="group fade-up inline-flex items-center gap-5 text-[11px] font-semibold uppercase tracking-[0.35em] text-[#EFE9DD] hover:text-[#C5A059] transition-colors duration-500 w-fit pointer-events-auto"
-              >
-                {project.linkLabel}
-                <span className="relative w-16 h-px bg-current overflow-hidden">
-                  <span className="absolute inset-0 bg-[#C5A059] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-                </span>
-                <svg
-                  className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              <div className="anim-fade-up flex items-center gap-6">
+                <Link
+                  href={project.slug}
+                  className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#C5A059] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-8 py-4 transition-colors duration-500 hover:text-[#C5A059] pointer-events-auto"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
+                  <span className="absolute inset-0 bg-[#F4F1EA] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0" />
+                  <span className="relative z-10 flex items-center gap-3">
+                    {project.linkLabel}
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </span>
+                </Link>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-[#89867E]">{project.location}</span>
+              </div>
             </div>
           ))}
 
-          {/* ─── OUTRO BLOCK ─── */}
-          <div className="text-block text-block-4 opacity-0 absolute top-1/2 left-6 md:left-12 lg:left-20 -translate-y-1/2 max-w-4xl">
-            <div className="eyebrow-line flex items-center gap-6 mb-10">
-              <span className="h-[1px] w-20 bg-[#C5A059]" />
-              <span className="font-lux-mono text-[10px] uppercase tracking-[0.45em] text-[#C5A059]">
-                The Ecosystem
+          {/* Outro Block */}
+          <div className="text-block text-block-4 opacity-0 absolute top-1/2 left-6 md:left-12 lg:left-24 -translate-y-1/2 max-w-3xl">
+            <div className="anim-fade-up flex items-center gap-4 mb-10">
+              <span className="h-[1.5px] w-16 bg-[#C5A059]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.5em] text-[#C5A059]">
+                The Connected District
               </span>
             </div>
-
-            <h2 className="font-lux-serif text-[clamp(2.5rem,7vw,8rem)] leading-[0.9] tracking-[-0.03em] font-light text-[#EFE9DD] mb-12">
-              <span className="headline-line block overflow-hidden">
+            <h2 className="font-lux-serif text-[clamp(2.5rem,6vw,7rem)] leading-[0.9] tracking-[-0.02em] font-light text-[#F4F1EA] mb-8">
+              <span className="headline-line block overflow-hidden pb-1">
                 <span className="block">Strong alone.</span>
               </span>
-              <span className="headline-line block overflow-hidden">
+              <span className="headline-line block overflow-hidden pb-1">
                 <span className="block italic text-[#C5A059]">Unstoppable together.</span>
               </span>
             </h2>
-
-            <p className="fade-up text-base md:text-lg text-[#EFE9DD]/65 font-light leading-[1.7] max-w-xl mb-14">
-              Stay, live, shop, and connect within one destination on the
-              Dhaka–Chittagong Highway. Book a private visit to walk through
-              the masterplan, the units, and the vision.
+            <p className="anim-fade-up text-sm md:text-lg text-[#B5B1A8] font-light leading-relaxed max-w-xl mb-12">
+              Stay, live, shop, and connect within one destination on the Dhaka–Chittagong Highway.
             </p>
-
-            <div className="fade-up flex items-center gap-8 pointer-events-auto">
-              <Link
-                href="/contact"
-                className="group relative overflow-hidden bg-[#C5A059] text-[#050507] text-[11px] font-semibold uppercase tracking-[0.35em] px-12 py-5 flex items-center gap-3 transition-colors duration-500 hover:text-[#C5A059]"
-              >
-                <span className="absolute inset-0 bg-[#EFE9DD] translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-                <span className="relative z-10 flex items-center gap-3">
-                  Book a private visit
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </Link>
-
-              <Link
-                href="/projects"
-                className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#EFE9DD]/70 hover:text-[#C5A059] transition-colors duration-500"
-              >
-                View all projects
-              </Link>
-            </div>
+            <Link
+              href="/contact"
+              className="anim-fade-up group relative inline-flex items-center gap-3 overflow-hidden bg-[#C5A059] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-10 py-5 transition-colors duration-500 hover:text-[#C5A059] pointer-events-auto"
+            >
+              <span className="absolute inset-0 bg-[#F4F1EA] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0" />
+              <span className="relative z-10 flex items-center gap-3">
+                Book a visit
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+            </Link>
           </div>
         </div>
 
-        {/* ── RIGHT RAIL — vertical project index ───────────── */}
-        <aside
-          className={`absolute right-12 top-1/2 -translate-y-1/2 z-30 flex flex-col items-end gap-6 transition-all duration-700 ${
-            activeProject === 0 || activeProject === 4 ? "opacity-0 translate-x-6" : "opacity-100"
+        {/* Refined right-side progress rail */}
+        <div
+          className={`absolute right-12 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col items-end gap-5 pointer-events-none transition-opacity duration-700 ${
+            activeProject === 0 || activeProject === 4 ? "opacity-0" : "opacity-100"
           }`}
         >
-          <div className="font-lux-serif text-5xl text-[#C5A059] tabular-nums leading-none">
-            {activeProject > 0 && activeProject < 4 ? `0${activeProject}` : ""}
+          <div className="flex flex-col items-end gap-1">
+            <span className="font-lux-serif text-5xl italic font-light text-[#C5A059] leading-none">
+              0{activeProject > 0 && activeProject < 4 ? activeProject : 1}
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.4em] text-[#B5B1A8]">
+              {PROJECTS[(activeProject || 1) - 1]?.name ?? ""}
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.4em] text-[#89867E]">of 03</span>
           </div>
-
-          <div className="relative h-40 w-px bg-[#EFE9DD]/15">
-            <div
-              className="absolute top-0 left-0 w-full bg-[#C5A059] origin-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-              style={{
-                transform: `scaleY(${
-                  activeProject > 0 && activeProject < 4 ? activeProject / 3 : 0
-                })`,
-              }}
-            />
-          </div>
-
-          <div className="flex flex-col gap-3 items-end">
-            {PROJECTS.map((p, i) => (
+          <div className="flex flex-col gap-1.5">
+            {[1, 2, 3].map((n) => (
               <div
-                key={p.index}
-                className={`font-lux-mono text-[10px] tracking-[0.3em] uppercase transition-colors duration-500 ${
-                  activeProject === i + 1 ? "text-[#C5A059]" : "text-[#EFE9DD]/30"
+                key={n}
+                className={`h-12 w-px transition-all duration-500 ${
+                  activeProject === n ? "bg-[#C5A059]" : "bg-[rgba(244,241,234,0.10)]"
                 }`}
-              >
-                {p.name.split(" ")[0]}
-              </div>
+              />
             ))}
           </div>
-
-          <div className="font-lux-mono text-[9px] tracking-[0.4em] uppercase text-[#EFE9DD]/40 [writing-mode:vertical-rl] rotate-180 mt-2">
-            Index
-          </div>
-        </aside>
-
-        {/* ── BOTTOM STATUS BAR ─────────────────────────────── */}
-        <footer className="absolute bottom-0 left-0 right-0 z-30 px-6 md:px-12 lg:px-20 py-6 pointer-events-none">
-          <div className="flex items-end justify-between gap-8">
-            <div className="flex items-center gap-3">
-              <span className="font-lux-mono text-[10px] tracking-[0.35em] uppercase text-[#EFE9DD]/40">
-                Currently viewing
-              </span>
-              <span className="font-lux-serif text-base italic text-[#EFE9DD]/90">
-                {activeProject === 0
-                  ? "Introduction"
-                  : activeProject === 4
-                  ? "The Ecosystem"
-                  : PROJECTS[activeProject - 1].name}
-              </span>
-            </div>
-
-            <div className="flex-1 max-w-md mx-8">
-              <div className="h-px w-full bg-[#EFE9DD]/15 relative">
-                <div
-                  className="absolute top-0 left-0 h-full bg-[#C5A059] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  style={{
-                    width: `${(activeProject / 4) * 100}%`,
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="font-lux-mono text-[10px] tracking-[0.3em] uppercase text-[#EFE9DD]/40">
-              Dhaka — Chittagong
-            </div>
-          </div>
-        </footer>
-
-        {/* Custom cursor ring */}
-        <div
-          ref={cursorRef}
-          className="pointer-events-none fixed top-0 left-0 z-50 w-8 h-8 rounded-full border border-[#C5A059]/60 hidden lg:block"
-          style={{ transform: "translate(-50%, -50%)" }}
-        />
+        </div>
       </div>
 
-      {/* ═══════════════════════════════════════════════════════
-          MOBILE / REDUCED-MOTION STACKED LAYOUT
-         ═══════════════════════════════════════════════════════ */}
-      <div className="lg:hidden motion-reduce:flex flex-col">
-        {/* Mobile Intro */}
-        <div className="mobile-block relative min-h-[80vh] flex items-center px-6 py-24">
+      {/* ═══════════════════════════════════════════════════════════
+          MOBILE / REDUCED-MOTION CARD-BASED LAYOUT
+         ═══════════════════════════════════════════════════════════ */}
+      <div className="lg:hidden motion-reduce:flex flex-col pt-16">
+        {/* Mobile Intro — Hero card */}
+        <section className="mobile-section mobile-card relative min-h-[88vh] flex flex-col justify-end px-5 py-12 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
-              src="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2070&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=1600&auto=format&fit=crop"
               alt=""
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover opacity-40"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-[#050507]/90" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#171715] via-[#171715]/70 to-[#171715]/30" />
           </div>
-          <div className="relative z-10 max-w-xl">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="h-px w-12 bg-[#C5A059]" />
-              <span className="font-lux-mono text-[10px] uppercase tracking-[0.4em] text-[#C5A059]">
-                A Connected Destination
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-[1.5px] w-10 bg-[#C5A059]" />
+              <span className="text-[9px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">
+                Highway District
               </span>
             </div>
-            <h1 className="font-lux-serif text-5xl leading-[0.85] tracking-[-0.03em] font-light">
+            <h1 className="font-lux-serif text-[clamp(2.8rem,12vw,5rem)] leading-[0.88] tracking-[-0.03em] font-light text-[#F4F1EA]">
               Three projects.
               <br />
               <span className="italic text-[#C5A059]">One address.</span>
             </h1>
-            <p className="mt-8 text-sm text-[#EFE9DD]/65 font-light leading-relaxed border-l border-[#C5A059]/40 pl-4">
-              On the Dhaka–Chittagong Highway, hospitality, residential living,
-              and commerce converge into a single, connected destination.
+            <p className="mt-6 text-sm font-light leading-relaxed text-[#B5B1A8] max-w-md">
+              Three connected developments on the Dhaka–Chittagong Highway. Scroll to explore each one.
             </p>
-          </div>
-        </div>
-
-        {/* Mobile Project Blocks */}
-        {PROJECTS.map((project) => (
-          <div
-            key={project.index}
-            className="mobile-block relative min-h-screen flex items-center px-6 py-24 border-t border-[#EFE9DD]/10"
-          >
-            <div className="absolute inset-0 z-0">
-              <img src={project.img} alt={project.name} className="w-full h-full object-cover opacity-25" />
-              <div className="absolute inset-0 bg-[#050507]/85" />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#050507] to-transparent" />
+            <div className="mt-8 flex items-center gap-3 text-[9px] uppercase tracking-[0.4em] text-[#89867E]">
+              <div className="w-6 h-px bg-[#C5A059]" />
+              <span>Scroll to explore</span>
             </div>
-            <div className="relative z-10 max-w-xl">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="font-lux-mono text-[11px] uppercase tracking-[0.4em] text-[#C5A059] font-medium">
-                  {project.index}
-                </span>
-                <span className="h-px w-12 bg-[#C5A059]/50" />
-                <span className="font-lux-mono text-[9px] uppercase tracking-[0.4em] text-[#EFE9DD]/55">
-                  {project.typology}
+          </div>
+        </section>
+
+        {/* Mobile Project Cards */}
+        {PROJECTS.map((project) => (
+          <section
+            key={project.index}
+            className="mobile-section mobile-card relative min-h-screen flex flex-col px-5 py-12 border-t border-[rgba(244,241,234,0.08)]"
+          >
+            {/* Card image — top portion */}
+            <div className="relative w-full aspect-[4/3] overflow-hidden mb-8 bg-[#1D1D1A]">
+              <img
+                src={project.img}
+                alt={project.name}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#171715]/60 via-transparent to-transparent" />
+              {/* Top-left index badge */}
+              <div className="absolute top-4 left-4 flex items-center gap-2 backdrop-blur-md bg-[#171715]/60 px-3 py-1.5">
+                <span className="h-px w-4 bg-[#C5A059]" />
+                <span className="text-[9px] uppercase tracking-[0.3em] text-[#F4F1EA]">{project.index} / 03</span>
+              </div>
+              {/* Bottom type label */}
+              <div className="absolute bottom-4 right-4">
+                <span className="text-[9px] uppercase tracking-[0.3em] text-[#F4F1EA] backdrop-blur-md bg-[#171715]/60 px-3 py-1.5">
+                  {project.type}
                 </span>
               </div>
-              <h2 className="font-lux-serif text-4xl md:text-5xl leading-[0.92] font-light mb-4">
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0 h-6 w-6 border-t border-r border-[#C5A059]/50" />
+            </div>
+
+            {/* Card content */}
+            <div className="flex-1 flex flex-col">
+              <h2 className="font-lux-serif text-[clamp(2.2rem,8vw,3rem)] leading-[0.95] tracking-[-0.02em] font-light text-[#F4F1EA] mb-3">
                 {project.name}
               </h2>
-              <p className="font-lux-serif text-xl italic font-light text-[#C5A059] mb-6">
+              <p className="font-lux-serif text-lg italic font-light text-[#C5A059]/85 mb-6">
                 {project.subhead}
               </p>
-              <p className="text-sm text-[#EFE9DD]/65 font-light mb-8 leading-relaxed border-l border-[#C5A059]/40 pl-4">
+              <p className="text-sm text-[#B5B1A8] font-light leading-relaxed mb-8 border-l-2 border-[#C5A059]/40 pl-4">
                 {project.desc}
               </p>
-              <div className="font-lux-mono text-[9px] uppercase tracking-[0.35em] text-[#EFE9DD]/40 mb-3">
-                Specifications
-              </div>
-              <div className="grid grid-cols-2 gap-3 mb-8 border-t border-[#EFE9DD]/10 pt-5">
+
+              {/* Facts grid */}
+              <div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-8 border-t border-[rgba(244,241,234,0.10)] pt-6">
                 {project.facts.map((fact, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-[#EFE9DD]/85 font-light">
-                    <span className="w-1 h-1 rounded-full bg-[#C5A059]" /> {fact}
+                  <div key={idx} className="flex items-center gap-2 text-xs text-[#B5B1A8] font-light">
+                    <span className="w-1 h-1 rounded-full bg-[#C5A059] flex-shrink-0" />
+                    {fact}
                   </div>
                 ))}
               </div>
+
+              {/* CTA */}
               <Link
                 href={project.slug}
-                className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C5A059]"
+                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-[#C5A059] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-6 py-4 transition-colors duration-500 hover:text-[#C5A059] mt-auto"
               >
-                {project.linkLabel} →
+                <span className="absolute inset-0 bg-[#F4F1EA] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0" />
+                <span className="relative z-10 flex items-center gap-3">
+                  {project.linkLabel}
+                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
               </Link>
+              <span className="mt-4 text-[9px] uppercase tracking-[0.3em] text-[#89867E] text-center">
+                {project.location}
+              </span>
             </div>
-          </div>
+          </section>
         ))}
 
         {/* Mobile Outro */}
-        <div className="mobile-block relative min-h-[80vh] flex items-center justify-center text-center px-6 py-24 border-t border-[#EFE9DD]/10">
+        <section className="mobile-section mobile-card relative min-h-[88vh] flex flex-col items-center justify-center text-center px-5 py-12 border-t border-[rgba(244,241,234,0.08)]">
           <div className="absolute inset-0 z-0">
             <img
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop"
               alt=""
-              className="w-full h-full object-cover opacity-12"
+              className="w-full h-full object-cover opacity-25"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-[#050507]/92" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#171715] via-[#171715]/80 to-[#171715]/60" />
           </div>
-          <div className="relative z-10">
-            <div className="flex items-center gap-4 justify-center mb-8">
-              <span className="h-px w-12 bg-[#C5A059]" />
-              <span className="font-lux-mono text-[10px] uppercase tracking-[0.4em] text-[#C5A059]">
-                The Ecosystem
+          <div className="relative z-10 max-w-md">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <span className="h-[1.5px] w-10 bg-[#C5A059]" />
+              <span className="text-[9px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">
+                The Connected District
               </span>
-              <span className="h-px w-12 bg-[#C5A059]" />
+              <span className="h-[1.5px] w-10 bg-[#C5A059]" />
             </div>
-            <h2 className="font-lux-serif text-4xl leading-[0.92] font-light mb-8">
+            <h2 className="font-lux-serif text-[clamp(2.2rem,9vw,3.5rem)] leading-[0.95] tracking-[-0.02em] font-light text-[#F4F1EA] mb-6">
               Strong alone.
               <br />
               <span className="italic text-[#C5A059]">Unstoppable together.</span>
             </h2>
-            <p className="text-sm text-[#EFE9DD]/65 font-light mb-10 max-w-md mx-auto leading-relaxed">
-              Stay, live, shop, and connect within one destination on the
-              Dhaka–Chittagong Highway.
+            <p className="text-sm text-[#B5B1A8] font-light leading-relaxed mb-12">
+              Stay, live, shop, and connect within one destination on the Dhaka–Chittagong Highway.
             </p>
             <Link
               href="/contact"
-              className="bg-[#C5A059] text-[#050507] text-[11px] font-semibold uppercase tracking-[0.3em] px-10 py-4 inline-block"
+              className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-[#C5A059] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-8 py-4 transition-colors duration-500 hover:text-[#C5A059]"
             >
-              Book a visit
+              <span className="absolute inset-0 bg-[#F4F1EA] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0" />
+              <span className="relative z-10 flex items-center gap-3">
+                Book a visit
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
             </Link>
           </div>
-        </div>
+        </section>
       </div>
     </section>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────────
-   ARCHITECTURAL CORNER MARKS — hairlines at viewport corners
-   ───────────────────────────────────────────────────────────── */
-function CornerMarks() {
-  const marks = [
-    "top-8 left-8 border-l border-t",
-    "top-8 right-8 border-r border-t",
-    "bottom-8 left-8 border-l border-b",
-    "bottom-8 right-8 border-r border-b",
-  ];
-  return (
-    <div className="absolute inset-0 z-20 pointer-events-none">
-      {marks.map((cls, i) => (
-        <span key={i} className={`absolute w-6 h-6 border-[#C5A059]/40 ${cls}`} />
-      ))}
-    </div>
   );
 }

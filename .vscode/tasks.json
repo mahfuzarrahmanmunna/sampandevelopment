@@ -7,6 +7,32 @@
 			"command": "npm run lint && npm run build",
 			"isBackground": false,
 			"problemMatcher": []
+		},
+		{
+			"label": "Temporary lint validation",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"lint"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$eslint-stylish"
+			]
+		},
+		{
+			"label": "Temporary build validation",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
 		}
 	]
 }
