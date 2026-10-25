@@ -373,9 +373,9 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#17211D]/80 via-[#17211D]/40 to-[#17211D] pointer-events-none" />
 
         <div className="absolute left-5 top-6 z-20 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[#F5F3EE]/50 sm:left-6 md:left-12 md:top-12 lg:left-24">
-          <Link href="/" className="transition-colors hover:text-[#C5A059]">Home</Link>
+          <Link href="/" className="transition-colors hover:text-[#19ABE1]">Home</Link>
           <span className="text-[#F5F3EE]/30">/</span>
-          <span className="text-[#C5A059]">About Us</span>
+          <span className="text-[#19ABE1]">About Us</span>
         </div>
 
         <div className="absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 rotate-90 text-[10px] uppercase tracking-[0.4em] text-[#F5F3EE]/40 md:block lg:right-12">
@@ -385,8 +385,8 @@ export default function AboutPage() {
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 sm:px-6 md:px-12 lg:px-24">
           <div className="max-w-4xl">
             <div className="anim-fade mb-8 flex items-center gap-4">
-              <span className="block h-[1.5px] w-12 bg-[#C5A059]"></span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">
+              <span className="block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">
                 About Sampan Development
               </span>
             </div>
@@ -396,7 +396,7 @@ export default function AboutPage() {
                 <span className="anim-headline block font-light">Built on clear title</span>
               </span>
               <span className="block overflow-hidden pb-2">
-                <span className="anim-headline block font-normal italic text-[#C5A059]">and group strength.</span>
+                <span className="anim-headline block font-normal italic text-[#19ABE1]">and group strength.</span>
               </span>
             </h1>
 
@@ -405,7 +405,7 @@ export default function AboutPage() {
             </p>
 
             <div className="anim-fade flex flex-col items-start gap-4 sm:flex-row">
-              <Link href="/projects" className="group relative flex items-center gap-3 overflow-hidden bg-[#C5A059] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#17211D] transition-colors duration-500 hover:text-[#C5A059] sm:px-10 sm:py-5">
+              <Link href="/projects" className="group relative flex items-center gap-3 overflow-hidden bg-[#19ABE1] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#17211D] transition-colors duration-500 hover:text-[#19ABE1] sm:px-10 sm:py-5">
                 <span className="absolute inset-0 z-0 translate-y-full bg-[#F5F3EE] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"></span>
                 <span className="relative z-10 flex items-center gap-3">
                   View Projects
@@ -414,8 +414,8 @@ export default function AboutPage() {
                   </svg>
                 </span>
               </Link>
-              <Link href="/contact" className="group relative flex items-center gap-3 overflow-hidden border border-[#F5F3EE]/30 bg-[#17211D]/20 px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F5F3EE] backdrop-blur-sm transition-colors duration-500 hover:border-[#C5A059] hover:text-[#17211D] sm:px-10 sm:py-5">
-                <span className="absolute inset-0 z-0 translate-y-full bg-[#C5A059] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"></span>
+              <Link href="/contact" className="group relative flex items-center gap-3 overflow-hidden border border-[#F5F3EE]/30 bg-[#17211D]/20 px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F5F3EE] backdrop-blur-sm transition-colors duration-500 hover:border-[#19ABE1] hover:text-[#17211D] sm:px-10 sm:py-5">
+                <span className="absolute inset-0 z-0 translate-y-full bg-[#19ABE1] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"></span>
                 <span className="relative z-10">Book a Site Visit</span>
               </Link>
             </div>
@@ -432,7 +432,7 @@ export default function AboutPage() {
         <div className="absolute bottom-8 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-3 text-[9px] uppercase tracking-[0.4em] text-[#F5F3EE]/50 md:flex">
           <span>Scroll to Discover</span>
           <div className="h-10 w-px overflow-hidden bg-[#F5F3EE]/20">
-            <div className="h-full w-full origin-top animate-[scrollCue_2s_ease-in-out_infinite] bg-[#C5A059]"></div>
+            <div className="h-full w-full origin-top animate-[scrollCue_2s_ease-in-out_infinite] bg-[#19ABE1]"></div>
           </div>
         </div>
       </section>
@@ -445,13 +445,13 @@ export default function AboutPage() {
 
           <div className="flex flex-col justify-center">
             <div className="anim-fade mb-8 flex items-center gap-4">
-              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">Our Story</span>
+              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">Our Story</span>
             </div>
 
             <h2 className="font-lux-serif text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[-0.02em] mb-8">
               <span className="block overflow-hidden pb-2"><span className="anim-headline block font-light">From land sales to</span></span>
-              <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#C5A059]">highway destinations.</span></span>
+              <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#19ABE1]">highway destinations.</span></span>
             </h2>
 
             <div className="anim-fade space-y-6 text-sm font-light leading-relaxed text-[#101615]/70 sm:text-base md:max-w-md">
@@ -459,7 +459,7 @@ export default function AboutPage() {
               <p>We do this alongside the group's own businesses: hotels and motels, a restaurant and party centre, a resort, a super shop, filling stations and an education arm. That means our buildings sit next to operating businesses, not empty promises.</p>
             </div>
 
-            <a href="/sampan-group" className="anim-fade group mt-10 inline-flex items-center gap-4 border border-[#101615]/20 px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#101615] transition-colors hover:border-[#C5A059] hover:text-[#C5A059]">
+            <a href="/sampan-group" className="anim-fade group mt-10 inline-flex items-center gap-4 border border-[#101615]/20 px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#101615] transition-colors hover:border-[#19ABE1] hover:text-[#19ABE1]">
               Visit Sampan Group
               <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -468,12 +468,12 @@ export default function AboutPage() {
           </div>
 
           <div className="timeline-wrapper relative flex flex-col justify-center py-8 pl-8 md:pl-16">
-            <div className="timeline-line absolute bottom-0 left-0 top-0 w-px bg-[#C5A059] md:left-8"></div>
+            <div className="timeline-line absolute bottom-0 left-0 top-0 w-px bg-[#19ABE1] md:left-8"></div>
 
             {timeline.map((m, i) => (
               <div key={i} className="anim-fade relative mb-10 flex items-start gap-6 last:mb-0">
-                <div className="absolute -left-8 top-2 h-3 w-3 rounded-full border-2 border-[#C5A059] bg-[#F5F3EE] md:-left-16"></div>
-                <span className="w-20 flex-shrink-0 font-lux-serif text-2xl font-light text-[#C5A059]">{m.year}</span>
+                <div className="absolute -left-8 top-2 h-3 w-3 rounded-full border-2 border-[#19ABE1] bg-[#F5F3EE] md:-left-16"></div>
+                <span className="w-20 flex-shrink-0 font-lux-serif text-2xl font-light text-[#19ABE1]">{m.year}</span>
                 <span className="pt-1 text-sm font-light text-[#101615]/80">{m.event}</span>
               </div>
             ))}
@@ -499,8 +499,8 @@ export default function AboutPage() {
           <div className="why-panel flex h-full w-screen items-center px-5 sm:px-6 md:px-24">
             <div className="max-w-xl">
               <div className="anim-fade mb-6 flex items-center gap-4">
-                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">01 / Vision</span>
+                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">01 / Vision</span>
               </div>
               <h3 className="anim-fade font-lux-serif text-3xl font-light leading-tight sm:text-4xl md:text-6xl">
                 To be the most trusted land and real estate developer in Bangladesh.
@@ -511,8 +511,8 @@ export default function AboutPage() {
           <div className="why-panel flex h-full w-screen items-center justify-center px-5 sm:px-6 md:px-24">
             <div className="max-w-xl text-center">
               <div className="anim-fade mb-6 flex items-center justify-center gap-4">
-                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">02 / Mission</span>
+                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">02 / Mission</span>
               </div>
               <h3 className="anim-fade font-lux-serif text-3xl font-light leading-tight sm:text-4xl md:text-6xl">
                 To sell and build only on documented land, deliver what we promise, and keep every buyer informed.
@@ -523,8 +523,8 @@ export default function AboutPage() {
           <div className="why-panel flex h-full w-screen items-center justify-end px-5 sm:px-6 md:px-24">
             <div className="max-w-xl">
               <div className="anim-fade mb-6 flex items-center gap-4">
-                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">03 / Values</span>
+                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">03 / Values</span>
               </div>
               <ul className="anim-fade space-y-5 text-sm font-light text-[#F5F3EE]/80 sm:text-base md:text-lg">
                 {[
@@ -534,7 +534,7 @@ export default function AboutPage() {
                   { t: "Long-term thinking", d: "Projects that keep earning for their owners." },
                 ].map((v, i) => (
                   <li key={i} className="flex gap-4">
-                    <span className="font-lux-serif text-2xl font-light italic text-[#C5A059]">0{i + 1}</span>
+                    <span className="font-lux-serif text-2xl font-light italic text-[#19ABE1]">0{i + 1}</span>
                     <div>
                       <span className="block text-base font-medium text-[#F5F3EE] sm:text-lg md:text-2xl">{v.t}</span>
                       <span className="block text-sm sm:text-base">{v.d}</span>
@@ -549,7 +549,7 @@ export default function AboutPage() {
         <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3">
           {[0, 1, 2].map((i) => (
             <span key={i} className="h-px w-12 bg-[#F5F3EE]/20">
-              <span className={`block h-full bg-[#C5A059] transition-all duration-500 ${i === 0 ? "w-full" : "w-0"}`}></span>
+              <span className={`block h-full bg-[#19ABE1] transition-all duration-500 ${i === 0 ? "w-full" : "w-0"}`}></span>
             </span>
           ))}
         </div>
@@ -562,12 +562,12 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1400px]">
           <div className="mb-16 max-w-xl">
             <div className="anim-fade mb-8 flex items-center gap-4">
-              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Leadership</span>
+              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">Leadership</span>
             </div>
             <h2 className="font-lux-serif text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[-0.02em] mb-8">
               <span className="block overflow-hidden pb-2"><span className="anim-headline block font-light">The people accountable</span></span>
-              <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#C5A059]">for your project.</span></span>
+              <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#19ABE1]">for your project.</span></span>
             </h2>
             <p className="anim-fade text-sm font-light leading-relaxed text-[#101615]/70 sm:text-base md:text-lg">
               Our leaders sign off on every project, from land purchase to handover.
@@ -581,19 +581,19 @@ export default function AboutPage() {
 
                 <div className="relative mb-4 aspect-[4/5] w-full overflow-hidden border border-[#101615]/10 bg-gradient-to-br from-[#101615]/5 to-[#101615]/[0.02]">
                   <div className="absolute inset-0 flex items-center justify-center text-[10px] uppercase tracking-[0.3em] text-[#101615]/25">Photo</div>
-                  <div className="absolute left-0 top-0 h-4 w-4 border-l border-t border-[#C5A059]/50"></div>
-                  <div className="absolute bottom-0 right-0 h-4 w-4 border-b border-r border-[#C5A059]/50"></div>
+                  <div className="absolute left-0 top-0 h-4 w-4 border-l border-t border-[#19ABE1]/50"></div>
+                  <div className="absolute bottom-0 right-0 h-4 w-4 border-b border-r border-[#19ABE1]/50"></div>
                 </div>
 
                 <h4 className="font-lux-serif text-base font-light sm:text-lg">{leader.name}</h4>
-                <p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-[#C5A059]">{leader.role}</p>
-                <span className="block h-px w-6 origin-left scale-x-100 bg-[#C5A059] transition-transform duration-500 group-hover:w-full"></span>
+                <p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-[#19ABE1]">{leader.role}</p>
+                <span className="block h-px w-6 origin-left scale-x-100 bg-[#19ABE1] transition-transform duration-500 group-hover:w-full"></span>
               </div>
             ))}
           </div>
 
-          <div className="anim-fade mx-auto mt-20 max-w-3xl border-l-2 border-[#C5A059] pl-6 text-center md:mt-32 md:pl-12 md:text-left">
-            <span className="mb-4 block font-lux-serif text-6xl italic leading-none text-[#C5A059]/30">"</span>
+          <div className="anim-fade mx-auto mt-20 max-w-3xl border-l-2 border-[#19ABE1] pl-6 text-center md:mt-32 md:pl-12 md:text-left">
+            <span className="mb-4 block font-lux-serif text-6xl italic leading-none text-[#19ABE1]/30">"</span>
             <p className="font-lux-serif text-2xl font-light italic leading-tight text-[#101615] md:text-3xl lg:text-4xl">
               We never ask a buyer to trust us on words alone.
             </p>
@@ -613,21 +613,21 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-[1400px]">
           <h2 className="mb-16 font-lux-serif text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[-0.02em]">
             <span className="block overflow-hidden pb-2"><span className="anim-headline block font-light">Why buyers choose</span></span>
-            <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#C5A059]">Sampan</span></span>
+            <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#19ABE1]">Sampan</span></span>
           </h2>
 
           <div className="flex flex-col gap-12 md:gap-16">
             {whyItems.map((item, i) => (
               <div key={i} className="anim-fade group flex flex-col items-start gap-8 border-t border-[#F5F3EE]/10 pt-8 md:flex-row md:gap-16 md:pt-12">
                 <div className="md:w-1/3">
-                  <span className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-[#C5A059]">0{i + 1}</span>
-                  <h3 className="font-lux-serif text-4xl font-light text-[#F5F3EE] transition-all duration-500 group-hover:translate-x-2 group-hover:text-[#C5A059] md:text-5xl lg:text-6xl">
+                  <span className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-[#19ABE1]">0{i + 1}</span>
+                  <h3 className="font-lux-serif text-4xl font-light text-[#F5F3EE] transition-all duration-500 group-hover:translate-x-2 group-hover:text-[#19ABE1] md:text-5xl lg:text-6xl">
                     {item.word}
                   </h3>
                 </div>
                 <div className="flex flex-col items-start justify-between gap-8 md:w-2/3 md:flex-row">
                   <p className="max-w-xl text-sm font-light leading-relaxed text-[#F5F3EE]/70 sm:text-base md:text-lg">{item.desc}</p>
-                  <Link href={item.link} className="group/link flex flex-shrink-0 items-center gap-3 border-b border-[#C5A059] pb-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C5A059]">
+                  <Link href={item.link} className="group/link flex flex-shrink-0 items-center gap-3 border-b border-[#19ABE1] pb-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#19ABE1]">
                     Learn More
                     <svg className="h-3 w-3 transition-transform duration-300 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -643,12 +643,12 @@ export default function AboutPage() {
               Visit a site, read the documents, then decide.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/legal" className="group relative flex items-center gap-3 overflow-hidden bg-[#C5A059] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#101615] transition-colors duration-500 hover:text-[#C5A059]">
+              <Link href="/legal" className="group relative flex items-center gap-3 overflow-hidden bg-[#19ABE1] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#101615] transition-colors duration-500 hover:text-[#19ABE1]">
                 <span className="absolute inset-0 z-0 translate-y-full bg-[#F5F3EE] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"></span>
                 <span className="relative z-10">See Documents</span>
               </Link>
-              <Link href="/contact" className="group relative flex items-center gap-3 overflow-hidden border border-[#F5F3EE]/30 bg-[#101615]/20 px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F5F3EE] backdrop-blur-sm transition-colors duration-500 hover:border-[#C5A059] hover:text-[#101615]">
-                <span className="absolute inset-0 z-0 translate-y-full bg-[#C5A059] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"></span>
+              <Link href="/contact" className="group relative flex items-center gap-3 overflow-hidden border border-[#F5F3EE]/30 bg-[#101615]/20 px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F5F3EE] backdrop-blur-sm transition-colors duration-500 hover:border-[#19ABE1] hover:text-[#101615]">
+                <span className="absolute inset-0 z-0 translate-y-full bg-[#19ABE1] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"></span>
                 <span className="relative z-10">Book a Site Visit</span>
               </Link>
             </div>
@@ -663,12 +663,12 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1400px]">
           <div className="mb-16 max-w-xl">
             <div className="anim-fade mb-8 flex items-center gap-4">
-              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Affiliations</span>
+              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">Affiliations</span>
             </div>
             <h2 className="font-lux-serif text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[-0.02em] mb-8">
               <span className="block overflow-hidden pb-2"><span className="anim-headline block font-light">Our affiliations</span></span>
-              <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#C5A059]">and recognition</span></span>
+              <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#19ABE1]">and recognition</span></span>
             </h2>
             <p className="anim-fade text-sm font-light leading-relaxed text-[#101615]/70 sm:text-base md:text-lg">
               Memberships and associations that hold us to professional standards.
@@ -677,8 +677,8 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-2 gap-4 border-t border-[#101615]/10 pt-12 md:grid-cols-4 md:gap-8">
             {affiliations.map((logo, i) => (
-              <div key={i} className="anim-fade group relative flex h-28 flex-col items-center justify-center border border-[#101615]/10 p-4 text-center transition-all duration-300 hover:border-[#C5A059] hover:shadow-[0_8px_30px_-12px_rgba(197,160,89,0.2)]">
-                <span className="font-lux-serif text-2xl font-light text-[#101615]/80 transition-colors group-hover:text-[#C5A059]">{logo}</span>
+              <div key={i} className="anim-fade group relative flex h-28 flex-col items-center justify-center border border-[#101615]/10 p-4 text-center transition-all duration-300 hover:border-[#19ABE1] hover:shadow-[0_8px_30px_-12px_rgba(197,160,89,0.2)]">
+                <span className="font-lux-serif text-2xl font-light text-[#101615]/80 transition-colors group-hover:text-[#19ABE1]">{logo}</span>
                 <span className="mt-2 text-[9px] uppercase tracking-[0.2em] text-[#101615]/40">Member since [Year]</span>
                 <span className="absolute right-2 top-2 text-[9px] uppercase tracking-[0.2em] text-[#101615]/20">0{i + 1}</span>
               </div>
@@ -687,9 +687,9 @@ export default function AboutPage() {
 
           <div className="anim-fade mt-16 grid grid-cols-1 gap-8 md:mt-20 md:grid-cols-3">
             {awards.map((a, i) => (
-              <div key={i} className="group relative border-l border-[#C5A059] pl-4">
-                <span className="absolute -left-1 top-0 h-2 w-2 rounded-full bg-[#C5A059] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-                <p className="mb-1 text-[10px] uppercase tracking-[0.3em] text-[#C5A059]">{a.year}</p>
+              <div key={i} className="group relative border-l border-[#19ABE1] pl-4">
+                <span className="absolute -left-1 top-0 h-2 w-2 rounded-full bg-[#19ABE1] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                <p className="mb-1 text-[10px] uppercase tracking-[0.3em] text-[#19ABE1]">{a.year}</p>
                 <h4 className="mb-1 font-lux-serif text-lg font-light">{a.award}</h4>
                 <p className="text-xs font-light text-[#101615]/50">{a.org}</p>
               </div>
@@ -717,12 +717,12 @@ export default function AboutPage() {
           <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12 lg:mb-20">
             <div className="md:col-span-7">
               <div className="anim-fade mb-8 flex items-center gap-4">
-                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">Mother Company</span>
+                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">Mother Company</span>
               </div>
               <h2 className="font-lux-serif text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] tracking-[-0.02em] mb-8">
                 <span className="block overflow-hidden pb-2"><span className="anim-headline block font-light">Part of</span></span>
-                <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#C5A059]">Sampan Group</span></span>
+                <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#19ABE1]">Sampan Group</span></span>
               </h2>
               <p className="anim-fade max-w-xl text-sm font-light leading-relaxed text-[#F5F3EE]/70 sm:text-base md:text-lg">
                 Sampan Development Ltd sits inside Sampan Group. The group's concerns span hospitality, leisure, education, retail, manufacturing and energy — every project we build sits next to an operating business, not an empty promise.
@@ -731,14 +731,14 @@ export default function AboutPage() {
 
             <div className="anim-fade flex flex-col items-start justify-end md:col-span-5 md:items-end md:text-right">
               <div className="flex items-baseline gap-4">
-                <span className="font-lux-serif text-5xl font-light italic text-[#C5A059] md:text-6xl">10</span>
+                <span className="font-lux-serif text-5xl font-light italic text-[#19ABE1] md:text-6xl">10</span>
                 <span className="text-[10px] uppercase tracking-[0.3em] text-[#F5F3EE]/50">Concerns<br/>& Counting</span>
               </div>
               <a
                 href="https://sampangroup.com.bd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-6 inline-flex items-center gap-3 border border-[#F5F3EE]/30 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F5F3EE] transition-colors hover:border-[#C5A059] hover:text-[#C5A059] sm:px-8 sm:py-4"
+                className="group mt-6 inline-flex items-center gap-3 border border-[#F5F3EE]/30 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F5F3EE] transition-colors hover:border-[#19ABE1] hover:text-[#19ABE1] sm:px-8 sm:py-4"
               >
                 Visit Sampan Group
                 <svg className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -759,7 +759,7 @@ export default function AboutPage() {
                   href={concern.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="concern-card group relative flex overflow-hidden border border-[#F5F3EE]/10 transition-colors duration-500 hover:border-[#C5A059]/50"
+                  className="concern-card group relative flex overflow-hidden border border-[#F5F3EE]/10 transition-colors duration-500 hover:border-[#19ABE1]/50"
                 >
                   {/* Image — left side, fixed aspect */}
                   <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden sm:h-40 sm:w-40 md:h-44 md:w-44">
@@ -773,28 +773,28 @@ export default function AboutPage() {
 
                     {/* Top-left number index */}
                     <div className="absolute left-3 top-3 z-10 flex items-center gap-2">
-                      <span className="h-px w-4 bg-[#C5A059]"></span>
+                      <span className="h-px w-4 bg-[#19ABE1]"></span>
                       <span className="text-[10px] uppercase tracking-[0.2em] text-[#F5F3EE]">{indexLabel}</span>
                     </div>
 
                     {/* Corner accent */}
-                    <div className="absolute bottom-0 right-0 h-5 w-5 border-b border-r border-[#C5A059]/40"></div>
+                    <div className="absolute bottom-0 right-0 h-5 w-5 border-b border-r border-[#19ABE1]/40"></div>
                   </div>
 
                   {/* Content — right side */}
                   <div className="relative flex flex-1 flex-col justify-between p-5 sm:p-6">
                     {/* Sliding gold background */}
-                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-[#C5A059]/8 to-transparent transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0"></span>
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-[#19ABE1]/8 to-transparent transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0"></span>
 
                     {/* Top: tag + location */}
                     <div className="relative z-10 mb-3 flex items-center gap-3 text-[9px] uppercase tracking-[0.25em] text-[#F5F3EE]/40">
-                      <span className="text-[#C5A059]">{concern.tag}</span>
+                      <span className="text-[#19ABE1]">{concern.tag}</span>
                       <span className="h-px w-3 bg-[#F5F3EE]/20"></span>
                       <span className="hidden sm:inline">{concern.location}</span>
                     </div>
 
                     {/* Name */}
-                    <h3 className="relative z-10 font-lux-serif text-xl font-light leading-tight text-[#F5F3EE] transition-colors duration-300 group-hover:text-[#C5A059] sm:text-2xl md:text-3xl">
+                    <h3 className="relative z-10 font-lux-serif text-xl font-light leading-tight text-[#F5F3EE] transition-colors duration-300 group-hover:text-[#19ABE1] sm:text-2xl md:text-3xl">
                       {concern.name}
                     </h3>
 
@@ -805,8 +805,8 @@ export default function AboutPage() {
 
                     {/* Bottom: gold rule that extends on hover + arrow */}
                     <div className="relative z-10 mt-4 flex items-center justify-between">
-                      <span className="block h-px w-8 origin-left bg-[#C5A059] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-16"></span>
-                      <span className="flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-[#F5F3EE]/40 transition-colors duration-300 group-hover:text-[#C5A059]">
+                      <span className="block h-px w-8 origin-left bg-[#19ABE1] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-16"></span>
+                      <span className="flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-[#F5F3EE]/40 transition-colors duration-300 group-hover:text-[#19ABE1]">
                         Visit
                         <svg className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -823,10 +823,10 @@ export default function AboutPage() {
               href="https://sampangroup.com.bd"
               target="_blank"
               rel="noopener noreferrer"
-              className="concern-card group relative flex items-center justify-center overflow-hidden border border-dashed border-[#F5F3EE]/15 p-8 transition-colors duration-500 hover:border-[#C5A059]/40"
+              className="concern-card group relative flex items-center justify-center overflow-hidden border border-dashed border-[#F5F3EE]/15 p-8 transition-colors duration-500 hover:border-[#19ABE1]/40"
             >
               <div className="text-center">
-                <span className="block font-lux-serif text-3xl font-light italic text-[#C5A059]/70 transition-colors duration-300 group-hover:text-[#C5A059] sm:text-4xl">
+                <span className="block font-lux-serif text-3xl font-light italic text-[#19ABE1]/70 transition-colors duration-300 group-hover:text-[#19ABE1] sm:text-4xl">
                   + more
                 </span>
                 <span className="mt-2 block text-[10px] uppercase tracking-[0.3em] text-[#F5F3EE]/40">
@@ -856,13 +856,13 @@ export default function AboutPage() {
 
         <div className="relative z-10 mx-auto max-w-3xl">
           <div className="anim-fade mb-8 flex items-center justify-center gap-4">
-            <span className="block h-[1.5px] w-12 bg-[#C5A059]"></span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Closing</span>
+            <span className="block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">Closing</span>
           </div>
 
           <h2 className="font-lux-serif text-[clamp(3rem,7vw,6rem)] leading-[0.95] tracking-[-0.02em] mb-10">
             <span className="block overflow-hidden pb-2"><span className="anim-headline block font-light">See it for</span></span>
-            <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#C5A059]">yourself.</span></span>
+            <span className="block overflow-hidden pb-2"><span className="anim-headline block font-normal italic text-[#19ABE1]">yourself.</span></span>
           </h2>
 
           <p className="anim-fade mx-auto mb-12 max-w-xl text-sm font-light leading-relaxed text-[#F5F3EE]/70 sm:text-base md:text-lg">
@@ -870,7 +870,7 @@ export default function AboutPage() {
           </p>
 
           <div className="anim-fade flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href="/contact" className="group relative flex items-center gap-3 overflow-hidden bg-[#C5A059] px-12 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#17211D] transition-colors duration-500 hover:text-[#C5A059]">
+            <Link href="/contact" className="group relative flex items-center gap-3 overflow-hidden bg-[#19ABE1] px-12 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#17211D] transition-colors duration-500 hover:text-[#19ABE1]">
               <span className="absolute inset-0 z-0 translate-y-full bg-[#F5F3EE] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"></span>
               <span className="relative z-10">Book a Site Visit</span>
             </Link>

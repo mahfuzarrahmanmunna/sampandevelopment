@@ -143,12 +143,12 @@ export default function CompletedProjectsSection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-24 md:mb-40">
           <div className="md:col-span-7">
             <div className="anim-fade flex items-center gap-4 mb-8">
-              <span className="anim-line h-[1.5px] w-12 bg-[#C5A059] origin-left block"></span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Completed Developments</span>
+              <span className="anim-line h-[1.5px] w-12 bg-[#19ABE1] origin-left block"></span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">Completed Developments</span>
             </div>
             <h2 className="font-lux-serif text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] tracking-[-0.02em] font-light">
               <span className="anim-mask block overflow-hidden pb-2"><span className="block">Projects we have</span></span>
-              <span className="anim-mask block overflow-hidden pb-2"><span className="block italic text-[#C5A059]">already delivered.</span></span>
+              <span className="anim-mask block overflow-hidden pb-2"><span className="block italic text-[#19ABE1]">already delivered.</span></span>
             </h2>
           </div>
           <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end">
@@ -188,7 +188,7 @@ export default function CompletedProjectsSection() {
 
                 {/* Text & Metadata Column */}
                 <div className={`${textClasses} flex flex-col gap-6`}>
-                  <span className="anim-fade text-[10px] uppercase tracking-[0.3em] text-[#C5A059]">{project.index} / 03</span>
+                  <span className="anim-fade text-[10px] uppercase tracking-[0.3em] text-[#19ABE1]">{project.index} / 03</span>
                   
                   <h3 className="anim-mask font-lux-serif text-4xl md:text-5xl leading-[0.95] tracking-[-0.02em] font-light overflow-hidden pb-2">
                     <span className="block">{project.name}</span>
@@ -213,11 +213,11 @@ export default function CompletedProjectsSection() {
                   {/* Project Link */}
                   <Link 
                     href={project.slug} 
-                    className="anim-fade group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] hover:text-[#C5A059] transition-colors mt-4 w-fit"
+                    className="anim-fade group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] hover:text-[#19ABE1] transition-colors mt-4 w-fit"
                   >
                     View Project
                     <span className="relative w-12 h-[1.5px] bg-[#0B0B0D] overflow-hidden">
-                      <span className="absolute inset-0 bg-[#C5A059] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"></span>
+                      <span className="absolute inset-0 bg-[#19ABE1] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"></span>
                     </span>
                     <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                   </Link>

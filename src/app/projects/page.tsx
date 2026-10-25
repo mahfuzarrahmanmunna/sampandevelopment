@@ -269,7 +269,7 @@ export default function ProjectArchivePage() {
             <Link href="/" className="transition-colors hover:text-white">
               Home
             </Link>
-            <span className="text-[#C5A059]">/</span>
+            <span className="text-[#19ABE1]">/</span>
             <span className="text-white">Projects</span>
           </nav>
         </div>
@@ -285,14 +285,14 @@ export default function ProjectArchivePage() {
             }}
           >
             <span
-              className="h-px bg-[#C5A059] origin-left"
+              className="h-px bg-[#19ABE1] origin-left"
               style={{
                 width: "2.5rem",
                 transformOrigin: "left",
                 animation: mounted ? "drawLine 1s ease-out 0.3s both" : undefined,
               }}
             />
-            <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#C5A059] sm:text-xs">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#19ABE1] sm:text-xs">
               Sampan Development — Project Archive
             </span>
           </div>
@@ -316,7 +316,7 @@ export default function ProjectArchivePage() {
                   className="block font-serif italic bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
-                      "linear-gradient(120deg, #A07D3F 0%, #E5C787 25%, #C5A059 50%, #E5C787 75%, #A07D3F 100%)",
+                      "linear-gradient(120deg, #A07D3F 0%, #E5C787 25%, #19ABE1 50%, #E5C787 75%, #A07D3F 100%)",
                     backgroundSize: "200% 100%",
                     opacity: mounted ? 1 : 0,
                     animation: mounted
@@ -376,7 +376,7 @@ export default function ProjectArchivePage() {
                 : undefined,
             }}
           >
-            <span className="h-px w-12 bg-[#C5A059]" />
+            <span className="h-px w-12 bg-[#19ABE1]" />
             Scroll to explore
             <svg
               className="h-3 w-3"

@@ -190,8 +190,8 @@ export default function HighwayInnSection() {
           <div className="lg:col-span-6 order-2 lg:order-1">
             {/* Eyebrow */}
             <div className="anim-eyebrow mb-8 flex items-center gap-4">
-              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">
+              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">
                 The Sampan Experience
               </span>
             </div>
@@ -202,7 +202,7 @@ export default function HighwayInnSection() {
                 <span className="anim-headline block font-light">Sampan Highway</span>
               </span>
               <span className="block overflow-hidden pb-2">
-                <span className="anim-headline block font-normal italic text-[#C5A059]">Inn.</span>
+                <span className="anim-headline block font-normal italic text-[#19ABE1]">Inn.</span>
               </span>
             </h2>
 
@@ -220,7 +220,7 @@ export default function HighwayInnSection() {
             <div className="anim-fade flex flex-col gap-6">
               <Link
                 href="/sampan-highway-inn"
-                className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#C5A059] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#C5A059] w-fit"
+                className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#19ABE1] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#19ABE1] w-fit"
               >
                 <span className="absolute inset-0 z-0 translate-y-full bg-[#F4F1EA] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
                 <span className="relative z-10 flex items-center gap-3">
@@ -259,12 +259,12 @@ export default function HighwayInnSection() {
               </div>
 
               {/* Corner accents */}
-              <div className="absolute left-0 top-0 z-10 h-8 w-8 border-l border-t border-[#C5A059]/50" />
-              <div className="absolute bottom-0 right-0 z-10 h-8 w-8 border-b border-r border-[#C5A059]/50" />
+              <div className="absolute left-0 top-0 z-10 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
+              <div className="absolute bottom-0 right-0 z-10 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
 
               {/* Floating caption — bottom left */}
               <div className="absolute bottom-5 left-5 z-10 flex items-center gap-3">
-                <span className="h-px w-8 bg-[#C5A059]" />
+                <span className="h-px w-8 bg-[#19ABE1]" />
                 <span className="text-[9px] uppercase tracking-[0.3em] text-[#F4F1EA]/80 backdrop-blur-sm bg-[#171715]/40 px-3 py-1.5">
                   Fig 01 / Highway District
                 </span>
@@ -272,7 +272,7 @@ export default function HighwayInnSection() {
 
               {/* Top-right index */}
               <div className="absolute right-5 top-5 z-10 flex items-baseline gap-2">
-                <span className="font-lux-serif text-3xl font-light italic text-[#C5A059]/80">01</span>
+                <span className="font-lux-serif text-3xl font-light italic text-[#19ABE1]/80">01</span>
                 <span className="text-[9px] uppercase tracking-[0.3em] text-[#F4F1EA]/50">/ Inn</span>
               </div>
             </div>
@@ -288,14 +288,14 @@ export default function HighwayInnSection() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12 md:mb-16 items-end">
             <div className="md:col-span-7">
               <div className="mb-5 flex items-center gap-4">
-                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
-                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">
+                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
+                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">
                   More to Discover
                 </span>
               </div>
               <h3 className="font-lux-serif text-[clamp(2.2rem,4vw,3.5rem)] leading-[1] tracking-[-0.03em] font-light text-[#F4F1EA]">
                 Seven concerns,
-                <span className="block italic text-[#C5A059]">one destination.</span>
+                <span className="block italic text-[#19ABE1]">one destination.</span>
               </h3>
             </div>
             <div className="md:col-span-5 md:text-right">
@@ -350,17 +350,17 @@ export default function HighwayInnSection() {
                   {/* Top row — index + tag */}
                   <div className="absolute top-5 left-5 right-5 z-10 flex items-start justify-between">
                     <span className="flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-[#F4F1EA]/70 backdrop-blur-sm bg-[#171715]/40 px-2.5 py-1">
-                      <span className="h-px w-3 bg-[#C5A059]" />
+                      <span className="h-px w-3 bg-[#19ABE1]" />
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-[#C5A059] backdrop-blur-sm bg-[#171715]/40 px-2.5 py-1">
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-[#19ABE1] backdrop-blur-sm bg-[#171715]/40 px-2.5 py-1">
                       {facility.tag}
                     </span>
                   </div>
 
                   {/* Bottom content */}
                   <div className="absolute bottom-0 left-0 right-0 z-10 p-6 md:p-8">
-                    <h4 className="font-lux-serif text-2xl md:text-3xl font-light leading-tight text-[#F4F1EA] transition-colors duration-500 group-hover:text-[#C5A059]">
+                    <h4 className="font-lux-serif text-2xl md:text-3xl font-light leading-tight text-[#F4F1EA] transition-colors duration-500 group-hover:text-[#19ABE1]">
                       {facility.name}
                     </h4>
 
@@ -368,7 +368,7 @@ export default function HighwayInnSection() {
                     <div className="grid transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:grid-rows-[1fr] grid-rows-[0fr]">
                       <div className="overflow-hidden">
                         <div className="flex items-center gap-3 mt-3">
-                          <span className="h-px w-6 bg-[#C5A059]" />
+                          <span className="h-px w-6 bg-[#19ABE1]" />
                           <p className="text-xs md:text-sm font-light leading-relaxed text-[#B5B1A8]">
                             {facility.desc}
                           </p>
@@ -378,10 +378,10 @@ export default function HighwayInnSection() {
                   </div>
 
                   {/* Corner accent on hover */}
-                  <div className="absolute bottom-0 right-0 z-10 h-6 w-6 border-b border-r border-[#C5A059] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="absolute bottom-0 right-0 z-10 h-6 w-6 border-b border-r border-[#19ABE1] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                   {/* Subtle gold wash on hover */}
-                  <div className="pointer-events-none absolute inset-0 bg-[#C5A059]/0 transition-colors duration-700 group-hover:bg-[#C5A059]/[0.04]" />
+                  <div className="pointer-events-none absolute inset-0 bg-[#19ABE1]/0 transition-colors duration-700 group-hover:bg-[#19ABE1]/[0.04]" />
                 </article>
               );
             })}
@@ -390,18 +390,18 @@ export default function HighwayInnSection() {
           {/* Bottom CTA strip */}
           <div className="mt-16 md:mt-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-[rgba(244,241,234,0.08)] pt-8">
             <div className="flex items-center gap-4">
-              <span className="h-px w-8 bg-[#C5A059]" />
+              <span className="h-px w-8 bg-[#19ABE1]" />
               <p className="text-[10px] uppercase tracking-[0.3em] text-[#89867E]">
                 Visit any concern — open daily
               </p>
             </div>
             <Link
               href="/sampan-highway-inn"
-              className="group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F4F1EA] hover:text-[#C5A059] transition-colors duration-300"
+              className="group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F4F1EA] hover:text-[#19ABE1] transition-colors duration-300"
             >
               See the full directory
               <span className="relative w-12 h-[1.5px] bg-[#F4F1EA]/40 overflow-hidden">
-                <span className="absolute inset-0 bg-[#C5A059] -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+                <span className="absolute inset-0 bg-[#19ABE1] -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
               </span>
               <svg className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />

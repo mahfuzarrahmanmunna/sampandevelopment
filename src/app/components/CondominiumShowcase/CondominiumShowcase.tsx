@@ -131,7 +131,7 @@ export default function CondominiumShowcase() {
 
             {/* Eyebrow */}
             <div className="condo-eyebrow flex items-center gap-4 mb-10">
-              <span className="h-[1.5px] w-12 bg-[#C6A06B]"></span>
+              <span className="h-[1.5px] w-12 bg-[#009D4E]"></span>
               <span className="text-[10px] md:text-[11px] font-medium uppercase tracking-[0.4em] text-[#101615]/60">
                 Sampan Developments · Residential
               </span>
@@ -143,7 +143,7 @@ export default function CondominiumShowcase() {
                 <span className="condo-headline-line block font-light">Sampan Condominium:</span>
               </span>
               <span className="block overflow-hidden pb-2">
-                <span className="condo-headline-line block italic text-[#C6A06B]">A G+9 Building on the Highway</span>
+                <span className="condo-headline-line block italic text-[#009D4E]">A G+9 Building on the Highway</span>
               </span>
             </h2>
 
@@ -156,7 +156,7 @@ export default function CondominiumShowcase() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-14 border-t border-[#101615]/10 pt-8">
               {features.map((feat, i) => (
                 <div key={i} className="flex flex-col gap-2">
-                  <span className="condo-feature-line block w-full h-px bg-[#C6A06B] mb-2"></span>
+                  <span className="condo-feature-line block w-full h-px bg-[#009D4E] mb-2"></span>
                   <span className="condo-feature text-sm font-medium text-[#101615] uppercase tracking-[0.1em] leading-tight">
                     {feat.label}
                   </span>
@@ -173,7 +173,7 @@ export default function CondominiumShowcase() {
                 href="/projects/ongoing/sampan-condominium" 
                 className="condo-cta group relative overflow-hidden bg-[#101615] text-[#F7F4ED] text-[10px] font-semibold uppercase tracking-[0.3em] px-10 py-5 transition-colors duration-500 ease-in-out hover:text-[#101615] flex items-center gap-3"
               >
-                <span className="absolute inset-0 bg-[#C6A06B] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
+                <span className="absolute inset-0 bg-[#009D4E] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
                 <span className="relative z-10 flex items-center gap-3">
                   See the Condominium
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -224,7 +224,7 @@ export default function CondominiumShowcase() {
               <div className="condo-meta absolute bottom-8 right-8 text-right text-[#F7F4ED] z-10">
                 <div className="text-[9px] uppercase tracking-[0.3em] opacity-80 mb-2">Proximity</div>
                 <div className="text-sm font-lux-serif">Beside Express Highway Inn</div>
-                <div className="w-24 h-px bg-[#C6A06B] ml-auto mt-2"></div>
+                <div className="w-24 h-px bg-[#009D4E] ml-auto mt-2"></div>
               </div>
             </div>
 

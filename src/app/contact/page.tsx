@@ -269,8 +269,8 @@ export default function ContactPage() {
           }}
         />
 
-        <div className="pointer-events-none absolute left-8 top-8 z-30 h-10 w-10 border-l border-t border-[#C5A059]/40" />
-        <div className="pointer-events-none absolute right-8 top-8 z-30 h-10 w-10 border-r border-t border-[#C5A059]/40" />
+        <div className="pointer-events-none absolute left-8 top-8 z-30 h-10 w-10 border-l border-t border-[#19ABE1]/40" />
+        <div className="pointer-events-none absolute right-8 top-8 z-30 h-10 w-10 border-r border-t border-[#19ABE1]/40" />
 
         <div className="absolute bottom-0 left-0 z-10 w-full h-1/3 pointer-events-none">
           <svg className="h-full w-full opacity-50" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -280,14 +280,14 @@ export default function ContactPage() {
 
         <div className="relative z-20 mx-auto w-full max-w-[1600px] px-6 md:px-12 lg:px-24 pb-16 pt-32 md:pb-24">
           <div className="mb-8 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[#89867E]">
-            <Link href="/" className="transition-colors hover:text-[#C5A059]">Home</Link>
+            <Link href="/" className="transition-colors hover:text-[#19ABE1]">Home</Link>
             <span className="text-[#89867E]/50">/</span>
-            <span className="text-[#C5A059]">Contact</span>
+            <span className="text-[#19ABE1]">Contact</span>
           </div>
 
           <div className="anim-eyebrow mb-8 flex items-center gap-4">
-            <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">
+            <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
+            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">
               Begin a Conversation
             </span>
           </div>
@@ -297,7 +297,7 @@ export default function ContactPage() {
               <span className="anim-hero-line block">Talk to us, or</span>
             </span>
             <span className="block overflow-hidden pb-2">
-              <span className="anim-hero-line block italic text-[#C5A059]">come and see it.</span>
+              <span className="anim-hero-line block italic text-[#19ABE1]">come and see it.</span>
             </span>
           </h1>
 
@@ -310,7 +310,7 @@ export default function ContactPage() {
               href={CONFIG.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#C5A059] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#C5A059]"
+              className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#19ABE1] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#19ABE1]"
             >
               <span className="absolute inset-0 z-0 translate-y-full bg-[#F4F1EA] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
               <span className="relative z-10 flex items-center gap-3">
@@ -324,7 +324,7 @@ export default function ContactPage() {
               href="#visit"
               className="group relative inline-flex items-center gap-3 overflow-hidden border border-[rgba(244,241,234,0.3)] bg-[rgba(23,23,21,0.4)] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F4F1EA] backdrop-blur-sm transition-colors duration-500 hover:text-[#171715]"
             >
-              <span className="absolute inset-0 z-0 translate-y-full bg-[#C5A059] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
+              <span className="absolute inset-0 z-0 translate-y-full bg-[#19ABE1] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
               <span className="relative z-10">Book a site visit</span>
             </a>
           </div>
@@ -349,13 +349,13 @@ export default function ContactPage() {
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="anim-card group flex flex-col gap-3 border-l border-[rgba(197,160,89,0.5)] pl-4 transition-colors duration-300 hover:border-[#C5A059]"
+                className="anim-card group flex flex-col gap-3 border-l border-[rgba(197,160,89,0.5)] pl-4 transition-colors duration-300 hover:border-[#19ABE1]"
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-[#C5A059]">
+                  <span className="text-[#19ABE1]">
                     <ChannelIcon name={item.icon} />
                   </span>
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#777A74] group-hover:text-[#C5A059] transition-colors">{item.label}</span>
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#777A74] group-hover:text-[#19ABE1] transition-colors">{item.label}</span>
                 </div>
                 <span className="font-lux-serif text-lg font-light leading-tight text-[#191C19]">{item.value}</span>
                 <p className="text-xs text-[#777A74] font-light leading-relaxed">{item.desc}</p>
@@ -367,15 +367,15 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <div className="mb-8 flex items-center gap-4">
-                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
-                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">Send a message</span>
+                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
+                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">Send a message</span>
               </div>
               <h2 className="font-lux-serif text-4xl md:text-5xl leading-[1.05] font-light mb-12">
                 <span className="block overflow-hidden pb-2">
                   <span className="anim-mask block">Tell us what you&apos;re</span>
                 </span>
                 <span className="block overflow-hidden pb-2">
-                  <span className="anim-mask block italic text-[#C5A059]">looking for.</span>
+                  <span className="anim-mask block italic text-[#19ABE1]">looking for.</span>
                 </span>
               </h2>
               <EnquiryForm />
@@ -387,8 +387,8 @@ export default function ContactPage() {
                 <div className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-[radial-gradient(circle,_rgba(197,160,89,0.15)_0%,_transparent_70%)] blur-2xl" />
                 <div className="relative">
                   <div className="mb-6 flex items-center gap-3">
-                    <span className="h-px w-8 bg-[#C5A059]" />
-                    <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059]">Office Hours</h3>
+                    <span className="h-px w-8 bg-[#19ABE1]" />
+                    <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#19ABE1]">Office Hours</h3>
                   </div>
                   <p className="font-lux-serif text-2xl font-light text-[#191C19] mb-1">Saturday — Thursday</p>
                   <p className="text-sm text-[#5C655C] font-light mb-4">{CONFIG.hours}</p>
@@ -396,14 +396,14 @@ export default function ContactPage() {
                     <p className="text-sm text-[#777A74] font-light">{CONFIG.fridayHours}</p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 right-0 h-6 w-6 border-b border-r border-[#C5A059]/40" />
+                <div className="absolute bottom-0 right-0 h-6 w-6 border-b border-r border-[#19ABE1]/40" />
               </div>
 
               {/* Response time card */}
               <div className="anim-card relative overflow-hidden border border-[rgba(25,28,25,0.08)] bg-white p-8 shadow-[0_8px_30px_-12px_rgba(25,28,25,0.08)]">
                 <div className="mb-4 flex items-center gap-3">
-                  <span className="h-px w-8 bg-[#C5A059]" />
-                  <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059]">Response Time</h3>
+                  <span className="h-px w-8 bg-[#19ABE1]" />
+                  <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#19ABE1]">Response Time</h3>
                 </div>
                 <p className="font-lux-serif text-2xl font-light italic text-[#191C19] mb-2">Within {CONFIG.responseTime}</p>
                 <p className="text-sm text-[#5C655C] font-light">We reply on WhatsApp or by phone. For complex enquiries, expect a follow-up email.</p>
@@ -412,10 +412,10 @@ export default function ContactPage() {
               {/* Quick downloads */}
               <div className="anim-card relative overflow-hidden border border-[rgba(25,28,25,0.08)] bg-white p-8 shadow-[0_8px_30px_-12px_rgba(25,28,25,0.08)]">
                 <div className="mb-4 flex items-center gap-3">
-                  <span className="h-px w-8 bg-[#C5A059]" />
-                  <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059]">Quick Downloads</h3>
+                  <span className="h-px w-8 bg-[#19ABE1]" />
+                  <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#19ABE1]">Quick Downloads</h3>
                 </div>
-                <Link href={CONFIG.downloadsLink} className="group flex items-center justify-between gap-3 text-sm text-[#191C19] hover:text-[#C5A059] transition-colors">
+                <Link href={CONFIG.downloadsLink} className="group flex items-center justify-between gap-3 text-sm text-[#191C19] hover:text-[#19ABE1] transition-colors">
                   <span className="font-light">Brochures & price lists</span>
                   <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -438,15 +438,15 @@ export default function ContactPage() {
         <div className="relative mx-auto max-w-[1600px]">
           <div className="mb-16 max-w-2xl">
             <div className="anim-fade mb-8 flex items-center gap-4">
-              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">Book a Site Visit</span>
+              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">Book a Site Visit</span>
             </div>
             <h2 className="font-lux-serif text-4xl md:text-6xl leading-[1.05] font-light mb-6">
               <span className="block overflow-hidden pb-2">
                 <span className="anim-mask block">See the land before</span>
               </span>
               <span className="block overflow-hidden pb-2">
-                <span className="anim-mask block italic text-[#C5A059]">you decide.</span>
+                <span className="anim-mask block italic text-[#19ABE1]">you decide.</span>
               </span>
             </h2>
             <p className="anim-fade text-sm md:text-base text-[#B5B1A8] font-light leading-relaxed">
@@ -460,7 +460,7 @@ export default function ContactPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <h3 className="anim-fade font-lux-serif text-2xl font-light mb-8 text-[#C5A059]">What to expect on a visit</h3>
+              <h3 className="anim-fade font-lux-serif text-2xl font-light mb-8 text-[#19ABE1]">What to expect on a visit</h3>
               <div className="flex flex-col gap-8 border-l border-[rgba(244,241,234,0.1)] pl-6">
                 {[
                   "A team member meets you at the site or at our office.",
@@ -469,8 +469,8 @@ export default function ContactPage() {
                   "You get the price list and payment plans in writing, with no pressure to decide."
                 ].map((step, i) => (
                   <div key={i} className="anim-card relative">
-                    <span className="absolute -left-[31px] top-0 h-3 w-3 rounded-full bg-[#171715] border-2 border-[#C5A059]" />
-                    <span className="font-lux-serif text-xl italic text-[#C5A059] block mb-1">0{i + 1}</span>
+                    <span className="absolute -left-[31px] top-0 h-3 w-3 rounded-full bg-[#171715] border-2 border-[#19ABE1]" />
+                    <span className="font-lux-serif text-xl italic text-[#19ABE1] block mb-1">0{i + 1}</span>
                     <p className="text-sm text-[#B5B1A8] font-light leading-relaxed">{step}</p>
                   </div>
                 ))}
@@ -486,8 +486,8 @@ export default function ContactPage() {
                 { name: "Highway Projects", detail: "Condominium, Express Highway Inn and Trade Emporium all sit side by side. Meeting point: [meeting point]" },
                 { name: "Agro & Golf Resort, Sylhet", detail: "Visit arrangements and travel notes: [visit arrangements and travel notes]" }
               ].map((p, i) => (
-                <div key={i} className="anim-card border-l border-[rgba(197,160,89,0.5)] pl-4 transition-colors duration-300 hover:border-[#C5A059]">
-                  <h4 className="text-sm font-medium mb-2 text-[#C5A059]">{p.name}</h4>
+                <div key={i} className="anim-card border-l border-[rgba(197,160,89,0.5)] pl-4 transition-colors duration-300 hover:border-[#19ABE1]">
+                  <h4 className="text-sm font-medium mb-2 text-[#19ABE1]">{p.name}</h4>
                   <p className="text-xs text-[#89867E] font-light">{p.detail}</p>
                 </div>
               ))}
@@ -504,15 +504,15 @@ export default function ContactPage() {
           <div className="mb-12 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
               <div className="anim-fade mb-6 flex items-center gap-4">
-                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
-                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">Where to Find Us</span>
+                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
+                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">Where to Find Us</span>
               </div>
               <h2 className="font-lux-serif text-4xl md:text-6xl leading-[1.05] font-light">
                 <span className="block overflow-hidden pb-2">
                   <span className="anim-mask block">Visit our</span>
                 </span>
                 <span className="block overflow-hidden pb-2">
-                  <span className="anim-mask block italic text-[#C5A059]">offices.</span>
+                  <span className="anim-mask block italic text-[#19ABE1]">offices.</span>
                 </span>
               </h2>
             </div>
@@ -533,10 +533,10 @@ export default function ContactPage() {
                 referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
-            <div className="absolute left-0 top-0 h-8 w-8 border-l border-t border-[#C5A059]/50" />
-            <div className="absolute right-0 top-0 h-8 w-8 border-r border-t border-[#C5A059]/50" />
-            <div className="absolute bottom-0 left-0 h-8 w-8 border-b border-l border-[#C5A059]/50" />
-            <div className="absolute bottom-0 right-0 h-8 w-8 border-b border-r border-[#C5A059]/50" />
+            <div className="absolute left-0 top-0 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
+            <div className="absolute right-0 top-0 h-8 w-8 border-r border-t border-[#19ABE1]/50" />
+            <div className="absolute bottom-0 left-0 h-8 w-8 border-b border-l border-[#19ABE1]/50" />
+            <div className="absolute bottom-0 right-0 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
           </div>
 
           <div className="grid grid-cols-1 gap-8 border-t border-[rgba(25,28,25,0.1)] pt-8 md:grid-cols-2 lg:grid-cols-4">
@@ -549,7 +549,7 @@ export default function ContactPage() {
               <div key={i} className="anim-card flex flex-col gap-2">
                 <h4 className="font-lux-serif text-lg font-light text-[#191C19]">{loc.name}</h4>
                 <p className="text-xs text-[#777A74] font-light leading-relaxed">{loc.addr}</p>
-                <a href={CONFIG.mapsLink} target="_blank" rel="noopener noreferrer" className="group mt-2 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#C5A059]">
+                <a href={CONFIG.mapsLink} target="_blank" rel="noopener noreferrer" className="group mt-2 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#19ABE1]">
                   Get directions
                   <svg className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -572,9 +572,9 @@ export default function ContactPage() {
 
         <div className="relative mx-auto max-w-[1200px] text-center">
           <div className="anim-fade mb-8 flex items-center justify-center gap-4">
-            <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">For Buyers Abroad</span>
-            <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
+            <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
+            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">For Buyers Abroad</span>
+            <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
           </div>
 
           <h2 className="font-lux-serif text-4xl md:text-6xl leading-[1.05] font-light mb-6">
@@ -582,7 +582,7 @@ export default function ContactPage() {
               <span className="anim-mask block">Living abroad?</span>
             </span>
             <span className="block overflow-hidden pb-2">
-              <span className="anim-mask block italic text-[#C5A059]">Start here.</span>
+              <span className="anim-mask block italic text-[#19ABE1]">Start here.</span>
             </span>
           </h2>
 
@@ -597,27 +597,27 @@ export default function ContactPage() {
               { label: "Hours", value: "[Bangladesh time and your time zone]" }
             ].map((item, i) => (
               <div key={i} className="text-sm text-[#F4F1EA]">
-                <span className="mb-1 block text-[10px] uppercase tracking-[0.3em] text-[#C5A059]">{item.label}</span>
+                <span className="mb-1 block text-[10px] uppercase tracking-[0.3em] text-[#19ABE1]">{item.label}</span>
                 <span className="font-light">{item.value}</span>
               </div>
             ))}
           </div>
 
           <div className="anim-fade flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href={CONFIG.whatsapp} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#C5A059] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#C5A059]">
+            <a href={CONFIG.whatsapp} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#19ABE1] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#19ABE1]">
               <span className="absolute inset-0 z-0 translate-y-full bg-[#F4F1EA] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
               <span className="relative z-10">Chat with our NRB desk</span>
             </a>
             <a href="#visit" className="group relative inline-flex items-center gap-3 overflow-hidden border border-[rgba(244,241,234,0.3)] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F4F1EA] transition-colors duration-500 hover:text-[#171715]">
-              <span className="absolute inset-0 z-0 translate-y-full bg-[#C5A059] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
+              <span className="absolute inset-0 z-0 translate-y-full bg-[#19ABE1] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
               <span className="relative z-10">Book a video visit</span>
             </a>
           </div>
 
-          <Link href={CONFIG.investmentLink} className="anim-fade group mt-10 inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#C5A059]">
+          <Link href={CONFIG.investmentLink} className="anim-fade group mt-10 inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#19ABE1]">
             Read the NRB buying steps on the Investment page
-            <span className="relative w-10 h-px bg-[#C5A059]/40 overflow-hidden">
-              <span className="absolute inset-0 bg-[#C5A059] -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+            <span className="relative w-10 h-px bg-[#19ABE1]/40 overflow-hidden">
+              <span className="absolute inset-0 bg-[#19ABE1] -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
             </span>
           </Link>
         </div>
@@ -630,16 +630,16 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[800px]">
           <div className="mb-12 flex flex-col items-center text-center">
             <div className="anim-fade mb-6 flex items-center gap-4">
-              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">Good to Know</span>
-              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]" />
+              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">Good to Know</span>
+              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]" />
             </div>
             <h2 className="font-lux-serif text-4xl md:text-5xl leading-[1.05] font-light">
               <span className="block overflow-hidden pb-2">
                 <span className="anim-mask block">A few things you may</span>
               </span>
               <span className="block overflow-hidden pb-2">
-                <span className="anim-mask block italic text-[#C5A059]">want to know.</span>
+                <span className="anim-mask block italic text-[#19ABE1]">want to know.</span>
               </span>
             </h2>
           </div>
@@ -652,11 +652,11 @@ export default function ContactPage() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   aria-expanded={openFaq === i}
                 >
-                  <span className="flex items-baseline gap-4 pr-4 font-lux-serif text-lg font-light text-[#191C19] transition-colors group-hover:text-[#C5A059]">
-                    <span className="font-mono text-[10px] tracking-[0.15em] text-[#C5A059]">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="flex items-baseline gap-4 pr-4 font-lux-serif text-lg font-light text-[#191C19] transition-colors group-hover:text-[#19ABE1]">
+                    <span className="font-mono text-[10px] tracking-[0.15em] text-[#19ABE1]">{String(i + 1).padStart(2, "0")}</span>
                     {faq.q}
                   </span>
-                  <svg className={`h-5 w-5 flex-shrink-0 text-[#C5A059] transition-transform duration-300 ${openFaq === i ? "rotate-45" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg className={`h-5 w-5 flex-shrink-0 text-[#19ABE1] transition-transform duration-300 ${openFaq === i ? "rotate-45" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 4v16m8-8H4" />
                   </svg>
                 </button>
@@ -689,22 +689,22 @@ export default function ContactPage() {
 
         <div className="relative z-10 mx-auto max-w-3xl">
           <div className="anim-fade mb-8 flex items-center justify-center gap-4">
-            <span className="h-[1.5px] w-12 bg-[#C5A059]" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059] md:text-[11px]">Mother Company</span>
-            <span className="h-[1.5px] w-12 bg-[#C5A059]" />
+            <span className="h-[1.5px] w-12 bg-[#19ABE1]" />
+            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1] md:text-[11px]">Mother Company</span>
+            <span className="h-[1.5px] w-12 bg-[#19ABE1]" />
           </div>
           <h2 className="font-lux-serif text-4xl md:text-6xl leading-[0.95] tracking-[-0.02em] font-light mb-6">
             <span className="block overflow-hidden pb-2">
               <span className="anim-mask block">Part of</span>
             </span>
             <span className="block overflow-hidden pb-2">
-              <span className="anim-mask block italic text-[#C5A059]">Sampan Group</span>
+              <span className="anim-mask block italic text-[#19ABE1]">Sampan Group</span>
             </span>
           </h2>
           <p className="anim-fade mx-auto mb-12 max-w-xl text-base font-light leading-relaxed text-[#B5B1A8] md:text-lg">
             Looking for another Sampan business? Visit Sampan Group for hotels, education, agro and more.
           </p>
-          <Link href={CONFIG.groupLink} className="anim-fade group relative inline-flex items-center gap-3 overflow-hidden bg-[#C5A059] px-12 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#C5A059]">
+          <Link href={CONFIG.groupLink} className="anim-fade group relative inline-flex items-center gap-3 overflow-hidden bg-[#19ABE1] px-12 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#19ABE1]">
             <span className="absolute inset-0 z-0 translate-y-full bg-[#F4F1EA] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
             <span className="relative z-10 flex items-center gap-3">
               Visit Sampan Group
@@ -794,21 +794,21 @@ function EnquiryForm() {
       <div className="relative overflow-hidden border border-[rgba(197,160,89,0.3)] bg-white p-10 text-center shadow-[0_8px_30px_-12px_rgba(25,28,25,0.08)]">
         <div className="pointer-events-none absolute -top-12 -right-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,_rgba(197,160,89,0.18)_0%,_transparent_70%)] blur-2xl" />
         <div className="relative">
-          <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-[#C5A059]">
-            <svg className="h-7 w-7 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-[#19ABE1]">
+            <svg className="h-7 w-7 text-[#19ABE1]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 13l4 4L19 7" />
             </svg>
           </div>
           <h3 className="font-lux-serif text-3xl font-light mb-3 text-[#191C19]">
-            Thanks, <span className="italic text-[#C5A059]">{formData.name || "friend"}</span>.
+            Thanks, <span className="italic text-[#19ABE1]">{formData.name || "friend"}</span>.
           </h3>
-          <div className="mx-auto mb-6 h-px w-12 bg-[#C5A059]" />
+          <div className="mx-auto mb-6 h-px w-12 bg-[#19ABE1]" />
           <p className="text-sm font-light leading-relaxed text-[#5C655C] max-w-md mx-auto">
-            We have your message about <span className="text-[#C5A059]">{formData.project || "your enquiry"}</span> and will reply on <span className="text-[#C5A059]">{formData.phone}</span> within <span className="text-[#C5A059]">{CONFIG.responseTime}</span>.
+            We have your message about <span className="text-[#19ABE1]">{formData.project || "your enquiry"}</span> and will reply on <span className="text-[#19ABE1]">{formData.phone}</span> within <span className="text-[#19ABE1]">{CONFIG.responseTime}</span>.
           </p>
         </div>
-        <div className="absolute bottom-0 right-0 h-8 w-8 border-b border-r border-[#C5A059]/50" />
-        <div className="absolute left-0 top-0 h-8 w-8 border-l border-t border-[#C5A059]/50" />
+        <div className="absolute bottom-0 right-0 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
+        <div className="absolute left-0 top-0 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
       </div>
     );
   }
@@ -824,14 +824,14 @@ function EnquiryForm() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label className="text-[10px] uppercase tracking-[0.3em] text-[#777A74]">Project of interest</label>
-          <select name="project" value={formData.project} onChange={handleChange} className="appearance-none border-b border-[rgba(25,28,25,0.2)] bg-transparent py-3 text-sm text-[#191C19] focus:border-[#C5A059] focus:outline-none cursor-pointer">
+          <select name="project" value={formData.project} onChange={handleChange} className="appearance-none border-b border-[rgba(25,28,25,0.2)] bg-transparent py-3 text-sm text-[#191C19] focus:border-[#19ABE1] focus:outline-none cursor-pointer">
             <option value="" className="bg-white">Select a project</option>
             {PROJECTS.map(p => <option key={p} value={p} className="bg-white">{p}</option>)}
           </select>
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-[10px] uppercase tracking-[0.3em] text-[#777A74]">I am interested in</label>
-          <select name="interest" value={formData.interest} onChange={handleChange} required className="appearance-none border-b border-[rgba(25,28,25,0.2)] bg-transparent py-3 text-sm text-[#191C19] focus:border-[#C5A059] focus:outline-none cursor-pointer">
+          <select name="interest" value={formData.interest} onChange={handleChange} required className="appearance-none border-b border-[rgba(25,28,25,0.2)] bg-transparent py-3 text-sm text-[#191C19] focus:border-[#19ABE1] focus:outline-none cursor-pointer">
             <option value="" className="bg-white">Select interest</option>
             <option className="bg-white">Land share</option>
             <option className="bg-white">Apartment</option>
@@ -843,25 +843,25 @@ function EnquiryForm() {
       </div>
 
       <div className="flex items-center gap-3">
-        <input type="checkbox" name="nrb" id="nrb" checked={isNRB} onChange={(e) => setIsNRB(e.target.checked)} className="h-4 w-4 accent-[#C5A059]" />
+        <input type="checkbox" name="nrb" id="nrb" checked={isNRB} onChange={(e) => setIsNRB(e.target.checked)} className="h-4 w-4 accent-[#19ABE1]" />
         <label htmlFor="nrb" className="text-sm text-[#5C655C] font-light">I live abroad</label>
       </div>
 
       {isNRB && (
-        <div className="border-l-2 border-[#C5A059] bg-white p-4 text-sm font-light text-[#191C19] shadow-[0_4px_12px_-4px_rgba(25,28,25,0.06)]">
-          As an overseas buyer, you might prefer our remote NRB desk. <a href="#nrb" className="text-[#C5A059] underline">Learn more</a>.
+        <div className="border-l-2 border-[#19ABE1] bg-white p-4 text-sm font-light text-[#191C19] shadow-[0_4px_12px_-4px_rgba(25,28,25,0.06)]">
+          As an overseas buyer, you might prefer our remote NRB desk. <a href="#nrb" className="text-[#19ABE1] underline">Learn more</a>.
         </div>
       )}
 
       <div className="flex flex-col gap-2">
         <label className="text-[10px] uppercase tracking-[0.3em] text-[#777A74]">Message</label>
-        <textarea name="message" value={formData.message} onChange={handleChange} rows={4} className="resize-none border-b border-[rgba(25,28,25,0.2)] bg-transparent py-3 text-sm text-[#191C19] focus:border-[#C5A059] focus:outline-none"></textarea>
+        <textarea name="message" value={formData.message} onChange={handleChange} rows={4} className="resize-none border-b border-[rgba(25,28,25,0.2)] bg-transparent py-3 text-sm text-[#191C19] focus:border-[#19ABE1] focus:outline-none"></textarea>
       </div>
 
       <div className="flex items-start gap-3">
-        <input type="checkbox" name="consent" id="consent" checked={formData.consent} onChange={handleChange} required className="mt-1 h-4 w-4 accent-[#C5A059]" />
+        <input type="checkbox" name="consent" id="consent" checked={formData.consent} onChange={handleChange} required className="mt-1 h-4 w-4 accent-[#19ABE1]" />
         <label htmlFor="consent" className="text-xs text-[#777A74] font-light leading-relaxed">
-          I agree that Sampan Development Ltd may contact me about my enquiry. <Link href={CONFIG.privacyLink} className="text-[#C5A059] underline">Privacy policy</Link>.
+          I agree that Sampan Development Ltd may contact me about my enquiry. <Link href={CONFIG.privacyLink} className="text-[#19ABE1] underline">Privacy policy</Link>.
         </label>
       </div>
 
@@ -872,7 +872,7 @@ function EnquiryForm() {
         disabled={status === 'loading'}
         className="group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden bg-[#191C19] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F4F1EA] transition-colors duration-500 hover:text-[#191C19] disabled:opacity-50 md:w-auto"
       >
-        <span className="absolute inset-0 z-0 translate-y-full bg-[#C5A059] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
+        <span className="absolute inset-0 z-0 translate-y-full bg-[#19ABE1] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
         <span className="relative z-10 flex items-center gap-3">
           {status === 'loading' ? 'Sending...' : 'Send message'}
           {status !== 'loading' && (
@@ -913,21 +913,21 @@ function BookingForm() {
       <div className="relative overflow-hidden border border-[rgba(197,160,89,0.3)] bg-[#1D1D1A] p-10 text-center">
         <div className="pointer-events-none absolute -top-12 -right-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,_rgba(197,160,89,0.15)_0%,_transparent_70%)] blur-2xl" />
         <div className="relative">
-          <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-[#C5A059]">
-            <svg className="h-7 w-7 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-[#19ABE1]">
+            <svg className="h-7 w-7 text-[#19ABE1]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 13l4 4L19 7" />
             </svg>
           </div>
           <h3 className="font-lux-serif text-3xl font-light mb-3 text-[#F4F1EA]">
-            Visit requested for <span className="italic text-[#C5A059]">{formData.date}</span>.
+            Visit requested for <span className="italic text-[#19ABE1]">{formData.date}</span>.
           </h3>
-          <div className="mx-auto mb-6 h-px w-12 bg-[#C5A059]" />
+          <div className="mx-auto mb-6 h-px w-12 bg-[#19ABE1]" />
           <p className="text-sm font-light leading-relaxed text-[#B5B1A8] max-w-md mx-auto">
-            We will confirm on <span className="text-[#C5A059]">{formData.phone}</span>. If you need to change it, message us on <a href={CONFIG.whatsapp} className="text-[#C5A059] underline">WhatsApp</a>.
+            We will confirm on <span className="text-[#19ABE1]">{formData.phone}</span>. If you need to change it, message us on <a href={CONFIG.whatsapp} className="text-[#19ABE1] underline">WhatsApp</a>.
           </p>
         </div>
-        <div className="absolute bottom-0 right-0 h-8 w-8 border-b border-r border-[#C5A059]/50" />
-        <div className="absolute left-0 top-0 h-8 w-8 border-l border-t border-[#C5A059]/50" />
+        <div className="absolute bottom-0 right-0 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
+        <div className="absolute left-0 top-0 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
       </div>
     );
   }
@@ -941,7 +941,7 @@ function BookingForm() {
 
       <div className="flex flex-col gap-2">
         <label className="text-[10px] uppercase tracking-[0.3em] text-[#89867E]">Project</label>
-        <select name="project" value={formData.project} onChange={handleChange} required className="appearance-none border-b border-[rgba(244,241,234,0.2)] bg-transparent py-3 text-sm text-[#F4F1EA] focus:border-[#C5A059] focus:outline-none cursor-pointer">
+        <select name="project" value={formData.project} onChange={handleChange} required className="appearance-none border-b border-[rgba(244,241,234,0.2)] bg-transparent py-3 text-sm text-[#F4F1EA] focus:border-[#19ABE1] focus:outline-none cursor-pointer">
           <option value="" className="bg-[#1D1D1A]">Select a project</option>
           {PROJECTS.map(p => <option key={p} value={p} className="bg-[#1D1D1A]">{p}</option>)}
           <option value="All three highway projects" className="bg-[#1D1D1A]">All three highway projects</option>
@@ -953,7 +953,7 @@ function BookingForm() {
         <FormInput label="Preferred date" name="date" value={formData.date} onChange={handleChange} type="date" required dark />
         <div className="flex flex-col gap-2">
           <label className="text-[10px] uppercase tracking-[0.3em] text-[#89867E]">Time</label>
-          <select name="time" value={formData.time} onChange={handleChange} className="appearance-none border-b border-[rgba(244,241,234,0.2)] bg-transparent py-3 text-sm text-[#F4F1EA] focus:border-[#C5A059] focus:outline-none cursor-pointer">
+          <select name="time" value={formData.time} onChange={handleChange} className="appearance-none border-b border-[rgba(244,241,234,0.2)] bg-transparent py-3 text-sm text-[#F4F1EA] focus:border-[#19ABE1] focus:outline-none cursor-pointer">
             <option value="Morning" className="bg-[#1D1D1A]">Morning</option>
             <option value="Afternoon" className="bg-[#1D1D1A]">Afternoon</option>
           </select>
@@ -964,10 +964,10 @@ function BookingForm() {
         <label className="text-[10px] uppercase tracking-[0.3em] text-[#89867E]">Pick-up needed? [If offered]</label>
         <div className="flex gap-6">
           <label className="flex cursor-pointer items-center gap-2 text-sm font-light text-[#B5B1A8]">
-            <input type="radio" name="pickup" value="Yes" checked={formData.pickup === 'Yes'} onChange={handleChange} className="accent-[#C5A059]" /> Yes
+            <input type="radio" name="pickup" value="Yes" checked={formData.pickup === 'Yes'} onChange={handleChange} className="accent-[#19ABE1]" /> Yes
           </label>
           <label className="flex cursor-pointer items-center gap-2 text-sm font-light text-[#B5B1A8]">
-            <input type="radio" name="pickup" value="No" checked={formData.pickup === 'No'} onChange={handleChange} className="accent-[#C5A059]" /> No
+            <input type="radio" name="pickup" value="No" checked={formData.pickup === 'No'} onChange={handleChange} className="accent-[#19ABE1]" /> No
           </label>
         </div>
       </div>
@@ -977,7 +977,7 @@ function BookingForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden bg-[#C5A059] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#C5A059] disabled:opacity-50 md:w-auto"
+        className="group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden bg-[#19ABE1] px-10 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#171715] transition-colors duration-500 hover:text-[#19ABE1] disabled:opacity-50 md:w-auto"
       >
         <span className="absolute inset-0 z-0 translate-y-full bg-[#F4F1EA] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />
         <span className="relative z-10 flex items-center gap-3">
@@ -1011,8 +1011,8 @@ function FormInput({ label, name, value, onChange, type = "text", required = fal
         required={required}
         className={`border-b bg-transparent py-3 text-sm transition-colors focus:outline-none ${
           dark
-            ? 'border-[rgba(244,241,234,0.2)] text-[#F4F1EA] focus:border-[#C5A059] [color-scheme:dark]'
-            : 'border-[rgba(25,28,25,0.2)] text-[#191C19] focus:border-[#C5A059] [color-scheme:light]'
+            ? 'border-[rgba(244,241,234,0.2)] text-[#F4F1EA] focus:border-[#19ABE1] [color-scheme:dark]'
+            : 'border-[rgba(25,28,25,0.2)] text-[#191C19] focus:border-[#19ABE1] [color-scheme:light]'
         }`}
       />
     </div>

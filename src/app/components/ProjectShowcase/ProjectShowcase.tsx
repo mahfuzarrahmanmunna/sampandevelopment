@@ -174,13 +174,13 @@ export default function ProjectShowcase() {
       >
         <div className="flex items-center justify-between px-5 py-3 backdrop-blur-sm bg-[#0B0B0D]/60 border-b border-[#F5F3EE]/10">
           <div className="flex items-baseline gap-2">
-            <span className="text-base font-lux-serif text-[#C5A059]">0{activeProject + 1}</span>
+            <span className="text-base font-lux-serif text-[#19ABE1]">0{activeProject + 1}</span>
             <span className="text-[9px] uppercase tracking-[0.3em] text-[#F5F3EE]/80">{projects[activeProject].name}</span>
           </div>
           <span className="text-[9px] uppercase tracking-[0.3em] text-[#F5F3EE]/30">/ 03</span>
         </div>
         <div className="h-[2px] w-full bg-[#F5F3EE]/15">
-          <div className="mobile-progress-fill h-full w-full bg-[#C5A059] origin-left scale-x-0"></div>
+          <div className="mobile-progress-fill h-full w-full bg-[#19ABE1] origin-left scale-x-0"></div>
         </div>
       </div>
 
@@ -219,7 +219,7 @@ export default function ProjectShowcase() {
                   <span className="anim-headline block font-light">Sampan Metro</span>
                 </span>
                 <span className="block overflow-hidden pb-1 sm:pb-2">
-                  <span className="anim-headline block italic text-[#C5A059]">Square</span>
+                  <span className="anim-headline block italic text-[#19ABE1]">Square</span>
                 </span>
               </h1>
 
@@ -236,7 +236,7 @@ export default function ProjectShowcase() {
               <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-3 sm:gap-y-4 mb-6 md:mb-12 max-w-md">
                 {["Land Share", "Open to NRBs", "~1300 Sq Ft Flat", "Site visits on request"].map((point, i) => (
                   <div key={i} className="flex items-center gap-2 sm:gap-3">
-                    <span className="anim-line-draw block h-px w-5 sm:w-6 bg-[#C5A059] flex-shrink-0"></span>
+                    <span className="anim-line-draw block h-px w-5 sm:w-6 bg-[#19ABE1] flex-shrink-0"></span>
                     <span className="anim-fade text-[9px] sm:text-[10px] md:text-xs font-medium text-[#F5F3EE] uppercase tracking-[0.08em] sm:tracking-[0.1em]">
                       {point}
                     </span>
@@ -245,7 +245,7 @@ export default function ProjectShowcase() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
-                <Link href="/projects/ongoing/sampan-metro-square" className="anim-fade group relative overflow-hidden bg-[#C5A059] text-[#0B0B0D] text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em] px-6 sm:px-8 py-3 sm:py-4 transition-colors duration-500 hover:text-[#C5A059] flex items-center gap-3">
+                <Link href="/projects/ongoing/sampan-metro-square" className="anim-fade group relative overflow-hidden bg-[#19ABE1] text-[#0B0B0D] text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em] px-6 sm:px-8 py-3 sm:py-4 transition-colors duration-500 hover:text-[#19ABE1] flex items-center gap-3">
                   <span className="absolute inset-0 bg-[#F5F3EE] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
                   <span className="relative z-10 flex items-center gap-3">See Metro Square <svg className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
                 </Link>
@@ -294,7 +294,7 @@ export default function ProjectShowcase() {
                   <span className="anim-headline block font-light">Sampan</span>
                 </span>
                 <span className="block overflow-hidden pb-1 sm:pb-2">
-                  <span className="anim-headline block italic text-[#C5A059]">Condominium</span>
+                  <span className="anim-headline block italic text-[#19ABE1]">Condominium</span>
                 </span>
               </h1>
 
@@ -311,7 +311,7 @@ export default function ProjectShowcase() {
               <div className="flex flex-col gap-3 sm:gap-4 mb-6 md:mb-12 max-w-md border-t border-[#0B0B0D]/10 pt-4 sm:pt-6">
                 {["Nine service apartment floors", "Rooftop drone land station, pool and gym", "Ground-floor car parking"].map((point, i) => (
                   <div key={i} className="flex items-center gap-3 sm:gap-4">
-                    <span className="anim-line-draw block h-px w-6 sm:w-8 bg-[#C5A059] flex-shrink-0"></span>
+                    <span className="anim-line-draw block h-px w-6 sm:w-8 bg-[#19ABE1] flex-shrink-0"></span>
                     <span className="anim-fade text-[10px] sm:text-xs font-medium text-[#0B0B0D] uppercase tracking-[0.08em] sm:tracking-[0.1em]">
                       {point}
                     </span>
@@ -321,7 +321,7 @@ export default function ProjectShowcase() {
 
               <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
                 <Link href="/projects/ongoing/sampan-condominium" className="anim-fade group relative overflow-hidden bg-[#0B0B0D] text-[#F5F3EE] text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em] px-6 sm:px-8 py-3 sm:py-4 transition-colors duration-500 hover:text-[#0B0B0D] flex items-center gap-3">
-                  <span className="absolute inset-0 bg-[#C5A059] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
+                  <span className="absolute inset-0 bg-[#19ABE1] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
                   <span className="relative z-10 flex items-center gap-3">See Condominium <svg className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="anim-fade group relative overflow-hidden border border-[#0B0B0D]/20 text-[#0B0B0D] text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em] px-6 sm:px-8 py-3 sm:py-4 transition-colors duration-500 hover:border-[#25D366] hover:text-[#F5F3EE] flex items-center gap-3">
@@ -366,8 +366,8 @@ export default function ProjectShowcase() {
           <div className="relative z-20 w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 lg:px-24 flex flex-col lg:flex-row gap-6 lg:gap-12 items-center py-6">
             <div className="w-full lg:w-1/2 text-[#F5F3EE]">
               <div className="anim-fade flex items-center gap-3 sm:gap-4 mb-5 md:mb-8">
-                <span className="h-[1.5px] w-10 sm:w-12 bg-[#C5A059]"></span>
-                <span className="text-[9px] sm:text-[10px] md:text-[11px] font-medium uppercase tracking-[0.35em] sm:tracking-[0.4em] text-[#C5A059]">
+                <span className="h-[1.5px] w-10 sm:w-12 bg-[#19ABE1]"></span>
+                <span className="text-[9px] sm:text-[10px] md:text-[11px] font-medium uppercase tracking-[0.35em] sm:tracking-[0.4em] text-[#19ABE1]">
                   03 / Mixed-Use
                 </span>
               </div>
@@ -377,7 +377,7 @@ export default function ProjectShowcase() {
                   <span className="anim-headline block font-light">Sampan Trade</span>
                 </span>
                 <span className="block overflow-hidden pb-1 sm:pb-2">
-                  <span className="anim-headline block italic text-[#C5A059]">Emporium</span>
+                  <span className="anim-headline block italic text-[#19ABE1]">Emporium</span>
                 </span>
               </h1>
 
@@ -392,7 +392,7 @@ export default function ProjectShowcase() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
-                <Link href="/projects/ongoing/sampan-trade-emporium" className="anim-fade group relative overflow-hidden bg-[#C5A059] text-[#0B0B0D] text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em] px-6 sm:px-8 py-3 sm:py-4 transition-colors duration-500 hover:text-[#C5A059] flex items-center gap-3">
+                <Link href="/projects/ongoing/sampan-trade-emporium" className="anim-fade group relative overflow-hidden bg-[#19ABE1] text-[#0B0B0D] text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em] px-6 sm:px-8 py-3 sm:py-4 transition-colors duration-500 hover:text-[#19ABE1] flex items-center gap-3">
                   <span className="absolute inset-0 bg-[#F5F3EE] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
                   <span className="relative z-10 flex items-center gap-3">See Trade Emporium <svg className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
                 </Link>
@@ -414,10 +414,10 @@ export default function ProjectShowcase() {
                   { level: "L-B2", title: "Parking", detail: "Parking spaces over two levels" },
                 ].map((f, i) => (
                   <div key={i} className="flex items-center gap-6 py-4 border-b border-[#F5F3EE]/10 group">
-                    <span className="anim-line-draw block h-px w-12 bg-[#C5A059] flex-shrink-0"></span>
+                    <span className="anim-line-draw block h-px w-12 bg-[#19ABE1] flex-shrink-0"></span>
                     <div className="flex flex-col flex-1">
                       <div className="flex items-baseline gap-3">
-                        <span className="anim-fade text-[10px] font-medium uppercase tracking-[0.3em] text-[#C5A059]">{f.level}</span>
+                        <span className="anim-fade text-[10px] font-medium uppercase tracking-[0.3em] text-[#19ABE1]">{f.level}</span>
                         <span className="anim-fade text-lg font-lux-serif text-[#F5F3EE]">{f.title}</span>
                       </div>
                       <span className="anim-fade text-xs text-[#F5F3EE]/60 font-light mt-1">{f.detail}</span>
@@ -436,8 +436,8 @@ export default function ProjectShowcase() {
                   { level: "L-B2", title: "Parking" },
                 ].map((f, i) => (
                   <div key={i} className="flex items-center gap-3 sm:gap-4 border-b border-[#F5F3EE]/10 pb-2 sm:pb-3">
-                    <span className="anim-line-draw block h-px w-6 sm:w-8 bg-[#C5A059] flex-shrink-0"></span>
-                    <span className="anim-fade text-[9px] sm:text-[10px] font-medium uppercase tracking-[0.25em] text-[#C5A059] w-14 sm:w-16">{f.level}</span>
+                    <span className="anim-line-draw block h-px w-6 sm:w-8 bg-[#19ABE1] flex-shrink-0"></span>
+                    <span className="anim-fade text-[9px] sm:text-[10px] font-medium uppercase tracking-[0.25em] text-[#19ABE1] w-14 sm:w-16">{f.level}</span>
                     <span className="anim-fade text-xs sm:text-sm font-lux-serif text-[#F5F3EE] font-light">{f.title}</span>
                   </div>
                 ))}

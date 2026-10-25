@@ -343,7 +343,7 @@ export default function HighwayAddressSection() {
       >
         <div className="flex items-center justify-between px-5 py-3 backdrop-blur-md bg-[#171715]/85 border-b border-[rgba(244,241,234,0.08)]">
           <div className="flex items-baseline gap-3">
-            <span className="text-sm font-lux-serif italic text-[#C5A059]">
+            <span className="text-sm font-lux-serif italic text-[#19ABE1]">
               {mobileSections[mobileActiveSection]?.label}
             </span>
             <span className="text-[9px] uppercase tracking-[0.3em] text-[#B5B1A8] truncate max-w-[180px]">
@@ -355,7 +355,7 @@ export default function HighwayAddressSection() {
           </span>
         </div>
         <div className="h-[2px] w-full bg-[rgba(244,241,234,0.08)]">
-          <div className="mobile-progress-fill h-full w-full bg-[#C5A059] origin-left scale-x-0"></div>
+          <div className="mobile-progress-fill h-full w-full bg-[#19ABE1] origin-left scale-x-0"></div>
         </div>
       </div>
 
@@ -369,10 +369,10 @@ export default function HighwayAddressSection() {
         <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none" />
 
         {/* Architectural corner brackets */}
-        <div className="pointer-events-none absolute left-8 top-8 z-30 h-10 w-10 border-l border-t border-[#C5A059]/40" />
-        <div className="pointer-events-none absolute right-8 top-8 z-30 h-10 w-10 border-r border-t border-[#C5A059]/40" />
-        <div className="pointer-events-none absolute bottom-8 left-8 z-30 h-10 w-10 border-b border-l border-[#C5A059]/40" />
-        <div className="pointer-events-none absolute bottom-8 right-8 z-30 h-10 w-10 border-b border-r border-[#C5A059]/40" />
+        <div className="pointer-events-none absolute left-8 top-8 z-30 h-10 w-10 border-l border-t border-[#19ABE1]/40" />
+        <div className="pointer-events-none absolute right-8 top-8 z-30 h-10 w-10 border-r border-t border-[#19ABE1]/40" />
+        <div className="pointer-events-none absolute bottom-8 left-8 z-30 h-10 w-10 border-b border-l border-[#19ABE1]/40" />
+        <div className="pointer-events-none absolute bottom-8 right-8 z-30 h-10 w-10 border-b border-r border-[#19ABE1]/40" />
 
         {/* Architectural grid */}
         <div
@@ -387,7 +387,7 @@ export default function HighwayAddressSection() {
         {/* Top meta bar */}
         <div className="absolute left-0 right-0 top-0 z-30 flex items-center justify-between px-12 py-6 pointer-events-none">
           <div className="flex items-center gap-4">
-            <span className="h-[1px] w-8 bg-[#C5A059]" />
+            <span className="h-[1px] w-8 bg-[#19ABE1]" />
             <span className="text-[10px] uppercase tracking-[0.4em] text-[#89867E]">
               One Connected Destination
             </span>
@@ -442,8 +442,8 @@ export default function HighwayAddressSection() {
           {/* Intro Block */}
           <div className="text-block text-block-0 opacity-0 absolute top-1/2 left-6 md:left-12 lg:left-24 -translate-y-1/2 max-w-3xl">
             <div className="anim-fade-up flex items-center gap-4 mb-10">
-              <span className="h-[1.5px] w-16 bg-[#C5A059]" />
-              <span className="text-[10px] font-medium uppercase tracking-[0.5em] text-[#C5A059]">
+              <span className="h-[1.5px] w-16 bg-[#19ABE1]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.5em] text-[#19ABE1]">
                 Sampan Group · Highway District
               </span>
             </div>
@@ -452,11 +452,11 @@ export default function HighwayAddressSection() {
                 <span className="block">Three projects.</span>
               </span>
               <span className="headline-line block overflow-hidden pb-1">
-                <span className="block italic text-[#C5A059]">One address.</span>
+                <span className="block italic text-[#19ABE1]">One address.</span>
               </span>
             </h1>
             <div className="anim-fade-up flex items-center gap-5 mt-12 text-[#89867E]">
-              <div className="w-[1px] h-12 bg-gradient-to-b from-[#C5A059] to-transparent" />
+              <div className="w-[1px] h-12 bg-gradient-to-b from-[#19ABE1] to-transparent" />
               <span className="text-[9px] uppercase tracking-[0.4em]">Scroll to explore the district</span>
             </div>
           </div>
@@ -468,9 +468,9 @@ export default function HighwayAddressSection() {
               className={`text-block text-block-${i + 1} opacity-0 absolute top-1/2 left-6 md:left-12 lg:left-24 -translate-y-1/2 max-w-2xl`}
             >
               <div className="anim-fade-up flex items-center gap-4 mb-10">
-                <span className="font-lux-serif text-3xl italic font-light text-[#C5A059]">{project.index}</span>
-                <span className="h-px w-12 bg-[#C5A059]" />
-                <span className="text-[10px] uppercase tracking-[0.4em] text-[#C5A059] font-medium">
+                <span className="font-lux-serif text-3xl italic font-light text-[#19ABE1]">{project.index}</span>
+                <span className="h-px w-12 bg-[#19ABE1]" />
+                <span className="text-[10px] uppercase tracking-[0.4em] text-[#19ABE1] font-medium">
                   {project.type}
                 </span>
               </div>
@@ -479,17 +479,17 @@ export default function HighwayAddressSection() {
                   <span className="block">{project.name}</span>
                 </span>
               </h2>
-              <p className="anim-fade-up font-lux-serif text-xl md:text-2xl italic font-light text-[#C5A059]/85 mb-8">
+              <p className="anim-fade-up font-lux-serif text-xl md:text-2xl italic font-light text-[#19ABE1]/85 mb-8">
                 {project.subhead}
               </p>
-              <p className="anim-fade-up text-sm md:text-base text-[#B5B1A8] font-light leading-relaxed border-l-2 border-[#C5A059]/40 pl-5 mb-10 max-w-xl">
+              <p className="anim-fade-up text-sm md:text-base text-[#B5B1A8] font-light leading-relaxed border-l-2 border-[#19ABE1]/40 pl-5 mb-10 max-w-xl">
                 {project.desc}
               </p>
 
               <div className="anim-fade-up grid grid-cols-2 gap-x-8 gap-y-2.5 border-t border-[rgba(244,241,234,0.10)] pt-6 mb-10 max-w-md">
                 {project.facts.map((fact, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-[11px] text-[#B5B1A8] font-light">
-                    <span className="w-1 h-1 rounded-full bg-[#C5A059] flex-shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-[#19ABE1] flex-shrink-0" />
                     {fact}
                   </div>
                 ))}
@@ -498,7 +498,7 @@ export default function HighwayAddressSection() {
               <div className="anim-fade-up flex items-center gap-6">
                 <Link
                   href={project.slug}
-                  className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#C5A059] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-8 py-4 transition-colors duration-500 hover:text-[#C5A059] pointer-events-auto"
+                  className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#19ABE1] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-8 py-4 transition-colors duration-500 hover:text-[#19ABE1] pointer-events-auto"
                 >
                   <span className="absolute inset-0 bg-[#F4F1EA] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0" />
                   <span className="relative z-10 flex items-center gap-3">
@@ -516,8 +516,8 @@ export default function HighwayAddressSection() {
           {/* Outro Block */}
           <div className="text-block text-block-4 opacity-0 absolute top-1/2 left-6 md:left-12 lg:left-24 -translate-y-1/2 max-w-3xl">
             <div className="anim-fade-up flex items-center gap-4 mb-10">
-              <span className="h-[1.5px] w-16 bg-[#C5A059]" />
-              <span className="text-[10px] font-medium uppercase tracking-[0.5em] text-[#C5A059]">
+              <span className="h-[1.5px] w-16 bg-[#19ABE1]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.5em] text-[#19ABE1]">
                 The Connected District
               </span>
             </div>
@@ -526,7 +526,7 @@ export default function HighwayAddressSection() {
                 <span className="block">Strong alone.</span>
               </span>
               <span className="headline-line block overflow-hidden pb-1">
-                <span className="block italic text-[#C5A059]">Unstoppable together.</span>
+                <span className="block italic text-[#19ABE1]">Unstoppable together.</span>
               </span>
             </h2>
             <p className="anim-fade-up text-sm md:text-lg text-[#B5B1A8] font-light leading-relaxed max-w-xl mb-12">
@@ -534,7 +534,7 @@ export default function HighwayAddressSection() {
             </p>
             <Link
               href="/contact"
-              className="anim-fade-up group relative inline-flex items-center gap-3 overflow-hidden bg-[#C5A059] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-10 py-5 transition-colors duration-500 hover:text-[#C5A059] pointer-events-auto"
+              className="anim-fade-up group relative inline-flex items-center gap-3 overflow-hidden bg-[#19ABE1] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-10 py-5 transition-colors duration-500 hover:text-[#19ABE1] pointer-events-auto"
             >
               <span className="absolute inset-0 bg-[#F4F1EA] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0" />
               <span className="relative z-10 flex items-center gap-3">
@@ -554,7 +554,7 @@ export default function HighwayAddressSection() {
           }`}
         >
           <div className="flex flex-col items-end gap-1">
-            <span className="font-lux-serif text-5xl italic font-light text-[#C5A059] leading-none">
+            <span className="font-lux-serif text-5xl italic font-light text-[#19ABE1] leading-none">
               0{activeProject > 0 && activeProject < 4 ? activeProject : 1}
             </span>
             <span className="text-[10px] uppercase tracking-[0.4em] text-[#B5B1A8]">
@@ -567,7 +567,7 @@ export default function HighwayAddressSection() {
               <div
                 key={n}
                 className={`h-12 w-px transition-all duration-500 ${
-                  activeProject === n ? "bg-[#C5A059]" : "bg-[rgba(244,241,234,0.10)]"
+                  activeProject === n ? "bg-[#19ABE1]" : "bg-[rgba(244,241,234,0.10)]"
                 }`}
               />
             ))}
@@ -592,21 +592,21 @@ export default function HighwayAddressSection() {
           </div>
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-6">
-              <span className="h-[1.5px] w-10 bg-[#C5A059]" />
-              <span className="text-[9px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">
+              <span className="h-[1.5px] w-10 bg-[#19ABE1]" />
+              <span className="text-[9px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">
                 Highway District
               </span>
             </div>
             <h1 className="font-lux-serif text-[clamp(2.8rem,12vw,5rem)] leading-[0.88] tracking-[-0.03em] font-light text-[#F4F1EA]">
               Three projects.
               <br />
-              <span className="italic text-[#C5A059]">One address.</span>
+              <span className="italic text-[#19ABE1]">One address.</span>
             </h1>
             <p className="mt-6 text-sm font-light leading-relaxed text-[#B5B1A8] max-w-md">
               Three connected developments on the Dhaka–Chittagong Highway. Scroll to explore each one.
             </p>
             <div className="mt-8 flex items-center gap-3 text-[9px] uppercase tracking-[0.4em] text-[#89867E]">
-              <div className="w-6 h-px bg-[#C5A059]" />
+              <div className="w-6 h-px bg-[#19ABE1]" />
               <span>Scroll to explore</span>
             </div>
           </div>
@@ -629,7 +629,7 @@ export default function HighwayAddressSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#171715]/60 via-transparent to-transparent" />
               {/* Top-left index badge */}
               <div className="absolute top-4 left-4 flex items-center gap-2 backdrop-blur-md bg-[#171715]/60 px-3 py-1.5">
-                <span className="h-px w-4 bg-[#C5A059]" />
+                <span className="h-px w-4 bg-[#19ABE1]" />
                 <span className="text-[9px] uppercase tracking-[0.3em] text-[#F4F1EA]">{project.index} / 03</span>
               </div>
               {/* Bottom type label */}
@@ -639,7 +639,7 @@ export default function HighwayAddressSection() {
                 </span>
               </div>
               {/* Corner accent */}
-              <div className="absolute top-0 right-0 h-6 w-6 border-t border-r border-[#C5A059]/50" />
+              <div className="absolute top-0 right-0 h-6 w-6 border-t border-r border-[#19ABE1]/50" />
             </div>
 
             {/* Card content */}
@@ -647,10 +647,10 @@ export default function HighwayAddressSection() {
               <h2 className="font-lux-serif text-[clamp(2.2rem,8vw,3rem)] leading-[0.95] tracking-[-0.02em] font-light text-[#F4F1EA] mb-3">
                 {project.name}
               </h2>
-              <p className="font-lux-serif text-lg italic font-light text-[#C5A059]/85 mb-6">
+              <p className="font-lux-serif text-lg italic font-light text-[#19ABE1]/85 mb-6">
                 {project.subhead}
               </p>
-              <p className="text-sm text-[#B5B1A8] font-light leading-relaxed mb-8 border-l-2 border-[#C5A059]/40 pl-4">
+              <p className="text-sm text-[#B5B1A8] font-light leading-relaxed mb-8 border-l-2 border-[#19ABE1]/40 pl-4">
                 {project.desc}
               </p>
 
@@ -658,7 +658,7 @@ export default function HighwayAddressSection() {
               <div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-8 border-t border-[rgba(244,241,234,0.10)] pt-6">
                 {project.facts.map((fact, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-xs text-[#B5B1A8] font-light">
-                    <span className="w-1 h-1 rounded-full bg-[#C5A059] flex-shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-[#19ABE1] flex-shrink-0" />
                     {fact}
                   </div>
                 ))}
@@ -667,7 +667,7 @@ export default function HighwayAddressSection() {
               {/* CTA */}
               <Link
                 href={project.slug}
-                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-[#C5A059] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-6 py-4 transition-colors duration-500 hover:text-[#C5A059] mt-auto"
+                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-[#19ABE1] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-6 py-4 transition-colors duration-500 hover:text-[#19ABE1] mt-auto"
               >
                 <span className="absolute inset-0 bg-[#F4F1EA] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0" />
                 <span className="relative z-10 flex items-center gap-3">
@@ -697,23 +697,23 @@ export default function HighwayAddressSection() {
           </div>
           <div className="relative z-10 max-w-md">
             <div className="flex items-center justify-center gap-3 mb-8">
-              <span className="h-[1.5px] w-10 bg-[#C5A059]" />
-              <span className="text-[9px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">
+              <span className="h-[1.5px] w-10 bg-[#19ABE1]" />
+              <span className="text-[9px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">
                 The Connected District
               </span>
-              <span className="h-[1.5px] w-10 bg-[#C5A059]" />
+              <span className="h-[1.5px] w-10 bg-[#19ABE1]" />
             </div>
             <h2 className="font-lux-serif text-[clamp(2.2rem,9vw,3.5rem)] leading-[0.95] tracking-[-0.02em] font-light text-[#F4F1EA] mb-6">
               Strong alone.
               <br />
-              <span className="italic text-[#C5A059]">Unstoppable together.</span>
+              <span className="italic text-[#19ABE1]">Unstoppable together.</span>
             </h2>
             <p className="text-sm text-[#B5B1A8] font-light leading-relaxed mb-12">
               Stay, live, shop, and connect within one destination on the Dhaka–Chittagong Highway.
             </p>
             <Link
               href="/contact"
-              className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-[#C5A059] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-8 py-4 transition-colors duration-500 hover:text-[#C5A059]"
+              className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-[#19ABE1] text-[#171715] text-[10px] font-semibold uppercase tracking-[0.3em] px-8 py-4 transition-colors duration-500 hover:text-[#19ABE1]"
             >
               <span className="absolute inset-0 bg-[#F4F1EA] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0" />
               <span className="relative z-10 flex items-center gap-3">

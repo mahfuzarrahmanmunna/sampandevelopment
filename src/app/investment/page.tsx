@@ -114,8 +114,8 @@ export default function InvestmentPage() {
         <div className="relative z-10 max-w-[1600px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-16 md:pb-24">
           <div className="max-w-4xl">
             <div className="anim-hero-fade flex items-center gap-4 mb-8" style={{ opacity: 0, y: 40 }}>
-              <span className="h-[1.5px] w-12 bg-[#C5A059]"></span>
-              <span className="text-[10px] md:text-[11px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">
+              <span className="h-[1.5px] w-12 bg-[#19ABE1]"></span>
+              <span className="text-[10px] md:text-[11px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">
                 Investment Opportunities
               </span>
             </div>
@@ -125,7 +125,7 @@ export default function InvestmentPage() {
                 <span className="anim-hero-line block font-light" style={{ transform: "translateY(110%)" }}>Three ways to invest</span>
               </span>
               <span className="block overflow-hidden pb-2">
-                <span className="anim-hero-line block italic text-[#C5A059]" style={{ transform: "translateY(110%)" }}>with Sampan.</span>
+                <span className="anim-hero-line block italic text-[#19ABE1]" style={{ transform: "translateY(110%)" }}>with Sampan.</span>
               </span>
             </h1>
 
@@ -134,12 +134,12 @@ export default function InvestmentPage() {
             </p>
 
             <div className="anim-hero-fade flex flex-col sm:flex-row items-start gap-4" style={{ opacity: 0, y: 40 }}>
-              <a href="#section-options" className="group relative overflow-hidden bg-[#C5A059] text-[#0B0B0D] text-[10px] font-semibold uppercase tracking-[0.3em] px-10 py-5 flex items-center gap-3 transition-colors duration-500 hover:text-[#C5A059]">
+              <a href="#section-options" className="group relative overflow-hidden bg-[#19ABE1] text-[#0B0B0D] text-[10px] font-semibold uppercase tracking-[0.3em] px-10 py-5 flex items-center gap-3 transition-colors duration-500 hover:text-[#19ABE1]">
                 <span className="absolute inset-0 bg-[#F5F2EC] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
                 <span className="relative z-10 flex items-center gap-3">Compare the options <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></span>
               </a>
-              <Link href="/contact" className="group relative overflow-hidden border border-[#F5F2EC]/30 text-[#F5F2EC] text-[10px] font-semibold uppercase tracking-[0.3em] px-10 py-5 flex items-center gap-3 transition-colors duration-500 hover:border-[#C5A059] hover:text-[#0B0B0D] backdrop-blur-sm bg-[#0B0B0D]/20">
-                <span className="absolute inset-0 bg-[#C5A059] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
+              <Link href="/contact" className="group relative overflow-hidden border border-[#F5F2EC]/30 text-[#F5F2EC] text-[10px] font-semibold uppercase tracking-[0.3em] px-10 py-5 flex items-center gap-3 transition-colors duration-500 hover:border-[#19ABE1] hover:text-[#0B0B0D] backdrop-blur-sm bg-[#0B0B0D]/20">
+                <span className="absolute inset-0 bg-[#19ABE1] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0"></span>
                 <span className="relative z-10">Book a site visit</span>
               </Link>
             </div>
@@ -155,12 +155,12 @@ export default function InvestmentPage() {
 
           <div className="max-w-2xl mb-16 md:mb-24">
             <div className="anim-fade flex items-center gap-4 mb-8">
-              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Investment Options</span>
+              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">Investment Options</span>
             </div>
             <h2 className="font-lux-serif text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] tracking-[-0.02em] mb-8">
               <span className="block overflow-hidden pb-2"><span className="anim-headline block font-light">Choose the path that</span></span>
-              <span className="block overflow-hidden pb-2"><span className="anim-headline block italic text-[#C5A059]">fits your goals.</span></span>
+              <span className="block overflow-hidden pb-2"><span className="anim-headline block italic text-[#19ABE1]">fits your goals.</span></span>
             </h2>
             <p className="anim-fade text-base text-[#0B0B0D]/70 font-light leading-relaxed">
               Three flexible ways to invest, each with its own lifestyle, benefits and long-term potential.
@@ -181,16 +181,16 @@ export default function InvestmentPage() {
                 <p className="card-anim text-sm text-[#0B0B0D]/70 font-light leading-relaxed mb-6">Own an undivided share of project land in proportion to the space you buy.</p>
                 <div className="mt-auto">
                   <div className="card-anim border-t border-[#0B0B0D]/10 pt-4 mb-6">
-                    <p className="text-[9px] uppercase tracking-[0.3em] text-[#C5A059] mb-2">Projects</p>
+                    <p className="text-[9px] uppercase tracking-[0.3em] text-[#19ABE1] mb-2">Projects</p>
                     <ul className="text-xs text-[#0B0B0D]/80 space-y-1">
                       <li>Sampan Metro Square</li>
                       <li>Sampan Condominium</li>
                     </ul>
                   </div>
-                  <Link href="/projects" className="card-anim group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] hover:text-[#C5A059] transition-colors">
+                  <Link href="/projects" className="card-anim group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] hover:text-[#19ABE1] transition-colors">
                     Explore land share
                     <span className="relative w-12 h-[1.5px] bg-[#0B0B0D] overflow-hidden">
-                      <span className="absolute inset-0 bg-[#C5A059] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
+                      <span className="absolute inset-0 bg-[#19ABE1] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
                     </span>
                   </Link>
                 </div>
@@ -209,16 +209,16 @@ export default function InvestmentPage() {
                 <p className="card-anim text-sm text-[#0B0B0D]/70 font-light leading-relaxed mb-6">Join a club and lounge on the highway or in Sylhet.</p>
                 <div className="mt-auto">
                   <div className="card-anim border-t border-[#0B0B0D]/10 pt-4 mb-6">
-                    <p className="text-[9px] uppercase tracking-[0.3em] text-[#C5A059] mb-2">Projects</p>
+                    <p className="text-[9px] uppercase tracking-[0.3em] text-[#19ABE1] mb-2">Projects</p>
                     <ul className="text-xs text-[#0B0B0D]/80 space-y-1">
                       <li>Express Highway Inn</li>
                       <li>Sampan Agro & Golf Resort</li>
                     </ul>
                   </div>
-                  <Link href="/projects" className="card-anim group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] hover:text-[#C5A059] transition-colors">
+                  <Link href="/projects" className="card-anim group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] hover:text-[#19ABE1] transition-colors">
                     Explore membership
                     <span className="relative w-12 h-[1.5px] bg-[#0B0B0D] overflow-hidden">
-                      <span className="absolute inset-0 bg-[#C5A059] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
+                      <span className="absolute inset-0 bg-[#19ABE1] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
                     </span>
                   </Link>
                 </div>
@@ -237,16 +237,16 @@ export default function InvestmentPage() {
                 <p className="card-anim text-sm text-[#0B0B0D]/70 font-light leading-relaxed mb-6">Buy units in a building on the Dhaka–Chittagong Highway.</p>
                 <div className="mt-auto">
                   <div className="card-anim border-t border-[#0B0B0D]/10 pt-4 mb-6">
-                    <p className="text-[9px] uppercase tracking-[0.3em] text-[#C5A059] mb-2">Projects</p>
+                    <p className="text-[9px] uppercase tracking-[0.3em] text-[#19ABE1] mb-2">Projects</p>
                     <ul className="text-xs text-[#0B0B0D]/80 space-y-1">
                       <li>Sampan Condominium</li>
                       <li>Sampan Trade Emporium</li>
                     </ul>
                   </div>
-                  <Link href="/projects" className="card-anim group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] hover:text-[#C5A059] transition-colors">
+                  <Link href="/projects" className="card-anim group inline-flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] hover:text-[#19ABE1] transition-colors">
                     See available space
                     <span className="relative w-12 h-[1.5px] bg-[#0B0B0D] overflow-hidden">
-                      <span className="absolute inset-0 bg-[#C5A059] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
+                      <span className="absolute inset-0 bg-[#19ABE1] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
                     </span>
                   </Link>
                 </div>
@@ -257,7 +257,7 @@ export default function InvestmentPage() {
 
           {/* Risk Disclaimer */}
           <div className="anim-fade mt-16 md:mt-24 border-t border-[#0B0B0D]/10 pt-8 flex items-start gap-4 max-w-3xl">
-            <svg className="w-5 h-5 text-[#C5A059] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <svg className="w-5 h-5 text-[#19ABE1] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             <p className="text-xs text-[#0B0B0D]/50 font-light leading-relaxed">
               Property values, rental income and membership benefits are not guaranteed. Read the documents and terms before you decide.
             </p>
@@ -273,12 +273,12 @@ export default function InvestmentPage() {
 
           <div className="max-w-2xl mb-16 md:mb-24">
             <div className="anim-fade flex items-center gap-4 mb-8">
-              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Decision Guide</span>
+              <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">Decision Guide</span>
             </div>
             <h2 className="font-lux-serif text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] tracking-[-0.02em] mb-8">
               <span className="block overflow-hidden pb-2"><span className="anim-headline block font-light">Which is right</span></span>
-              <span className="block overflow-hidden pb-2"><span className="anim-headline block italic text-[#C5A059]">for me?</span></span>
+              <span className="block overflow-hidden pb-2"><span className="anim-headline block italic text-[#19ABE1]">for me?</span></span>
             </h2>
             <p className="anim-fade text-base text-[#F5F3EE]/70 font-light leading-relaxed">A quick guide to help you decide.</p>
           </div>
@@ -296,8 +296,8 @@ export default function InvestmentPage() {
                 </p>
                 <div>
                   <p className="text-[9px] uppercase tracking-[0.3em] text-[#F5F3EE]/40 mb-2">Recommendation</p>
-                  <h3 className="font-lux-serif text-xl md:text-2xl italic text-[#C5A059]">{item.rec}</h3>
-                  <div className="anim-line-draw block h-px w-16 bg-[#C5A059] mt-4 origin-left"></div>
+                  <h3 className="font-lux-serif text-xl md:text-2xl italic text-[#19ABE1]">{item.rec}</h3>
+                  <div className="anim-line-draw block h-px w-16 bg-[#19ABE1] mt-4 origin-left"></div>
                 </div>
               </div>
             ))}
@@ -313,8 +313,8 @@ export default function InvestmentPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 items-start">
             <div className="md:col-span-1">
               <div className="anim-fade flex items-center gap-4 mb-4">
-                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#C5A059]"></span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Our Commitment</span>
+                <span className="anim-line-draw block h-[1.5px] w-12 bg-[#19ABE1]"></span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">Our Commitment</span>
               </div>
             </div>
 
@@ -347,13 +347,13 @@ export default function InvestmentPage() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 py-24">
           <div className="anim-fade flex items-center justify-center gap-4 mb-8">
-            <span className="h-[1.5px] w-12 bg-[#C5A059]"></span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C5A059]">Invest in a brighter tomorrow</span>
+            <span className="h-[1.5px] w-12 bg-[#19ABE1]"></span>
+            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#19ABE1]">Invest in a brighter tomorrow</span>
           </div>
 
           <h2 className="font-lux-serif text-[clamp(3rem,8vw,7rem)] leading-[0.95] tracking-[-0.02em] mb-10 font-light">
             <span className="block overflow-hidden pb-2"><span className="anim-headline block">Your next chapter</span></span>
-            <span className="block overflow-hidden pb-2"><span className="anim-headline block italic text-[#C5A059]">starts here.</span></span>
+            <span className="block overflow-hidden pb-2"><span className="anim-headline block italic text-[#19ABE1]">starts here.</span></span>
           </h2>
 
           <p className="anim-fade text-base md:text-lg text-[#F5F3EE]/70 font-light leading-relaxed mb-12 max-w-xl mx-auto">
@@ -361,12 +361,12 @@ export default function InvestmentPage() {
           </p>
 
           <div className="anim-fade flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#section-options" className="group relative overflow-hidden bg-[#C5A059] text-[#0B0B0D] text-[10px] font-semibold uppercase tracking-[0.3em] px-12 py-5 flex items-center gap-3 transition-colors duration-500 hover:text-[#C5A059]">
+            <a href="#section-options" className="group relative overflow-hidden bg-[#19ABE1] text-[#0B0B0D] text-[10px] font-semibold uppercase tracking-[0.3em] px-12 py-5 flex items-center gap-3 transition-colors duration-500 hover:text-[#19ABE1]">
               <span className="absolute inset-0 bg-[#F5F3EE] translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-0"></span>
               <span className="relative z-10 flex items-center gap-3">Compare the options <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></span>
             </a>
-            <Link href="/contact" className="group relative overflow-hidden border border-[#F5F3EE]/30 text-[#F5F3EE] text-[10px] font-semibold uppercase tracking-[0.3em] px-12 py-5 flex items-center gap-3 transition-colors duration-500 hover:border-[#C5A059] hover:text-[#0B0B0D] backdrop-blur-sm bg-[#0B0B0D]/20">
-              <span className="absolute inset-0 bg-[#C5A059] translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-0"></span>
+            <Link href="/contact" className="group relative overflow-hidden border border-[#F5F3EE]/30 text-[#F5F3EE] text-[10px] font-semibold uppercase tracking-[0.3em] px-12 py-5 flex items-center gap-3 transition-colors duration-500 hover:border-[#19ABE1] hover:text-[#0B0B0D] backdrop-blur-sm bg-[#0B0B0D]/20">
+              <span className="absolute inset-0 bg-[#19ABE1] translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-0"></span>
               <span className="relative z-10">Book a site visit</span>
             </Link>
           </div>

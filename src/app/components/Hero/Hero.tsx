@@ -225,7 +225,7 @@ export default function Hero() {
         <div key={currentSlide} className="max-w-3xl text-[#F8F7F3] content-reveal">
           {/* Eyebrow */}
           <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <span className="h-px w-8 sm:w-12 shrink-0 bg-[#C6A06B]"></span>
+            <span className="h-px w-8 sm:w-12 shrink-0 bg-[#009D4E]"></span>
             <span className="max-w-[280px] text-[9px] sm:text-[10px] md:text-[11px] font-medium uppercase tracking-[0.2em] sm:tracking-[0.35em] text-[#E9E0D2]/80">
               {slides[currentSlide].eyebrow}
             </span>
@@ -234,7 +234,7 @@ export default function Hero() {
           {/* Main Typographic Silhouette */}
           <h1 className="font-lux-serif text-[clamp(2.8rem,12vw,7rem)] leading-[0.91] tracking-tight mb-6 sm:mb-8 drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
             <span className="block">{slides[currentSlide].titleLine1}</span>
-            <span className="block italic font-light text-[#C6A06B]">
+            <span className="block italic font-light text-[#009D4E]">
               {slides[currentSlide].titleLine2}
             </span>
           </h1>
@@ -245,7 +245,7 @@ export default function Hero() {
           </p>
 
           <div className="flex items-center gap-3 text-[#E9E0D2]/60 text-[10px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] mb-8 sm:mb-12">
-            <svg className="w-3 h-3 text-[#C6A06B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3 h-3 text-[#009D4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>
@@ -256,7 +256,7 @@ export default function Hero() {
           <div className="flex w-full flex-col sm:w-auto sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4">
             <Link
               href="/projects"
-              className="group min-h-12 w-full sm:w-auto justify-between bg-[#C6A06B] text-[#101615] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.2em] px-5 sm:px-8 py-4 transition-all duration-300 hover:bg-[#F8F7F3] flex items-center gap-3"
+              className="group min-h-12 w-full sm:w-auto justify-between bg-[#009D4E] text-[#101615] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.2em] px-5 sm:px-8 py-4 transition-all duration-300 hover:bg-[#F8F7F3] flex items-center gap-3"
             >
               View Projects
               <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -266,7 +266,7 @@ export default function Hero() {
 
             <Link
               href="/contact"
-              className="group min-h-12 w-full sm:w-auto justify-center border border-[#E9E0D2]/30 text-[#F8F7F3] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.2em] px-5 sm:px-8 py-4 transition-all duration-300 hover:border-[#C6A06B] hover:text-[#C6A06B] flex items-center gap-3 backdrop-blur-sm bg-[#101615]/20"
+              className="group min-h-12 w-full sm:w-auto justify-center border border-[#E9E0D2]/30 text-[#F8F7F3] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.2em] px-5 sm:px-8 py-4 transition-all duration-300 hover:border-[#009D4E] hover:text-[#009D4E] flex items-center gap-3 backdrop-blur-sm bg-[#101615]/20"
             >
               Book a Site Visit
             </Link>
@@ -280,7 +280,7 @@ export default function Hero() {
           {/* Bottom Left: Scroll Indicator */}
           <div className="hidden md:flex items-center gap-4 text-[#E9E0D2]/50 text-[10px] uppercase tracking-[0.3em] flex-shrink-0">
             <div className="w-12 h-px bg-[#E9E0D2]/20 relative overflow-hidden">
-              <div className="absolute top-0 left-0 h-full w-full bg-[#C6A06B] animate-[scrollLine_2.5s_ease-in-out_infinite]"></div>
+              <div className="absolute top-0 left-0 h-full w-full bg-[#009D4E] animate-[scrollLine_2.5s_ease-in-out_infinite]"></div>
             </div>
             Scroll to Discover
           </div>
@@ -291,7 +291,7 @@ export default function Hero() {
             <span className="h-3 w-px bg-[#E9E0D2]/20"></span>
             <span>Site Visits on Request</span>
             <span className="h-3 w-px bg-[#E9E0D2]/20"></span>
-            <span className="text-[#C6A06B]/80">Backed by Sampan Group</span>
+            <span className="text-[#009D4E]/80">Backed by Sampan Group</span>
           </div>
 
           {/* Bottom Right: Slider Controls & Up Next */}
@@ -307,7 +307,7 @@ export default function Hero() {
                   {slides[(currentSlide + 1) % slides.length].titleLine1}
                 </div>
               </div>
-              <div className="w-12 h-12 overflow-hidden border border-[#E9E0D2]/20 group-hover:border-[#C6A06B] transition-colors duration-300">
+              <div className="w-12 h-12 overflow-hidden border border-[#E9E0D2]/20 group-hover:border-[#009D4E] transition-colors duration-300">
                 <img
                   src={slides[(currentSlide + 1) % slides.length].img}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -330,7 +330,7 @@ export default function Hero() {
                 */}
                 <div
                   key={currentSlide}
-                  className={`absolute top-0 left-0 h-full bg-[#C6A06B] w-full origin-left progress-bar ${
+                  className={`absolute top-0 left-0 h-full bg-[#009D4E] w-full origin-left progress-bar ${
                     isPaused ? "paused" : ""
                   }`}
                 ></div>
@@ -345,14 +345,14 @@ export default function Hero() {
               <button
                 onClick={() => goToSlide((currentSlide - 1 + slides.length) % slides.length)}
                 aria-label="Previous slide"
-                className="grid size-10 sm:size-11 place-items-center text-[#E9E0D2]/70 hover:text-[#C6A06B] transition-colors duration-300"
+                className="grid size-10 sm:size-11 place-items-center text-[#E9E0D2]/70 hover:text-[#009D4E] transition-colors duration-300"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
               </button>
               <button
                 onClick={() => goToSlide((currentSlide + 1) % slides.length)}
                 aria-label="Next slide"
-                className="grid size-10 sm:size-11 place-items-center text-[#E9E0D2]/70 hover:text-[#C6A06B] transition-colors duration-300"
+                className="grid size-10 sm:size-11 place-items-center text-[#E9E0D2]/70 hover:text-[#009D4E] transition-colors duration-300"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </button>

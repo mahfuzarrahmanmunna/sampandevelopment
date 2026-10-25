@@ -347,7 +347,7 @@ export default function MotherCompany() {
         aria-hidden="true"
         className="pointer-events-none fixed left-0 top-0 z-50 hidden h-[280px] w-[440px] opacity-0 will-change-transform md:block"
       >
-        <div className="relative h-full w-full overflow-hidden border border-[#C6A06B]/30 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.85)]">
+        <div className="relative h-full w-full overflow-hidden border border-[#009D4E]/30 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.85)]">
           {currentImg && (
             <img
               src={currentImg}
@@ -359,15 +359,15 @@ export default function MotherCompany() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-[#0B0B0D]/10 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
             <div className="flex flex-col">
-              <div className="mb-2 h-px w-8 bg-[#C6A06B]" />
+              <div className="mb-2 h-px w-8 bg-[#009D4E]" />
               <span className="block font-lux-serif text-base italic text-[#F5F3EE]">
                 {currentCaption}
               </span>
             </div>
-            <span className="font-lux-serif text-2xl font-light italic text-[#C6A06B]/60">·</span>
+            <span className="font-lux-serif text-2xl font-light italic text-[#009D4E]/60">·</span>
           </div>
-          <div className="absolute left-0 top-0 h-6 w-6 border-l border-t border-[#C6A06B]/60" />
-          <div className="absolute bottom-0 right-0 h-6 w-6 border-b border-r border-[#C6A06B]/60" />
+          <div className="absolute left-0 top-0 h-6 w-6 border-l border-t border-[#009D4E]/60" />
+          <div className="absolute bottom-0 right-0 h-6 w-6 border-b border-r border-[#009D4E]/60" />
         </div>
       </div>
 
@@ -377,8 +377,8 @@ export default function MotherCompany() {
           {/* LEFT: Sticky narrative */}
           <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
             <div className="anim-eyebrow mb-8 flex items-center gap-4">
-              <span className="block h-[1.5px] w-12 bg-[#C6A06B]" />
-              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#C6A06B] md:text-[11px]">
+              <span className="block h-[1.5px] w-12 bg-[#009D4E]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#009D4E] md:text-[11px]">
                 Mother Company
               </span>
             </div>
@@ -388,7 +388,7 @@ export default function MotherCompany() {
                 <span className="anim-headline block font-light">Part of</span>
               </span>
               <span className="block overflow-hidden pb-2">
-                <span className="anim-headline block font-normal italic text-[#C6A06B]">
+                <span className="anim-headline block font-normal italic text-[#009D4E]">
                   Sampan Group
                 </span>
               </span>
@@ -408,7 +408,7 @@ export default function MotherCompany() {
                 href="https://sampangroup.com.bd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#C6A06B] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] transition-colors duration-500 hover:text-[#C6A06B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A06B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0D]"
+                className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#009D4E] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#0B0B0D] transition-colors duration-500 hover:text-[#009D4E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009D4E] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0D]"
               >
                 <span className="absolute inset-0 z-0 translate-y-full bg-[#F5F3EE] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-focus-visible:translate-y-0" />
                 <span className="relative z-10 flex items-center gap-3">
@@ -434,7 +434,7 @@ export default function MotherCompany() {
             {/* Hint */}
             <div className="anim-fade mt-12 hidden items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[#F5F3EE]/30 md:flex">
               <svg
-                className="h-3 w-3 text-[#C6A06B]"
+                className="h-3 w-3 text-[#009D4E]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -455,7 +455,7 @@ export default function MotherCompany() {
           <div className="md:col-span-7">
             <div className="anim-fade mb-10 flex items-end justify-between border-b border-[#F5F3EE]/10 pb-6">
               <div className="flex items-baseline gap-4">
-                <span className="font-lux-serif text-4xl font-light italic text-[#C6A06B] md:text-5xl">
+                <span className="font-lux-serif text-4xl font-light italic text-[#009D4E] md:text-5xl">
                   06
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.3em] text-[#F5F3EE]/40">
@@ -493,19 +493,19 @@ export default function MotherCompany() {
                       onKeyDown={(e) => handleConcernKeyDown(e, i)}
                       aria-expanded={hasImage ? isMobileExpanded : undefined}
                       aria-label={`${concern.name} — ${concern.tag}. ${concern.location}. ${hasImage ? "Tap to preview image." : ""}`}
-                      className="relative flex w-full items-center gap-4 border-b border-[#F5F3EE]/10 py-6 text-left outline-none transition-all duration-500 hover:gap-5 focus-visible:ring-2 focus-visible:ring-[#C6A06B] focus-visible:ring-inset md:gap-6"
+                      className="relative flex w-full items-center gap-4 border-b border-[#F5F3EE]/10 py-6 text-left outline-none transition-all duration-500 hover:gap-5 focus-visible:ring-2 focus-visible:ring-[#009D4E] focus-visible:ring-inset md:gap-6"
                     >
                       {/* Sliding gold rule */}
                       <span
                         aria-hidden="true"
-                        className="absolute left-0 top-1/2 h-px w-0 bg-[#C6A06B] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-12 group-focus-visible:w-12"
+                        className="absolute left-0 top-1/2 h-px w-0 bg-[#009D4E] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-12 group-focus-visible:w-12"
                       />
 
                       {/* Index */}
                       <span
                         className={`relative z-10 w-10 flex-shrink-0 font-lux-serif text-2xl font-light italic transition-all duration-500 md:w-auto md:text-3xl ${
                           isActive
-                            ? "translate-x-12 text-[#C6A06B]"
+                            ? "translate-x-12 text-[#009D4E]"
                             : isDimmed
                             ? "text-[#F5F3EE]/20"
                             : "text-[#F5F3EE]/40"
@@ -523,10 +523,10 @@ export default function MotherCompany() {
                         <span
                           className={`font-lux-serif text-2xl font-light leading-tight transition-colors duration-500 md:text-3xl lg:text-4xl ${
                             isActive
-                              ? "text-[#C6A06B]"
+                              ? "text-[#009D4E]"
                               : isDimmed
                               ? "text-[#F5F3EE]/30"
-                              : "text-[#F5F3EE] group-hover:text-[#C6A06B] group-focus-visible:text-[#C6A06B]"
+                              : "text-[#F5F3EE] group-hover:text-[#009D4E] group-focus-visible:text-[#009D4E]"
                           }`}
                         >
                           {concern.name}
@@ -542,7 +542,7 @@ export default function MotherCompany() {
                       {/* Mobile thumbnail */}
                       {hasImage && (
                         <div
-                          className="relative z-10 h-16 w-12 flex-shrink-0 overflow-hidden border border-[#F5F3EE]/15 transition-all duration-500 group-hover:border-[#C6A06B] group-focus-visible:border-[#C6A06B] md:hidden"
+                          className="relative z-10 h-16 w-12 flex-shrink-0 overflow-hidden border border-[#F5F3EE]/15 transition-all duration-500 group-hover:border-[#009D4E] group-focus-visible:border-[#009D4E] md:hidden"
                           aria-hidden="true"
                         >
                           <img
@@ -559,7 +559,7 @@ export default function MotherCompany() {
                         aria-hidden="true"
                         className={`relative z-10 hidden h-5 w-5 flex-shrink-0 transition-all duration-500 md:block ${
                           isActive
-                            ? "translate-x-0 text-[#C6A06B] opacity-100"
+                            ? "translate-x-0 text-[#009D4E] opacity-100"
                             : "-translate-x-2 text-[#F5F3EE] opacity-0"
                         }`}
                         fill="none"
@@ -594,7 +594,7 @@ export default function MotherCompany() {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-transparent to-transparent" />
                           <div className="absolute bottom-0 left-0 right-0 p-5">
-                            <div className="mb-2 h-px w-8 bg-[#C6A06B]" />
+                            <div className="mb-2 h-px w-8 bg-[#009D4E]" />
                             <span className="block font-lux-serif text-sm italic text-[#F5F3EE]">
                               {concern.caption}
                             </span>
@@ -611,8 +611,8 @@ export default function MotherCompany() {
                 className="anim-concern group flex items-center gap-5 py-6 md:gap-6"
                 onMouseEnter={handleListLeave}
               >
-                <span className="font-lux-serif text-2xl font-light italic text-[#C6A06B]/50 md:text-3xl">+</span>
-                <span className="font-lux-serif text-2xl font-light italic text-[#C6A06B]/80 transition-colors duration-300 group-hover:text-[#C6A06B] md:text-3xl lg:text-4xl">
+                <span className="font-lux-serif text-2xl font-light italic text-[#009D4E]/50 md:text-3xl">+</span>
+                <span className="font-lux-serif text-2xl font-light italic text-[#009D4E]/80 transition-colors duration-300 group-hover:text-[#009D4E] md:text-3xl lg:text-4xl">
                   more concerns in the network
                 </span>
               </li>

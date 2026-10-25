@@ -170,7 +170,7 @@ export default function About() {
         {/* --- Panel 1: Ivory Intro --- */}
         <div className="panel relative flex h-full w-screen flex-col justify-center bg-[#F7F4ED] px-6 text-[#101615] sm:px-8 md:px-16 lg:px-24">
           <div className="mb-8 flex items-center gap-4 overflow-hidden">
-            <span className="block h-[1.5px] w-12 bg-[#C6A06B] sm:w-16"></span>
+            <span className="block h-[1.5px] w-12 bg-[#009D4E] sm:w-16"></span>
             <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-[#101615]/60 md:text-[11px]">
               About Sampan Development
             </span>
@@ -190,7 +190,7 @@ export default function About() {
 
         {/* --- Panel 2: Obsidian Narrative --- */}
         <div className="panel relative flex h-full w-screen flex-col justify-center bg-[#101615] px-6 py-16 text-[#F7F4ED] sm:px-8 md:px-16 lg:px-24 md:py-0">
-          <h2 className="mb-8 font-lux-serif text-[clamp(2.8rem,12vw,11rem)] leading-[0.9] tracking-[-0.03em] italic font-normal text-[#C6A06B] md:mb-12 md:text-[clamp(3rem,9vw,11rem)]">
+          <h2 className="mb-8 font-lux-serif text-[clamp(2.8rem,12vw,11rem)] leading-[0.9] tracking-[-0.03em] italic font-normal text-[#009D4E] md:mb-12 md:text-[clamp(3rem,9vw,11rem)]">
             done in the open.
           </h2>
 
@@ -202,7 +202,7 @@ export default function About() {
             {/* Stats Integration */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4">
               <div className="flex flex-col gap-2 border-r border-[#F7F4ED]/15 pr-2 sm:pr-4">
-                <span className="font-lux-serif text-2xl text-[#C6A06B] font-light sm:text-3xl md:text-4xl">
+                <span className="font-lux-serif text-2xl text-[#009D4E] font-light sm:text-3xl md:text-4xl">
                   [ 01 ]
                 </span>
                 <span className="text-[8px] font-medium uppercase tracking-[0.2em] text-[#F7F4ED]/50 sm:text-[9px] sm:tracking-[0.25em]">
@@ -210,7 +210,7 @@ export default function About() {
                 </span>
               </div>
               <div className="flex flex-col gap-2 border-r border-[#F7F4ED]/15 px-2 sm:px-4">
-                <span className="font-lux-serif text-2xl text-[#C6A06B] font-light sm:text-3xl md:text-4xl">
+                <span className="font-lux-serif text-2xl text-[#009D4E] font-light sm:text-3xl md:text-4xl">
                   [ 02 ]
                 </span>
                 <span className="text-[8px] font-medium uppercase tracking-[0.2em] text-[#F7F4ED]/50 sm:text-[9px] sm:tracking-[0.25em]">
@@ -218,7 +218,7 @@ export default function About() {
                 </span>
               </div>
               <div className="flex flex-col gap-2 pl-2 sm:pl-4">
-                <span className="font-lux-serif text-2xl text-[#C6A06B] font-light sm:text-3xl md:text-4xl">
+                <span className="font-lux-serif text-2xl text-[#009D4E] font-light sm:text-3xl md:text-4xl">
                   [ 03 ]
                 </span>
                 <span className="text-[8px] font-medium uppercase tracking-[0.2em] text-[#F7F4ED]/50 sm:text-[9px] sm:tracking-[0.25em]">
@@ -252,7 +252,7 @@ export default function About() {
             <div className="mb-2 text-[9px] uppercase tracking-[0.3em] text-[#F7F4ED]/80">
               Fig 01 / Ashulia Complex
             </div>
-            <div className="ml-auto h-px w-16 bg-[#C6A06B] sm:w-24"></div>
+            <div className="ml-auto h-px w-16 bg-[#009D4E] sm:w-24"></div>
           </div>
         </div>
 
@@ -267,11 +267,11 @@ export default function About() {
 
             <Link
               href="/about"
-              className="group mt-4 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#101615] transition-colors duration-300 hover:text-[#C6A06B] sm:gap-4"
+              className="group mt-4 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#101615] transition-colors duration-300 hover:text-[#009D4E] sm:gap-4"
             >
               Our story
               <span className="relative h-[1.5px] w-10 overflow-hidden bg-[#101615]/40 sm:w-12">
-                <span className="absolute inset-0 -translate-x-full bg-[#C6A06B] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0"></span>
+                <span className="absolute inset-0 -translate-x-full bg-[#009D4E] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0"></span>
               </span>
               <svg
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -306,7 +306,7 @@ export default function About() {
 
         {/* --- Panel 5: Obsidian Outro --- */}
         <div className="panel flex h-full w-screen flex-col items-center justify-center bg-[#101615] px-6 text-center md:w-[40vw]">
-          <span className="mb-4 text-2xl text-[#C6A06B]" aria-hidden="true">
+          <span className="mb-4 text-2xl text-[#009D4E]" aria-hidden="true">
             ✦
           </span>
           <p className="max-w-[200px] text-[10px] uppercase tracking-[0.4em] text-[#F7F4ED]/40">

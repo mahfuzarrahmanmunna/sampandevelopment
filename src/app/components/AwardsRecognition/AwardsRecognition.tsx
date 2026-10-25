@@ -185,7 +185,7 @@ export default function AwardsGallery() {
                 <span className="anim-headline block font-light">Recognition &amp;</span>
               </span>
               <span className="block overflow-hidden pb-2">
-                <span className="anim-headline block font-normal italic text-[#C6A06B]">Achievements</span>
+                <span className="anim-headline block font-normal italic text-[#009D4E]">Achievements</span>
               </span>
             </h2>
           </div>
@@ -257,7 +257,7 @@ export default function AwardsGallery() {
           {/* Top Bar */}
           <div className="absolute left-0 right-0 top-0 z-50 flex items-center justify-between p-5 md:p-8">
             <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-[#C6A06B]"></span>
+              <span className="h-px w-8 bg-[#009D4E]"></span>
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#F5F3EE]/50">
                 Sampan Group Archive
               </span>
@@ -265,7 +265,7 @@ export default function AwardsGallery() {
             <button
               onClick={closeLightbox}
               aria-label="Close lightbox"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#F5F3EE]/20 text-[#F5F3EE] transition-colors duration-300 hover:border-[#C6A06B] hover:bg-[#C6A06B] hover:text-[#0B0B0D]"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#F5F3EE]/20 text-[#F5F3EE] transition-colors duration-300 hover:border-[#009D4E] hover:bg-[#009D4E] hover:text-[#0B0B0D]"
             >
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12"></path>
@@ -277,7 +277,7 @@ export default function AwardsGallery() {
           <button
             onClick={(e) => { e.stopPropagation(); showPrev(); }}
             aria-label="Previous image"
-            className="absolute left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#F5F3EE]/20 text-[#F5F3EE] transition-colors duration-300 hover:border-[#C6A06B] hover:bg-[#C6A06B] hover:text-[#0B0B0D] md:left-8"
+            className="absolute left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#F5F3EE]/20 text-[#F5F3EE] transition-colors duration-300 hover:border-[#009D4E] hover:bg-[#009D4E] hover:text-[#0B0B0D] md:left-8"
           >
             <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 19l-7-7 7-7"></path>
@@ -300,15 +300,15 @@ export default function AwardsGallery() {
               className="object-contain"
             />
             {/* Decorative corners */}
-            <div className="absolute -left-2 -top-2 h-8 w-8 border-l border-t border-[#C6A06B]/50"></div>
-            <div className="absolute -bottom-2 -right-2 h-8 w-8 border-b border-r border-[#C6A06B]/50"></div>
+            <div className="absolute -left-2 -top-2 h-8 w-8 border-l border-t border-[#009D4E]/50"></div>
+            <div className="absolute -bottom-2 -right-2 h-8 w-8 border-b border-r border-[#009D4E]/50"></div>
           </div>
 
           {/* Next */}
           <button
             onClick={(e) => { e.stopPropagation(); showNext(); }}
             aria-label="Next image"
-            className="absolute right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#F5F3EE]/20 text-[#F5F3EE] transition-colors duration-300 hover:border-[#C6A06B] hover:bg-[#C6A06B] hover:text-[#0B0B0D] md:right-8"
+            className="absolute right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#F5F3EE]/20 text-[#F5F3EE] transition-colors duration-300 hover:border-[#009D4E] hover:bg-[#009D4E] hover:text-[#0B0B0D] md:right-8"
           >
             <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5l7 7-7 7"></path>
@@ -321,7 +321,7 @@ export default function AwardsGallery() {
             onClick={(e) => e.stopPropagation()}
           >
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#F5F3EE]/60">
-              <strong className="text-[#C6A06B]">0{activeIndex + 1}</strong>
+              <strong className="text-[#009D4E]">0{activeIndex + 1}</strong>
               <span className="mx-2 text-[#F5F3EE]/30">/</span>
               0{galleryImages.length}
             </span>
@@ -334,7 +334,7 @@ export default function AwardsGallery() {
                   onClick={() => setActiveIndex(i)}
                   className={`relative h-12 w-12 shrink-0 overflow-hidden border transition-all duration-300 ${
                     activeIndex === i
-                      ? "scale-110 border-[#C6A06B]"
+                      ? "scale-110 border-[#009D4E]"
                       : "border-transparent opacity-50 hover:opacity-100"
                   }`}
                 >
@@ -403,12 +403,12 @@ function MarqueeItem({
 
       {/* Top-right index — dark on light, inverts on hover */}
       <div className="absolute right-0 top-0 z-10 flex items-center gap-2 bg-[#FFFFFF]/70 py-1 pl-2 pr-3 text-[#101615] backdrop-blur-sm transition-colors duration-500 group-hover:bg-[#0B0B0D]/40 group-hover:text-[#F5F3EE]">
-        <span className="h-px w-3 bg-[#C6A06B]"></span>
+        <span className="h-px w-3 bg-[#009D4E]"></span>
         <span className="text-[10px] tracking-[0.2em]">0{(index % galleryImages.length) + 1}</span>
       </div>
 
       {/* Expand icon — appears on hover */}
-      <div className="absolute bottom-4 right-4 z-10 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full border border-[#101615]/30 bg-[#F5F3EE]/40 text-[#101615] opacity-0 backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0 group-hover:border-[#C6A06B] group-hover:bg-[#0B0B0D]/40 group-hover:text-[#F5F3EE] group-hover:opacity-100">
+      <div className="absolute bottom-4 right-4 z-10 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full border border-[#101615]/30 bg-[#F5F3EE]/40 text-[#101615] opacity-0 backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0 group-hover:border-[#009D4E] group-hover:bg-[#0B0B0D]/40 group-hover:text-[#F5F3EE] group-hover:opacity-100">
         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"></path>
         </svg>

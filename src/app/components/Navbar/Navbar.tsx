@@ -81,7 +81,7 @@ export default function Navbar() {
   const getLinkClass = (path: string, isExact = true) => {
     const isActive = isExact ? pathname === path : pathname.includes(path);
     return `relative text-[11px] font-medium uppercase tracking-[0.28em] transition-colors duration-300 flex items-center h-full group py-2 ${
-      isActive ? "text-[#C5A059]" : "text-[#F4F1EA]/80 hover:text-[#C5A059]"
+      isActive ? "text-[#19ABE1]" : "text-[#F4F1EA]/80 hover:text-[#19ABE1]"
     }`;
   };
 
@@ -96,21 +96,21 @@ export default function Navbar() {
         <div className="max-w-[1440px] mx-auto px-12 h-full flex items-center justify-between text-[9px] uppercase tracking-[0.3em] text-[#F4F1EA]/50">
           <div className="flex items-center gap-8">
             <span className="flex items-center gap-2">
-              <svg className="w-3 h-3 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="w-3 h-3 text-[#19ABE1]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
               Dhaka — Chittagong Highway
             </span>
             <span className="flex items-center gap-2">
-              <svg className="w-3 h-3 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="w-3 h-3 text-[#19ABE1]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               +880 1000-000000
             </span>
           </div>
           <div className="flex items-center gap-6">
-            <span className="text-[#C5A059]/80">Clear Title Documents</span>
+            <span className="text-[#19ABE1]/80">Clear Title Documents</span>
             <span className="h-3 w-px bg-[rgba(244,241,234,0.15)]" />
             <span>Site Visits on Request</span>
             <span className="h-3 w-px bg-[rgba(244,241,234,0.15)]" />
@@ -135,7 +135,7 @@ export default function Navbar() {
                   className="h-auto w-auto object-contain transition-all duration-500 group-hover:opacity-85"
                 />
                 {/* Subtle gold underline that extends on hover */}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#C5A059] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#19ABE1] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
               </div>
             </Link>
           </div>
@@ -145,13 +145,13 @@ export default function Navbar() {
             <li className="flex items-center h-full">
               <Link href="/" className={getLinkClass("/")}>
                 Home
-                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#C5A059] origin-left transition-transform duration-300 ${pathname === "/" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
+                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#19ABE1] origin-left transition-transform duration-300 ${pathname === "/" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
               </Link>
             </li>
             <li className="flex items-center h-full">
               <Link href="/about-us" className={getLinkClass("/about-us")}>
                 About
-                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#C5A059] origin-left transition-transform duration-300 ${pathname === "/about-us" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
+                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#19ABE1] origin-left transition-transform duration-300 ${pathname === "/about-us" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
               </Link>
             </li>
 
@@ -168,10 +168,10 @@ export default function Navbar() {
                 aria-controls="projects-mega-menu"
               >
                 Projects
-                <svg className={`w-3 h-3 transition-transform duration-300 ${isProjectsOpen ? "rotate-180 text-[#C5A059]" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className={`w-3 h-3 transition-transform duration-300 ${isProjectsOpen ? "rotate-180 text-[#19ABE1]" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-7 7-7-7" />
                 </svg>
-                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#C5A059] origin-left transition-transform duration-300 ${pathname.includes("/projects") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
+                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#19ABE1] origin-left transition-transform duration-300 ${pathname.includes("/projects") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
               </button>
 
               {/* Mega Menu — refined with soft-dark palette */}
@@ -188,13 +188,13 @@ export default function Navbar() {
                     <div className="pointer-events-none absolute -top-12 -right-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,_rgba(197,160,89,0.18)_0%,_transparent_70%)] blur-2xl" />
                     <div className="relative">
                       <div className="flex items-center gap-3 mb-5">
-                        <span className="h-px w-8 bg-[#C5A059]" />
-                        <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#C5A059]">Featured</span>
+                        <span className="h-px w-8 bg-[#19ABE1]" />
+                        <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#19ABE1]">Featured</span>
                       </div>
                       <h3 className="font-lux-serif text-3xl leading-[0.95] tracking-[-0.02em] font-light text-[#F4F1EA]">
                         Sampan Agro
                         <br />
-                        <span className="italic text-[#C5A059]">&amp; Golf Resort</span>
+                        <span className="italic text-[#19ABE1]">&amp; Golf Resort</span>
                       </h3>
                       <p className="text-xs text-[#B5B1A8] mt-4 font-light leading-relaxed">
                         Sustainable luxury living nestled in nature — leisure, agriculture, and resort hospitality in one destination.
@@ -202,24 +202,24 @@ export default function Navbar() {
                     </div>
                     <Link
                       href="/projects/ongoing/sampan-agro-golf-resort"
-                      className="relative mt-8 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C5A059] group/link w-fit"
+                      className="relative mt-8 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#19ABE1] group/link w-fit"
                     >
                       Discover
-                      <span className="relative w-10 h-px bg-[#C5A059]/40 overflow-hidden">
-                        <span className="absolute inset-0 bg-[#C5A059] -translate-x-full group-hover/link:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+                      <span className="relative w-10 h-px bg-[#19ABE1]/40 overflow-hidden">
+                        <span className="absolute inset-0 bg-[#19ABE1] -translate-x-full group-hover/link:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
                       </span>
                       <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </Link>
                     {/* Corner accent */}
-                    <div className="absolute bottom-0 right-0 h-6 w-6 border-b border-r border-[#C5A059]/40" />
+                    <div className="absolute bottom-0 right-0 h-6 w-6 border-b border-r border-[#19ABE1]/40" />
                   </div>
 
                   {/* Area B: Ongoing */}
                   <div className="p-7 border-r border-[rgba(244,241,234,0.08)]">
                     <div className="flex items-center justify-between mb-5 pb-3 border-b border-[rgba(244,241,234,0.08)]">
-                      <h3 className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#C5A059]">Ongoing</h3>
+                      <h3 className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#19ABE1]">Ongoing</h3>
                       <span className="text-[9px] uppercase tracking-[0.2em] text-[#89867E]">{projectData.ongoing.length} Projects</span>
                     </div>
                     <div className="space-y-1">
@@ -231,7 +231,7 @@ export default function Navbar() {
                         >
                           <div className="flex items-center justify-between gap-3">
                             <div className="flex-1 min-w-0">
-                              <div className="text-sm font-medium text-[#F4F1EA] group-hover:text-[#C5A059] transition-colors duration-200 truncate">
+                              <div className="text-sm font-medium text-[#F4F1EA] group-hover:text-[#19ABE1] transition-colors duration-200 truncate">
                                 {project.name}
                               </div>
                               <div className="flex items-center gap-2 mt-0.5">
@@ -240,7 +240,7 @@ export default function Navbar() {
                                 <span className="text-[10px] text-[#B5B1A8]/70 font-light">{project.desc}</span>
                               </div>
                             </div>
-                            <svg className="w-3 h-3 flex-shrink-0 text-[#C5A059] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <svg className="w-3 h-3 flex-shrink-0 text-[#19ABE1] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                           </div>
@@ -252,7 +252,7 @@ export default function Navbar() {
                   {/* Area C: Completed */}
                   <div className="p-7 bg-[#171715]/60">
                     <div className="flex items-center justify-between mb-5 pb-3 border-b border-[rgba(244,241,234,0.08)]">
-                      <h3 className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#C5A059]">Completed</h3>
+                      <h3 className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#19ABE1]">Completed</h3>
                       <span className="text-[9px] uppercase tracking-[0.2em] text-[#89867E]">{projectData.completed.length} Projects</span>
                     </div>
                     <div className="space-y-1">
@@ -264,7 +264,7 @@ export default function Navbar() {
                         >
                           <div className="flex items-center justify-between gap-3">
                             <div className="flex-1 min-w-0">
-                              <div className="text-sm font-medium text-[#F4F1EA] group-hover:text-[#C5A059] transition-colors duration-200 truncate">
+                              <div className="text-sm font-medium text-[#F4F1EA] group-hover:text-[#19ABE1] transition-colors duration-200 truncate">
                                 {project.name}
                               </div>
                               <div className="flex items-center gap-2 mt-0.5">
@@ -273,7 +273,7 @@ export default function Navbar() {
                                 <span className="text-[10px] text-[#B5B1A8]/70 font-light">{project.desc}</span>
                               </div>
                             </div>
-                            <svg className="w-3 h-3 flex-shrink-0 text-[#C5A059] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <svg className="w-3 h-3 flex-shrink-0 text-[#19ABE1] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                           </div>
@@ -288,7 +288,7 @@ export default function Navbar() {
                   <span className="text-[9px] uppercase tracking-[0.3em] text-[#89867E]">
                     Every project starts with documented ownership
                   </span>
-                  <Link href="/projects" className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F4F1EA] hover:text-[#C5A059] transition-colors duration-300 flex items-center gap-2 group">
+                  <Link href="/projects" className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F4F1EA] hover:text-[#19ABE1] transition-colors duration-300 flex items-center gap-2 group">
                     View All Projects
                     <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -301,13 +301,13 @@ export default function Navbar() {
             <li className="flex items-center h-full">
               <Link href="/investment" className={getLinkClass("/investment")}>
                 Investment
-                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#C5A059] origin-left transition-transform duration-300 ${pathname === "/investment" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
+                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#19ABE1] origin-left transition-transform duration-300 ${pathname === "/investment" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
               </Link>
             </li>
             <li className="flex items-center h-full">
               <a href="https://www.sampangroup.com.bd/" target="_blank" rel="noopener noreferrer" className={getLinkClass("/sampan-group")}>
                 Sampan Group
-                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#C5A059] origin-left transition-transform duration-300 ${pathname === "/sampan-group" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
+                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#19ABE1] origin-left transition-transform duration-300 ${pathname === "/sampan-group" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
               </a>
             </li>
           </ul>
@@ -318,7 +318,7 @@ export default function Navbar() {
               href="/contact"
               className={`hidden md:inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] px-6 py-3.5 transition-all duration-500 group relative overflow-hidden border ${
                 useDarkText
-                  ? "bg-[#C5A059] text-[#171715] border-[#C5A059] hover:text-[#C5A059]"
+                  ? "bg-[#19ABE1] text-[#171715] border-[#19ABE1] hover:text-[#19ABE1]"
                   : "bg-transparent text-[#F4F1EA] border-[#F4F1EA]/30 hover:text-[#171715]"
               }`}
             >
@@ -365,15 +365,15 @@ export default function Navbar() {
           <div className="absolute bottom-0 right-0 h-[400px] w-[500px] translate-x-1/3 translate-y-1/3 rounded-full bg-[radial-gradient(circle,_rgba(197,160,89,0.06)_0%,_transparent_70%)] blur-3xl" />
         </div>
         {/* Architectural corner brackets */}
-        <div className="pointer-events-none absolute left-5 top-24 h-8 w-8 border-l border-t border-[#C5A059]/30" />
-        <div className="pointer-events-none absolute right-5 top-24 h-8 w-8 border-r border-t border-[#C5A059]/30" />
-        <div className="pointer-events-none absolute bottom-5 left-5 h-8 w-8 border-b border-l border-[#C5A059]/30" />
-        <div className="pointer-events-none absolute bottom-5 right-5 h-8 w-8 border-b border-r border-[#C5A059]/30" />
+        <div className="pointer-events-none absolute left-5 top-24 h-8 w-8 border-l border-t border-[#19ABE1]/30" />
+        <div className="pointer-events-none absolute right-5 top-24 h-8 w-8 border-r border-t border-[#19ABE1]/30" />
+        <div className="pointer-events-none absolute bottom-5 left-5 h-8 w-8 border-b border-l border-[#19ABE1]/30" />
+        <div className="pointer-events-none absolute bottom-5 right-5 h-8 w-8 border-b border-r border-[#19ABE1]/30" />
 
         <div className="relative h-full flex flex-col pt-24 pb-8 px-6 overflow-y-auto">
           {/* Micro brand label */}
           <div className={`flex items-center gap-3 mb-10 transition-all duration-500 delay-200 ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}>
-            <span className="h-px w-8 bg-[#C5A059]" />
+            <span className="h-px w-8 bg-[#19ABE1]" />
             <span className="text-[9px] uppercase tracking-[0.3em] text-[#89867E]">Sampan Development Ltd.</span>
           </div>
 
@@ -386,10 +386,10 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group flex items-center justify-between font-lux-serif text-3xl font-light text-[#F4F1EA] py-4 border-b border-[rgba(244,241,234,0.08)] transition-all duration-500 hover:text-[#C5A059] hover:pl-3 ${item.delay} ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                className={`group flex items-center justify-between font-lux-serif text-3xl font-light text-[#F4F1EA] py-4 border-b border-[rgba(244,241,234,0.08)] transition-all duration-500 hover:text-[#19ABE1] hover:pl-3 ${item.delay} ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               >
                 <span>{item.label}</span>
-                <svg className="w-5 h-5 text-[#C5A059] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="w-5 h-5 text-[#19ABE1] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
@@ -398,12 +398,12 @@ export default function Navbar() {
             {/* Projects accordion */}
             <div className={`border-b border-[rgba(244,241,234,0.08)] transition-all duration-500 delay-[260ms] ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
               <button
-                className="group flex items-center justify-between w-full py-4 font-lux-serif text-3xl font-light text-[#F4F1EA] hover:text-[#C5A059] transition-all duration-300 text-left hover:pl-3"
+                className="group flex items-center justify-between w-full py-4 font-lux-serif text-3xl font-light text-[#F4F1EA] hover:text-[#19ABE1] transition-all duration-300 text-left hover:pl-3"
                 onClick={() => setMobileAccordion(mobileAccordion === "projects" ? null : "projects")}
                 aria-expanded={mobileAccordion === "projects"}
               >
                 <span>Projects</span>
-                <svg className={`w-5 h-5 text-[#C5A059] transition-transform duration-300 ${mobileAccordion === "projects" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className={`w-5 h-5 text-[#19ABE1] transition-transform duration-300 ${mobileAccordion === "projects" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
@@ -414,18 +414,18 @@ export default function Navbar() {
                     {/* Ongoing */}
                     <div>
                       <div className="flex items-center gap-3 mb-4">
-                        <span className="h-px w-6 bg-[#C5A059]" />
-                        <h4 className="text-[#C5A059] uppercase tracking-[0.3em] text-[9px] font-semibold">Ongoing</h4>
+                        <span className="h-px w-6 bg-[#19ABE1]" />
+                        <h4 className="text-[#19ABE1] uppercase tracking-[0.3em] text-[9px] font-semibold">Ongoing</h4>
                       </div>
                       <div className="space-y-3 border-l border-[rgba(244,241,234,0.08)] pl-4">
                         {projectData.ongoing.map((p) => (
                           <Link
                             key={p.name}
                             href={`/projects/ongoing/${p.slug}`}
-                            className="group block text-lg font-lux-serif text-[#B5B1A8] hover:text-[#C5A059] transition-colors duration-300"
+                            className="group block text-lg font-lux-serif text-[#B5B1A8] hover:text-[#19ABE1] transition-colors duration-300"
                           >
                             <div className="flex items-baseline gap-2">
-                              <span className="text-[#C5A059]/60 text-xs">—</span>
+                              <span className="text-[#19ABE1]/60 text-xs">—</span>
                               <span>{p.name}</span>
                             </div>
                             <div className="text-[9px] uppercase tracking-[0.2em] text-[#89867E] mt-0.5 ml-4">{p.type} · {p.desc}</div>
@@ -436,18 +436,18 @@ export default function Navbar() {
                     {/* Completed */}
                     <div>
                       <div className="flex items-center gap-3 mb-4">
-                        <span className="h-px w-6 bg-[#C5A059]" />
-                        <h4 className="text-[#C5A059] uppercase tracking-[0.3em] text-[9px] font-semibold">Completed</h4>
+                        <span className="h-px w-6 bg-[#19ABE1]" />
+                        <h4 className="text-[#19ABE1] uppercase tracking-[0.3em] text-[9px] font-semibold">Completed</h4>
                       </div>
                       <div className="space-y-3 border-l border-[rgba(244,241,234,0.08)] pl-4">
                         {projectData.completed.map((p) => (
                           <Link
                             key={p.name}
                             href={`/projects/completed/${p.name.toLowerCase().replace(/\s+/g, '-')}`}
-                            className="group block text-lg font-lux-serif text-[#B5B1A8] hover:text-[#C5A059] transition-colors duration-300"
+                            className="group block text-lg font-lux-serif text-[#B5B1A8] hover:text-[#19ABE1] transition-colors duration-300"
                           >
                             <div className="flex items-baseline gap-2">
-                              <span className="text-[#C5A059]/60 text-xs">—</span>
+                              <span className="text-[#19ABE1]/60 text-xs">—</span>
                               <span>{p.name}</span>
                             </div>
                             <div className="text-[9px] uppercase tracking-[0.2em] text-[#89867E] mt-0.5 ml-4">{p.type} · {p.desc}</div>
@@ -471,10 +471,10 @@ export default function Navbar() {
                 href={item.href}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noopener noreferrer" : undefined}
-                className={`group flex items-center justify-between font-lux-serif text-3xl font-light text-[#F4F1EA] py-4 border-b border-[rgba(244,241,234,0.08)] transition-all duration-500 hover:text-[#C5A059] hover:pl-3 ${item.delay} ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                className={`group flex items-center justify-between font-lux-serif text-3xl font-light text-[#F4F1EA] py-4 border-b border-[rgba(244,241,234,0.08)] transition-all duration-500 hover:text-[#19ABE1] hover:pl-3 ${item.delay} ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               >
                 <span>{item.label}</span>
-                <svg className="w-5 h-5 text-[#C5A059] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="w-5 h-5 text-[#19ABE1] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
@@ -485,7 +485,7 @@ export default function Navbar() {
           <div className={`mt-10 transition-all duration-500 delay-[600ms] ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <Link
               href="/contact"
-              className="group relative flex items-center justify-center gap-3 overflow-hidden bg-[#C5A059] text-[#171715] text-[11px] font-semibold uppercase tracking-[0.3em] px-6 py-5 transition-colors duration-500 hover:text-[#C5A059] w-full"
+              className="group relative flex items-center justify-center gap-3 overflow-hidden bg-[#19ABE1] text-[#171715] text-[11px] font-semibold uppercase tracking-[0.3em] px-6 py-5 transition-colors duration-500 hover:text-[#19ABE1] w-full"
             >
               <span className="absolute inset-0 bg-[#F4F1EA] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0" />
               <span className="relative z-10 flex items-center gap-3">
