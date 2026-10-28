@@ -1,5 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { CSSProperties, ReactNode } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 // ─── types ───────────────────────────────────────────────────────────────────
 type RecordValue = Record<string, unknown>;
@@ -35,7 +42,7 @@ const str = (value: unknown): string =>
 type ButtonVariant = "text" | "outline" | "primary";
 const asVariant = (value: unknown, fallback: ButtonVariant = "outline"): ButtonVariant => {
   if (value === "text" || value === "outline" || value === "primary") return value;
-  if (value === "secondary") return "outline"; // map "secondary" → "outline"
+  if (value === "secondary") return "outline";
   return fallback;
 };
 
@@ -113,7 +120,137 @@ function getTheme(project: Project): Theme {
   };
 }
 
-// ─── inline SVG icon set (matches your JSON `icon` values) ────────────────────
+// ─── Global animation keyframes ──────────────────────────────────────────────
+const ANIMATION_STYLES = `
+  @keyframes kenBurns {
+    0% { transform: scale(1.05) translate(0, 0); }
+    100% { transform: scale(1.18) translate(-1.5%, -1.5%); }
+  }
+  @keyframes drawLine {
+    from { transform: scaleX(0); opacity: 0; }
+    to { transform: scaleX(1); opacity: 1; }
+  }
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.55; }
+    50% { transform: translateY(6px); opacity: 1; }
+  }
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .reveal-up { opacity: 0; transform: translateY(40px); }
+  .reveal-up.revealed { opacity: 1; transform: translateY(0); transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal-fade { opacity: 0; }
+  .reveal-fade.revealed { opacity: 1; transition: opacity 1.2s ease-out; }
+  .reveal-line { transform: scaleX(0); transform-origin: left; }
+  .reveal-line.revealed { transform: scaleX(1); transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1); }
+`;
+
+// ─── Scroll-triggered animation hook ─────────────────────────────────────────
+function useScrollReveal(scopeRef: React.RefObject<HTMLElement | null>) {
+    useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Hero entrance animations
+      gsap.fromTo(".hero-eyebrow",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.2 }
+      );
+      gsap.fromTo(".hero-title",
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1.1, ease: "power4.out", delay: 0.35 }
+      );
+      gsap.fromTo(".hero-subtitle",
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.55 }
+      );
+      gsap.fromTo(".hero-description",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.7 }
+      );
+      gsap.fromTo(".hero-cta",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.85, stagger: 0.1 }
+      );
+      gsap.fromTo(".hero-location",
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 1.0 }
+      );
+      gsap.fromTo(".hero-fact",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", delay: 1.1, stagger: 0.12 }
+      );
+      gsap.fromTo(".hero-accent-line",
+        { scaleX: 0, opacity: 0 },
+        { scaleX: 1, opacity: 1, duration: 1, ease: "power3.out", delay: 0.3 }
+      );
+
+      // Scroll-triggered reveals for all sections
+      gsap.utils.toArray<HTMLElement>(".reveal-up").forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          }
+        );
+      });
+
+      gsap.utils.toArray<HTMLElement>(".reveal-fade").forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0 },
+          {
+            opacity: 1, duration: 1.2, ease: "power2.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          }
+        );
+      });
+
+      gsap.utils.toArray<HTMLElement>(".reveal-line").forEach((el) => {
+        gsap.fromTo(el,
+          { scaleX: 0, transformOrigin: "left" },
+          {
+            scaleX: 1, duration: 1, ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          }
+        );
+      });
+
+      // Staggered card entrances
+      gsap.utils.toArray<HTMLElement>(".stagger-card").forEach((group) => {
+        const cards = group.querySelectorAll(".stagger-item");
+        gsap.fromTo(cards,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1, y: 0, duration: 0.7, ease: "power3.out",
+            stagger: 0.1,
+            scrollTrigger: { trigger: group, start: "top 80%", once: true },
+          }
+        );
+      });
+
+      // Parallax on images
+      gsap.utils.toArray<HTMLElement>(".parallax-img").forEach((el) => {
+        gsap.fromTo(el,
+          { yPercent: -10 },
+          {
+            yPercent: 10,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
+          }
+        );
+      });
+    }, scopeRef);
+
+    return () => ctx.revert();
+  }, []);
+}
+
+// ─── inline SVG icon set ────────────────────────────────────────────────────────
 function SpecIcon({ name, theme }: { name?: string; theme: Theme }) {
   const stroke = {
     stroke: theme.accent,
@@ -156,10 +293,10 @@ function Eyebrow({
   if (!children || (typeof children === "string" && !str(children))) return null;
   return (
     <p
-      className={`mb-5 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] ${className}`}
+      className={`reveal-up mb-5 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] ${className}`}
       style={{ color: onDark ? theme.accent : theme.accent }}
     >
-      <span className="h-px w-8" style={{ background: `${theme.accent}99` }} aria-hidden="true" />
+      <span className="reveal-line h-px w-8" style={{ background: `${theme.accent}99` }} aria-hidden="true" />
       {children}
     </p>
   );
@@ -191,14 +328,14 @@ function SectionHeading({
     <div className={`mb-10 max-w-3xl ${centered ? "mx-auto text-center" : ""} ${className}`}>
       {eyebrow ? <Eyebrow theme={theme} onDark={onDark}>{eyebrow}</Eyebrow> : null}
       <Tag
-        className={`text-balance ${size} font-medium leading-[1.05] tracking-[-0.035em]`}
+        className={`reveal-up text-balance ${size} font-medium leading-[1.05] tracking-[-0.035em]`}
         style={{ color: onDark ? "#ffffff" : theme.text }}
       >
         {typeof title === "string" && title.trim() ? title : title || "Designed with purpose."}
       </Tag>
       {description && (
         <p
-          className={`mt-6 max-w-2xl text-base leading-[1.85] md:text-[1.05rem] ${centered ? "mx-auto" : ""}`}
+          className={`reveal-up mt-6 max-w-2xl text-base leading-[1.85] md:text-[1.05rem] ${centered ? "mx-auto" : ""}`}
           style={{ color: onDark ? "rgba(255,255,255,0.75)" : theme.muted }}
         >
           {description}
@@ -223,7 +360,7 @@ function ActionLink({
   if (!cta || cta.enabled === false || !str(cta.label)) return null;
   const variantKey = asVariant(cta.variant, variant);
   const base =
-    "group inline-flex min-h-12 items-center justify-center gap-3 border px-7 py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] transition-all duration-300";
+    "group inline-flex min-h-12 items-center justify-center gap-3 border px-7 py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] transition-all duration-300 overflow-hidden relative";
 
   let classes = "";
   let style: CSSProperties = {};
@@ -236,7 +373,6 @@ function ActionLink({
       : "hover:bg-[#0f1612] hover:text-white hover:border-[#0f1612]";
     style = onDark ? { color: "white", borderColor: "rgba(255,255,255,0.4)" } : { color: theme.text, borderColor: theme.border };
   } else {
-    // text
     classes = onDark ? "text-white px-0 hover:underline" : "px-0 hover:underline";
     style = onDark ? { color: "white" } : { color: theme.text };
   }
@@ -279,7 +415,7 @@ function ImagePanel({
     <div
       role={image ? "img" : undefined}
       aria-label={image ? str(alt) || "Project photograph" : undefined}
-      className={`relative overflow-hidden ${className}`}
+      className={`parallax-img relative overflow-hidden ${className}`}
       style={{
         backgroundColor: theme.primary,
         backgroundImage: image ? backgroundImages : `linear-gradient(135deg, ${theme.primary} 0%, #0a0f0c 100%)`,
@@ -290,7 +426,7 @@ function ImagePanel({
       {!image && (
         <div className="absolute inset-0 flex items-end p-7">
           <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-            {caption || "Sampan Development — Thoughtfully built"}
+            {caption || "Sampan Development · Thoughtfully built"}
           </span>
         </div>
       )}
@@ -321,9 +457,6 @@ function Hero({ project, theme }: { project: Project; theme: Theme }) {
   const alignment = str(hero.alignment).toLowerCase();
   const imageCaption = str(hero.imageCaption);
 
-  const showBreadcrumb = bool(hero.showBreadcrumbs, true);
-  const showStatus = bool(hero.showProjectStatus, true);
-  const showLocation = bool(hero.showLocation, true);
   const showScrollIndicator = bool(hero.showScrollIndicator, true);
   const showQuickFacts = bool(hero.showQuickFacts, true);
   const quickFacts = showQuickFacts ? arr(hero.quickFacts).filter((f) => bool(f.visibility, true) && has(f.value)) : [];
@@ -341,6 +474,7 @@ function Hero({ project, theme }: { project: Project; theme: Theme }) {
         backgroundPosition: str(hero.backgroundPosition) || "center",
       }}
     >
+      {/* Background image with Ken Burns zoom */}
       <div
         role="img"
         aria-label={imageAlt}
@@ -348,6 +482,7 @@ function Hero({ project, theme }: { project: Project; theme: Theme }) {
         style={{
           backgroundImage: desktopBackgroundImages,
           backgroundPosition: str(hero.backgroundPosition) || "center",
+          animation: "kenBurns 30s ease-in-out infinite alternate",
         }}
       />
       {mobileImage && (
@@ -358,9 +493,11 @@ function Hero({ project, theme }: { project: Project; theme: Theme }) {
           style={{
             backgroundImage: mobileBackgroundImages,
             backgroundPosition: str(hero.backgroundPosition) || "center",
+            animation: "kenBurns 30s ease-in-out infinite alternate",
           }}
         />
       )}
+      {/* Gradient overlays */}
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -370,51 +507,47 @@ function Hero({ project, theme }: { project: Project; theme: Theme }) {
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(0,0,0,.5),transparent_50%)]" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_100%,rgba(0,0,0,0.4),transparent_55%)]" />
 
-      {/* breadcrumb */}
-      {showBreadcrumb && (
-        <div className="mx-auto w-full max-w-[1600px] px-5 pt-10 sm:px-8 md:px-12 md:pt-14">
-          <nav
-            className="flex flex-wrap items-center gap-3 text-[10px] font-medium uppercase tracking-[0.28em] text-white/65"
-            aria-label="Breadcrumb"
-          >
-            <Link href="/" className="transition-colors hover:text-white">Home</Link>
-            <span style={{ color: theme.accent }}>/</span>
-            <Link href="/projects" className="transition-colors hover:text-white">Projects</Link>
-            <span style={{ color: theme.accent }}>/</span>
-            <span className="text-white/85">{titleCase(str(project.category || project.projectType)) || "Development"}</span>
-            {showStatus && str(project.status) && (
-              <>
-                <span className="text-white/25">/</span>
-                <span style={{ color: theme.accent }}>{titleCase(str(project.status))}</span>
-              </>
-            )}
-          </nav>
-        </div>
-      )}
+      {/* Film grain texture */}
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.025] mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E\")",
+          backgroundSize: "200px 200px",
+        }}
+      />
+
+      {/* Architectural corner brackets */}
+      <span className="pointer-events-none absolute left-6 top-6 z-30 h-10 w-10 border-l border-t border-white/20 sm:left-8 sm:top-8 sm:h-12 sm:w-12" />
+      <span className="pointer-events-none absolute right-6 top-6 z-30 h-10 w-10 border-r border-t border-white/20 sm:right-8 sm:top-8 sm:h-12 sm:w-12" />
+      <span className="pointer-events-none absolute bottom-6 left-6 z-30 h-10 w-10 border-b border-l border-white/20 sm:bottom-8 sm:left-8 sm:h-12 sm:w-12" />
+      <span className="pointer-events-none absolute bottom-6 right-6 z-30 h-10 w-10 border-b border-r border-white/20 sm:bottom-8 sm:right-8 sm:h-12 sm:w-12" />
 
       {/* hero body */}
-      <div className={`mx-auto w-full max-w-[1600px] px-5 ${bottomAlign ? "pb-14 pt-20" : "py-20"} sm:px-8 md:px-12 md:${bottomAlign ? "pb-20" : "py-28"} ${textCenter}`}>
+      <div className={`mx-auto w-full max-w-[1600px] mt-20 px-5 ${bottomAlign ? "pb-14 pt-20" : "py-20"} sm:px-8 md:px-12 md:${bottomAlign ? "pb-20" : "py-28"} ${textCenter}`}>
         <div className={`max-w-5xl ${justifyContent}`}>
-          <p className="mb-7 text-[10px] font-semibold uppercase tracking-[0.32em]" style={{ color: theme.accent }}>
-            {str(hero.eyebrow || project.brandName || "Sampan Development")}
-          </p>
-          <h1 className="max-w-5xl text-balance text-5xl font-medium leading-[0.98] tracking-[-0.06em] sm:text-6xl md:text-7xl lg:text-[clamp(4rem,7.5vw,8rem)]">
+          <div className="hero-eyebrow mb-7 flex items-center gap-3">
+            <span className="hero-accent-line h-px w-10" style={{ background: theme.accent, opacity: 0 }} />
+            <p className="text-[10px] font-semibold uppercase tracking-[0.32em]" style={{ color: theme.accent }}>
+              {str(hero.eyebrow || project.brandName || "Sampan Development")}
+            </p>
+          </div>
+          <h1 className="hero-title max-w-5xl text-balance text-5xl font-medium leading-[0.98] tracking-[-0.06em] sm:text-6xl md:text-7xl lg:text-[clamp(4rem,7.5vw,8rem)]">
             {title}
           </h1>
           {(str(hero.highlightedText) || str(hero.highlight) || str(project.tagline)) && (
-            <p className="mt-7 max-w-2xl text-xl font-light leading-[1.45] text-white/90 sm:text-2xl md:text-[1.6rem]">
+            <p className="hero-subtitle mt-7 max-w-2xl text-xl font-light leading-[1.45] text-white/90 sm:text-2xl md:text-[1.6rem]">
               {str(hero.highlightedText) || str(hero.highlight) || str(project.tagline)}
             </p>
           )}
           {description && (
-            <p className="mt-6 max-w-2xl text-[15px] leading-[1.85] text-white/75 sm:text-base">{description}</p>
+            <p className="hero-description mt-6 max-w-2xl text-[15px] leading-[1.85] text-white/75 sm:text-base">{description}</p>
           )}
-          <div className={`mt-10 flex flex-wrap gap-3 ${justifyContent}`}>
+          <div className={`hero-cta mt-10 flex flex-wrap gap-3 ${justifyContent}`}>
             <ActionLink cta={primaryCta} theme={theme} variant="primary" onDark />
             <ActionLink cta={secondaryCta} theme={theme} variant="outline" onDark />
           </div>
-          {showLocation && str(location.area || location.address || location.city) && (
-            <div className={`mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-white/75 ${justifyContent}`}>
+          {bool(hero.showLocation, true) && str(location.area || location.address || location.city) && (
+            <div className={`hero-location mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-white/75 ${justifyContent}`}>
               <span className="inline-flex items-center gap-2.5">
                 <svg className="h-3.5 w-3.5" style={{ color: theme.accent }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c5-5 9-9.5 9-13a9 9 0 10-18 0c0 3.5 4 8 9 13z" />
@@ -433,7 +566,7 @@ function Hero({ project, theme }: { project: Project; theme: Theme }) {
           <div className="mx-auto flex w-full max-w-[1600px] flex-wrap items-center justify-between gap-8 px-5 py-7 sm:px-8 md:px-12 md:py-9">
             <div className="grid flex-1 grid-cols-2 sm:grid-cols-4">
               {quickFacts.slice(0, 4).map((fact, i) => (
-                <div key={str(fact.label) || i} className="border-l border-white/15 px-5 py-1 first:pl-0 sm:px-7">
+                <div key={str(fact.label) || i} className="hero-fact border-l border-white/15 px-5 py-1 first:pl-0 sm:px-7">
                   <span className="block text-[9px] uppercase tracking-[0.22em] text-white/50">{str(fact.label)}</span>
                   <strong className="mt-2.5 block text-base font-medium text-white sm:text-lg">
                     {str(fact.value)} <span className="text-xs font-normal" style={{ color: theme.accent }}>{str(fact.unit)}</span>
@@ -445,6 +578,9 @@ function Hero({ project, theme }: { project: Project; theme: Theme }) {
               <a href="#project-overview" className="hidden items-center gap-3 text-[9px] uppercase tracking-[0.28em] text-white/55 transition hover:text-white sm:flex">
                 <span className="h-px w-12" style={{ background: theme.accent }} />
                 Scroll to explore
+                <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ animation: "scrollBounce 2s ease-in-out infinite" }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
               </a>
             )}
           </div>
@@ -483,8 +619,7 @@ function Overview({ project, theme }: { project: Project; theme: Theme }) {
     <section id="project-overview" className="px-5 py-24 sm:px-8 md:px-12 md:py-32" style={{ background: theme.background, color: theme.text }}>
       <div className="mx-auto max-w-7xl">
         {(isWide || isCinematic) && image ? (
-          // wide-image-editorial: image first, then text below
-          <div className="mb-16">
+          <div className="reveal-up mb-16">
             <ImagePanel src={image} alt={overview.imageAlt} theme={theme} fallbackSrc={fallbackImage} className="w-full min-h-[36rem] md:min-h-[56rem]" />
           </div>
         ) : null}
@@ -492,35 +627,35 @@ function Overview({ project, theme }: { project: Project; theme: Theme }) {
         <div className={`grid gap-12 md:gap-20 ${isWide || isCinematic ? "md:grid-cols-[0.4fr_1.6fr]" : image && !imageTop ? "md:grid-cols-2 items-center" : "md:grid-cols-[0.4fr_1.6fr]"}`}>
           {/* Image side */}
           {!isWide && !isCinematic && image ? (
-            <div className={imageLeft ? "md:order-1" : "md:order-2"}>
+            <div className={`reveal-up ${imageLeft ? "md:order-1" : "md:order-2"}`}>
               <ImagePanel src={image} alt={overview.imageAlt} theme={theme} fallbackSrc={fallbackImage} className="min-h-[28rem] md:min-h-[40rem]" />
             </div>
           ) : null}
 
           {/* Text side */}
-          <div className={imageLeft ? "md:order-2" : imageRight ? "md:order-1" : ""}>
+          <div className={`reveal-up ${imageLeft ? "md:order-2" : imageRight ? "md:order-1" : ""}`}>
             <Eyebrow theme={theme}>{str(overview.eyebrow) || "A considered approach"}</Eyebrow>
             {subtitle && (
               <p className="mb-5 text-sm uppercase tracking-[0.22em]" style={{ color: theme.muted }}>{subtitle}</p>
             )}
-            <h2 className="text-balance text-3xl font-medium leading-[1.08] tracking-[-0.04em] sm:text-4xl md:text-[3rem]" style={{ color: theme.text }}>
+            <h2 className="reveal-up text-balance text-3xl font-medium leading-[1.08] tracking-[-0.04em] sm:text-4xl md:text-[3rem]" style={{ color: theme.text }}>
               {title || str(project.tagline) || `Introducing ${project.projectName}`}
             </h2>
             {description && (
-              <p className="mt-7 max-w-3xl text-base leading-[1.9] md:text-lg" style={{ color: theme.muted }}>{description}</p>
+              <p className="reveal-up mt-7 max-w-3xl text-base leading-[1.9] md:text-lg" style={{ color: theme.muted }}>{description}</p>
             )}
             {quote && (
               <blockquote
-                className="mt-10 border-l-2 pl-7 text-xl font-light italic leading-[1.6] md:text-2xl"
+                className="reveal-up mt-10 border-l-2 pl-7 text-xl font-light italic leading-[1.6] md:text-2xl"
                 style={{ borderColor: theme.accent, color: theme.primary }}
               >
-                "{quote}"
+                &ldquo;{quote}&rdquo;
               </blockquote>
             )}
             {highlights.length > 0 && (
-              <div className={`mt-12 grid gap-6 ${highlights.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
+              <div className={`stagger-card mt-12 grid gap-6 ${highlights.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
                 {highlights.map((h, i) => (
-                  <div key={i} className="border-t pt-5" style={{ borderColor: theme.border }}>
+                  <div key={i} className="stagger-item reveal-up border-t pt-5" style={{ borderColor: theme.border }}>
                     <span className="mb-3 block font-mono text-[10px] tracking-[0.15em]" style={{ color: theme.accent }}>{pad(i + 1)}</span>
                     <h3 className="text-base font-medium tracking-[-0.01em]" style={{ color: theme.text }}>{str(h.title)}</h3>
                     {str(h.description) && (
@@ -544,7 +679,6 @@ function Specifications({ project, theme }: { project: Project; theme: Theme }) 
   const facts = specs.length ? specs : heroFacts;
   if (!facts.length) return null;
 
-  // Pull title/subtitle from the section of type "specifications" if present
   const specsSection = arr(project.sections).find((s) => str(s.type).includes("specifications") && s.enabled !== false);
   const heading = specsSection ? str(specsSection.title) : "";
   const subheading = specsSection ? str(specsSection.subtitle) : "";
@@ -556,18 +690,18 @@ function Specifications({ project, theme }: { project: Project; theme: Theme }) 
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6 border-b pb-8" style={{ borderColor: theme.border }}>
           <div>
             <Eyebrow theme={theme}>{eyebrow}</Eyebrow>
-            <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl" style={{ color: theme.text }}>
+            <h2 className="reveal-up text-3xl font-medium tracking-[-0.035em] sm:text-4xl" style={{ color: theme.text }}>
               {heading || "Project at a glance"}
             </h2>
-            {subheading && <p className="mt-2 text-sm" style={{ color: theme.muted }}>{subheading}</p>}
+            {subheading && <p className="reveal-up mt-2 text-sm" style={{ color: theme.muted }}>{subheading}</p>}
           </div>
-          <span className="text-[10px] uppercase tracking-[0.28em]" style={{ color: theme.muted }}>Key information</span>
+          <span className="reveal-up text-[10px] uppercase tracking-[0.28em]" style={{ color: theme.muted }}>Key information</span>
         </div>
-        <div className="grid grid-cols-2 border-l border-t md:grid-cols-4" style={{ borderColor: theme.border }}>
+        <div className="stagger-card grid grid-cols-2 border-l border-t md:grid-cols-4" style={{ borderColor: theme.border }}>
           {facts.slice(0, 8).map((item, index) => (
             <div
               key={str(item.label) || str(item.title) || index}
-              className="group relative min-h-40 border-b border-r p-6 transition-colors duration-300 sm:p-8"
+              className="stagger-item group relative min-h-40 border-b border-r p-6 transition-colors duration-300 hover:bg-[rgba(0,0,0,0.02)] sm:p-8"
               style={{ borderColor: theme.border }}
             >
               <div className="mb-8 flex items-center justify-between">
@@ -585,6 +719,8 @@ function Specifications({ project, theme }: { project: Project; theme: Theme }) 
               {str(item.description) && (
                 <p className="mt-3 text-[13px] leading-6" style={{ color: theme.muted }}>{str(item.description)}</p>
               )}
+              {/* Hover accent bar */}
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-500 group-hover:w-full" style={{ background: theme.accent }} />
             </div>
           ))}
         </div>
@@ -637,6 +773,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
               backgroundImage: `linear-gradient(${isDark ? "90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.2) 100%" : "90deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.55) 60%, transparent 100%"}), url("${image.replaceAll('"', "%22")}")`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              animation: "kenBurns 30s ease-in-out infinite alternate",
             }}
           />
         )}
@@ -646,16 +783,16 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-12 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <Eyebrow theme={theme} onDark={isDark}>{eyebrow || "Begin a conversation"}</Eyebrow>
-            <h2 className="text-balance text-4xl font-medium leading-[1.05] tracking-[-0.04em] sm:text-5xl md:text-[3.5rem]" style={{ color: text }}>
+            <h2 className="reveal-up text-balance text-4xl font-medium leading-[1.05] tracking-[-0.04em] sm:text-5xl md:text-[3.5rem]" style={{ color: text }}>
               {title || "Every great place starts with a conversation."}
             </h2>
             {(subtitle || supportingText) && (
-              <p className="mt-6 max-w-xl text-base leading-[1.85] md:text-lg" style={{ color: muted }}>
-                {supportingText || subtitle || `Connect with the Sampan team to learn more about ${project_name_placeholder(project)}, availability and the next steps.`}
+              <p className="reveal-up mt-6 max-w-xl text-base leading-[1.85] md:text-lg" style={{ color: muted }}>
+                {supportingText || subtitle || `Connect with the Sampan team to learn more about ${project.projectName}, availability and the next steps.`}
               </p>
             )}
           </div>
-          <div className="flex shrink-0 flex-wrap gap-3">
+          <div className="reveal-up flex shrink-0 flex-wrap gap-3">
             <ActionLink cta={cta || { label: "Make an enquiry", href: "/contact" }} theme={theme} variant="primary" onDark={isDark} />
             <Link
               href="/contact"
@@ -685,7 +822,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
             onDark={isDark}
           />
           {faqItems.length > 0 ? (
-            <div className="divide-y border-y" style={{ borderColor: border }}>
+            <div className="reveal-up divide-y border-y" style={{ borderColor: border }}>
               {faqItems.map((item, i) => {
                 const q = str(item.question || item.title);
                 const a = str(item.answer || item.body || item.description);
@@ -708,7 +845,6 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
               })}
             </div>
           ) : (
-            // Empty FAQ state — graceful fallback with CTA
             <div className="border-y py-10" style={{ borderColor: border }}>
               <p className="text-base leading-[1.85]" style={{ color: muted }}>
                 {subtitle || "Project-specific FAQs will be added as information is confirmed. Have a question in the meantime?"}
@@ -743,7 +879,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
             description={description}
             onDark={isDark}
           />
-          <div className={`grid items-start gap-10 lg:grid-cols-2 lg:gap-16 ${imageSide === "right" ? "lg:[&>*:first-child]:order-2" : ""}`}>
+          <div className={`reveal-up grid items-start gap-10 lg:grid-cols-2 lg:gap-16 ${imageSide === "right" ? "lg:[&>*:first-child]:order-2" : ""}`}>
             <div>
               {image && (
                 <ImagePanel src={image} alt={imageAlt} theme={theme} fallbackSrc={projectFallbackImage(project)} className="min-h-[24rem] md:min-h-[34rem]" />
@@ -759,16 +895,16 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
               )}
             </div>
             <div className="py-2">
-              {locality && <p className="text-xl font-medium tracking-[-0.02em]">{locality}</p>}
-              {address && <p className="mt-3 text-sm leading-7" style={{ color: muted }}>{address}</p>}
+              {locality && <p className="reveal-up text-xl font-medium tracking-[-0.02em]">{locality}</p>}
+              {address && <p className="reveal-up mt-3 text-sm leading-7" style={{ color: muted }}>{address}</p>}
               {advantages.length > 0 && (
-                <ul className="mt-6 divide-y border-y" style={{ borderColor: border }}>
+                <ul className="stagger-card mt-6 divide-y border-y" style={{ borderColor: border }}>
                   {advantages.map((entry, i) => {
                     const item = typeof entry === "string" ? null : entry as RecordValue;
                     const heading = item ? str(item.title || item.name || item.label) : str(entry);
                     const detail = item ? str(item.description || item.body) : "";
                     return (
-                      <li key={i} className="py-5">
+                      <li key={i} className="stagger-item py-5">
                         {heading && <p className="font-medium">{heading}</p>}
                         {detail && <p className="mt-1 text-sm leading-7" style={{ color: muted }}>{detail}</p>}
                       </li>
@@ -792,7 +928,6 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
   if (type.includes("image-gallery") || type.includes("gallery")) {
     const galleryItems = items((section.gallery as RecordValue | undefined)?.items || content.items || content.images || section.images);
     if (!galleryItems.length) {
-      // Empty gallery state — graceful placeholder
       return (
         <section id={id} className="px-5 py-20 sm:px-8 md:px-12 md:py-28" style={{ background: bg, color: text }}>
           <div className="mx-auto max-w-7xl">
@@ -803,11 +938,11 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
               description={description || subtitle}
               onDark={isDark}
             />
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="stagger-card grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[0, 1, 2].map((i) => (
                 <div
                   key={i}
-                  className="flex min-h-64 flex-col items-center justify-center border p-8 text-center"
+                  className="stagger-item flex min-h-64 flex-col items-center justify-center border p-8 text-center"
                   style={{ borderColor: border, background: isDark ? "rgba(255,255,255,0.03)" : theme.surface }}
                 >
                   <svg className="mb-4 h-8 w-8 opacity-40" viewBox="0 0 24 24" fill="none" stroke={isDark ? "white" : theme.muted} strokeWidth="1.5">
@@ -829,11 +964,11 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
       <section id={id} className="px-5 py-20 sm:px-8 md:px-12 md:py-28" style={{ background: bg, color: text }}>
         <div className="mx-auto max-w-7xl">
           <SectionHeading theme={theme} eyebrow={eyebrow || "Visual notes"} title={title || "A closer look"} description={description} onDark={isDark} />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="stagger-card grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {galleryItems.map((entry, i) => {
               const item = (entry && typeof entry === "object" ? entry : { src: entry }) as RecordValue;
               return (
-                <figure key={str(item.id) || str(item.src) || i} className={`group ${i === 0 ? "sm:row-span-2" : ""}`}>
+                <figure key={str(item.id) || str(item.src) || i} className={`stagger-item group ${i === 0 ? "sm:row-span-2" : ""}`}>
                   <ImagePanel src={item.src || item.image || item.url} alt={item.alt || item.caption} theme={theme} fallbackSrc={projectFallbackImage(project)} className={i === 0 ? "h-full min-h-[28rem]" : "min-h-72"} />
                   {str(item.caption || item.title) && (
                     <figcaption className="pt-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: muted }}>{str(item.caption || item.title)}</figcaption>
@@ -861,16 +996,23 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
               backgroundImage: `linear-gradient(180deg, transparent 30%, ${theme.primary}f2 100%), url("${image.replaceAll('"', "%22")}")`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              animation: "kenBurns 30s ease-in-out infinite alternate",
             }}
           />
+          {/* Corner brackets */}
+          <span className="pointer-events-none absolute left-6 top-6 z-30 h-10 w-10 border-l border-t border-white/20 sm:left-8 sm:top-8" />
+          <span className="pointer-events-none absolute right-6 top-6 z-30 h-10 w-10 border-r border-t border-white/20 sm:right-8 sm:top-8" />
+          <span className="pointer-events-none absolute bottom-6 left-6 z-30 h-10 w-10 border-b border-l border-white/20 sm:bottom-8 sm:left-8" />
+          <span className="pointer-events-none absolute bottom-6 right-6 z-30 h-10 w-10 border-b border-r border-white/20 sm:bottom-8 sm:right-8" />
+
           <div className="mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 md:px-12 md:py-28">
             <Eyebrow theme={theme} onDark>{eyebrow}</Eyebrow>
-            <h2 className="max-w-4xl text-balance text-4xl font-medium leading-[1.05] tracking-[-0.04em] sm:text-5xl md:text-[3.5rem]">{title}</h2>
-            {body && <p className="mt-6 max-w-2xl text-base leading-[1.85] text-white/80 md:text-lg">{body}</p>}
+            <h2 className="reveal-up max-w-4xl text-balance text-4xl font-medium leading-[1.05] tracking-[-0.04em] sm:text-5xl md:text-[3.5rem]">{title}</h2>
+            {body && <p className="reveal-up mt-6 max-w-2xl text-base leading-[1.85] text-white/80 md:text-lg">{body}</p>}
             {principles.length > 0 && (
-              <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="stagger-card mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {principles.map((p, i) => (
-                  <div key={i} className="border-t border-white/15 pt-4">
+                  <div key={i} className="stagger-item border-t border-white/15 pt-4">
                     <span className="mb-2 block font-mono text-[10px] tracking-[0.15em]" style={{ color: theme.accent }}>{pad(i + 1)}</span>
                     <h3 className="text-base font-medium">{str(p.title || p.name || p.label)}</h3>
                     {str(p.description || p.body) && <p className="mt-1 text-sm leading-7 text-white/70">{str(p.description || p.body)}</p>}
@@ -878,15 +1020,14 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
                 ))}
               </div>
             )}
-            {subtitle && <p className="mt-6 max-w-2xl text-base leading-[1.85] text-white/70 md:text-lg">{subtitle}</p>}
+            {subtitle && <p className="reveal-up mt-6 max-w-2xl text-base leading-[1.85] text-white/70 md:text-lg">{subtitle}</p>}
           </div>
         </section>
       );
     }
-    // fall through to default if not full-bleed
   }
 
-  // ─── Numbered cards variant (commercial-opportunities, hospitality-experience) ─
+  // ─── Numbered cards variant ──
   if (type.includes("commercial-opportunities") || type.includes("opportunities") || type.includes("experience")) {
     const opportunities = arr(content.opportunities || content.experiences || content.details || content.items);
     return (
@@ -894,16 +1035,16 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
         <div className="mx-auto max-w-7xl">
           <SectionHeading theme={theme} eyebrow={eyebrow} title={title} description={description || subtitle} onDark={isDark} />
           {opportunities.length > 0 ? (
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="stagger-card grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {opportunities.map((op, i) => (
                 <div
                   key={i}
-                  className="group relative flex min-h-64 flex-col justify-between border p-8 transition-all duration-300 sm:p-10"
+                  className="stagger-item group relative flex min-h-64 flex-col justify-between border p-8 transition-all duration-300 sm:p-10"
                   style={{ borderColor: border, background: isDark ? "rgba(255,255,255,0.03)" : theme.surface }}
                 >
                   <div className="absolute right-0 top-0 h-1 w-0 transition-all duration-500 group-hover:w-full" style={{ background: theme.accent }} />
                   <span className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: theme.accent }}>
-                    {pad(i + 1)} — {str(op.label || op.type || "Opportunity")}
+                    {pad(i + 1)} · {str(op.label || op.type || "Opportunity")}
                   </span>
                   <div>
                     <h3 className="text-xl font-medium leading-[1.1] tracking-[-0.035em] sm:text-2xl" style={{ color: text }}>{str(op.title || op.name)}</h3>
@@ -920,7 +1061,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
             </div>
           )}
           {cta && (
-            <div className="mt-12">
+            <div className="reveal-up mt-12">
               <ActionLink cta={cta} theme={theme} variant={asVariant(cta.variant)} onDark={isDark} />
             </div>
           )}
@@ -929,7 +1070,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
     );
   }
 
-  // ─── Investment-overview / land-share section (with legalDisclaimer) ────────
+  // ─── Investment-overview / land-share section ───
   if (type.includes("investment") || type.includes("land-share") || type.includes("ownership")) {
     const details = arr(content.details || content.items || content.points);
     const legalDisclaimer = str(content.legalDisclaimer);
@@ -937,12 +1078,12 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
       <section id={id} className="px-5 py-20 sm:px-8 md:px-12 md:py-28" style={{ background: bg, color: text }}>
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 md:grid-cols-2 md:gap-20">
-            <div>
+            <div className="reveal-up">
               <SectionHeading theme={theme} eyebrow={eyebrow || "Ownership concept"} title={title} description={description || subtitle} onDark={isDark} />
               {details.length > 0 && (
-                <div className="mt-8 divide-y border-y" style={{ borderColor: border }}>
+                <div className="stagger-card mt-8 divide-y border-y" style={{ borderColor: border }}>
                   {details.map((d, i) => (
-                    <div key={i} className="flex gap-6 py-5">
+                    <div key={i} className="stagger-item flex gap-6 py-5">
                       <span className="font-mono pt-1 text-[10px] tracking-[0.15em]" style={{ color: theme.accent }}>{pad(i + 1)}</span>
                       <div>
                         <h3 className="text-base font-medium" style={{ color: text }}>{str(d.title || d.label || d.name)}</h3>
@@ -953,7 +1094,7 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
                 </div>
               )}
             </div>
-            <div>
+            <div className="reveal-up">
               {image && (
                 <ImagePanel src={image} alt={imageAlt} theme={theme} fallbackSrc={projectFallbackImage(project)} className="mb-8 min-h-[24rem] md:min-h-[32rem]" />
               )}
@@ -982,7 +1123,6 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
   }
 
   // ─── Default editorial split section ──────────────────────────────────────
-  // used by: editorial-intro, image-text, location-advantages, etc.
   const body = str(content.body || content.supportingText);
   const entries = items(
     content.highlights || content.items || content.features || content.amenities ||
@@ -990,31 +1130,28 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
     content.experiences || section.items || section.features
   );
 
-  // image placement
   const imageRight = layout.includes("image-right") || layout.includes("copy-left") || imageSide === "right" || layout.includes("asymmetric") || layout.includes("offset");
   const imageLeft = layout.includes("image-left") || layout.includes("copy-right") || imageSide === "left";
   const imageTop = layout.includes("wide") || imageSide === "top" || layout.includes("cinematic-split");
   const reversed = imageLeft || (!imageRight && index % 2 === 1);
 
-  // skip if literally nothing
   if (!title && !description && !body && !entries.length && !image && !subtitle) return null;
 
   return (
     <section id={id} className="px-5 py-20 sm:px-8 md:px-12 md:py-28" style={{ background: bg, color: text }}>
       <div className="mx-auto max-w-7xl">
         {showIndex && (
-          <div className="mb-10 flex items-center gap-4">
+          <div className="reveal-up mb-10 flex items-center gap-4">
             <span className="font-mono text-[10px] tracking-[0.18em]" style={{ color: theme.accent }}>
               {pad(index + 1)} / {pad(total)}
             </span>
-            <span className="h-px flex-1" style={{ background: border }} />
+            <span className="reveal-line h-px flex-1" style={{ background: border }} />
           </div>
         )}
 
         {imageTop && image ? (
-          // image-top layout (wide-image-editorial, cinematic-split with imageSide="top")
           <div>
-            <div className="mb-12">
+            <div className="reveal-up mb-12">
               <ImagePanel src={image} alt={imageAlt} theme={theme} fallbackSrc={projectFallbackImage(project)} className="w-full min-h-[24rem] md:min-h-[40rem]" />
             </div>
             <div className="grid gap-8 md:grid-cols-[0.4fr_1.6fr]">
@@ -1024,16 +1161,16 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
               </div>
               <div>
                 <SectionHeading theme={theme} title={title} description={description} onDark={isDark} className="!mb-6" />
-                {body && body !== description && <p className="mb-8 text-base leading-[1.85]" style={{ color: muted }}>{body}</p>}
+                {body && body !== description && <p className="reveal-up mb-8 text-base leading-[1.85]" style={{ color: muted }}>{body}</p>}
                 {entries.length > 0 && (
-                  <div className="mt-8 divide-y border-y" style={{ borderColor: border }}>
+                  <div className="stagger-card mt-8 divide-y border-y" style={{ borderColor: border }}>
                     {entries.map((entry, i) => {
                       const item = (entry && typeof entry === "object" ? entry : { title: entry }) as RecordValue;
                       const itemTitle = str(item.title || item.name || item.label || item.value);
                       const itemDesc = str(item.description || item.body);
                       if (!itemTitle && !itemDesc) return null;
                       return (
-                        <div key={str(item.id) || itemTitle || i} className="flex gap-6 py-6">
+                        <div key={str(item.id) || itemTitle || i} className="stagger-item flex gap-6 py-6">
                           <span className="font-mono pt-1 text-[10px] tracking-[0.15em]" style={{ color: theme.accent }}>{pad(i + 1)}</span>
                           <div>
                             <h3 className="text-base font-medium tracking-[-0.01em]" style={{ color: text }}>{itemTitle}</h3>
@@ -1044,13 +1181,12 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
                     })}
                   </div>
                 )}
-                {cta && <div className="mt-10"><ActionLink cta={cta} theme={theme} variant={asVariant(cta.variant)} onDark={isDark} /></div>}
+                {cta && <div className="reveal-up mt-10"><ActionLink cta={cta} theme={theme} variant={asVariant(cta.variant)} onDark={isDark} /></div>}
               </div>
             </div>
           </div>
         ) : (
-          // standard 2-column split
-          <div className={`grid items-center gap-12 md:gap-20 ${image ? "md:grid-cols-2" : "md:grid-cols-[0.65fr_1.35fr]"} ${reversed && image ? "md:[&>*:first-child]:order-2" : ""}`}>
+          <div className={`reveal-up grid items-center gap-12 md:gap-20 ${image ? "md:grid-cols-2" : "md:grid-cols-[0.65fr_1.35fr]"} ${reversed && image ? "md:[&>*:first-child]:order-2" : ""}`}>
             {image && (
               <ImagePanel src={image} alt={imageAlt} theme={theme} fallbackSrc={projectFallbackImage(project)} className="min-h-[24rem] md:min-h-[36rem]" />
             )}
@@ -1063,17 +1199,17 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
                 onDark={isDark}
               />
               {body && body !== description && (
-                <p className="mb-8 text-base leading-[1.85]" style={{ color: muted }}>{body}</p>
+                <p className="reveal-up mb-8 text-base leading-[1.85]" style={{ color: muted }}>{body}</p>
               )}
               {entries.length > 0 && (
-                <div className="mt-10 divide-y border-y" style={{ borderColor: border }}>
+                <div className="stagger-card mt-10 divide-y border-y" style={{ borderColor: border }}>
                   {entries.map((entry, i) => {
                     const item = (entry && typeof entry === "object" ? entry : { title: entry }) as RecordValue;
                     const itemTitle = str(item.title || item.name || item.label || item.value);
                     const itemDesc = str(item.description || item.body);
                     if (!itemTitle && !itemDesc) return null;
                     return (
-                      <div key={str(item.id) || itemTitle || i} className="flex gap-6 py-6">
+                      <div key={str(item.id) || itemTitle || i} className="stagger-item flex gap-6 py-6">
                         <span className="font-mono pt-1 text-[10px] tracking-[0.15em]" style={{ color: theme.accent }}>{pad(i + 1)}</span>
                         <div>
                           <h3 className="text-base font-medium tracking-[-0.01em]" style={{ color: text }}>{itemTitle}</h3>
@@ -1089,18 +1225,13 @@ function ContentSection({ project, section, index, total, theme }: { project: Pr
                   {subtitle || "Confirmed details for this section will be added once verified."}
                 </p>
               )}
-              {cta && <div className="mt-10"><ActionLink cta={cta} theme={theme} variant={asVariant(cta.variant)} onDark={isDark} /></div>}
+              {cta && <div className="reveal-up mt-10"><ActionLink cta={cta} theme={theme} variant={asVariant(cta.variant)} onDark={isDark} /></div>}
             </div>
           </div>
         )}
       </div>
     </section>
   );
-}
-
-// helper to safely project project name into a sentence (kept server-side)
-function project_name_placeholder(project: { projectName?: string }) {
-  return project.projectName || "this project";
 }
 
 // ─── Related projects ─────────────────────────────────────────────────────────
@@ -1113,10 +1244,10 @@ function RelatedProjects({ project, allProjects, theme }: { project: Project; al
   return (
     <section className="px-5 py-20 sm:px-8 md:px-12 md:py-28" style={{ background: theme.background, color: theme.text }}>
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-wrap items-end justify-between gap-6 border-b pb-8" style={{ borderColor: theme.border }}>
+        <div className="reveal-up mb-12 flex flex-wrap items-end justify-between gap-6 border-b pb-8" style={{ borderColor: theme.border }}>
           <div>
             <Eyebrow theme={theme}>Continue exploring</Eyebrow>
-            <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl" style={{ color: theme.text }}>More from Sampan</h2>
+            <h2 className="reveal-up text-3xl font-medium tracking-[-0.035em] sm:text-4xl" style={{ color: theme.text }}>More from Sampan</h2>
           </div>
           <Link
             href="/projects"
@@ -1127,19 +1258,19 @@ function RelatedProjects({ project, allProjects, theme }: { project: Project; al
             <span aria-hidden="true" className="text-sm transition-transform duration-300 group-hover:translate-x-0.5">→</span>
           </Link>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="stagger-card grid gap-4 md:grid-cols-3">
           {related.slice(0, 3).map((slug, i) => {
             const match = allProjects.find((item) => item.slug === slug);
             return (
               <Link
                 href={`/projects/ongoing/${encodeURIComponent(slug)}`}
                 key={slug}
-                className="group relative flex min-h-64 flex-col justify-between overflow-hidden border p-8 transition-all duration-300 hover:border-[var(--theme-accent)] hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)] sm:p-10"
+                className="stagger-item group relative flex min-h-64 flex-col justify-between overflow-hidden border p-8 transition-all duration-300 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)] sm:p-10"
                 style={{ borderColor: theme.border, background: theme.surface }}
               >
                 <div className="absolute right-0 top-0 h-1 w-0 transition-all duration-500 group-hover:w-full" style={{ background: theme.accent }} />
                 <span className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: theme.accent }}>
-                  {pad(i + 1)} — {str(match?.category) ? titleCase(str(match?.category)) : "Project"}
+                  {pad(i + 1)} · {str(match?.category) ? titleCase(str(match?.category)) : "Project"}
                 </span>
                 <div>
                   <h3 className="text-2xl font-medium leading-[1.1] tracking-[-0.035em] sm:text-[1.7rem]" style={{ color: theme.text }}>
@@ -1165,11 +1296,15 @@ function RelatedProjects({ project, allProjects, theme }: { project: Project; al
 // ─── ProjectDetails (main) ────────────────────────────────────────────────────
 export default function ProjectDetails({ project, allProjects = [] }: { project: Project; allProjects?: Project[] }) {
   const theme = getTheme(project);
+  const sectionRef = useRef<HTMLElement>(null);
   const sections = arr(project.sections).filter((s) => s.enabled !== false && s.visibility !== false);
   const gallery = items((project.gallery as RecordValue | undefined)?.items)
     .map((entry) => typeof entry === "string" ? { src: entry } : entry && typeof entry === "object" && !Array.isArray(entry) ? entry as RecordValue : null)
     .filter((item): item is RecordValue => Boolean(item && has(item.src || item.image || item.url)));
   const faq = arr(project.faq).filter((item) => has(item.question) && has(item.answer));
+
+  // Initialize scroll-triggered animations
+  useScrollReveal(sectionRef);
 
   const themeVars: CSSProperties = {
     ["--theme-primary" as string]: theme.primary,
@@ -1182,7 +1317,10 @@ export default function ProjectDetails({ project, allProjects = [] }: { project:
   } as CSSProperties;
 
   return (
-    <main className="min-h-screen" style={{ background: theme.background, color: theme.text, ...themeVars }}>
+    <main ref={sectionRef} className="min-h-screen" style={{ background: theme.background, color: theme.text, ...themeVars }}>
+      {/* Global animation keyframes */}
+      <style>{ANIMATION_STYLES}</style>
+
       <Hero project={project} theme={theme} />
       <Overview project={project} theme={theme} />
       <Specifications project={project} theme={theme} />
@@ -1198,7 +1336,7 @@ export default function ProjectDetails({ project, allProjects = [] }: { project:
         />
       ))}
 
-      {/* Standalone gallery (project.gallery.items) */}
+      {/* Standalone gallery */}
       {gallery.length > 0 && (
         <section className="px-5 py-20 sm:px-8 md:px-12 md:py-28" style={{ background: theme.surface, color: theme.text }}>
           <div className="mx-auto max-w-7xl">
@@ -1208,9 +1346,9 @@ export default function ProjectDetails({ project, allProjects = [] }: { project:
               title={str(project.gallery?.galleryTitle) || str(project.gallery?.title) || "A closer look"}
               description={str(project.gallery?.gallerySubtitle) || str(project.gallery?.description)}
             />
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="stagger-card grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {gallery.map((item, index) => (
-                <figure key={str(item.id) || str(item.src) || index} className={`group ${index === 0 ? "sm:row-span-2" : ""}`}>
+                <figure key={str(item.id) || str(item.src) || index} className={`stagger-item group ${index === 0 ? "sm:row-span-2" : ""}`}>
                   <ImagePanel src={item.src || item.image || item.url} alt={item.alt || item.caption} theme={theme} fallbackSrc={projectFallbackImage(project)} className={index === 0 ? "h-full min-h-[28rem]" : "min-h-72"} />
                   {str(item.caption || item.title) && (
                     <figcaption className="pt-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: theme.muted }}>{str(item.caption || item.title)}</figcaption>
@@ -1222,12 +1360,12 @@ export default function ProjectDetails({ project, allProjects = [] }: { project:
         </section>
       )}
 
-      {/* Standalone project.faq */}
+      {/* Standalone FAQ */}
       {faq.length > 0 && (
         <section className="px-5 py-20 sm:px-8 md:px-12 md:py-28" style={{ background: theme.background, color: theme.text }}>
           <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[0.4fr_1.6fr] md:gap-20">
             <SectionHeading theme={theme} eyebrow="Good to know" title="Frequently asked questions" description="A few helpful details to guide your next step." />
-            <div className="divide-y border-y" style={{ borderColor: theme.border }}>
+            <div className="reveal-up divide-y border-y" style={{ borderColor: theme.border }}>
               {faq.map((item, i) => (
                 <details key={str(item.question) || i} className="group py-6">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-base font-medium [&::-webkit-details-marker]:hidden" style={{ color: theme.text }}>

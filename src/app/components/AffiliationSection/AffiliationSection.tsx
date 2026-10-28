@@ -50,14 +50,14 @@ const categoriesData: Category[] = [
     italicTitle: "Leadership",
     subtitle: "Commerce & Trade",
     items: [
-      { id: "01", name: "REHAB", shortName: "REHAB", description: "Real Estate & Housing Association of Bangladesh", logo: "/images/affiliation/rehab.png" },
-      { id: "02", name: "FBCCI", shortName: "FBCCI", description: "Federation of Bangladesh Chambers of Commerce & Industry", logo: "/images/affiliation/fbcci.png" },
-      { id: "03", name: "BARVIDA", shortName: "BARVIDA", description: "Bangladesh Reconditioned Vehicles Importers & Dealers Association", logo: "/images/affiliation/barvia.png" },
-      { id: "04", name: "BAD", shortName: "BAD", description: "Bangladesh Arm's Dealer and Importer Association", logo: "/images/affiliation/bad.png" },
-      { id: "05", name: "PABX", shortName: "PABX", description: "Bangladesh PABX Association", logo: "/images/affiliation/pabx.png" },
-      { id: "06", name: "LPG", shortName: "LPG", description: "Bangladesh LPG Autogas Station & Conversion Workshop Owner's Association", logo: "/images/affiliation/lpg.png" },
-      { id: "07", name: "DGDP", shortName: "DGDP", description: "Directorate General Defence Purchase", logo: "/images/affiliation/dgdp.png" },
-      { id: "08", name: "EHCL", shortName: "EHCL", description: "Express Highway Club And Lounge", logo: "/images/affiliation/EHCl.png" },
+      { id: "01", name: "REHAB", shortName: "REHAB", description: "Real Estate & Housing Association of Bangladesh", logo: "/images/brand/all sampan logo & Affiliations Logo 5.webp" },
+      { id: "02", name: "FBCCI", shortName: "FBCCI", description: "Federation of Bangladesh Chambers of Commerce & Industry", logo: "/images/brand/all sampan logo & Affiliations Logo.webp" },
+      { id: "03", name: "BARVIDA", shortName: "BARVIDA", description: "Bangladesh Reconditioned Vehicles Importers & Dealers Association", logo: "/images/brand/all sampan logo & Affiliations Logo 2.webp" },
+      { id: "04", name: "BADIA", shortName: "BADIA", description: "Bangladesh Arm's Dealer and Importer Association", logo: "/images/brand/all sampan logo & Affiliations Logo 4.webp" },
+      { id: "05", name: "PABX", shortName: "PABX", description: "Bangladesh PABX Association", logo: "/images/brand/all sampan logo & Affiliations Logo 1.webp" },
+      { id: "06", name: "LPG", shortName: "LPG", description: "Bangladesh LPG Autogas Station & Conversion Workshop Owner's Association", logo: "/images/brand/all sampan logo & Affiliations Logo 3.webp" },
+      { id: "07", name: "DGDP", shortName: "DGDP", description: "Directorate General Defence Purchase", logo: "/images/brand/all sampan logo & Affiliations Logo 6.webp" },
+      { id: "08", name: "EHCL", shortName: "EHCL", description: "Express Highway Club And Lounge", logo: "/images/brand/all sampan logo & Affiliations Logo 12.webp" },
     ],
   },
   {
@@ -66,13 +66,13 @@ const categoriesData: Category[] = [
     italicTitle: "Development",
     subtitle: "Youth & Community",
     items: [
-      { id: "09", name: "BVF", shortName: "BVF", description: "Bangladesh Volleyball Federation (AD-Hoc Community)", logo: "/images/affiliation/bvf.png" },
-      { id: "10", name: "Barisal Bulls", shortName: "Bulls", description: "Bangladesh Premier League (BPL) Franchise", logo: "/images/affiliation/barishalbulls.png" },
-      { id: "11", name: "Barisal Club", shortName: "Est. 1864", description: "Historical Social Club — Established 1864", logo: "/images/affiliation/lis.png" },
-      { id: "12", name: "BPL", shortName: "BPL", description: "Bangladesh Premier League Official Affiliation", logo: "/images/affiliation/bpl.png" },
-      { id: "13", name: "SSC", shortName: "SSC", description: "Shooter's Shooting Club", logo: "/images/affiliation/shoot.png" },
-      { id: "14", name: "BAF", shortName: "BAF", description: "Bangladesh Archery Federation", logo: "/images/affiliation/Archery.png" },
-      { id: "15", name: "SGA", shortName: "SGA", description: "Sampan Golf Academy", logo: "/images/affiliation/Sampan Golf Academy.png" },
+      { id: "09", name: "BVF", shortName: "BVF", description: "Bangladesh Volleyball Federation (AD-Hoc Community)", logo: "/images/brand/all sampan logo & Affiliations Logo 7.webp" },
+      { id: "10", name: "Barisal Bulls", shortName: "Bulls", description: "Bangladesh Premier League (BPL) Franchise", logo: "/images/brand/all sampan logo & Affiliations Logo 8.webp" },
+      { id: "11", name: "Barisal Club", shortName: "Est. 1864", description: "Historical Social ClubEstablished 1864", logo: "/images/brand/all sampan logo & Affiliations Logo 10.webp" },
+      { id: "12", name: "BPL", shortName: "BPL", description: "Bangladesh Premier League Official Affiliation", logo: "/images/brand/all sampan logo & Affiliations Logo 11.webp" },
+      { id: "13", name: "SSC", shortName: "SSC", description: "Shooter's Shooting Club", logo: "/images/brand/all sampan logo & Affiliations Logo 14.webp" },
+      { id: "14", name: "BAF", shortName: "BAF", description: "Bangladesh Archery Federation", logo: "/images/brand/all sampan logo & Affiliations Logo 15.webp" },
+      { id: "15", name: "SGA", shortName: "SGA", description: "Sampan Golf Academy", logo: "/images/brand/all sampan logo & Affiliations Logo 22.webp" },
     ],
   },
   {
@@ -81,9 +81,9 @@ const categoriesData: Category[] = [
     italicTitle: "Diplomacy",
     subtitle: "Foreign Affairs & Global Standards",
     items: [
-      { id: "16", name: "Mercedes-Benz", shortName: "MB", description: "Global Automotive Partner & Authorized Dealer", logo: "/images/affiliation/mercedes.png" },
-      { id: "17", name: "CIPS", shortName: "CIPS", description: "Chartered Institute of Procurement & Supply UK — Authorized", logo: "/images/affiliation/cips.png" },
-      { id: "18", name: "Global Initiative", shortName: "GI", description: "Strategic International Development Network", logo: "/images/affiliation/Asset 26@4x.png" },
+      { id: "16", name: "Mercedes-Benz", shortName: "MB", description: "Global Automotive Partner & Authorized Dealer", logo: "/images/brand/all sampan logo & Affiliations Logo 17.webp" },
+      { id: "17", name: "CIPS", shortName: "CIPS", description: "Chartered Institute of Procurement & Supply UKAuthorized", logo: "/images/brand/cips.png" },
+      // { id: "18", name: "Global Initiative", shortName: "GI", description: "Strategic International Development Network", logo: "/images/brand/Asset 26@4x.png" },
     ],
   },
 ];
@@ -139,7 +139,7 @@ export default function AffiliationSection() {
           .to(".anim-fade", { opacity: 1, y: 0, ease: "power3.out", duration: 0.6, stagger: 0.08 }, 0.3)
           .to(".anim-line-draw", { scaleX: 1, ease: "power2.out", duration: 0.5, stagger: 0.05 }, 0.5);
 
-        // Category blocks — staggered entrance
+        // Category blocksstaggered entrance
         gsap.utils.toArray<HTMLElement>(".anim-cat").forEach((block) => {
           gsap.to(block, {
             opacity: 1,
@@ -155,7 +155,7 @@ export default function AffiliationSection() {
           });
         });
 
-        // Cards — staggered per row
+        // Cardsstaggered per row
         gsap.utils.toArray<HTMLElement>(".anim-card").forEach((card, i) => {
           gsap.to(card, {
             opacity: 1,
@@ -270,7 +270,7 @@ export default function AffiliationSection() {
 
           <div className="lg:col-span-4 flex flex-col justify-end">
             <p className="anim-fade text-sm md:text-base font-light leading-relaxed text-[#5C655C] max-w-md lg:ml-auto lg:text-right">
-              Professional memberships and international affiliations reflecting the networks behind Sampan Group — across commerce, sport, and diplomacy.
+              Professional memberships and international affiliations reflecting the networks behind Sampan Groupacross commerce, sport, and diplomacy.
             </p>
 
             {/* Inline mini-stats */}
@@ -394,7 +394,7 @@ function AffiliationCard({ aff, isHovered, isDimmed, onEnter, onLeave }: Affilia
         isDimmed ? "opacity-50" : "opacity-100"
       } hover:bg-[#FAF8F2]`}
     >
-      {/* Sliding gold indicator — top-left */}
+      {/* Sliding gold indicatortop-left */}
       <span
         aria-hidden="true"
         className="absolute left-0 top-0 h-px w-0 bg-[#19ABE1] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full"
@@ -408,13 +408,12 @@ function AffiliationCard({ aff, isHovered, isDimmed, onEnter, onLeave }: Affilia
         <span className="h-px w-0 bg-[#19ABE1] transition-all duration-500 ease-out group-hover:w-8" />
       </div>
 
-      {/* Logo Container — full color by default, grayscale on hover */}
+      {/* Logo Containerfull color by default, grayscale on hover */}
       <div className="relative flex aspect-[4/3] w-full items-center justify-center">
         <div className="relative h-full w-full max-w-[140px]">
-          <Image
+          <img
             src={aff.logo}
             alt={`${aff.name} Logo`}
-            fill
             className="object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:grayscale group-hover:opacity-70"
             sizes="(min-width: 1024px) 25vw, 50vw"
           />

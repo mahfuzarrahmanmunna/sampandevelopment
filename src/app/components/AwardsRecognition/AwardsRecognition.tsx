@@ -2,7 +2,6 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -198,7 +197,7 @@ export default function AwardsGallery() {
 
       {/* ====== DUAL-ROW MARQUEE ====== */}
       <div className="relative flex flex-col gap-4 md:gap-8">
-        {/* Row 1 — Left to Right */}
+        {/* Row 1Left to Right */}
         <div
           className="row-1-wrapper relative w-full overflow-hidden"
           style={{
@@ -219,7 +218,7 @@ export default function AwardsGallery() {
           </div>
         </div>
 
-        {/* Row 2 — Right to Left (desktop only) */}
+        {/* Row 2Right to Left (desktop only) */}
         <div
           className="row-2-wrapper relative hidden w-full overflow-hidden lg:flex"
           style={{
@@ -290,13 +289,12 @@ export default function AwardsGallery() {
             className="lightbox-image-wrapper relative h-[60vh] w-[88vw] max-w-5xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <Image
+            <img
               src={galleryImages[activeIndex].src}
               alt={`Enlarged view of Sampan Group Gallery Image ${activeIndex + 1}`}
-              fill
-              sizes="90vw"
-              quality={100}
-              priority
+              loading="eager"
+              draggable={false}
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
               className="object-contain"
             />
             {/* Decorative corners */}
@@ -338,12 +336,12 @@ export default function AwardsGallery() {
                       : "border-transparent opacity-50 hover:opacity-100"
                   }`}
                 >
-                  <Image
+                  <img
                     src={img.src}
                     alt={`Thumbnail ${i + 1}`}
-                    fill
-                    sizes="48px"
-                    quality={90}
+                    loading="lazy"
+                    draggable={false}
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
                     className="object-cover"
                   />
                 </button>
@@ -388,26 +386,25 @@ function MarqueeItem({
       className="group relative h-[220px] w-[220px] shrink-0 cursor-pointer overflow-hidden border border-[#101615]/10 bg-[#FFFFFF] shadow-[0_8px_30px_-12px_rgba(16,22,21,0.15)] md:h-[340px] md:w-[340px] lg:h-[380px] lg:w-[380px]"
       onClick={onClick}
     >
-      <Image
+      <img
         src={image.src}
         alt={`Sampan Group Gallery Image ${index + 1}`}
-        fill
-        sizes="(min-width: 1024px) 380px, (min-width: 768px) 340px, 220px"
-        quality={90}
-        priority={priority}
+        loading={priority ? "eager" : "lazy"}
+        draggable={false}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
         className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
       />
 
       {/* Subtle dark overlay on hover for legibility */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D]/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
-      {/* Top-right index — dark on light, inverts on hover */}
+      {/* Top-right indexdark on light, inverts on hover */}
       <div className="absolute right-0 top-0 z-10 flex items-center gap-2 bg-[#FFFFFF]/70 py-1 pl-2 pr-3 text-[#101615] backdrop-blur-sm transition-colors duration-500 group-hover:bg-[#0B0B0D]/40 group-hover:text-[#F5F3EE]">
         <span className="h-px w-3 bg-[#009D4E]"></span>
         <span className="text-[10px] tracking-[0.2em]">0{(index % galleryImages.length) + 1}</span>
       </div>
 
-      {/* Expand icon — appears on hover */}
+      {/* Expand iconappears on hover */}
       <div className="absolute bottom-4 right-4 z-10 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full border border-[#101615]/30 bg-[#F5F3EE]/40 text-[#101615] opacity-0 backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0 group-hover:border-[#009D4E] group-hover:bg-[#0B0B0D]/40 group-hover:text-[#F5F3EE] group-hover:opacity-100">
         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"></path>

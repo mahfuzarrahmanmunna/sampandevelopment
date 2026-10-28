@@ -196,7 +196,7 @@ export default function BookSiteVisit() {
               Tell us which project and when. Our team will confirm by phone or WhatsApp and arrange the visit.
             </p>
 
-            {/* Aside — what to expect */}
+            {/* Asidewhat to expect */}
             <div className="anim-aside mt-auto border-t border-[#101615]/10 pt-8">
               <div className="mb-6 flex items-baseline gap-4">
                 <span className="font-lux-serif text-3xl md:text-4xl font-light italic text-[#009D4E]">03</span>
@@ -206,7 +206,7 @@ export default function BookSiteVisit() {
               <ul className="flex flex-col gap-5">
                 {[
                   { n: "01", title: "Send your request", detail: "Pick a project, date, and leave a note." },
-                  { n: "02", title: "We confirm within a working day", detail: "Phone or WhatsApp — whichever you prefer." },
+                  { n: "02", title: "We confirm within a working day", detail: "Phone or WhatsAppwhichever you prefer." },
                   { n: "03", title: "Visit the site with our team", detail: "Walk the land. Ask everything. Decide in your own time." },
                 ].map((step, i) => (
                   <li key={i} className="group flex items-start gap-5">
@@ -352,7 +352,7 @@ export default function BookSiteVisit() {
                           </svg>
                         </span>
                         <span className="text-xs sm:text-sm text-[#F5F3EE]/70 font-light leading-relaxed">
-                          I live abroad — please coordinate over WhatsApp and accommodate timezone differences.
+                          I live abroadplease coordinate over WhatsApp and accommodate timezone differences.
                         </span>
                       </label>
                     </div>

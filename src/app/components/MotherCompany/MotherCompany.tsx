@@ -23,15 +23,15 @@ const CONCERNS: Concern[] = [
     name: "Express Highway Inn",
     tag: "Hospitality",
     location: "Express Highway",
-    img: "/images/brand/expresshighwayinn.png",
+    img: "/images/brand1/expresshighwayinn.png",
     caption: "Highway hospitality landmark",
     href: "https://sampangroup.com.bd/express-highway-inn",
   },
   {
     name: "Sampan Highway Inn",
     tag: "Hospitality",
-    location: "Dhaka — Chittagong Highway",
-    img: "/images/brand/sampanhighwayinn.png",
+    location: "DhakaChittagong Highway",
+    img: "/images/brand1/sampanhighwayinn.png",
     caption: "Modern transit accommodation",
     href: "https://sampangroup.com.bd/sampan-highway-inn",
   },
@@ -39,7 +39,7 @@ const CONCERNS: Concern[] = [
     name: "Sampan Agro & Golf Resort",
     tag: "Leisure",
     location: "Outskirts of City",
-    img: "/images/brand/agroandgolf.png",
+    img: "/images/brand1/agroandgolf.png",
     caption: "Resort living by the greens",
     href: "https://sampangroup.com.bd/agro-golf-resort",
   },
@@ -47,7 +47,7 @@ const CONCERNS: Concern[] = [
     name: "LSHS",
     tag: "Education",
     location: "Professional Studies",
-    img: "/images/brand/lshs.png",
+    img: "/images/brand1/lshs.png",
     caption: "Institute of professional studies",
     href: "https://sampangroup.com.bd/lshs",
   },
@@ -55,7 +55,7 @@ const CONCERNS: Concern[] = [
     name: "Sampan Eco & Agro",
     tag: "Agriculture",
     location: "Sustainable Futures",
-    img: "/images/brand/sampanechoagro.png",
+    img: "/images/brand1/sampanechoagro.png",
     caption: "Sustainable agriculture & eco-solutions",
     href: "https://sampangroup.com.bd/eco-agro",
   },
@@ -63,7 +63,7 @@ const CONCERNS: Concern[] = [
     name: "Sampan Mart",
     tag: "Retail",
     location: "Everyday Goods",
-    img: "/images/brand/sampanmart.png",
+    img: "/images/brand1/sampanmart.png",
     caption: "Convenience for everyday needs",
     href: "https://sampangroup.com.bd/sampan-mart",
   },
@@ -99,7 +99,7 @@ export default function MotherCompany() {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      /* ---------------- Reduced motion — show everything ---------------- */
+      /* ---------------- Reduced motionshow everything ---------------- */
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(
           ".anim-eyebrow, .anim-headline, .anim-fade, .anim-line-draw, .anim-concern",
@@ -341,7 +341,7 @@ export default function MotherCompany() {
         </span>
       </div>
 
-      {/* Floating cursor preview — landscape, desktop only */}
+      {/* Floating cursor previewlandscape, desktop only */}
       <div
         ref={cursorRef}
         aria-hidden="true"
@@ -352,7 +352,7 @@ export default function MotherCompany() {
             <img
               src={currentImg}
               alt={currentCaption}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
               draggable={false}
             />
           )}
@@ -492,7 +492,7 @@ export default function MotherCompany() {
                       onClick={() => handleMobileToggle(i)}
                       onKeyDown={(e) => handleConcernKeyDown(e, i)}
                       aria-expanded={hasImage ? isMobileExpanded : undefined}
-                      aria-label={`${concern.name} — ${concern.tag}. ${concern.location}. ${hasImage ? "Tap to preview image." : ""}`}
+                      aria-label={`${concern.name}${concern.tag}. ${concern.location}. ${hasImage ? "Tap to preview image." : ""}`}
                       className="relative flex w-full items-center gap-4 border-b border-[#F5F3EE]/10 py-6 text-left outline-none transition-all duration-500 hover:gap-5 focus-visible:ring-2 focus-visible:ring-[#009D4E] focus-visible:ring-inset md:gap-6"
                     >
                       {/* Sliding gold rule */}
@@ -548,7 +548,7 @@ export default function MotherCompany() {
                           <img
                             src={concern.img}
                             alt=""
-                            className="h-full w-full object-fill"
+                            className="h-full w-full object-contain"
                             loading="lazy"
                           />
                         </div>
@@ -606,7 +606,7 @@ export default function MotherCompany() {
                 );
               })}
 
-              {/* "+ more" — dismisses the floating cursor */}
+              {/* "+ more"dismisses the floating cursor */}
               <li
                 className="anim-concern group flex items-center gap-5 py-6 md:gap-6"
                 onMouseEnter={handleListLeave}
@@ -627,7 +627,7 @@ export default function MotherCompany() {
         </div>
       </div>
 
-      {/* Typography — uses project fonts if already loaded globally */}
+      {/* Typographyuses project fonts if already loaded globally */}
       <style jsx>{`
         .font-lux-serif {
           font-family: var(--font-lux-serif), "Cormorant Garamond", "Times New Roman", serif;

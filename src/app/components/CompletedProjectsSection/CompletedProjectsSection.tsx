@@ -27,27 +27,27 @@ const PROJECTS = [
   {
     index: "01",
     name: "Sampan 21st Century",
-    location: "[Verified Location]",
-    handover: "[Verified Year]",
-    units: "[Verified Count]",
+    location: "Beside, North South University (Bashundhara B Block, Dhaka)",
+    handover: "2014",
+    units: "80+ residential units",
     img: "/images/21st/21st.png",
     slug: "/projects/completed/sampan-21st-century"
   },
   {
     index: "02",
     name: "Sampan Taj",
-    location: "[Verified Location]",
-    handover: "[Verified Year]",
-    units: "[Verified Count]",
+    location: "Beside, American International University Bangladesh (Bashundhara F Block, Dhaka)",
+    handover: "2016",
+    units: "60+ residential units",
     img: "/images/21st/sampantaz.png",
     slug: "/projects/completed/sampan-taj"
   },
   {
     index: "03",
     name: "Sampan Niketon",
-    location: "[Verified Location]",
-    handover: "[Verified Year]",
-    units: "[Verified Count]",
+    location: "Beside, Ahsanullah University Of Science & Technology (Niketan, Gulshan, Dhaka) Year of",
+    handover: "2018",
+    units: "40+ residential units",
     img: "/images/21st/sampanniketon.png",
     slug: "/projects/completed/sampan-niketon"
   }

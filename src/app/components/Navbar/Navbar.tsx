@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
-// Data structure for projects — preserved exactly
+// Data structure for projectspreserved exactly
 const projectData = {
   ongoing: [
     { name: "Sampan Metro Square", slug: "sampan-metro-square", desc: "Ashulia · Land share", type: "Residential" },
@@ -16,12 +16,12 @@ const projectData = {
     { name: "Sampan Agro & Golf Resort", slug: "sampan-agro-golf-resort", desc: "Outskirts · Leisure", type: "Resort" },
   ],
   completed: [
-    { name: "Sampan 21st Century", desc: "Beside University", type: "Residence" },
-    { name: "Sampan Taj", desc: "Premium Residence", type: "Residence" },
-    { name: "SampanNiketon", desc: "Beside University", type: "Residence" },
-    { name: "Sampan White House", desc: "Luxury Living", type: "Residence" },
-    { name: "Sampan Highway Inn", desc: "Hospitality", type: "Hospitality" },
-    { name: "Sampan Eco & Agro Resort", desc: "Sustainable Living", type: "Resort" },
+    { name: "Sampan 21st Century",slug: "sampan-21st-century", desc: "Beside University", type: "Residence" },
+    { name: "Sampan Taj", slug: "sampan-taj", desc: "Premium Residence", type: "Residence" },
+    { name: "SampanNiketon", slug: "sampan-niketon", desc: "Beside University", type: "Residence" },
+    { name: "Sampan White House", slug: "sampan-white-house", desc: "Luxury Living", type: "Residence" },
+    { name: "Sampan Highway Inn", slug: "sampan-highway-inn", desc: "Hospitality", type: "Hospitality" },
+    { name: "Sampan Eco & Agro Resort", slug: "sampan-eco-agro-resort", desc: "Sustainable Living", type: "Resort" },
   ],
 };
 
@@ -74,8 +74,8 @@ export default function Navbar() {
     isMobileMenuOpen
       ? "bg-[#171715] text-[#F4F1EA] border-b border-[rgba(244,241,234,0.08)]"
       : isScrolled
-      ? "bg-[#171715]/95 backdrop-blur-xl text-[#F4F1EA] border-b border-[rgba(244,241,234,0.08)] shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]"
-      : "bg-transparent text-[#F4F1EA] border-b border-transparent"
+      ? "bg-[#171715]/95 backdrop-blur-xl py-2 text-[#F4F1EA] border-b border-[rgba(244,241,234,0.08)] shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]"
+      : "bg-transparent text-[#F4F1EA] border-b py-2 border-transparent"
   }`;
 
   const getLinkClass = (path: string, isExact = true) => {
@@ -100,7 +100,7 @@ export default function Navbar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              Dhaka — Chittagong Highway
+              DhakaChittagong Highway
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-3 h-3 text-[#19ABE1]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -124,10 +124,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <div className="flex-shrink-0 z-50">
-            <Link href="/" className="flex items-center gap-3 group" aria-label="Sampan Development Ltd. — Home">
+            <Link href="/" className="flex items-center gap-3 group" aria-label="Sampan Development Ltd.Home">
               <div className="relative">
                 <Image
-                  src="/logo/logo.png"
+                  src="/logo/sampandevelopmentlogo.png"
                   alt="Sampan Development Limited Logo"
                   width={160}
                   height={40}
@@ -171,10 +171,10 @@ export default function Navbar() {
                 <svg className={`w-3 h-3 transition-transform duration-300 ${isProjectsOpen ? "rotate-180 text-[#19ABE1]" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-7 7-7-7" />
                 </svg>
-                <span className={`absolute bottom-0 left-0 w-full h-px bg-[#19ABE1] origin-left transition-transform duration-300 ${pathname.includes("/projects") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
+                <span className={`absolute bottom-0 left-0 w-full hzz-px bg-[#19ABE1] origin-left transition-transform duration-300 ${pathname.includes("/projects") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
               </button>
 
-              {/* Mega Menu — refined with soft-dark palette */}
+              {/* Mega Menurefined with soft-dark palette */}
               <div
                 id="projects-mega-menu"
                 className={`absolute top-full left-1/2 -translate-x-1/2 w-[940px] pt-4 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] origin-top ${
@@ -182,7 +182,7 @@ export default function Navbar() {
                 }`}
               >
                 <div className="bg-[#1D1D1A] border border-[rgba(244,241,234,0.10)] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] overflow-hidden grid grid-cols-[1fr_1.1fr_1.1fr]">
-                  {/* Area A: Featured Project — elevated surface */}
+                  {/* Area A: Featured Projectelevated surface */}
                   <div className="relative bg-[#24241F] text-[#F4F1EA] p-8 flex flex-col justify-between overflow-hidden">
                     {/* Subtle gold radial */}
                     <div className="pointer-events-none absolute -top-12 -right-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,_rgba(197,160,89,0.18)_0%,_transparent_70%)] blur-2xl" />
@@ -197,7 +197,7 @@ export default function Navbar() {
                         <span className="italic text-[#19ABE1]">&amp; Golf Resort</span>
                       </h3>
                       <p className="text-xs text-[#B5B1A8] mt-4 font-light leading-relaxed">
-                        Sustainable luxury living nestled in nature — leisure, agriculture, and resort hospitality in one destination.
+                        Sustainable luxury living nestled in natureleisure, agriculture, and resort hospitality in one destination.
                       </p>
                     </div>
                     <Link
@@ -259,7 +259,7 @@ export default function Navbar() {
                       {projectData.completed.map((project) => (
                         <Link
                           key={project.name}
-                          href={`/projects/completed/${project.name.toLowerCase().replace(/\s+/g, '-')}`}
+                          href={`/projects/completed/${project.slug}`}
                           className="block group p-2 -m-2 transition-colors duration-200 hover:bg-[#24241F] rounded-[2px]"
                         >
                           <div className="flex items-center justify-between gap-3">
@@ -322,7 +322,7 @@ export default function Navbar() {
                   : "bg-transparent text-[#F4F1EA] border-[#F4F1EA]/30 hover:text-[#171715]"
               }`}
             >
-              {/* Hover fill — slides up from bottom */}
+              {/* Hover fillslides up from bottom */}
               <span className={`absolute inset-0 translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-0 ${
                 useDarkText ? "bg-[#F4F1EA]" : "bg-[#F4F1EA]"
               } group-hover:translate-y-0`} />
@@ -334,7 +334,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Mobile menu button — refined */}
+            {/* Mobile menu buttonrefined */}
             <button
               className="lg:hidden p-2 z-50 relative flex flex-col justify-center items-center w-8 h-8"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -350,7 +350,7 @@ export default function Navbar() {
       </nav>
 
       {/* ═══════════════════════════════════════════════════════════
-          MOBILE MENU — Cinematic full-screen overlay
+          MOBILE MENUCinematic full-screen overlay
          ═══════════════════════════════════════════════════════════ */}
       <div
         ref={mobileMenuRef}
@@ -378,7 +378,7 @@ export default function Navbar() {
           </div>
 
           <nav className="flex flex-col flex-grow">
-            {/* Staggered link reveal — uses CSS transition with delay */}
+            {/* Staggered link revealuses CSS transition with delay */}
             {[
               { href: "/", label: "Home", delay: "delay-[100ms]" },
               { href: "/about-us", label: "About", delay: "delay-[180ms]" },
@@ -501,7 +501,7 @@ export default function Navbar() {
           <div className={`mt-10 pt-8 border-t border-[rgba(244,241,234,0.08)] grid grid-cols-2 gap-6 transition-all duration-500 delay-[700ms] ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <div>
               <div className="text-[9px] uppercase tracking-[0.3em] text-[#89867E] mb-2">Visit Us</div>
-              <div className="text-xs text-[#B5B1A8] font-light leading-relaxed">Dhaka — Chittagong Highway, Bangladesh</div>
+              <div className="text-xs text-[#B5B1A8] font-light leading-relaxed">DhakaChittagong Highway, Bangladesh</div>
             </div>
             <div>
               <div className="text-[9px] uppercase tracking-[0.3em] text-[#89867E] mb-2">Contact</div>

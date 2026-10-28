@@ -48,7 +48,7 @@ export async function generateMetadata({
   const ogImage = str(seo.ogImage) || str(project.hero?.backgroundImage);
   const canonical = str(seo.canonicalPath) || `/projects/completed/${project.slug}`;
 
-  // ✅ Typed cast — must be declared INSIDE the function, BEFORE return
+  // ✅ Typed castmust be declared INSIDE the function, BEFORE return
   const twitterCard = str(seo.twitterCard) as
     | "summary"
     | "summary_large_image"
@@ -88,7 +88,7 @@ export default async function CompletedProjectPage({
     notFound();
   }
 
-  // JSON-LD structured data — completed project (Building)
+  // JSON-LD structured datacompleted project (Building)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Building",

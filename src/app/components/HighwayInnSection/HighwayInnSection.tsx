@@ -92,7 +92,7 @@ export default function HighwayInnSection() {
         gsap.set(".anim-img-reveal", { clipPath: "inset(0% 0% 100% 0%)" });
         gsap.set(".anim-card", { opacity: 0, y: 40 });
 
-        // Hero entrance — scrubbed
+        // Hero entrancescrubbed
         const heroTl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -108,7 +108,7 @@ export default function HighwayInnSection() {
           .to(".anim-line-draw", { scaleX: 1, ease: "power2.out", duration: 0.5, stagger: 0.05 }, 0.5)
           .to(".anim-img-reveal", { clipPath: "inset(0% 0% 0% 0%)", ease: "power3.inOut", duration: 0.8 }, 0.2);
 
-        // Gallery cards — staggered entrance
+        // Gallery cardsstaggered entrance
         gsap.to(".anim-card", {
           opacity: 1,
           y: 0,
@@ -169,7 +169,7 @@ export default function HighwayInnSection() {
       ref={sectionRef}
       className={`${luxSerif.variable} ${luxSans.variable} relative w-full overflow-hidden bg-[#171715] text-[#F4F1EA] font-lux-sans antialiased`}
     >
-      {/* Soft ambient gradient — warm gold radial in upper third */}
+      {/* Soft ambient gradientwarm gold radial in upper third */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-0 h-[620px] w-[920px] -translate-x-1/2 -translate-y-1/4 rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(197,160,89,0.08)_0%,_transparent_60%)] blur-3xl" />
         <div className="absolute bottom-0 right-0 h-[500px] w-[700px] translate-x-1/3 translate-y-1/3 rounded-full bg-[radial-gradient(circle,_rgba(197,160,89,0.05)_0%,_transparent_70%)] blur-3xl" />
@@ -182,7 +182,7 @@ export default function HighwayInnSection() {
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 sm:px-6 md:px-12 lg:px-24 pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-40 lg:pb-32">
         {/* ═══════════════════════════════════════════════════════════
-            EDITORIAL HERO — Split layout with cinematic image reveal
+            EDITORIAL HEROSplit layout with cinematic image reveal
            ═══════════════════════════════════════════════════════════ */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-24 md:mb-32 lg:mb-40">
           
@@ -213,7 +213,7 @@ export default function HighwayInnSection() {
 
             {/* Body copy */}
             <p className="anim-fade mb-10 max-w-md text-sm md:text-base font-light leading-relaxed text-[#B5B1A8]">
-              A restaurant and party centre, Sweet Box, Mini Sampan, Sampan Mart, a filling station, an LPG station and the Sampan White House hotel and motel — all brought together in one place along the Dhaka–Chittagong Highway.
+              A restaurant and party centre, Sweet Box, Mini Sampan, Sampan Mart, a filling station, an LPG station and the Sampan White House hotel and motelall brought together in one place along the Dhaka–Chittagong Highway.
             </p>
 
             {/* CTA + meta strip */}
@@ -233,7 +233,7 @@ export default function HighwayInnSection() {
 
               {/* Quick-fact strip */}
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[9px] uppercase tracking-[0.3em] text-[#89867E]">
-                <span>Dhaka — Chittagong Highway</span>
+                <span>DhakaChittagong Highway</span>
                 <span className="h-3 w-px bg-[rgba(244,241,234,0.15)]" />
                 <span>7 Connected Concerns</span>
                 <span className="h-3 w-px bg-[rgba(244,241,234,0.15)]" />
@@ -242,14 +242,14 @@ export default function HighwayInnSection() {
             </div>
           </div>
 
-          {/* Image Column — with cinematic clip reveal */}
+          {/* Image Columnwith cinematic clip reveal */}
           <div className="lg:col-span-6 order-1 lg:order-2">
             <div className="relative aspect-[4/5] sm:aspect-[5/4] lg:aspect-[5/6] overflow-hidden bg-[#1D1D1A]">
               {/* Image with clip-path reveal */}
               <div className="anim-img-reveal absolute inset-0">
                 <img
                   src="/images/projects/highwayinn/sampanhighwayinn.png"
-                  alt="Sampan Highway Inn — architectural exterior at dusk"
+                  alt="Sampan Highway Innarchitectural exterior at dusk"
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
@@ -262,7 +262,7 @@ export default function HighwayInnSection() {
               <div className="absolute left-0 top-0 z-10 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
               <div className="absolute bottom-0 right-0 z-10 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
 
-              {/* Floating caption — bottom left */}
+              {/* Floating captionbottom left */}
               <div className="absolute bottom-5 left-5 z-10 flex items-center gap-3">
                 <span className="h-px w-8 bg-[#19ABE1]" />
                 <span className="text-[9px] uppercase tracking-[0.3em] text-[#F4F1EA]/80 backdrop-blur-sm bg-[#171715]/40 px-3 py-1.5">
@@ -280,7 +280,7 @@ export default function HighwayInnSection() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════
-            AMENITIES GALLERY — Editorial bento with cinematic cards
+            AMENITIES GALLERYEditorial bento with cinematic cards
            ═══════════════════════════════════════════════════════════ */}
         <div className="border-t border-[rgba(244,241,234,0.08)] pt-16 md:pt-24">
           
@@ -300,7 +300,7 @@ export default function HighwayInnSection() {
             </div>
             <div className="md:col-span-5 md:text-right">
               <p className="text-sm md:text-base font-light leading-relaxed text-[#89867E] max-w-sm md:ml-auto">
-                Everything you need — thoughtfully brought together along the highway. Dining, retail, fuel, hospitality, and more.
+                Everything you needthoughtfully brought together along the highway. Dining, retail, fuel, hospitality, and more.
               </p>
             </div>
           </div>
@@ -313,19 +313,19 @@ export default function HighwayInnSection() {
               let heightClass = "";
 
               if (i === 0) {
-                // Hero card — large left
+                // Hero cardlarge left
                 spanClass = "sm:col-span-2 lg:col-span-7";
                 heightClass = "h-[320px] sm:h-[400px] lg:h-[480px]";
               } else if (i === 1) {
-                // Hero card — large right
+                // Hero cardlarge right
                 spanClass = "lg:col-span-5";
                 heightClass = "h-[320px] sm:h-[400px] lg:h-[480px]";
               } else if (i >= 2 && i <= 4) {
-                // Mid row — 3 equal cards
+                // Mid row3 equal cards
                 spanClass = "lg:col-span-4";
                 heightClass = "h-[280px] sm:h-[320px] lg:h-[360px]";
               } else {
-                // Bottom row — 2 wide cards
+                // Bottom row2 wide cards
                 spanClass = "sm:col-span-2 lg:col-span-6";
                 heightClass = "h-[280px] sm:h-[340px] lg:h-[400px]";
               }
@@ -343,11 +343,11 @@ export default function HighwayInnSection() {
                     loading="lazy"
                   />
 
-                  {/* Gradient overlay — always present for legibility, intensifies on hover */}
+                  {/* Gradient overlayalways present for legibility, intensifies on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#171715] via-[#171715]/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="absolute inset-0 bg-gradient-to-r from-[#171715]/40 via-transparent to-transparent" />
 
-                  {/* Top row — index + tag */}
+                  {/* Top rowindex + tag */}
                   <div className="absolute top-5 left-5 right-5 z-10 flex items-start justify-between">
                     <span className="flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-[#F4F1EA]/70 backdrop-blur-sm bg-[#171715]/40 px-2.5 py-1">
                       <span className="h-px w-3 bg-[#19ABE1]" />
@@ -364,7 +364,7 @@ export default function HighwayInnSection() {
                       {facility.name}
                     </h4>
 
-                    {/* Hover description — grid row trick */}
+                    {/* Hover descriptiongrid row trick */}
                     <div className="grid transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:grid-rows-[1fr] grid-rows-[0fr]">
                       <div className="overflow-hidden">
                         <div className="flex items-center gap-3 mt-3">
@@ -392,7 +392,7 @@ export default function HighwayInnSection() {
             <div className="flex items-center gap-4">
               <span className="h-px w-8 bg-[#19ABE1]" />
               <p className="text-[10px] uppercase tracking-[0.3em] text-[#89867E]">
-                Visit any concern — open daily
+                Visit any concernopen daily
               </p>
             </div>
             <Link

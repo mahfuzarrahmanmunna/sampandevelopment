@@ -25,7 +25,7 @@ export default function About() {
         gsap.set(".img-reveal", { clearProps: "clipPath" });
       });
 
-      // --- Desktop / tablet (>=768px) — full cinematic horizontal scroll ---
+      // --- Desktop / tablet (>=768px)full cinematic horizontal scroll ---
       mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
         const track = trackRef.current;
         if (!track) return;
@@ -84,7 +84,7 @@ export default function About() {
         });
       });
 
-      // --- Mobile (<768px) — same horizontal scroll-jacking, tuned for touch ---
+      // --- Mobile (<768px)same horizontal scroll-jacking, tuned for touch ---
       mm.add("(max-width: 767px) and (prefers-reduced-motion: no-preference)", () => {
         const track = trackRef.current;
         if (!track) return;
@@ -130,7 +130,7 @@ export default function About() {
           );
         });
 
-        // Clip-path reveals — same effect, tuned start/end
+        // Clip-path revealssame effect, tuned start/end
         gsap.utils.toArray<HTMLElement>(".img-reveal").forEach((container) => {
           gsap.fromTo(
             container,
@@ -160,7 +160,7 @@ export default function About() {
       className="relative w-full overflow-hidden bg-[#101615] font-lux-sans antialiased"
     >
       {/* 
-        Horizontal track — forced to row layout on ALL viewports now.
+        Horizontal trackforced to row layout on ALL viewports now.
         Each panel is full-viewport width so horizontal pinning works on mobile too.
       */}
       <div
@@ -238,9 +238,9 @@ export default function About() {
           <div className="img-reveal absolute inset-0 flex items-center justify-center">
             <div className="parallax-img absolute inset-0 h-full w-full scale-110">
               <img
-                src="/images/roni/Sampan_Trade_Emporium_Rooftop_Tower.png"
+                src="/images/projects/metro-square/sampanmetrosquare.jpeg"
                 alt="Premium architectural commercial and residential development"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-top"
                 loading="lazy"
               />
             </div>
@@ -290,13 +290,13 @@ export default function About() {
             </Link>
           </div>
 
-          <div className="relative h-[40svh] w-full overflow-hidden md:mr-12 md:h-[70%] md:w-1/2">
+          <div className="relative h-[40svh] w-full overflow-hidden md:mr-12 md:h-[70%] md:w-3/2">
             <div className="img-reveal absolute inset-0">
               <div className="parallax-img absolute inset-0 h-full w-full scale-110">
                 <img
                   src="/images/roni/Sampan_Trade_Emporium_Rooftop_Tower.png"
                   alt="Architectural construction detail"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                   loading="lazy"
                 />
               </div>

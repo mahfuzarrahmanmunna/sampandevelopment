@@ -57,6 +57,11 @@ const categories = [
   { label: "Land & Resort", value: "land" },
 ];
 
+// ─── HERO BACKGROUND IMAGE ───────────────────────────────────────────────────
+// Swap this URL with your own brand image at /images/hero/projects-archive.jpg
+const HERO_BACKGROUND_IMAGE =
+  "https://images.unsplash.com/photo-1486325212785-4892e2a126b9?q=85&w=2400&auto=format&fit=crop";
+
 function getCategory(project: Project) {
   const category = (
     project.category ||
@@ -104,7 +109,7 @@ function useCountUp(target: number, duration = 1500, delay = 0) {
   return count;
 }
 
-// ─── animated stat (used inside dark hero — white text) ──────────────────────
+// ─── animated stat ───────────────────────────────────────────────────────────
 function Stat({
   value,
   label,
@@ -171,7 +176,7 @@ export default function ProjectArchivePage() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#F7F4ED] text-[#171714] font-sans antialiased">
-      {/* ─────────────────────────── HERO (DARK) ─────────────────────────── */}
+      {/* ─────────────────────────── HERO (DARK + BACKGROUND IMAGE) ─────────────────────────── */}
       <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-[#0B0B0D] text-[#F5F5F2]">
         {/* global keyframes for animations */}
         <style>{`
@@ -204,27 +209,32 @@ export default function ProjectArchivePage() {
             0%, 100% { opacity: 0.18; }
             50% { opacity: 0.32; }
           }
+          @keyframes kenBurns {
+            0% { transform: scale(1.05) translate(0, 0); }
+            100% { transform: scale(1.15) translate(-1%, -1.5%); }
+          }
         `}</style>
 
-        {/* ambient background layers */}
-        <div className="absolute inset-0 -z-10 overflow-hidden bg-[#0B0B0D]">
+        {/* ═══ BACKGROUND IMAGE LAYER (NEW) ═══ */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          {/* Background image with slow Ken Burns zoom */}
           <div
-            className="absolute inset-0 opacity-[0.05]"
+            className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage:
-                "radial-gradient(rgba(197,160,89,0.6) 1px, transparent 1px)",
-              backgroundSize: "32px 32px",
-              maskImage:
-                "radial-gradient(ellipse at 50% 40%, black 0%, transparent 70%)",
-              WebkitMaskImage:
-                "radial-gradient(ellipse at 50% 40%, black 0%, transparent 70%)",
+              backgroundImage: `url(${HERO_BACKGROUND_IMAGE})`,
+              animation: "kenBurns 30s ease-in-out infinite alternate",
             }}
           />
+          {/* Dark overlay for text readability — strong on left, fades right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0D] via-[#0B0B0D]/85 to-[#0B0B0D]/50" />
+          {/* Bottom darkening for scroll indicator area */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-transparent to-[#0B0B0D]/40" />
+          {/* Subtle warm ambient glow (kept for atmosphere) */}
           <div
             className="absolute -right-40 -top-40 h-[42vw] w-[42vw] rounded-full blur-[140px]"
             style={{
               background:
-                "radial-gradient(circle, rgba(197,160,89,0.22) 0%, rgba(197,160,89,0.06) 40%, transparent 70%)",
+                "radial-gradient(circle, rgba(197,160,89,0.18) 0%, rgba(197,160,89,0.04) 40%, transparent 70%)",
               animation: "ambientDrift1 24s ease-in-out infinite",
             }}
           />
@@ -232,27 +242,26 @@ export default function ProjectArchivePage() {
             className="absolute -left-40 bottom-0 h-[38vw] w-[38vw] rounded-full blur-[140px]"
             style={{
               background:
-                "radial-gradient(circle, rgba(120,90,40,0.18) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(120,90,40,0.14) 0%, transparent 70%)",
               animation: "ambientDrift2 28s ease-in-out infinite",
             }}
           />
+          {/* Subtle dot grid texture */}
           <div
-            className="absolute left-1/2 top-1/3 h-[30vw] w-[30vw] -translate-x-1/2 rounded-full blur-[120px]"
+            className="absolute inset-0 opacity-[0.04]"
             style={{
-              background:
-                "radial-gradient(circle, rgba(197,160,89,0.1) 0%, transparent 70%)",
-              animation: "pulseGlow 8s ease-in-out infinite",
+              backgroundImage:
+                "radial-gradient(rgba(245,245,242,0.5) 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+              maskImage:
+                "radial-gradient(ellipse at 50% 40%, black 0%, transparent 70%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse at 50% 40%, black 0%, transparent 70%)",
             }}
           />
+          {/* Film grain */}
           <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(11,11,13,0) 0%, rgba(11,11,13,0.3) 60%, rgba(11,11,13,0.95) 100%)",
-            }}
-          />
-          <div
-            className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
+            className="absolute inset-0 opacity-[0.025] mix-blend-overlay"
             style={{
               backgroundImage: "url('/images/noise.png')",
               backgroundSize: "200px 200px",
@@ -260,8 +269,14 @@ export default function ProjectArchivePage() {
           />
         </div>
 
+        {/* ═══ ARCHITECTURAL CORNER BRACKETS (NEW — premium frame) ═══ */}
+        <span className="pointer-events-none absolute left-6 top-6 z-30 h-10 w-10 border-l border-t border-[#19ABE1]/40 sm:left-8 sm:top-8 sm:h-12 sm:w-12" />
+        <span className="pointer-events-none absolute right-6 top-6 z-30 h-10 w-10 border-r border-t border-[#19ABE1]/40 sm:right-8 sm:top-8 sm:h-12 sm:w-12" />
+        <span className="pointer-events-none absolute bottom-6 left-6 z-30 h-10 w-10 border-b border-l border-[#19ABE1]/40 sm:bottom-8 sm:left-8 sm:h-12 sm:w-12" />
+        <span className="pointer-events-none absolute bottom-6 right-6 z-30 h-10 w-10 border-b border-r border-[#19ABE1]/40 sm:bottom-8 sm:right-8 sm:h-12 sm:w-12" />
+
         {/* breadcrumb */}
-        <div className="mx-auto w-full max-w-[1600px] px-5 pt-28 sm:px-18 lg:px-16 lg:pt-38">
+        <div className="mx-auto w-full max-w-[1600px] px-5 pt-28 sm:px-8 lg:px-16 lg:pt-32">
           <nav
             className="flex flex-wrap items-center gap-3 text-[10px] font-medium uppercase tracking-[0.28em] text-white/55"
             aria-label="Breadcrumb"
@@ -276,7 +291,7 @@ export default function ProjectArchivePage() {
 
         {/* main hero body */}
         <div className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-5 py-16 sm:px-8 lg:px-16 lg:py-20">
-          {/* eyebrow with animated gold rule */}
+          {/* eyebrow with animated accent line */}
           <div
             className="mb-8 flex items-center gap-4"
             style={{
@@ -293,7 +308,7 @@ export default function ProjectArchivePage() {
               }}
             />
             <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#19ABE1] sm:text-xs">
-              Sampan Development — Project Archive
+              Sampan Development · Project Archive
             </span>
           </div>
 
@@ -395,21 +410,16 @@ export default function ProjectArchivePage() {
           </a>
         </div>
 
-        {/* fade transition from dark hero to light archive */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 0%, #F7F4ED 100%)",
-          }}
-        />
+        {/* ═══ WHITE SHADE REMOVED ═══
+            The previous <div> with linear-gradient(180deg, transparent 0%, #F7F4ED 100%)
+            has been removed per request — hero now transitions directly to the archive
+            section with a clean hard edge. */}
       </section>
 
       {/* ───────────────────────── ARCHIVE (LIGHT) ───────────────────────── */}
       <section
         id="project-archive"
-        className="relative bg-[#F7F4ED] px-5 pb-24 pt-8 sm:px-8 lg:px-16 lg:pb-32"
+        className="relative bg-[#F7F4ED] px-5 pb-24 pt-20 sm:px-8 lg:px-16 lg:pb-32 lg:pt-24"
       >
         <div className="mx-auto max-w-[1600px]">
           {/* ── FILTERS ── */}
@@ -443,8 +453,8 @@ export default function ProjectArchivePage() {
                       type="button"
                       onClick={() => setActiveStatus(value)}
                       className={`group relative overflow-hidden rounded-full border px-5 py-3 text-xs transition-all duration-300 ${active
-                          ? "border-[#171714] bg-[#171714] text-white"
-                          : "border-[#D9D3C6] bg-transparent text-[#5F5C54] hover:border-[#171714] hover:text-[#171714]"
+                        ? "border-[#171714] bg-[#171714] text-white"
+                        : "border-[#D9D3C6] bg-transparent text-[#5F5C54] hover:border-[#171714] hover:text-[#171714]"
                         }`}
                     >
                       <span className="relative z-10">
@@ -548,14 +558,17 @@ export default function ProjectArchivePage() {
                   .join(", ");
 
                 return (
-                  <article key={`${project.status}-${project.slug}`} className="group">
+                  <article
+                    key={`${project.status}-${project.slug}`}
+                    className="group h-full flex flex-col"
+                  >
                     <Link
                       href={getProjectUrl(project)}
-                      className="block"
+                      className="flex h-full flex-col"
                       aria-label={`Explore ${project.projectName}`}
                     >
-                      {/* image card */}
-                      <div className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-[#E6E0D4]">
+                      {/* image card — fixed aspect ratio, flex-shrink-0 so it never compresses */}
+                      <div className="relative aspect-[4/5] flex-shrink-0 overflow-hidden rounded-[2px] bg-[#E6E0D4]">
                         <div
                           aria-hidden="true"
                           className="absolute inset-0 bg-gradient-to-br from-[#D5C9B2] via-[#B8AC96] to-[#8F8878]"
@@ -589,21 +602,21 @@ export default function ProjectArchivePage() {
                         {/* gold top-line that draws on hover */}
                         <div className="absolute left-0 top-0 h-px w-0 bg-[#A17D3F] transition-all duration-500 ease-out group-hover:w-full" />
 
-                        {/* bottom content on image */}
+                        {/* bottom content on image — clamped to prevent variable heights */}
                         <div className="absolute inset-x-5 bottom-6 text-white sm:inset-x-6 sm:bottom-7">
                           <p className="mb-3 text-[9px] uppercase tracking-[0.25em] text-[#E5C787]">
                             {project.hero?.eyebrow || "Sampan Development"}
                           </p>
-                          <h2 className="max-w-md text-3xl font-light leading-tight tracking-[-0.04em] sm:text-4xl">
+                          <h2 className="line-clamp-2 max-w-md text-3xl font-light leading-tight tracking-[-0.04em] sm:text-4xl">
                             {project.projectName}
                           </h2>
                           {location && (
                             <p className="mt-3 flex items-center gap-2 text-xs tracking-wide text-white/70">
-                              <svg className="h-3 w-3 text-[#E5C787]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                              <svg className="h-3 w-3 flex-shrink-0 text-[#E5C787]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c5-5 9-9.5 9-13a9 9 0 10-18 0c0 3.5 4 8 9 13z" />
                                 <circle cx="12" cy="8" r="2.5" />
                               </svg>
-                              {location}
+                              <span className="line-clamp-1">{location}</span>
                             </p>
                           )}
                         </div>
@@ -616,19 +629,19 @@ export default function ProjectArchivePage() {
                         </div>
                       </div>
 
-                      {/* card footer — light themed */}
-                      <div className="flex items-start justify-between gap-5 border-b border-[#D9D3C6] bg-white py-5 px-5 transition-all duration-300 group-hover:border-[#A17D3F]/50 group-hover:shadow-[0_24px_60px_-30px_rgba(20,32,26,0.15)] sm:px-6">
-                        <div>
+                      {/* card footer — flex-1 stretches to fill remaining space, making all cards same height */}
+                      <div className="flex-1 flex items-start justify-between gap-5 border-b border-[#D9D3C6] bg-white px-5 py-5 transition-all duration-300 group-hover:border-[#A17D3F]/50 group-hover:shadow-[0_24px_60px_-30px_rgba(20,32,26,0.15)] sm:px-6">
+                        <div className="flex-1">
                           <p className="mb-2 text-[10px] uppercase tracking-[0.22em] text-[#A17D3F]">
                             {project.shortName || project.projectType || "Development"}
                           </p>
-                          <p className="max-w-sm text-sm leading-7 text-[#5F5C54]">
+                          <p className="line-clamp-2 max-w-sm text-sm leading-7 text-[#5F5C54]">
                             {project.shortDescription ||
                               project.tagline ||
                               "Discover the vision behind this Sampan Development project."}
                           </p>
                         </div>
-                        <span className="mt-1 shrink-0 text-xs text-[#A17D3F] transition-transform duration-300 group-hover:translate-x-1">
+                        <span className="mt-1 flex-shrink-0 text-xs text-[#A17D3F] transition-transform duration-300 group-hover:translate-x-1">
                           ↗
                         </span>
                       </div>
@@ -638,7 +651,7 @@ export default function ProjectArchivePage() {
               })}
             </div>
           ) : (
-            /* ── empty state — light themed ── */
+            /* ── empty state ── */
             <div className="flex min-h-[300px] flex-col items-center justify-center rounded-[2px] border border-dashed border-[#D9D3C6] bg-white/60 px-6 text-center">
               <p className="font-serif text-3xl italic text-[#171714]">No projects found.</p>
               <p className="mt-3 max-w-sm text-sm leading-6 text-[#777268]">
@@ -700,7 +713,7 @@ export default function ProjectArchivePage() {
             </h2>
             <p className="mt-8 max-w-xl text-base leading-8 text-[#5F5C54] md:text-lg">
               From residential towers to hospitality destinations and
-              land-led visions — talk to the Sampan team about a project
+              land-led visions—talk to the Sampan team about a project
               that fits your ambitions.
             </p>
           </div>

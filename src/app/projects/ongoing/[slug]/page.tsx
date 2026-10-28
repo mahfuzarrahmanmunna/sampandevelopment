@@ -36,7 +36,7 @@ export async function generateMetadata({
   const ogImage = str(seo.ogImage) || str(project.hero?.backgroundImage);
   const canonical = str(seo.canonicalPath) || `/projects/ongoing/${project.slug}`;
 
-  // 👇 Define twitterCard HERE — inside the function, before return
+  // 👇 Define twitterCard HEREinside the function, before return
   const twitterCard = str(seo.twitterCard) as
     | "summary"
     | "summary_large_image"
@@ -74,7 +74,7 @@ export default async function OngoingProjectPage({ params }: ProjectPageProps) {
   const project = findOngoingProject(slug);
   if (!project) notFound();
 
-  // JSON-LD structured data — improves how Google renders the result
+  // JSON-LD structured dataimproves how Google renders the result
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Place",

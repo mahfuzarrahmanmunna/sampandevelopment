@@ -6,10 +6,11 @@ import LenisProvider from "./components/LenisProvider";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import AntiInspect from "./components/AntiInspect/AntiInspect";
+import FloatingContact from "./components/FloatingContact/FloatingContact";
 
 const manrope = Manrope({
   variable: "--font-sans",
-  subsets: ["latin"],
+  subsets: ["latin"],   
   weight: ["300", "400", "500", "600", "700"],
 });
 
@@ -127,6 +128,7 @@ export default function RootLayout({
           {/* <AntiInspect/> */}
           <main className="flex-grow">{children}</main>
           <Footer />
+          <FloatingContact/>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{

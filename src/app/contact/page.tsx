@@ -255,7 +255,7 @@ export default function ContactPage() {
     <main ref={pageRef} className={`${luxSerif.variable} ${luxSans.variable} bg-[#F7F5EF] text-[#191C19] font-lux-sans antialiased overflow-x-hidden`}>
 
       {/* ==========================================
-          1. HERO — Dark cinematic masthead
+          1. HERODark cinematic masthead
           ========================================== */}
       <section className="relative min-h-[88vh] flex flex-col justify-end overflow-hidden bg-[#171715] text-[#F4F1EA]">
         <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none" />
@@ -302,7 +302,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="anim-fade text-base md:text-lg text-[#B5B1A8] font-light leading-relaxed max-w-xl mb-12">
-            Ask about a project, request documents, or book a site visit. Our team replies on WhatsApp or by phone — usually within {CONFIG.responseTime}.
+            Ask about a project, request documents, or book a site visit. Our team replies on WhatsApp or by phoneusually within {CONFIG.responseTime}.
           </p>
 
           <div className="anim-fade flex flex-col sm:flex-row items-start gap-4">
@@ -332,7 +332,7 @@ export default function ContactPage() {
       </section>
 
       {/* ==========================================
-          2. TALK TO US — LIGHT section with form + cards
+          2. TALK TO USLIGHT section with form + cards
           ========================================== */}
       <section id="talk" className="section-anim relative px-6 py-24 md:px-12 md:py-32 lg:px-24 scroll-mt-20">
         <div className="mx-auto max-w-[1600px]">
@@ -390,7 +390,7 @@ export default function ContactPage() {
                     <span className="h-px w-8 bg-[#19ABE1]" />
                     <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#19ABE1]">Office Hours</h3>
                   </div>
-                  <p className="font-lux-serif text-2xl font-light text-[#191C19] mb-1">Saturday — Thursday</p>
+                  <p className="font-lux-serif text-2xl font-light text-[#191C19] mb-1">SaturdayThursday</p>
                   <p className="text-sm text-[#5C655C] font-light mb-4">{CONFIG.hours}</p>
                   <div className="border-t border-[rgba(25,28,25,0.08)] pt-4">
                     <p className="text-sm text-[#777A74] font-light">{CONFIG.fridayHours}</p>
@@ -428,7 +428,7 @@ export default function ContactPage() {
       </section>
 
       {/* ==========================================
-          3. BOOK A SITE VISIT — DARK section
+          3. BOOK A SITE VISITDARK section
           ========================================== */}
       <section id="visit" className="section-anim relative px-6 py-24 md:px-12 md:py-32 lg:px-24 bg-[#0B0B0D] text-[#F4F1EA] scroll-mt-20">
         <div className="pointer-events-none absolute left-0 top-1/2 w-full -translate-y-1/2 overflow-hidden whitespace-nowrap opacity-[0.025]">
@@ -497,7 +497,7 @@ export default function ContactPage() {
       </section>
 
       {/* ==========================================
-          4. FIND US — LIGHT section with map
+          4. FIND USLIGHT section with map
           ========================================== */}
       <section id="map" className="section-anim relative px-6 py-24 md:px-12 md:py-32 lg:px-24 scroll-mt-20">
         <div className="mx-auto max-w-[1600px]">
@@ -563,7 +563,7 @@ export default function ContactPage() {
       </section>
 
       {/* ==========================================
-          5. NRB DESK — DARK section
+          5. NRB DESKDARK section
           ========================================== */}
       <section id="nrb" className="section-anim relative px-6 py-24 md:px-12 md:py-32 lg:px-24 bg-[#171715] text-[#F4F1EA] scroll-mt-20">
         <div className="pointer-events-none absolute inset-0">
@@ -624,7 +624,7 @@ export default function ContactPage() {
       </section>
 
       {/* ==========================================
-          6. FAQ — LIGHT section
+          6. FAQLIGHT section
           ========================================== */}
       <section id="faq" className="section-anim relative px-6 py-24 md:px-12 md:py-32 lg:px-24">
         <div className="mx-auto max-w-[800px]">
@@ -672,7 +672,7 @@ export default function ContactPage() {
       </section>
 
       {/* ==========================================
-          7. PART OF SAMPAN GROUP — DARK closing
+          7. PART OF SAMPAN GROUPDARK closing
           ========================================== */}
       <section className="section-anim relative overflow-hidden px-6 py-32 md:px-12 md:py-48 lg:px-24 bg-[#0B0B0D] text-[#F4F1EA] text-center">
         <div className="pointer-events-none absolute inset-0">
@@ -764,7 +764,7 @@ function ChannelIcon({ name }: { name: string }) {
 }
 
 // ==========================================
-// ENQUIRY FORM COMPONENT — LIGHT theme
+// ENQUIRY FORM COMPONENTLIGHT theme
 // ==========================================
 function EnquiryForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -887,7 +887,7 @@ function EnquiryForm() {
 }
 
 // ==========================================
-// BOOKING FORM COMPONENT — DARK theme
+// BOOKING FORM COMPONENTDARK theme
 // ==========================================
 function BookingForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -989,7 +989,7 @@ function BookingForm() {
 }
 
 // ==========================================
-// REUSABLE FORM INPUT — supports light & dark
+// REUSABLE FORM INPUTsupports light & dark
 // ==========================================
 function FormInput({ label, name, value, onChange, type = "text", required = false, dark = false }: {
   label: string;
