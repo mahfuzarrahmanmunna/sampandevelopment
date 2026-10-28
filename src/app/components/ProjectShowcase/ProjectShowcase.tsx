@@ -15,7 +15,7 @@ const PROJECT_ASSETS = {
   condo: "/images/projects/condominium/condomenium.png",
 };
 
-const WHATSAPP_URL = "https://wa.me/8801000000000"; // Replace with actual business number
+const WHATSAPP_URL = "https://wa.me/8801000000000";
 
 export default function ProjectShowcase() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -50,7 +50,6 @@ export default function ProjectShowcase() {
         onLeaveBack: () => setIsInSection(false),
       });
 
-      // Track overall scroll progress through the section
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top top",
@@ -83,6 +82,9 @@ export default function ProjectShowcase() {
           clipPath: isReversed ? "inset(0% 100% 0% 0%)" : "inset(100% 0% 0% 0%)",
         });
         gsap.set(`${id} .anim-img-scale`, { scale: 1.5 });
+        // FIX: Set scale buffer via GSAP so it's NOT overridden by yPercent animation
+        // (Tailwind's scale-110 class gets overridden when GSAP sets yPercent on the same element)
+        gsap.set(`${id} .parallax-pan`, { scale: 1.2 });
         gsap.set(`${id} .kinetic-text`, { xPercent: 10, opacity: 0 });
 
         const tl = gsap.timeline({
@@ -100,10 +102,12 @@ export default function ProjectShowcase() {
           }
         });
 
-        // Deeper parallax on image (was -20, now -30 for more dramatic depth)
+        // FIX: Reduced yPercent from -30 to -8 to prevent black gaps
+        // With scale: 1.2, the element is 120% of container size (10% buffer each side)
+        // Moving up 8% still leaves 2% coverage at the bottom — no gap
         tl.to(`${id} .anim-img-reveal`, { clipPath: "inset(0% 0% 0% 0%)", ease: "power3.inOut", duration: 0.3 }, 0)
           .to(`${id} .anim-img-scale`, { scale: 1.05, ease: "none", duration: 1.5 }, 0)
-          .to(`${id} .parallax-pan`, { yPercent: -30, ease: "none", duration: 1.5 }, 0);
+          .to(`${id} .parallax-pan`, { yPercent: -8, ease: "none", duration: 1.5 }, 0);
 
         tl.to(`${id} .kinetic-text`, { xPercent: -50, opacity: 0.4, ease: "none", duration: 1 }, 0.2)
           .to(`${id} .anim-headline`, { yPercent: 0, ease: "power4.out", duration: 0.6, stagger: 0.1 }, 0.3)
@@ -138,7 +142,7 @@ export default function ProjectShowcase() {
           }
         );
 
-        // Animate accent line drawing in (the small line next to eyebrow)
+        // Animate accent line drawing in
         gsap.fromTo(`${id} .accent-line`,
           { scaleX: 0, transformOrigin: "left" },
           {
@@ -155,34 +159,46 @@ export default function ProjectShowcase() {
       /* ---------------- Desktop cinematic experience ---------------- */
       mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
         const mouse = { x: 0, y: 0 };
-        const onMouseMove = (e: MouseEvent) => {
+
+        // FIX: Use quickTo for live mouse tracking that doesn't conflict with scroll yPercent
+        // Store quickTo functions on each .parallax-pan element
+        const mouseMoveHandler = (e: MouseEvent) => {
           mouse.x = (e.clientX / window.innerWidth - 0.5) * 20;
           mouse.y = (e.clientY / window.innerHeight - 0.5) * 20;
+          // Call quickTo on all parallax-pan elements for live mouse parallax
+          document.querySelectorAll(".parallax-pan").forEach((el) => {
+            const pan = el as HTMLElement & { _xTo?: (v: number) => void; _yTo?: (v: number) => void };
+            if (pan._xTo) pan._xTo(mouse.x);
+            if (pan._yTo) pan._yTo(mouse.y);
+          });
         };
-        window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mousemove", mouseMoveHandler);
 
         const setupChapter = (id: string, index: number, isReversed: boolean) => {
           createChapter(id, index, isReversed, false);
 
-          gsap.to(`${id} .parallax-pan`, {
-            x: mouse.x,
-            y: mouse.y,
-            duration: 1.5,
-            ease: "power2.out",
-            repeat: -1,
-            yoyo: true,
-          });
+          // FIX: Create quickTo functions for smooth, live mouse-follow parallax
+          // These use x/y (pixels) which are SEPARATE from yPercent (percentage)
+          // So they don't conflict with the scroll-driven yPercent: -8
+          const xTo = gsap.quickTo(`${id} .parallax-pan`, "x", { duration: 1.2, ease: "power2.out" });
+          const yTo = gsap.quickTo(`${id} .parallax-pan`, "y", { duration: 1.2, ease: "power2.out" });
+
+          // Store on the DOM element so mouseMoveHandler can call them
+          const panEl = document.querySelector(`${id} .parallax-pan`) as HTMLElement & { _xTo?: (v: number) => void; _yTo?: (v: number) => void };
+          if (panEl) {
+            panEl._xTo = xTo;
+            panEl._yTo = yTo;
+          }
         };
 
-        // NEW ORDER: Metro → Agro → Trade Emporium → Express Inn → Condominium
-        setupChapter("#chapter-1", 0, false);   // Metro Square
-        setupChapter("#chapter-2", 1, false);   // Agro & Golf Academy
-        setupChapter("#chapter-3", 2, false);   // Trade Emporium
-        setupChapter("#chapter-4", 3, false);   // Express Highway Inn (now DARK)
-        setupChapter("#chapter-5", 4, true);    // Condominium
+        setupChapter("#chapter-1", 0, false);
+        setupChapter("#chapter-2", 1, false);
+        setupChapter("#chapter-3", 2, false);
+        setupChapter("#chapter-4", 3, false);
+        setupChapter("#chapter-5", 4, true);
 
         return () => {
-          window.removeEventListener("mousemove", onMouseMove);
+          window.removeEventListener("mousemove", mouseMoveHandler);
         };
       });
 
@@ -230,7 +246,6 @@ export default function ProjectShowcase() {
     return () => ctx.revert();
   }, []);
 
-  // NEW ORDER: Metro → Agro → Trade Emporium → Express Inn → Condominium
   const projects = [
     { id: 0, name: "Metro Square" },
     { id: 1, name: "Agro & Golf Academy" },
@@ -239,7 +254,6 @@ export default function ProjectShowcase() {
     { id: 4, name: "Condominium" }
   ];
 
-  // Only Chapter 5 (Condominium) is light now — all others are dark
   const isDarkChapter = activeProject !== 4;
 
   return (
@@ -248,7 +262,7 @@ export default function ProjectShowcase() {
       id="projects-journey"
       className="relative w-full bg-[#0B0B0D] font-lux-sans antialiased overflow-x-hidden"
     >
-      {/* ═══ DESKTOP TOP PROGRESS BAR (NEW) ═══ */}
+      {/* ═══ DESKTOP TOP PROGRESS BAR ═══ */}
       <div
         ref={desktopProgressRef}
         className={`fixed top-0 left-0 right-0 z-50 hidden md:block pointer-events-none transition-opacity duration-500 ${
@@ -330,26 +344,21 @@ export default function ProjectShowcase() {
 
       {/* ==========================================
           CHAPTER 01: SAMPAN METRO SQUARE (Dark)
-          Pattern: Dark bg + image right + content left
           ========================================== */}
       <section id="chapter-1" className="chapter-section relative z-10 w-full h-[100svh] bg-[#0B0B0D] overflow-hidden">
 
-        {/* Kinetic Background Typography */}
         <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 z-0 overflow-hidden whitespace-nowrap pointer-events-none flex">
           <span className="kinetic-text font-lux-serif text-[20vw] text-[#F5F3EE]/[0.03] leading-none pr-8">METRO SQUARE</span>
           <span className="kinetic-text font-lux-serif text-[20vw] text-[#F5F3EE]/[0.03] leading-none pr-8">METRO SQUARE</span>
         </div>
 
-        {/* Subtle grain texture */}
         <div className="pointer-events-none absolute inset-0 z-[1] opacity-[0.015] mix-blend-overlay" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E\")" }} aria-hidden="true" />
 
-        {/* Architectural corner brackets */}
         <span className="chapter-corner pointer-events-none absolute left-6 top-6 z-30 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute right-6 top-6 z-30 h-8 w-8 border-r border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 left-6 z-30 h-8 w-8 border-b border-l border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 right-6 z-30 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
 
-        {/* Chapter badge (top-left) */}
         <div className="chapter-badge absolute left-6 top-20 z-30 flex items-center gap-3 opacity-0">
           <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-[#F5F3EE]/40">Chapter</span>
           <span className="font-lux-serif text-sm italic text-[#19ABE1]">01 / 05</span>
@@ -358,7 +367,7 @@ export default function ProjectShowcase() {
         <div className="relative h-full w-full flex flex-col md:flex-row items-center">
           <div className="relative md:absolute md:right-0 top-0 w-full md:w-[60%] h-[34vh] md:h-full z-10">
             <div className="anim-img-reveal absolute inset-0">
-              <div className="parallax-pan absolute inset-0 scale-110 will-change-transform">
+              <div className="parallax-pan absolute inset-0 will-change-transform">
                 <img
                   src={PROJECT_ASSETS.metro}
                   alt="Sampan Metro Square Architectural Concept"
@@ -424,16 +433,12 @@ export default function ProjectShowcase() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          CHAPTER 02: SAMPAN AGRO & GOLF ACADEMY (Dark, Immersive)
-          Pattern: Dark bg + full-bleed image + content left
-          ═══════════════════════════════════════════════════════════════ */}
+      {/* ═══ CHAPTER 02: SAMPAN AGRO & GOLF ACADEMY ═══ */}
       <section id="chapter-2" className="chapter-section relative z-10 w-full h-[100svh] bg-[#0B0B0D] overflow-hidden">
 
-        {/* Full-bleed background image */}
         <div className="absolute inset-0 z-0">
           <div className="anim-img-reveal absolute inset-0">
-            <div className="parallax-pan absolute inset-0 scale-110 will-change-transform">
+            <div className="parallax-pan absolute inset-0 will-change-transform">
               <img
                 src={PROJECT_ASSETS.golf}
                 alt="Sampan Agro & Golf Academy — lifestyle destination"
@@ -446,28 +451,23 @@ export default function ProjectShowcase() {
           </div>
         </div>
 
-        {/* Subtle grain texture */}
         <div className="pointer-events-none absolute inset-0 z-[1] opacity-[0.015] mix-blend-overlay" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E\")" }} aria-hidden="true" />
 
-        {/* Architectural corner brackets */}
         <span className="chapter-corner pointer-events-none absolute left-6 top-6 z-30 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute right-6 top-6 z-30 h-8 w-8 border-r border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 left-6 z-30 h-8 w-8 border-b border-l border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 right-6 z-30 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
 
-        {/* Chapter badge */}
         <div className="chapter-badge absolute left-6 top-20 z-30 flex items-center gap-3 opacity-0">
           <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-[#F5F3EE]/40">Chapter</span>
           <span className="font-lux-serif text-sm italic text-[#19ABE1]">02 / 05</span>
         </div>
 
-        {/* Kinetic Background Typography */}
         <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 z-[2] overflow-hidden whitespace-nowrap pointer-events-none flex">
           <span className="kinetic-text font-lux-serif text-[20vw] text-[#F5F3EE]/[0.03] leading-none pr-8">AGRO &amp; GOLF</span>
           <span className="kinetic-text font-lux-serif text-[20vw] text-[#F5F3EE]/[0.03] leading-none pr-8">AGRO &amp; GOLF</span>
         </div>
 
-        {/* Content Layer — left-aligned */}
         <div className="relative z-20 h-full flex items-center">
           <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-6 md:px-12 lg:px-24">
             <div className="max-w-xl text-[#F5F3EE] py-6">
@@ -531,10 +531,7 @@ export default function ProjectShowcase() {
         </div>
       </section>
 
-      {/* ==========================================
-          CHAPTER 03: SAMPAN TRADE EMPORIUM (Dark)
-          Pattern: Dark bg + full-bg image + content split with floor directory
-          ========================================== */}
+      {/* ═══ CHAPTER 03: SAMPAN TRADE EMPORIUM ═══ */}
       <section id="chapter-3" className="chapter-section relative z-10 w-full h-[100svh] bg-[#0b0b0d46] overflow-hidden">
 
         <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 z-0 overflow-hidden whitespace-nowrap pointer-events-none flex">
@@ -542,16 +539,13 @@ export default function ProjectShowcase() {
           <span className="kinetic-text font-lux-serif text-[20vw] text-[#F5F3EE]/[0.03] leading-none pr-8">TRADE EMPORIUM</span>
         </div>
 
-        {/* Subtle grain texture */}
         <div className="pointer-events-none absolute inset-0 z-[1] opacity-[0.015] mix-blend-overlay" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E\")" }} aria-hidden="true" />
 
-        {/* Architectural corner brackets */}
         <span className="chapter-corner pointer-events-none absolute left-6 top-6 z-30 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute right-6 top-6 z-30 h-8 w-8 border-r border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 left-6 z-30 h-8 w-8 border-b border-l border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 right-6 z-30 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
 
-        {/* Chapter badge */}
         <div className="chapter-badge absolute left-6 top-20 z-30 flex items-center gap-3 opacity-0">
           <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-[#F5F3EE]/40">Chapter</span>
           <span className="font-lux-serif text-sm italic text-[#19ABE1]">03 / 05</span>
@@ -560,7 +554,7 @@ export default function ProjectShowcase() {
         <div className="relative h-full w-full flex flex-col lg:flex-row items-center">
           <div className="absolute inset-0 z-10">
             <div className="anim-img-reveal absolute inset-0">
-              <div className="parallax-pan absolute inset-0 scale-110 will-change-transform">
+              <div className="parallax-pan absolute inset-0 will-change-transform">
                 <img
                   src={PROJECT_ASSETS.emporium}
                   alt="Sampan Trade Emporium Mixed Use Architecture"
@@ -655,51 +649,41 @@ export default function ProjectShowcase() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          CHAPTER 04: SAMPAN EXPRESS HIGHWAY INN — NOW DARK (was light)
-          Pattern: Dark bg + image right + content left
-          ═══════════════════════════════════════════════════════════════ */}
+      {/* ═══ CHAPTER 04: EXPRESS HIGHWAY INN ═══ */}
       <section id="chapter-4" className="chapter-section relative z-10 w-full h-[100svh] bg-[#0B0B0D] overflow-hidden">
 
-        {/* Kinetic Background Typography */}
         <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 z-0 overflow-hidden whitespace-nowrap pointer-events-none flex">
           <span className="kinetic-text font-lux-serif text-[20vw] text-[#F5F3EE]/[0.03] leading-none pr-8">EXPRESS INN</span>
           <span className="kinetic-text font-lux-serif text-[20vw] text-[#F5F3EE]/[0.03] leading-none pr-8">EXPRESS INN</span>
         </div>
 
-        {/* Subtle grain texture */}
         <div className="pointer-events-none absolute inset-0 z-[1] opacity-[0.015] mix-blend-overlay" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E\")" }} aria-hidden="true" />
 
-        {/* Architectural corner brackets */}
         <span className="chapter-corner pointer-events-none absolute left-6 top-6 z-30 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute right-6 top-6 z-30 h-8 w-8 border-r border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 left-6 z-30 h-8 w-8 border-b border-l border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 right-6 z-30 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
 
-        {/* Chapter badge */}
         <div className="chapter-badge absolute left-6 top-20 z-30 flex items-center gap-3 opacity-0">
           <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-[#F5F3EE]/40">Chapter</span>
           <span className="font-lux-serif text-sm italic text-[#19ABE1]">04 / 05</span>
         </div>
 
         <div className="relative h-full w-full flex flex-col md:flex-row items-center">
-          {/* Image Layer (Right Side) */}
           <div className="relative md:absolute md:right-0 top-0 w-full md:w-[58%] h-[34vh] md:h-full z-10">
             <div className="anim-img-reveal absolute inset-0">
-              <div className="parallax-pan absolute inset-0 scale-110 will-change-transform">
+              <div className="parallax-pan absolute inset-0 will-change-transform">
                 <img
                   src={PROJECT_ASSETS.express}
                   alt="Express Highway Inn — Hospitality landmark on Dhaka–Chittagong Highway"
                   className="anim-img-scale w-full h-full object-cover will-change-transform"
                 />
               </div>
-              {/* Dark gradient overlays (now dark since chapter bg is dark) */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0D] via-[#0B0B0D]/80 to-transparent"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-transparent to-transparent md:hidden"></div>
             </div>
           </div>
 
-          {/* Content Layer (Left Side) — now with LIGHT text on DARK bg */}
           <div className="relative z-20 w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 lg:px-24 flex-1 md:flex-none flex items-center">
             <div className="max-w-xl text-[#F5F3EE] py-6">
               <div className="anim-fade flex items-center gap-3 sm:gap-4 mb-5 md:mb-8">
@@ -762,10 +746,7 @@ export default function ProjectShowcase() {
         </div>
       </section>
 
-      {/* ==========================================
-          CHAPTER 05: SAMPAN CONDOMINIUM (Light)
-          Pattern: Light bg + image left + content right
-          ========================================== */}
+      {/* ═══ CHAPTER 05: SAMPAN CONDOMINIUM (Light) ═══ */}
       <section id="chapter-5" className="chapter-section relative z-10 w-full h-[100svh] bg-[#F5F3EE] overflow-hidden">
 
         <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 z-0 overflow-hidden whitespace-nowrap pointer-events-none flex">
@@ -773,16 +754,13 @@ export default function ProjectShowcase() {
           <span className="kinetic-text font-lux-serif text-[20vw] text-[#0B0B0D]/[0.03] leading-none pr-8">CONDOMINIUM</span>
         </div>
 
-        {/* Subtle grain texture */}
         <div className="pointer-events-none absolute inset-0 z-[1] opacity-[0.02] mix-blend-multiply" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E\")" }} aria-hidden="true" />
 
-        {/* Architectural corner brackets */}
         <span className="chapter-corner pointer-events-none absolute left-6 top-6 z-30 h-8 w-8 border-l border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute right-6 top-6 z-30 h-8 w-8 border-r border-t border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 left-6 z-30 h-8 w-8 border-b border-l border-[#19ABE1]/50" />
         <span className="chapter-corner pointer-events-none absolute bottom-6 right-6 z-30 h-8 w-8 border-b border-r border-[#19ABE1]/50" />
 
-        {/* Chapter badge */}
         <div className="chapter-badge absolute left-6 top-20 z-30 flex items-center gap-3 opacity-0">
           <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-[#0B0B0D]/40">Chapter</span>
           <span className="font-lux-serif text-sm italic text-[#19ABE1]">05 / 05</span>
@@ -791,7 +769,7 @@ export default function ProjectShowcase() {
         <div className="relative h-full w-full flex flex-col md:flex-row items-center">
           <div className="relative md:absolute md:left-0 top-0 w-full md:w-[50%] h-[34vh] md:h-full z-10">
             <div className="anim-img-reveal absolute inset-0">
-              <div className="parallax-pan absolute inset-0 scale-110 will-change-transform">
+              <div className="parallax-pan absolute inset-0 will-change-transform">
                 <img
                   src={PROJECT_ASSETS.condo}
                   alt="Sampan Condominium G+9 Architectural Concept"
@@ -857,7 +835,7 @@ export default function ProjectShowcase() {
         </div>
       </section>
 
-      {/* --- Global Styles Required for Typography --- */}
+      {/* --- Global Styles --- */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 

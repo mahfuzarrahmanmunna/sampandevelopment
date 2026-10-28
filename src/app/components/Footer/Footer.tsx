@@ -129,7 +129,7 @@ export default function Footer() {
               <Link href="/privacy-policy" className="text-xs text-[#A3A3A3] hover:text-[#19ABE1] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#19ABE1] rounded">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-xs text-[#A3A3A3] hover:text-[#19ABE1] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#19ABE1] rounded">
+              <Link href="/terms-conditions" className="text-xs text-[#A3A3A3] hover:text-[#19ABE1] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#19ABE1] rounded">
                 Terms
               </Link>
             </div>
