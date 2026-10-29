@@ -1,36 +1,42 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { DM_Serif_Display, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "./components/LenisProvider";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import AntiInspect from "./components/AntiInspect/AntiInspect";
 import FloatingContact from "./components/FloatingContact/FloatingContact";
 
-const manrope = Manrope({
+const inter = Inter({
   variable: "--font-sans",
-  subsets: ["latin"],   
+  subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
-const dmSerif = DM_Serif_Display({
+const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
-// Verified production domain
-const siteUrl = "https://sampandevelopmentltd.com";
+const siteUrl = "https://www.sampandevelopmentltd.com";
+const siteName = "Sampan Development Limited";
+const siteTitle = "Sampan Development Limited | Premium Real Estate Developer in Bangladesh";
+const siteDescription = "Sampan Development Limited, a Sampan Group enterprise, delivers premium residential, commercial, and mixed-use property developments alongside secure land investment opportunities in Bangladesh.";
+
+// MUST BE ABSOLUTE URL FOR WHATSAPP/FACEBOOK
+const ogImageUrl = `${siteUrl}/logo/og-image.jpg`; 
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Sampan Development Limited | Real Estate & Property Development in Bangladesh",
-    template: "%s | Sampan Development Limited",
+    default: siteTitle,
+    template: `%s | ${siteName}`,
   },
-  description:
-    "Sampan Development Limited, a Sampan Group enterprise, delivers premium residential and commercial property development and land investment in Bangladesh.",
+  description: siteDescription,
   keywords: [
     "Sampan Development Limited",
     "real estate developer in Bangladesh",
@@ -41,9 +47,10 @@ export const metadata: Metadata = {
     "land investment opportunities in Bangladesh",
     "Sampan Group real estate division",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: siteName,
+  alternates: { canonical: "/" },
   robots: {
     index: true,
     follow: true,
@@ -59,88 +66,66 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Sampan Development Limited",
-    title: "Sampan Development Limited | Real Estate & Property Development in Bangladesh",
-    description:
-      "Discover premium residential and commercial property development, apartments, and land investment opportunities in Bangladesh with Sampan Development Limited.",
+    siteName: siteName,
+    title: siteTitle,
+    description: siteDescription,
     images: [
       {
-        url: "/logo/logo.png",
+        url: ogImageUrl, // Absolute URL
         width: 1200,
         height: 630,
-        alt: "Sampan Development Limited",
+        alt: "Sampan Development Limited — Premium Real Estate Developer in Bangladesh",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sampan Development Limited | Real Estate & Property Development",
-    description:
-      "Discover premium residential and commercial property development, apartments, and land investment opportunities in Bangladesh.",
-    images: ["/logo/logo.png"],
+    title: siteTitle,
+    description: siteDescription,
+    images: [ogImageUrl], // Absolute URL
+    creator: "@sampan_dev",
   },
   icons: {
-    icon: "/logo/logo.png",
-    apple: "/logo/logo.png",
+    icon: [{ url: "/logo/devfavicon.png", type: "image/png" }],
+    shortcut: "/logo/devfavicon.png",
+    apple: [{ url: "/logo/devfavicon.png", sizes: "180x180", type: "image/png" }],
   },
+  category: "Real Estate",
 };
 
-// Structured Data
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Sampan Development Limited",
+  name: siteName,
   url: siteUrl,
   logo: `${siteUrl}/logo/logo.png`,
-  parentOrganization: {
-    "@type": "Organization",
-    name: "Sampan Group",
+  parentOrganization: { "@type": "Organization", name: "Sampan Group", url: "https://sampangroup.com.bd" },
+  foundingDate: "2008",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Sampan 21st Century Tower, H 284, Rd 1/A, Block B, Bashundhara R/A",
+    addressLocality: "Dhaka", addressCountry: "BD", postalCode: "1229",
   },
-  sameAs: [
-    "https://www.facebook.com/sampandevelopmentlimited",
-  ],
+  contactPoint: { "@type": "ContactPoint", telephone: "+8801929918400", contactType: "customer service" },
+  sameAs: ["https://www.facebook.com/sampandevelopmentlimited"],
 };
 
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Sampan Development Limited",
-  url: siteUrl,
-  publisher: {
-    "@type": "Organization",
-    name: "Sampan Development Limited",
-  },
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${manrope.variable} ${dmSerif.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-sans bg-[#F7F4ED] text-[#171916]">
+    <html lang="en" className={`${inter.variable} ${cormorant.variable} h-full antialiased scroll-smooth`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <meta name="theme-color" content="#17211D" />
+      </head>
+      <body className="min-h-full flex flex-col font-sans bg-[#F7F4ED] text-[#171916] selection:bg-[#C5A059] selection:text-white">
         <LenisProvider>
           <Navbar />
-          {/* <AntiInspect/> */}
-          <main className="flex-grow">{children}</main>
+          <main id="main-content" className="flex-grow relative z-10">{children}</main>
           <Footer />
-          <FloatingContact/>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(organizationSchema),
-            }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(websiteSchema),
-            }}
-          />
+          <FloatingContact />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         </LenisProvider>
       </body>
     </html>

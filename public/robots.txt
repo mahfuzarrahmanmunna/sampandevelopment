@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block access to API routes and Next.js internals
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://sampandevelopmentltd.com/sitemap.xml

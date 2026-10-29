@@ -263,7 +263,7 @@ export default function ProjectShowcase() {
       className="relative w-full bg-[#0B0B0D] font-lux-sans antialiased overflow-x-hidden"
     >
       {/* ═══ DESKTOP TOP PROGRESS BAR ═══ */}
-      <div
+      {/* <div
         ref={desktopProgressRef}
         className={`fixed top-0 left-0 right-0 z-50 hidden md:block pointer-events-none transition-opacity duration-500 ${
           isInSection ? "opacity-100" : "opacity-0"
@@ -295,7 +295,7 @@ export default function ProjectShowcase() {
             style={{ transform: `scaleX(${scrollProgress})` }}
           />
         </div>
-      </div>
+      </div> */}
 
       {/* --- MOBILE PROGRESS UI (top bar) --- */}
       <div
